@@ -154,7 +154,7 @@ function useGetRewardApi() {
     ['client-api', 'rewards', 'getReward'],
     () => FetchUtils.getWithToken(ResourceURL.CLIENT_REWARD),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       keepPreviousData: true,
     }
   );

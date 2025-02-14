@@ -56,7 +56,7 @@ class CountConfigs extends Configs {
 
   static createUpdateFormSchema = z.object({
     code: z.string().min(5, MessageUtils.min(CountConfigs.properties.code.label, 5)),
-    warehouseId: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
+    warehouseId: z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
     countVariants: z.array(z.object({
       variantId: z.number(),
       inventory: z.number(),

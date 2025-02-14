@@ -15,7 +15,7 @@ function useGetByIdApi<O>(
     () => FetchUtils.getById<O>(resourceUrl, entityId),
     {
       onSuccess: successCallback,
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       ...options,
     }
   );

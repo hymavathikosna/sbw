@@ -73,7 +73,7 @@ function useGetProductApi(productSlug: string) {
     ['client-api', 'products', 'getProduct', productSlug],
     () => FetchUtils.get(ResourceURL.CLIENT_PRODUCT + '/' + productSlug),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
     }

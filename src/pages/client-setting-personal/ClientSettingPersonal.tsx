@@ -23,14 +23,14 @@ import WardConfigs from 'pages/ward/WardConfigs';
 import useSelectAddress from 'hooks/use-select-address';
 
 const formSchema = z.object({
-  username: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
+  username: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
     .min(2, MessageUtils.min('Tên tài khoản', 2)),
-  fullname: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
-  gender: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
-  'address.line': z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
-  'address.provinceId': z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
-  'address.districtId': z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
-  'address.wardId': z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
+  fullname: z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
+  gender: z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
+  'address.line': z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
+  'address.provinceId': z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
+  'address.districtId': z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
+  'address.wardId': z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
 });
 
 const genderSelectList: SelectOption[] = [

@@ -14,7 +14,7 @@ import { ClientUserNavbar } from 'components';
 import MiscUtils from 'utils/MiscUtils';
 
 const formSchema = z.object({
-  email: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
+  email: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
     .email({ message: 'Nhập email đúng định dạng' }),
 });
 

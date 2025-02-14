@@ -23,7 +23,7 @@ function ProtectedRoute({ children }: { children: JSX.Element }): JSX.Element {
             <Title>Vui lòng <Anchor component={Link} to="/signin" inherit>đăng nhập</Anchor> để truy cập</Title>
             <Group position="center">
               <Button component={Link} to="/" variant="subtle" size="md">
-                Trở về Trang chủ
+                Trở về Home
               </Button>
             </Group>
           </Stack>

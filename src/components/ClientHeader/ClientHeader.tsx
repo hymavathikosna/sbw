@@ -105,7 +105,7 @@ function ClientHeader() {
   const handleSignoutMenu = () => {
     if (user) {
       resetAuthState();
-      NotifyUtils.simpleSuccess('Đăng xuất thành công');
+      NotifyUtils.simpleSuccess('Successfully logged out');
     }
   };
 
@@ -114,7 +114,7 @@ function ClientHeader() {
       setDisabledNotificationIndicator(true);
       navigate('/user/notification');
     } else {
-      NotifyUtils.simple('Vui lòng đăng nhập để sử dụng chức năng');
+      NotifyUtils.simple('Please log in to use this feature');
     }
   };
 
@@ -127,7 +127,7 @@ function ClientHeader() {
               <ElectroLogo/>
             </Center>
             <TextInput
-              placeholder="Bạn tìm gì..."
+              placeholder="What are you looking for..."
               variant="filled"
               size="md"
               radius="md"
@@ -140,7 +140,7 @@ function ClientHeader() {
             <Group spacing="xs">
               {user && (
                 <>
-                  <Tooltip label="Giỏ hàng" position="bottom">
+                  <Tooltip label="Cart" position="bottom">
                     <UnstyledButton component={Link} to="/cart">
                       <Group spacing="xs" px={theme.spacing.sm} py={theme.spacing.xs} className={classes.iconGroup}>
                         <ShoppingCart strokeWidth={1}/>
@@ -149,7 +149,7 @@ function ClientHeader() {
                     </UnstyledButton>
                   </Tooltip>
 
-                  <Tooltip label="Đơn hàng" position="bottom">
+                  <Tooltip label="Orders" position="bottom">
                     <UnstyledButton component={Link} to="/order">
                       <Group spacing="xs" px={theme.spacing.sm} py={theme.spacing.xs} className={classes.iconGroup}>
                         <FileBarcode strokeWidth={1}/>
@@ -159,7 +159,7 @@ function ClientHeader() {
                 </>
               )}
 
-              <Tooltip label="Thông báo" position="bottom">
+              <Tooltip label="Notifications" position="bottom">
                 <UnstyledButton onClick={handleNotificationButton}>
                   <Indicator size={14} color="pink" withBorder disabled={disabledNotificationIndicator}>
                     <Group spacing="xs" px={theme.spacing.sm} py={theme.spacing.xs} className={classes.iconGroup}>
@@ -172,7 +172,7 @@ function ClientHeader() {
               <Menu
                 placement="end"
                 control={(
-                  <Tooltip label="Tài khoản" position="bottom">
+                  <Tooltip label="Account" position="bottom">
                     <UnstyledButton>
                       <Group
                         spacing="xs"
@@ -190,38 +190,38 @@ function ClientHeader() {
                 {user && (
                   <>
                     <Menu.Item icon={<User size={14}/>} component={Link} to="/user">
-                      Tài khoản
+                      Account
                     </Menu.Item>
                     <Menu.Item icon={<Settings size={14}/>} component={Link} to="/user/setting">
-                      Thiết đặt
+                      Settings
                     </Menu.Item>
                     <Menu.Item icon={<Star size={14}/>} component={Link} to="/user/review">
-                      Đánh giá sản phẩm
+                      Product Reviews
                     </Menu.Item>
                     <Menu.Item icon={<Heart size={14}/>} component={Link} to="/user/wishlist">
-                      Sản phẩm yêu thích
+                      Favorite Products
                     </Menu.Item>
                     <Menu.Item icon={<Award size={14}/>} component={Link} to="/user/reward">
-                      Điểm thưởng
+                      Rewards
                     </Menu.Item>
                     <Menu.Item icon={<Alarm size={14}/>} component={Link} to="/user/preorder">
-                      Đặt trước sản phẩm
+                      Pre-order
                     </Menu.Item>
                     <Menu.Item icon={<MessageCircle size={14}/>} component={Link} to="/user/chat">
-                      Yêu cầu tư vấn
+                      Customer Support
                     </Menu.Item>
                     <Menu.Item color="pink" icon={<Logout size={14}/>} onClick={handleSignoutMenu}>
-                      Đăng xuất
+                      Logout
                     </Menu.Item>
                   </>
                 )}
                 {!user && (
                   <>
                     <Menu.Item icon={<Login size={14}/>} component={Link} to="/signin">
-                      Đăng nhập
+                    Login
                     </Menu.Item>
                     <Menu.Item icon={<Fingerprint size={14}/>} component={Link} to="/signup">
-                      Đăng ký
+                      Register
                     </Menu.Item>
                   </>
                 )}
@@ -235,7 +235,7 @@ function ClientHeader() {
                 onClose={() => setOpenedCategoryMenu(false)}
                 target={(
                   <Button onClick={() => setOpenedCategoryMenu((o) => !o)} leftIcon={<List size={16}/>} radius="md">
-                    Danh mục sản phẩm
+                    Product Categories
                   </Button>
                 )}
                 width={widthHeaderStack}
@@ -247,18 +247,18 @@ function ClientHeader() {
                 <CategoryMenu setOpenedCategoryMenu={setOpenedCategoryMenu}/>
               </Popover>
               <Button variant="subtle" radius="md">
-                Sản phẩm mới
+                New Products
               </Button>
               <Button variant="subtle" color="green" radius="md">
-                Sản phẩm xu hướng
+                Trending Products
               </Button>
               <Button variant="subtle" color="pink" radius="md">
-                Khuyến mại
-              </Button>
+                Promotions
+              </Button> 
             </Group>
             <Group spacing="xs">
               <Badge color="pink" size="xs" variant="filled">Hot</Badge>
-              <Text size="sm" color="dimmed">Miễn phí giao hàng cho đơn hàng trên 1 triệu đồng</Text>
+              <Text size="sm" color="dimmed">Free shipping for orders over 1 million VND</Text>
             </Group>
           </Group>
         </Stack>
@@ -292,7 +292,7 @@ function useNotificationEvents() {
 
         eventSourceRef.current = eventSource;
       },
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
       enabled: !!user,

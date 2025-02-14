@@ -5,7 +5,7 @@ import { Check, X } from 'tabler-icons-react';
 class NotifyUtils {
   static simple = (message: React.ReactNode) => {
     showNotification({
-      title: 'Thông báo',
+      title: 'Notification',
       message: message,
       autoClose: 5000,
     });
@@ -13,7 +13,7 @@ class NotifyUtils {
 
   static simpleSuccess = (message: React.ReactNode) => {
     showNotification({
-      title: 'Thông báo',
+      title: 'Notification',
       message: message,
       autoClose: 5000,
       icon: <Check size={18}/>,
@@ -23,7 +23,7 @@ class NotifyUtils {
 
   static simpleFailed = (message: React.ReactNode) => {
     showNotification({
-      title: 'Thông báo',
+      title: 'Notification',
       message: message,
       autoClose: 5000,
       icon: <X size={18}/>,

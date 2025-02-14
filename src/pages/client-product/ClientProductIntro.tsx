@@ -60,7 +60,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
 
   const handleCreateWishButton = () => {
     if (!user) {
-      NotifyUtils.simple('Vui lòng đăng nhập để sử dụng chức năng');
+      NotifyUtils.simple('Please log in to use this feature.');
     } else {
       const clientWishRequest: ClientWishRequest = {
         userId: user.id,
@@ -72,7 +72,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
 
   const handleCreatePreorderButton = () => {
     if (!user) {
-      NotifyUtils.simple('Vui lòng đăng nhập để sử dụng chức năng');
+      NotifyUtils.simple('Please log in to use this feature.');
     } else {
       const clientPreorderRequest: ClientPreorderRequest = {
         userId: user.id,
@@ -85,7 +85,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
 
   const handleAddToCartButton = () => {
     if (!user) {
-      NotifyUtils.simple('Vui lòng đăng nhập để sử dụng chức năng');
+      NotifyUtils.simple('Please log in to use this feature.');
     } else {
       const cartRequest: ClientCartRequest = {
         cartId: currentCartId,
@@ -114,7 +114,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
       <Stack>
         <Breadcrumbs>
           <Anchor component={Link} to="/">
-            Trang chủ
+            Home
           </Anchor>
           {product.productCategory && MiscUtils.makeCategoryBreadcrumbs(product.productCategory).map(c => (
             <Anchor key={c.categorySlug} component={Link} to={'/category/' + c.categorySlug}>

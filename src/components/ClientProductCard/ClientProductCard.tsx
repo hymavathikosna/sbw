@@ -48,7 +48,7 @@ function ClientProductCard({ product, search }: ClientProductCardProps) {
   const handleCreateWishButton = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     if (!user) {
-      NotifyUtils.simple('Vui lòng đăng nhập để sử dụng chức năng');
+      NotifyUtils.simple('Please log in to use this feature.');
     } else {
       const clientWishRequest: ClientWishRequest = {
         userId: user.id,
@@ -61,7 +61,7 @@ function ClientProductCard({ product, search }: ClientProductCardProps) {
   const handleCreatePreorderButton = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     if (!user) {
-      NotifyUtils.simple('Vui lòng đăng nhập để sử dụng chức năng');
+      NotifyUtils.simple('Please log in to use this feature.');
     } else {
       const clientPreorderRequest: ClientPreorderRequest = {
         userId: user.id,
@@ -75,7 +75,7 @@ function ClientProductCard({ product, search }: ClientProductCardProps) {
   const handleAddToCartButton = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     if (!user) {
-      NotifyUtils.simple('Vui lòng đăng nhập để sử dụng chức năng');
+      NotifyUtils.simple('Please log in to use this feature.');
     } else {
       const cartRequest: ClientCartRequest = {
         cartId: currentCartId,
@@ -92,8 +92,8 @@ function ClientProductCard({ product, search }: ClientProductCardProps) {
       saveCartApi.mutate(cartRequest, {
         onSuccess: () => NotifyUtils.simpleSuccess(
           <Text inherit>
-            <span>Đã thêm 1 sản phẩm {product.productName} (phiên bản mặc định) vào </span>
-            <Anchor component={Link} to="/cart" inherit>giỏ hàng</Anchor>
+            <span>Added 1 product {product.productName} (default version) to the </span>
+            <Anchor component={Link} to="/cart" inherit>shopping cart</Anchor>
           </Text>
         ),
       });
@@ -167,7 +167,7 @@ function ClientProductCard({ product, search }: ClientProductCardProps) {
                   size="lg"
                   radius="xl"
                   variant="filled"
-                  title="Thông báo khi có hàng"
+                  title="Notification khi có hàng"
                   onClick={handleCreatePreorderButton}
                 >
                   <BellPlus size={18}/>

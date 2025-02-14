@@ -36,210 +36,210 @@ interface NavbarChildLink {
 const navbarLinks: NavbarLink[] = [
   {
     link: '/admin',
-    label: 'Trang chủ',
+    label: 'Home',
     icon: Home,
   },
   {
     link: '/admin/address',
-    label: 'Địa chỉ',
+    label: 'Address',
     icon: AddressBook,
     childLinks: [
       {
         link: '/admin/address/province',
-        label: 'Tỉnh thành',
+        label: 'Province',
       },
       {
         link: '/admin/address/district',
-        label: 'Quận huyện',
+        label: 'District',
       },
       {
         link: '/admin/address/ward',
-        label: 'Phường xã',
+        label: 'Ward',
       },
     ],
     disableForEmployee: true,
   },
   {
     link: '/admin/user',
-    label: 'Người dùng',
+    label: 'Users',
     icon: Fingerprint,
     childLinks: [
       {
         link: '/admin/user/role',
-        label: 'Quyền',
+        label: 'Roles',
       },
     ],
     disableForEmployee: true,
   },
   {
     link: '/admin/employee',
-    label: 'Nhân viên',
+    label: 'Employees',
     icon: Building,
     childLinks: [
       {
         link: '/admin/employee/office',
-        label: 'Văn phòng',
+        label: 'Office',
       },
       {
         link: '/admin/employee/department',
-        label: 'Phòng ban',
+        label: 'Department',
       },
       {
         link: '/admin/employee/job-type',
-        label: 'Loại hình công việc',
+        label: 'Job Type',
       },
       {
         link: '/admin/employee/job-level',
-        label: 'Cấp bậc công việc',
+        label: 'Job Level',
       },
       {
         link: '/admin/employee/job-title',
-        label: 'Chức danh công việc',
+        label: 'Job Title',
       },
     ],
     disableForEmployee: true,
   },
   {
     link: '/admin/customer',
-    label: 'Khách hàng',
+    label: 'Customers',
     icon: Users,
     childLinks: [
       {
         link: '/admin/customer/group',
-        label: 'Nhóm khách hàng',
+        label: 'Customer Group',
       },
       {
         link: '/admin/customer/status',
-        label: 'Trạng thái khách hàng',
+        label: 'Customer Status',
       },
       {
         link: '/admin/customer/resource',
-        label: 'Nguồn khách hàng',
+        label: 'Customer Source',
       },
     ],
     disableForEmployee: true,
   },
   {
     link: '/admin/product',
-    label: 'Sản phẩm',
+    label: 'Products',
     icon: Box,
     childLinks: [
       {
         link: '/admin/category',
-        label: 'Danh mục sản phẩm',
+        label: 'Product Categories',
       },
       {
         link: '/admin/product/brand',
-        label: 'Nhãn hiệu',
+        label: 'Brand',
       },
       {
         link: '/admin/product/supplier',
-        label: 'Nhà cung cấp',
+        label: 'Supplier',
       },
       {
         link: '/admin/product/unit',
-        label: 'Đơn vị tính',
+        label: 'Unit of Measurement',
       },
       {
         link: '/admin/product/tag',
-        label: 'Tag',
+        label: 'Tags',
       },
       {
         link: '/admin/product/guarantee',
-        label: 'Bảo hành',
+        label: 'Warranty',
       },
       {
         link: '/admin/product/property',
-        label: 'Thuộc tính sản phẩm',
+        label: 'Product Attributes',
       },
       {
         link: '/admin/product/specification',
-        label: 'Thông số sản phẩm',
+        label: 'Product Specifications',
       },
     ],
     disableForEmployee: true,
   },
   {
     link: '/admin/inventory',
-    label: 'Tồn kho',
+    label: 'Inventory',
     icon: BuildingWarehouse,
     childLinks: [
       {
         link: '/admin/inventory/warehouse',
-        label: 'Nhà kho',
+        label: 'Warehouse',
       },
       {
         link: '/admin/inventory/purchase-order',
-        label: 'Đơn mua hàng',
+        label: 'Purchase Order',
       },
       {
         link: '/admin/inventory/destination',
-        label: 'Điểm nhập hàng',
+        label: 'Receiving Location',
       },
       {
         link: '/admin/inventory/docket',
-        label: 'Phiếu nhập xuất kho',
+        label: 'Stock In/Out Slip',
       },
       {
         link: '/admin/inventory/docket-reason',
-        label: 'Lý do phiếu NXK',
+        label: 'Stock In/Out Reason',
       },
       {
         link: '/admin/inventory/count',
-        label: 'Phiếu kiểm kho',
+        label: 'Inventory Check Slip',
       },
       {
         link: '/admin/inventory/transfer',
-        label: 'Phiếu chuyển kho',
+        label: 'Stock Transfer Slip',
       },
     ],
   },
   {
     link: '/admin/order',
-    label: 'Đơn hàng',
+    label: 'Orders',
     icon: FileBarcode,
     childLinks: [
       {
         link: '/admin/order/resource',
-        label: 'Nguồn đơn hàng',
+        label: 'Order Source',
       },
       {
         link: '/admin/order/cancellation-reason',
-        label: 'Lý do hủy đơn hàng',
+        label: 'Order Cancellation Reasons',
       },
     ],
   },
   {
     link: '/admin/waybill',
-    label: 'Vận đơn',
+    label: 'Waybills',
     icon: Car,
     childLinks: [],
   },
   {
     link: '/admin/review',
-    label: 'Đánh giá',
+    label: 'Reviews',
     icon: Message,
     childLinks: [],
   },
   {
     link: '/admin/reward-strategy',
-    label: 'Điểm thưởng',
+    label: 'Rewards',
     icon: Award,
     childLinks: [],
     disableForEmployee: true,
   },
   {
     link: '/admin/voucher',
-    label: 'Sổ quỹ',
+    label: 'Fund Ledger',
     icon: CurrencyDollar,
     childLinks: [
       {
         link: '/admin/payment-method',
-        label: 'Hình thức thanh toán',
+        label: 'Payment Methods',
       },
       {
         link: '/admin/promotion',
-        label: 'Khuyến mãi',
+        label: 'Promotions',
       },
     ],
     disableForEmployee: true,
@@ -250,7 +250,7 @@ export function DefaultNavbar() {
   const theme = useMantineTheme();
   const { opened } = useAppStore();
   const { classes, cx } = useDefaultNavbarStyles();
-  const [active, setActive] = useState('Trang chủ');
+  const [active, setActive] = useState('Home');
 
   const { isOnlyEmployee } = useAdminAuthStore();
 

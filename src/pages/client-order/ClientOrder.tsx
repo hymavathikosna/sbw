@@ -245,7 +245,7 @@ function useGetAllOrdersApi(activePage: number) {
     ['client-api', 'orders', 'getAllOrders', requestParams],
     () => FetchUtils.getWithToken(ResourceURL.CLIENT_ORDER, requestParams),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       keepPreviousData: true,
     }
   );

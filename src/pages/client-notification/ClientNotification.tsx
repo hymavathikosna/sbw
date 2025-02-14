@@ -80,7 +80,7 @@ function ClientNotification() {
     notificationContentFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.blue[6] }}>
         <Marquee size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Chưa có thông báo nào</Text>
+        <Text size="xl" weight={500}>Chưa có Notification nào</Text>
       </Stack>
     );
   }
@@ -120,7 +120,7 @@ function ClientNotification() {
             <Card radius="md" shadow="sm" p="lg">
               <Stack>
                 <Title order={2}>
-                  Thông báo
+                  Notification
                 </Title>
 
                 {notificationContentFragment}
@@ -275,7 +275,7 @@ function useGetAllNotificationsApi(activePage: number) {
     ['client-api', 'notifications', 'getAllNotifications', requestParams, newNotifications.length],
     () => FetchUtils.getWithToken(ResourceURL.CLIENT_NOTIFICATION, requestParams),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
     }

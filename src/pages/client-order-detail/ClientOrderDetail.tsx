@@ -577,7 +577,7 @@ function useGetOrderApi(orderCode: string) {
     ['client-api', 'orders', 'getOrder', orderCode],
     () => FetchUtils.getWithToken(ResourceURL.CLIENT_ORDER + '/' + orderCode),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       keepPreviousData: true,
     }
   );

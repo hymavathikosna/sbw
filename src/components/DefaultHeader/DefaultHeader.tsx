@@ -66,17 +66,17 @@ interface HeaderLink {
 const headerLinks: HeaderLink[] = [
   {
     link: '/admin/account',
-    label: 'Tài khoản',
+    label: 'Account',
     icon: User,
   },
   {
     link: '/admin/notification',
-    label: 'Thông báo',
+    label: 'Notification',
     icon: Bell,
   },
   {
     link: '/admin/chat',
-    label: 'Tin nhắn',
+    label: 'Message',
     icon: Messages,
   },
   {
@@ -113,7 +113,7 @@ export function DefaultHeader() {
     if (user) {
       resetAdminAuthState();
       toggleColorScheme('light');
-      NotifyUtils.simpleSuccess('Đăng xuất thành công');
+      NotifyUtils.simpleSuccess('Logged out successfully');
     }
   };
 
@@ -136,26 +136,26 @@ export function DefaultHeader() {
           <Group spacing="xs">
             <ActionIcon
               variant="outline"
-              title="Tìm kiếm"
+              title="Search"
               color="blue"
             >
-              <Search size={18}/>
+              <Search size={18} />
             </ActionIcon>
             <ActionIcon
               variant="outline"
-              title="Thay đổi chế độ màu"
+              title="Toggle Color Mode"
               color={dark ? 'yellow' : 'blue'}
               onClick={() => toggleColorScheme()}
             >
-              {dark ? <Sun size={18}/> : <MoonStars size={18}/>}
+              {dark ? <Sun size={18} /> : <MoonStars size={18} />}
             </ActionIcon>
             <ActionIcon
               variant="outline"
-              title="Đăng xuất"
+              title="Logout"
               color="blue"
               onClick={handleSignoutButton}
             >
-              <Logout size={18}/>
+              <Logout size={18} />
             </ActionIcon>
           </Group>
         </Group>

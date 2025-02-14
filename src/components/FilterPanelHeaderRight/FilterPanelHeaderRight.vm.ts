@@ -33,7 +33,7 @@ function useFilterPanelHeaderRightViewModel({
   const handleCreateFilterButton = () => {
     const randomNumber = Math.floor(Math.random() * 10000) + 1;
     const filterId = 'filter-' + randomNumber;
-    const filterName = filterNameInputRef.current?.value || ('Bộ lọc ' + randomNumber);
+    const filterName = filterNameInputRef.current?.value || ('Filter ' + randomNumber);
 
     const filter: Filter = {
       id: filterId,

@@ -64,7 +64,7 @@ function SearchPanel() {
             </ActionIcon>
           </Tooltip>
           <Button onClick={handleSearchButton}>
-            Tìm kiếm
+            Search
           </Button>
         </Group>
       </Group>

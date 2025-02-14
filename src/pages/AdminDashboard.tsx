@@ -32,30 +32,30 @@ function AdminDashboard() {
 
   return (
     <Stack mb={30}>
-      <Title order={3}>Thống kê hệ thống</Title>
+      <Title order={3}>System Statistics</Title>
 
       <Paper shadow="xs" p="md">
         <Stack>
-          <Text size="lg" weight={500} color="dimmed">Tổng quan</Text>
+          <Text size="lg" weight={500} color="dimmed">Overview</Text>
           <Grid>
             <Grid.Col span={3}>
-              <OverviewCard title="Tổng số khách hàng" number={statistic.totalCustomer} color="blue" icon={Users}/>
+              <OverviewCard title="Total Customers" number={statistic.totalCustomer} color="blue" icon={Users}/>
             </Grid.Col>
             <Grid.Col span={3}>
-              <OverviewCard title="Tổng số sản phẩm" number={statistic.totalProduct} color="orange" icon={Box}/>
+              <OverviewCard title="Total Products" number={statistic.totalProduct} color="orange" icon={Box}/>
             </Grid.Col>
             <Grid.Col span={3}>
-              <OverviewCard title="Tổng số đơn hàng" number={statistic.totalOrder} color="teal" icon={FileBarcode}/>
+              <OverviewCard title="Total Orders" number={statistic.totalOrder} color="teal" icon={FileBarcode}/>
             </Grid.Col>
             <Grid.Col span={3}>
-              <OverviewCard title="Tổng số vận đơn" number={statistic.totalWaybill} color="grape" icon={Truck}/>
+              <OverviewCard title="Total Shipments" number={statistic.totalWaybill} color="grape" icon={Truck}/>
             </Grid.Col>
             <Grid.Col span={3}>
-              <OverviewCard title="Tổng số đánh giá" number={statistic.totalReview} color="yellow" icon={Star}/>
+              <OverviewCard title="Total Reviews" number={statistic.totalReview} color="yellow" icon={Star}/>
             </Grid.Col>
             <Grid.Col span={3}>
               <OverviewCard
-                title="Tổng số khuyến mãi hiện tại"
+                title="Total Active Promotions"
                 number={statistic.totalActivePromotion}
                 color="pink"
                 icon={Percentage}
@@ -63,129 +63,18 @@ function AdminDashboard() {
             </Grid.Col>
             <Grid.Col span={3}>
               <OverviewCard
-                title="Tổng số nhà cung cấp"
+                title="Total Suppliers"
                 number={statistic.totalSupplier}
                 color="violet"
                 icon={BuildingWarehouse}
               />
             </Grid.Col>
             <Grid.Col span={3}>
-              <OverviewCard title="Tổng số thương hiệu" number={statistic.totalBrand} color="indigo" icon={BrandApple}/>
+              <OverviewCard title="Total Brands" number={statistic.totalBrand} color="indigo" icon={BrandApple}/>
             </Grid.Col>
           </Grid>
         </Stack>
       </Paper>
-
-      <Grid>
-        <Grid.Col lg={6}>
-          <Stack>
-            <Paper shadow="xs" p="md">
-              <Stack>
-                <Group position="apart">
-                  <Text size="lg" weight={500} color="dimmed">Lượt đăng ký tài khoản</Text>
-                  <Text size="sm" color="dimmed">7 ngày gần nhất</Text>
-                </Group>
-
-                <LineChart
-                  width={650}
-                  height={275}
-                  data={dateReducerForStatisticResources(statistic.statisticRegistration)}
-                  margin={{ top: 10, right: 5, bottom: 0, left: -10 }}
-                >
-                  <XAxis dataKey="date"/>
-                  <YAxis/>
-                  <Tooltip/>
-                  <Line
-                    name="Số lượt đăng ký"
-                    type="monotone"
-                    dataKey="total"
-                    stroke={theme.colors.blue[5]}
-                  />
-                </LineChart>
-              </Stack>
-            </Paper>
-
-            <Paper shadow="xs" p="md">
-              <Stack>
-                <Group position="apart">
-                  <Text size="lg" weight={500} color="dimmed">Lượt đánh giá sản phẩm</Text>
-                  <Text size="sm" color="dimmed">7 ngày gần nhất</Text>
-                </Group>
-
-                <LineChart
-                  width={650}
-                  height={275}
-                  data={dateReducerForStatisticResources(statistic.statisticReview)}
-                  margin={{ top: 10, right: 5, bottom: 0, left: -10 }}
-                >
-                  <XAxis dataKey="date"/>
-                  <YAxis/>
-                  <Tooltip/>
-                  <Line
-                    name="Số lượt đánh giá"
-                    type="monotone"
-                    dataKey="total"
-                    stroke={theme.colors.yellow[7]}
-                  />
-                </LineChart>
-              </Stack>
-            </Paper>
-          </Stack>
-        </Grid.Col>
-        <Grid.Col lg={6}>
-          <Stack>
-            <Paper shadow="xs" p="md">
-              <Stack>
-                <Group position="apart">
-                  <Text size="lg" weight={500} color="dimmed">Lượt đặt hàng</Text>
-                  <Text size="sm" color="dimmed">7 ngày gần nhất</Text>
-                </Group>
-
-                <BarChart
-                  width={650}
-                  height={275}
-                  data={dateReducerForStatisticResources(statistic.statisticOrder)}
-                  margin={{ top: 10, right: 5, bottom: 0, left: -10 }}
-                >
-                  <XAxis dataKey="date"/>
-                  <YAxis/>
-                  <Tooltip/>
-                  <Bar
-                    name="Số lượt đặt hàng"
-                    dataKey="total"
-                    fill={theme.colors.teal[5]}
-                  />
-                </BarChart>
-              </Stack>
-            </Paper>
-
-            <Paper shadow="xs" p="md">
-              <Stack>
-                <Group position="apart">
-                  <Text size="lg" weight={500} color="dimmed">Lượt tạo vận đơn</Text>
-                  <Text size="sm" color="dimmed">7 ngày gần nhất</Text>
-                </Group>
-
-                <BarChart
-                  width={650}
-                  height={275}
-                  data={dateReducerForStatisticResources(statistic.statisticWaybill)}
-                  margin={{ top: 10, right: 5, bottom: 0, left: -10 }}
-                >
-                  <XAxis dataKey="date"/>
-                  <YAxis/>
-                  <Tooltip/>
-                  <Bar
-                    name="Số lượt tạo vận đơn"
-                    dataKey="total"
-                    fill={theme.colors.grape[5]}
-                  />
-                </BarChart>
-              </Stack>
-            </Paper>
-          </Stack>
-        </Grid.Col>
-      </Grid>
     </Stack>
   );
 }
@@ -199,7 +88,6 @@ interface OverviewCardProps {
 
 function OverviewCard({ title, number, color, icon }: OverviewCardProps) {
   const theme = useMantineTheme();
-
   const Icon = icon;
 
   return (
@@ -242,7 +130,7 @@ function useGetStatisticApi() {
     ['api', 'stats', 'getStatistic'],
     () => FetchUtils.get(ResourceURL.STATISTIC),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to fetch data'),
       keepPreviousData: true,
       initialData: defaultStatisticResponse,
     }

@@ -13,11 +13,11 @@ import { ClientUserNavbar } from 'components';
 import MiscUtils from 'utils/MiscUtils';
 
 const formSchema = z.object({
-  oldPassword: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
+  oldPassword: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
     .min(1, MessageUtils.min('Mật khẩu', 1)),
-  newPassword: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
+  newPassword: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
     .min(1, MessageUtils.min('Mật khẩu', 1)),
-  newPasswordAgain: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
+  newPasswordAgain: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
     .min(1, MessageUtils.min('Mật khẩu', 1)),
 });
 

@@ -26,9 +26,9 @@ function ClientChangePassword() {
   }, [email, navigate, token]);
 
   const formSchema = z.object({
-    newPassword: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
+    newPassword: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
       .min(1, MessageUtils.min('Mật khẩu', 1)),
-    newPasswordAgain: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
+    newPasswordAgain: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
       .min(1, MessageUtils.min('Mật khẩu', 1)),
   });
 

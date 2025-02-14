@@ -9,30 +9,30 @@ class UserConfigs extends Configs {
   static managerPath = ManagerPath.USER;
   static resourceUrl = ResourceURL.USER;
   static resourceKey = 'users';
-  static createTitle = 'Thêm người dùng';
-  static updateTitle = 'Cập nhật người dùng';
-  static manageTitle = 'Quản lý người dùng';
+  static createTitle = 'Add User';
+  static updateTitle = 'Update User';
+  static manageTitle = 'Manage Users';
 
   static manageTitleLinks: TitleLink[] = [
     {
       link: ManagerPath.USER,
-      label: 'Quản lý người dùng',
+      label: 'Manage Users',
     },
     {
       link: ManagerPath.ROLE,
-      label: 'Quản lý quyền',
+      label: 'Manage Roles',
     },
   ];
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true),
     username: {
-      label: 'Tên đăng nhập',
+      label: 'Username',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     fullname: {
-      label: 'Họ và tên',
+      label: 'Full Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
@@ -41,68 +41,68 @@ class UserConfigs extends Configs {
       type: EntityPropertyType.STRING,
     },
     phone: {
-      label: 'Số điện thoại',
+      label: 'Phone Number',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     gender: {
-      label: 'Giới tính',
+      label: 'Gender',
       type: EntityPropertyType.OPTION,
       isShowInTable: true,
     },
     'address.line': {
-      label: 'Địa chỉ',
+      label: 'Address',
       type: EntityPropertyType.STRING,
     },
     'address.province.name': {
-      label: 'Tên tỉnh thành',
+      label: 'Province Name',
       type: EntityPropertyType.STRING,
     },
     'address.province.code': {
-      label: 'Mã tỉnh thành',
+      label: 'Province Code',
       type: EntityPropertyType.STRING,
     },
     'address.district.name': {
-      label: 'Tên quận huyện',
+      label: 'District Name',
       type: EntityPropertyType.STRING,
     },
     'address.district.code': {
-      label: 'Mã quận huyện',
+      label: 'District Code',
       type: EntityPropertyType.STRING,
     },
     avatar: {
-      label: 'Ảnh đại diện',
+      label: 'Profile Picture',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     status: {
-      label: 'Trạng thái người dùng',
+      label: 'User Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     roles: {
-      label: 'Quyền người dùng',
+      label: 'User Roles',
       type: EntityPropertyType.ARRAY,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     password: {
-      label: 'Mật khẩu',
+      label: 'Password',
       type: EntityPropertyType.STRING,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'address.provinceId': {
-      label: 'Tỉnh thành',
+      label: 'Province',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'address.districtId': {
-      label: 'Quận huyện',
+      label: 'District',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,

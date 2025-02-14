@@ -103,10 +103,10 @@ class OrderConfigs extends Configs {
     toWardName: z.string(),
     toDistrictName: z.string(),
     toProvinceName: z.string(),
-    orderResourceId: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
+    orderResourceId: z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
     orderCancellationReasonId: z.string().nullable(),
     note: z.string(),
-    userId: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
+    userId: z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
     orderVariants: z.array(z.object({
       variantId: z.number(),
       price: z.number(),

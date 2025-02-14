@@ -60,9 +60,9 @@ const initialFormValues = {
 };
 
 const formSchema = z.object({
-  username: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
+  username: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
     .min(2, MessageUtils.min('Tên tài khoản', 2)),
-  password: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
+  password: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
     .min(1, MessageUtils.min('Mật khẩu', 1)),
 });
 

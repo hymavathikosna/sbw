@@ -21,7 +21,7 @@ function ClientHomeLatestProducts() {
     ['client-api', 'products', 'getAllProducts', requestParams],
     () => FetchUtils.get(ResourceURL.CLIENT_PRODUCT, requestParams),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
     }

@@ -36,7 +36,7 @@ function AddVariantsModal({
         onClick={() => handleAddVariantsButton(selectedRemainingPropertyValueCombinationIndexes)}
         mt="md"
       >
-        Thêm
+        Add
       </Button>
     </>
   );

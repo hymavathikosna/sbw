@@ -16,10 +16,10 @@ function ClientError() {
           >
             Oops...
           </Text>
-          <Title>Đã có lỗi xảy ra</Title>
+          <Title>An error has occurred</Title>
           <Group position="center">
             <Button component={Link} to="/" variant="subtle" size="md">
-              Trở về Trang chủ
+              Return to Home
             </Button>
           </Group>
         </Stack>

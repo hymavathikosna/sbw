@@ -41,11 +41,11 @@ import { useModals } from '@mantine/modals';
 const genderSelectList: SelectOption[] = [
   {
     value: 'M',
-    label: 'Nam',
+    label: 'Male',
   },
   {
     value: 'F',
-    label: 'Nữ',
+    label: 'Female',
   },
 ];
 
@@ -76,7 +76,7 @@ function ClientSignup() {
     <main>
       <Container size="xl">
         <Stack align="center" spacing={50}>
-          <Title order={2}>Đăng ký tài khoản</Title>
+          <Title order={2}>Register Account</Title>
 
           <Stepper
             active={active}
@@ -85,34 +85,35 @@ function ClientSignup() {
             styles={{ root: { width: '100%', maxWidth: 800 }, content: { paddingTop: 50 } }}
           >
             <Stepper.Step
-              icon={<UserCheck size={18}/>}
-              label="Bước 1"
-              description="Tạo tài khoản"
+              icon={<UserCheck size={18} />}
+              label="Step 1"
+              description="Create Account"
               allowStepSelect={false}
             >
-              <ClientSignupStepOne nextStep={nextStep}/>
+              <ClientSignupStepOne nextStep={nextStep} />
             </Stepper.Step>
             <Stepper.Step
-              icon={<MailOpened size={18}/>}
-              label="Bước 2"
-              description="Xác nhận email"
+              icon={<MailOpened size={18} />}
+              label="Step 2"
+              description="Verify Email"
               allowStepSelect={false}
             >
-              <ClientSignupStepTwo nextStep={nextStep} userId={Number(userId) || null}/>
+              <ClientSignupStepTwo nextStep={nextStep} userId={Number(userId) || null} />
             </Stepper.Step>
             <Stepper.Step
-              icon={<ShieldCheck size={18}/>}
-              label="Bước 3"
-              description="Đăng ký thành công"
+              icon={<ShieldCheck size={18} />}
+              label="Step 3"
+              description="Registration Successful"
               allowStepSelect={false}
             />
             <Stepper.Completed>
-              <ClientSignupStepThree/>
+              <ClientSignupStepThree />
             </Stepper.Completed>
           </Stepper>
         </Stack>
       </Container>
     </main>
+
   );
 }
 
@@ -136,24 +137,24 @@ function ClientSignupStepOne({ nextStep }: { nextStep: () => void }) {
   };
 
   const formSchema = z.object({
-    username: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
-      .min(2, MessageUtils.min('Tên tài khoản', 2)),
-    password: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
-      .min(1, MessageUtils.min('Mật khẩu', 1)),
-    fullname: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
-    email: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
-      .email({ message: 'Nhập email đúng định dạng' }),
-    phone: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
-      .regex(/(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/, { message: 'Nhập số điện thoại đúng định dạng' }),
-    gender: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
-    'address.line': z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
-    'address.provinceId': z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
-    'address.districtId': z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
-    'address.wardId': z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
+    username: z.string({ invalid_type_error: 'Please do not leave this field empty' })
+      .min(2, MessageUtils.min('Username', 2)),
+    password: z.string({ invalid_type_error: 'Please do not leave this field empty' })
+      .min(1, MessageUtils.min('Password', 1)),
+    fullname: z.string({ invalid_type_error: 'Please do not leave this field empty' }),
+    email: z.string({ invalid_type_error: 'Please do not leave this field empty' })
+      .email({ message: 'Enter a valid email format' }),
+    phone: z.string({ invalid_type_error: 'Please do not leave this field empty' })
+      .regex(/(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/, { message: 'Enter a valid phone number format' }),
+    gender: z.string({ invalid_type_error: 'Please do not leave this field empty' }),
+    'address.line': z.string({ invalid_type_error: 'Please do not leave this field empty' }),
+    'address.provinceId': z.string({ invalid_type_error: 'Please do not leave this field empty' }),
+    'address.districtId': z.string({ invalid_type_error: 'Please do not leave this field empty' }),
+    'address.wardId': z.string({ invalid_type_error: 'Please do not leave this field empty' }),
     avatar: z.string().nullable(),
     status: z.string(),
     roles: z.array(z.string()),
-  });
+  });  
 
   const form = useForm({
     initialValues: initialFormValues,
@@ -204,11 +205,11 @@ function ClientSignupStepOne({ nextStep }: { nextStep: () => void }) {
     (requestBody) => FetchUtils.post(ResourceURL.CLIENT_REGISTRATION, requestBody),
     {
       onSuccess: (registrationResponse) => {
-        NotifyUtils.simpleSuccess('Tạo tài khoản thành công');
+        NotifyUtils.simpleSuccess('Account created successfully');
         updateCurrentSignupUserId(registrationResponse.userId);
         nextStep();
       },
-      onError: () => NotifyUtils.simpleFailed('Tạo tài khoản không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Account creation failed'),
     }
   );
 
@@ -241,59 +242,59 @@ function ClientSignupStepOne({ nextStep }: { nextStep: () => void }) {
           <TextInput
             required
             radius="md"
-            label="Tên tài khoản"
-            placeholder="Nhập tên tài khoản mong muốn"
+            label="Username"
+            placeholder="Enter your desired username"
             {...form.getInputProps('username')}
           />
           <PasswordInput
             required
             radius="md"
-            label="Mật khẩu"
-            placeholder="Nhập mật khẩu mong muốn"
+            label="Password"
+            placeholder="Enter your desired password"
             {...form.getInputProps('password')}
           />
           <TextInput
             required
             radius="md"
-            label="Họ và tên"
-            placeholder="Nhập họ và tên của bạn"
+            label="Full Name"
+            placeholder="Enter your full name"
             {...form.getInputProps('fullname')}
           />
           <TextInput
             required
             radius="md"
             label="Email"
-            placeholder="Nhập email của bạn"
+            placeholder="Enter your email"
             {...form.getInputProps('email')}
           />
           <TextInput
             required
             radius="md"
-            label="Số điện thoại"
-            placeholder="Nhập số điện thoại của bạn"
+            label="Phone Number"
+            placeholder="Enter your phone number"
             {...form.getInputProps('phone')}
           />
           <Select
             required
             radius="md"
-            label="Giới tính"
-            placeholder="Chọn giới tính"
+            label="Gender"
+            placeholder="Select gender"
             data={genderSelectList}
             {...form.getInputProps('gender')}
           />
           <Select
             required
             radius="md"
-            label="Tỉnh thành"
-            placeholder="Chọn tỉnh thành"
+            label="Province/City"
+            placeholder="Select province/city"
             data={provinceSelectList}
             {...form.getInputProps('address.provinceId')}
           />
           <Select
             required
             radius="md"
-            label="Quận huyện"
-            placeholder="Chọn quận huyện"
+            label="District"
+            placeholder="Select district"
             data={districtSelectList}
             disabled={form.values['address.provinceId'] === null}
             {...form.getInputProps('address.districtId')}
@@ -301,8 +302,8 @@ function ClientSignupStepOne({ nextStep }: { nextStep: () => void }) {
           <Select
             required
             radius="md"
-            label="Phường xã"
-            placeholder="Chọn phường xã"
+            label="Ward/Commune"
+            placeholder="Select ward/commune"
             data={wardSelectList}
             disabled={form.values['address.districtId'] === null}
             {...form.getInputProps('address.wardId')}
@@ -310,8 +311,8 @@ function ClientSignupStepOne({ nextStep }: { nextStep: () => void }) {
           <TextInput
             required
             radius="md"
-            label="Địa chỉ"
-            placeholder="Nhập địa chỉ của bạn"
+            label="Address"
+            placeholder="Enter your address"
             {...form.getInputProps('address.line')}
           />
           <Button
@@ -319,7 +320,7 @@ function ClientSignupStepOne({ nextStep }: { nextStep: () => void }) {
             type="submit"
             disabled={MiscUtils.isEquals(initialFormValues, form.values) || registerUserApi.isLoading}
           >
-            Đăng ký
+            Register
           </Button>
         </Stack>
       </form>
@@ -338,7 +339,7 @@ function ClientSignupStepTwo({ nextStep, userId }: { nextStep: () => void, userI
   };
 
   const formSchema = z.object({
-    token: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
+    token: z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
   });
 
   const form = useForm({
@@ -350,11 +351,11 @@ function ClientSignupStepTwo({ nextStep, userId }: { nextStep: () => void, userI
     (requestBody) => FetchUtils.post(ResourceURL.CLIENT_REGISTRATION_CONFIRM, requestBody),
     {
       onSuccess: () => {
-        NotifyUtils.simpleSuccess('Xác nhận tài khoản thành công');
+        NotifyUtils.simpleSuccess('Account verification successful.');
         updateCurrentSignupUserId(null);
         nextStep();
       },
-      onError: () => NotifyUtils.simpleFailed('Xác nhận tài khoản không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Account verification failed.'),
     }
   );
 
@@ -362,10 +363,10 @@ function ClientSignupStepTwo({ nextStep, userId }: { nextStep: () => void, userI
     (request) => FetchUtils.get(ResourceURL.CLIENT_REGISTRATION_RESEND_TOKEN(request.userId)),
     {
       onSuccess: () => {
-        NotifyUtils.simpleSuccess('Đã gửi lại mã xác nhận thành công');
+        NotifyUtils.simpleSuccess('Verification code resent successfully');
         modals.closeAll();
       },
-      onError: () => NotifyUtils.simpleFailed('Gửi lại mã xác nhận không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to resend verification code'),    
     }
   );
 
@@ -389,15 +390,15 @@ function ClientSignupStepTwo({ nextStep, userId }: { nextStep: () => void, userI
         overlayBlur: 3,
         closeOnClickOutside: false,
         closeOnConfirm: false,
-        title: <strong>Gửi lại mã xác nhận</strong>,
-        children: <Text size="sm">Bạn có muốn gửi lại mã xác nhận đến email đã nhập trước đó?</Text>,
+        title: <strong>Resend Verification Code</strong>,
+        children: <Text size="sm">Do you want to resend the verification code to the previously entered email?</Text>,
         labels: {
-          cancel: 'Đóng',
-          confirm: 'Gửi',
+          cancel: 'Close',
+          confirm: 'Send',
         },
         confirmProps: { color: 'blue', disabled: resendRegistrationTokenApi.isLoading },
         onConfirm: () => resendRegistrationTokenApi.mutate({ userId: userId }),
-      });
+      });    
     }
   };
 
@@ -408,11 +409,10 @@ function ClientSignupStepTwo({ nextStep, userId }: { nextStep: () => void, userI
       overlayOpacity: 0.55,
       overlayBlur: 3,
       closeOnClickOutside: false,
-      title: <strong>Thay đổi email</strong>,
-      children: <ChangeEmailModal userId={userId}/>,
+      title: <strong>Change Email</strong>,
+      children: <ChangeEmailModal userId={userId} />,
     });
   };
-
   return (
     <Card withBorder shadow="md" p={30} radius="md" sx={{ width: 500, margin: 'auto' }}>
       <Stack>
@@ -421,8 +421,8 @@ function ClientSignupStepTwo({ nextStep, userId }: { nextStep: () => void, userI
             <TextInput
               required
               radius="md"
-              label="Mã xác nhận"
-              placeholder="Nhập mã xác nhận đã gửi"
+              label="Verification Code"
+              placeholder="Enter the verification code sent to your email"
               {...form.getInputProps('token')}
             />
             <Button
@@ -430,19 +430,19 @@ function ClientSignupStepTwo({ nextStep, userId }: { nextStep: () => void, userI
               type="submit"
               disabled={MiscUtils.isEquals(initialFormValues, form.values) || confirmRegistrationApi.isLoading}
             >
-              Xác nhận
+              Confirm
             </Button>
           </Stack>
         </form>
 
-        <Divider label="hoặc" labelPosition="center"/>
+        <Divider label="or" labelPosition="center" />
 
         <Button radius="md" variant="outline" onClick={handleResendTokenButton}>
-          Gửi mã xác nhận lần nữa
+          Resend verification code
         </Button>
 
         <Button radius="md" variant="outline" onClick={handleResendTokenWithNewEmailButton}>
-          Gửi mã xác nhận lần nữa với email mới
+          Resend verification code to a new email
         </Button>
       </Stack>
     </Card>
@@ -455,8 +455,10 @@ function ClientSignupStepThree() {
   return (
     <Stack align="center" sx={{ alignItems: 'center', color: theme.colors.teal[6] }}>
       <Check size={100} strokeWidth={1}/>
-      <Text weight={500}>Đã tạo tài khoản và xác nhận thành công!</Text>
-      <Button radius="md" size="lg" mt="xl" component={Link} to="/signin">Đăng nhập</Button>
+      <Text weight={500}>Account successfully created and verified!</Text>
+      <Button radius="md" size="lg" mt="xl" component={Link} to="/signin">
+        Sign In
+      </Button>
     </Stack>
   );
 }
@@ -469,8 +471,8 @@ function ChangeEmailModal({ userId }: { userId: number | null }) {
   };
 
   const formSchema = z.object({
-    email: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
-      .email({ message: 'Nhập email đúng định dạng' }),
+    email: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
+      .email({ message: 'Please enter a valid email address.' }),
   });
 
   const form = useForm({
@@ -486,10 +488,10 @@ function ChangeEmailModal({ userId }: { userId: number | null }) {
     ),
     {
       onSuccess: () => {
-        NotifyUtils.simpleSuccess('Đã đổi email thành công và đã gửi lại mã xác nhận mới');
+        NotifyUtils.simpleSuccess('Email changed successfully, and a new verification code has been sent.');
         modals.closeAll();
       },
-      onError: () => NotifyUtils.simpleFailed('Thay đổi email không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Email change was unsuccessful.'),    
     }
   );
 
@@ -506,8 +508,8 @@ function ChangeEmailModal({ userId }: { userId: number | null }) {
           data-autofocus
           required
           radius="md"
-          label="Email mới"
-          placeholder="Nhập email mới"
+          label="New Email"
+          placeholder="Enter new email"
           {...form.getInputProps('email')}
         />
         <Group position="right">

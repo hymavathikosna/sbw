@@ -142,7 +142,7 @@ function ClientCategory() {
             <Stack>
               <Breadcrumbs>
                 <Anchor component={Link} to="/">
-                  Trang chủ
+                  Home
                 </Anchor>
                 {MiscUtils.makeCategoryBreadcrumbs(category).slice(0, -1).map(c => (
                   <Anchor key={c.categorySlug} component={Link} to={'/category/' + c.categorySlug}>
@@ -177,10 +177,11 @@ function ClientCategory() {
           <Grid gutter="xl">
             <Grid.Col md={3} mb={theme.spacing.xl}>
               <Stack spacing="lg">
+                {/* Filter Header */}
                 <Group position="apart">
                   <Group spacing="xs">
-                    <ChartCandle/>
-                    <Text weight={500}>Bộ lọc</Text>
+                    <ChartCandle />
+                    <Text weight={500}>Filter</Text>
                   </Group>
                   <Button
                     variant="light"
@@ -188,28 +189,30 @@ function ClientCategory() {
                     radius="md"
                     size="xs"
                     compact
-                    leftIcon={<X size={10}/>}
+                    leftIcon={<X size={10} />}
                     styles={{ leftIcon: { marginRight: 6 } }}
                     onClick={handleResetButton}
                     disabled={disabledResetButton}
                   >
-                    Đặt mặc định
+                    Reset to Default
                   </Button>
                 </Group>
 
+                {/* Search Section */}
                 <Stack>
-                  <Text weight={500}>Tìm kiếm</Text>
+                  <Text weight={500}>Search</Text>
                   <TextInput
                     radius="md"
-                    placeholder={'Tìm kiếm trong ' + category.categoryName}
-                    icon={<Search size={16}/>}
+                    placeholder={'Search in ' + category.categoryName}
+                    icon={<Search size={16} />}
                     value={searchQuery || ''}
                     onChange={(event) => setSearchQuery(event.currentTarget.value || null)}
                   />
                 </Stack>
 
+                {/* Price Range Filter */}
                 <Stack>
-                  <Text weight={500}>Khoảng giá</Text>
+                  <Text weight={500}>Price Range</Text>
                   <Chips variant="filled" multiple value={priceOptions} onChange={handlePriceOptionChips}>
                     {MiscUtils.generatePriceOptions(filter.filterPriceQuartiles).map((priceOption, index) => (
                       <Chip key={index} value={priceOption.join('-')}>
@@ -219,22 +222,27 @@ function ClientCategory() {
                   </Chips>
                 </Stack>
 
+                {/* Brand Filter */}
                 <Stack>
-                  <Text weight={500}>Thương hiệu</Text>
-                  {filter.filterBrands.length > 0
-                    ? (
-                      <Chips variant="filled" multiple value={brandOptions} onChange={handleBrandChips}>
-                        {filter.filterBrands.map(brand => (
-                          <Chip key={brand.brandId} value={brand.brandId}>{brand.brandName}</Chip>
-                        ))}
-                      </Chips>
-                    ) : <Text sx={{ fontStyle: 'italic' }} color="dimmed">Không có tùy chọn</Text>}
+                  <Text weight={500}>Brand</Text>
+                  {filter.filterBrands.length > 0 ? (
+                    <Chips variant="filled" multiple value={brandOptions} onChange={handleBrandChips}>
+                      {filter.filterBrands.map(brand => (
+                        <Chip key={brand.brandId} value={brand.brandId}>{brand.brandName}</Chip>
+                      ))}
+                    </Chips>
+                  ) : (
+                    <Text sx={{ fontStyle: 'italic' }} color="dimmed">
+                      No options available
+                    </Text>
+                  )}
                 </Stack>
 
+                {/* Other Filters */}
                 <Stack>
-                  <Text weight={500}>Khác</Text>
+                  <Text weight={500}>Other</Text>
                   <Checkbox
-                    label="Chỉ tính còn hàng"
+                    label="Only show in-stock items"
                     checked={activeSaleable}
                     onChange={(event) => updateActiveSaleable(event.currentTarget.checked)}
                   />
@@ -247,14 +255,14 @@ function ClientCategory() {
                 <Group position="apart">
                   <Group spacing="xs">
                     <ArrowsDownUp size={20}/>
-                    <Text weight={500} mr={theme.spacing.xs}>Sắp xếp theo</Text>
+                    <Text weight={500} mr={theme.spacing.xs}>Sort by</Text>
                     <RadioGroup
                       value={activeSort || ''}
                       onChange={(value) => updateActiveSort((value as '' | 'lowest-price' | 'highest-price') || null)}
                     >
-                      <Radio value="" label="Mới nhất"/>
-                      <Radio value="lowest-price" label="Giá thấp → cao"/>
-                      <Radio value="highest-price" label="Giá cao → thấp"/>
+                      <Radio value="" label="Newest"/>
+                      <Radio value="lowest-price" label="Price: Low to High"/>
+                      <Radio value="highest-price" label="Price: High to Low"/>
                     </RadioGroup>
                   </Group>
                   <Text>{totalProducts} sản phẩm</Text>
@@ -280,7 +288,7 @@ function useGetCategoryApi(categorySlug: string) {
     ['client-api', 'categories', 'getCategory', categorySlug],
     () => FetchUtils.get(ResourceURL.CLIENT_CATEGORY + '/' + categorySlug),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
     }
@@ -298,7 +306,7 @@ function useGetFilterApi(categorySlug: string) {
     ['client-api', 'filters', 'getFilterByCategorySlug', categorySlug],
     () => FetchUtils.get(ResourceURL.CLIENT_FILTER_CATEGORY, { slug: categorySlug }),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
     }

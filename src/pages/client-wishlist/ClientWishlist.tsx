@@ -193,7 +193,7 @@ function useGetAllWishesApi(activePage: number) {
     ['client-api', 'wishes', 'getAllWishes', requestParams],
     () => FetchUtils.getWithToken(ResourceURL.CLIENT_WISH, requestParams),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
     }

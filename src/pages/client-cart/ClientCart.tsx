@@ -81,7 +81,7 @@ function ClientCart() {
       overlayBlur: 0.5,
       closeOnConfirm: false,
       withCloseButton: false,
-      title: <strong>Thông báo xác nhận đặt mua</strong>,
+      title: <strong>Notification xác nhận đặt mua</strong>,
       children: (
         <Stack>
           <Text>Bạn có muốn đặt mua những sản phẩm đã chọn với hình thức thanh toán sau?</Text>
@@ -104,7 +104,7 @@ function ClientCart() {
           overlayBlur: 0.5,
           closeOnClickOutside: false,
           withCloseButton: false,
-          title: <strong>Thông báo xác nhận đặt mua</strong>,
+          title: <strong>Notification xác nhận đặt mua</strong>,
           children: <ConfirmedOrder/>,
         }),
     });
@@ -638,7 +638,7 @@ function useGetCartApi() {
     ['client-api', 'carts', 'getCart'],
     () => FetchUtils.getWithToken(ResourceURL.CLIENT_CART),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       keepPreviousData: true,
     }
   );
@@ -655,7 +655,7 @@ function useGetAllPaymentMethodsApi() {
     ['client-api', 'payment-methods', 'getAllPaymentMethods'],
     () => FetchUtils.get(ResourceURL.CLIENT_PAYMENT_METHOD),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       keepPreviousData: true,
       refetchOnWindowFocus: false,
     }

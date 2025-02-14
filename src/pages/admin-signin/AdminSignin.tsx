@@ -20,17 +20,16 @@ const initialFormValues = {
 };
 
 const formSchema = z.object({
-  username: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
-    .min(2, MessageUtils.min('Tên tài khoản', 2)),
-  password: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' })
-    .min(1, MessageUtils.min('Mật khẩu', 1)),
+  username: z.string({ invalid_type_error: 'Please do not leave empty' })
+    .min(2, MessageUtils.min('Username', 2)),
+  password: z.string({ invalid_type_error: 'Please do not leave empty' })
+    .min(1, MessageUtils.min('Password', 1)),
 });
 
 function AdminSignin() {
-  useTitle('Đăng nhập Admin');
+  useTitle('Admin Login');
 
   const theme = useMantineTheme();
-
   const navigate = useNavigate();
 
   const {
@@ -69,10 +68,10 @@ function AdminSignin() {
 
         navigate('/admin');
 
-        NotifyUtils.simpleSuccess('Đăng nhập thành công');
+        NotifyUtils.simpleSuccess('Login successful');
       } catch (e) {
         resetAdminAuthState();
-        NotifyUtils.simpleFailed('Đăng nhập thất bại');
+        NotifyUtils.simpleFailed('Login failed');
       }
     }
   });
@@ -87,21 +86,21 @@ function AdminSignin() {
             <form onSubmit={handleFormSubmit}>
               <TextInput
                 required
-                label="Tên tài khoản"
-                placeholder="Nhập tên tài khoản của bạn"
+                label="Username"
+                placeholder="Enter your username"
                 disabled={!!user}
                 {...form.getInputProps('username')}
               />
               <PasswordInput
                 required
-                label="Mật khẩu"
-                placeholder="Nhập mật khẩu của bạn"
+                label="Password"
+                placeholder="Enter your password"
                 mt="md"
                 disabled={!!user}
                 {...form.getInputProps('password')}
               />
               <Button type="submit" fullWidth mt="xl" disabled={!!user}>
-                Đăng nhập
+                Login
               </Button>
             </form>
           </Paper>

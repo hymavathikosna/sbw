@@ -36,7 +36,7 @@ function ClientAllCategories() {
     ['client-api', 'categories', 'getAllCategories'],
     () => FetchUtils.get(ResourceURL.CLIENT_CATEGORY),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
     }
@@ -117,7 +117,7 @@ function ClientAllCategories() {
             <Stack>
               <Breadcrumbs>
                 <Anchor component={Link} to="/">
-                  Trang chủ
+                  Home
                 </Anchor>
                 <Text color="dimmed">
                   Tất cả danh mục sản phẩm

@@ -275,7 +275,7 @@ function useGetRoomApi() {
     ['client-api', 'chat', 'getRoom'],
     () => FetchUtils.getWithToken(ResourceURL.CLIENT_CHAT_GET_ROOM),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
     }

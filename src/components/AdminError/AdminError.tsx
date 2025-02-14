@@ -13,7 +13,7 @@ function AdminError() {
       >
         Oops...
       </Text>
-      <Title>Đã có lỗi xảy ra</Title>
+      <Title>An error has occurred.</Title>
     </Stack>
   );
 }

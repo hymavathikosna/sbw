@@ -111,7 +111,7 @@ function useGetAllCategoryProductsApi(categorySlug: string) {
     {
       onSuccess: (productResponses) =>
         (totalProducts !== productResponses.totalElements) && updateTotalProducts(productResponses.totalElements),
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
     }

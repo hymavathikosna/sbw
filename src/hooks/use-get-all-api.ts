@@ -37,7 +37,7 @@ function useGetAllApi<O>(
     {
       keepPreviousData: true,
       onSuccess: successCallback,
-      onError: (error) => NotifyUtils.simpleFailed(`Lỗi ${error.statusCode || 'chưa biết'}: Lấy dữ liệu không thành công`),
+      onError: (error) => NotifyUtils.simpleFailed(`Lỗi ${error.statusCode || 'chưa biết'}: Failed to retrieve data`),
       ...options,
     }
   );

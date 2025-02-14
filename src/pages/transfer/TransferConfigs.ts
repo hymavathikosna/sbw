@@ -72,8 +72,8 @@ class TransferConfigs extends Configs {
 
   static createUpdateFormSchema = z.object({
     code: z.string().min(5, MessageUtils.min(TransferConfigs.properties.code.label, 5)),
-    'exportDocket.warehouseId': z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
-    'importDocket.warehouseId': z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
+    'exportDocket.warehouseId': z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
+    'importDocket.warehouseId': z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
     docketVariants: z.array(z.object({
       variantId: z.number(),
       quantity: z.number(),

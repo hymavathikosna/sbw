@@ -53,7 +53,7 @@ function ClientSearch() {
     ['client-api', 'products', 'getAllProducts', requestParams],
     () => FetchUtils.get(ResourceURL.CLIENT_PRODUCT, requestParams),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
     }
@@ -130,14 +130,14 @@ function ClientSearch() {
             <Group position="apart">
               <Group spacing="xs">
                 <ArrowsDownUp size={20}/>
-                <Text weight={500} mr={theme.spacing.xs}>Sắp xếp theo</Text>
+                <Text weight={500} mr={theme.spacing.xs}>Sort by</Text>
                 <RadioGroup
                   value={activeSort || ''}
                   onChange={(value) => setActiveSort((value as '' | 'lowest-price' | 'highest-price') || null)}
                 >
-                  <Radio value="" label="Mới nhất"/>
-                  <Radio value="lowest-price" label="Giá thấp → cao"/>
-                  <Radio value="highest-price" label="Giá cao → thấp"/>
+                  <Radio value="" label="Newest"/>
+                  <Radio value="lowest-price" label="Price: Low to High"/>
+                  <Radio value="highest-price" label="Price: High to Low"/>
                 </RadioGroup>
               </Group>
               <Text>{products?.totalElements || 0} sản phẩm</Text>

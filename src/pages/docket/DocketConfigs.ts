@@ -77,8 +77,8 @@ class DocketConfigs extends Configs {
   static createUpdateFormSchema = z.object({
     type: z.string(),
     code: z.string().min(5, MessageUtils.min(DocketConfigs.properties.code.label, 5)),
-    reasonId: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
-    warehouseId: z.string({ invalid_type_error: 'Vui lòng không bỏ trống' }),
+    reasonId: z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
+    warehouseId: z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
     docketVariants: z.array(z.object({
       variantId: z.number(),
       quantity: z.number(),

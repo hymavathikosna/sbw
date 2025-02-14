@@ -62,7 +62,7 @@ function ClientProductReviews({ productSlug }: ClientProductReviewsProps) {
 
   if (reviews && reviews.totalElements === 0) {
     reviewsContentFragment = (
-      <Alert icon={<AlertCircle size={16}/>} title="Thông báo" color="cyan" radius="md">
+      <Alert icon={<AlertCircle size={16}/>} title="Notification" color="cyan" radius="md">
         Sản phẩm hiện không có đánh giá nào
       </Alert>
     );
@@ -157,7 +157,7 @@ function useGetAllReviewsByProduct(productSlug: string, activePage: number) {
     ['client-api', 'reviews/products', 'getAllReviewsByProduct', productSlug, requestParams],
     () => FetchUtils.get(ResourceURL.CLIENT_REVIEW_PRODUCT + '/' + productSlug, requestParams),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
     }

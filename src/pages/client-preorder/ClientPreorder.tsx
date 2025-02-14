@@ -139,7 +139,7 @@ function ClientPreorderCard({ preorder }: { preorder: ClientPreorderResponse }) 
       title: <strong>Xác nhận hủy</strong>,
       children: (
         <Text size="sm">
-          Hủy thông báo đặt trước cho sản phẩm <strong>{preorder.preorderProduct.productName}</strong>,
+          Hủy Notification đặt trước cho sản phẩm <strong>{preorder.preorderProduct.productName}</strong>,
           không thể hoàn tác?
         </Text>
       ),
@@ -186,11 +186,11 @@ function ClientPreorderCard({ preorder }: { preorder: ClientPreorderResponse }) 
   const preorderStatusBadgeFragment = (status: number) => {
     switch (status) {
     case 1:
-      return <Badge color="gray" variant="outline" size="sm">Chưa thông báo</Badge>;
+      return <Badge color="gray" variant="outline" size="sm">Chưa Notification</Badge>;
     case 2:
-      return <Badge color="green" variant="outline" size="sm">Đã thông báo</Badge>;
+      return <Badge color="green" variant="outline" size="sm">Đã Notification</Badge>;
     case 3:
-      return <Badge color="pink" variant="outline" size="sm">Hủy thông báo</Badge>;
+      return <Badge color="pink" variant="outline" size="sm">Hủy Notification</Badge>;
     }
   };
 
@@ -224,7 +224,7 @@ function ClientPreorderCard({ preorder }: { preorder: ClientPreorderResponse }) 
           color="orange"
           leftIcon={<BellOff size={18} strokeWidth={1.5}/>}
           compact
-          title="Hủy thông báo"
+          title="Hủy Notification"
           onClick={handleCancelPreorderButton}
           disabled={preorder.preorderStatus !== 1}
         >
@@ -258,7 +258,7 @@ function useGetAllPreordersApi(activePage: number) {
     ['client-api', 'preorders', 'getAllPreorders', requestParams],
     () => FetchUtils.getWithToken(ResourceURL.CLIENT_PREORDER, requestParams),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
     }

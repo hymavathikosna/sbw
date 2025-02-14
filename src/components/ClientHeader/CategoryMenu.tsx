@@ -33,7 +33,7 @@ function CategoryMenu({ setOpenedCategoryMenu }: { setOpenedCategoryMenu: Dispat
     ['client-api', 'categories', 'getAllCategories'],
     () => FetchUtils.get(ResourceURL.CLIENT_CATEGORY),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
     }

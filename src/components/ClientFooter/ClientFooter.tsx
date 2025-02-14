@@ -69,8 +69,8 @@ function ClientFooter() {
               <Group>
                 <Headset size={52} color={theme.colors[theme.primaryColor][6]} strokeWidth={1.25}/>
                 <Stack spacing={theme.spacing.xs / 4}>
-                  <Text size="sm" color="dimmed">Tổng đài hỗ trợ</Text>
-                  <Text size="xl">(024) 3535 7272, (028) 35 111 222</Text>
+                  <Text size="sm" color="dimmed">Mobile</Text>
+                  <Text size="xl">(91) 9989330693, (91) 9989333600</Text>
                 </Stack>
               </Group>
               <Stack spacing={theme.spacing.xs / 2}>
@@ -97,27 +97,27 @@ function ClientFooter() {
             <Grid>
               <Grid.Col xs={6} className={classes.footerLinks}>
                 <Stack>
-                  <Text weight={500}>Hỗ trợ khách hàng</Text>
+                  <Text weight={500}>Customer Support</Text>
                   <Stack spacing={theme.spacing.xs}>
-                    <Anchor component={Link} to="/">Câu hỏi thường gặp</Anchor>
-                    <Anchor component={Link} to="/">Hướng dẫn đặt hàng</Anchor>
-                    <Anchor component={Link} to="/">Phương thức vận chuyển</Anchor>
-                    <Anchor component={Link} to="/">Chính sách đổi trả</Anchor>
-                    <Anchor component={Link} to="/">Chính sách thanh toán</Anchor>
-                    <Anchor component={Link} to="/">Giải quyết khiếu nại</Anchor>
-                    <Anchor component={Link} to="/">Chính sách bảo mật</Anchor>
+                    <Anchor component={Link} to="/">Frequently Asked Questions</Anchor>
+                    <Anchor component={Link} to="/">Order Guide</Anchor>
+                    <Anchor component={Link} to="/">Shipping Methods</Anchor>
+                    <Anchor component={Link} to="/">Return & Exchange Policy</Anchor>
+                    <Anchor component={Link} to="/">Payment Policy</Anchor>
+                    <Anchor component={Link} to="/">Complaint Resolution</Anchor>
+                    <Anchor component={Link} to="/">Privacy Policy</Anchor>
                   </Stack>
                 </Stack>
               </Grid.Col>
               <Grid.Col xs={6} className={classes.footerLinks}>
                 <Stack justify="space-between" sx={{ height: '100%' }}>
                   <Stack>
-                    <Text weight={500}>Giới thiệu</Text>
+                    <Text weight={500}>About Us</Text>
                     <Stack spacing={theme.spacing.xs}>
-                      <Anchor component={Link} to="/">Về Công ty</Anchor>
-                      <Anchor component={Link} to="/">Tuyển dụng</Anchor>
-                      <Anchor component={Link} to="/">Hợp tác</Anchor>
-                      <Anchor component={Link} to="/">Liên hệ mua hàng</Anchor>
+                      <Anchor component={Link} to="/">About the Company</Anchor>
+                      <Anchor component={Link} to="/">Careers</Anchor>
+                      <Anchor component={Link} to="/">Partnerships</Anchor>
+                      <Anchor component={Link} to="/">Contact for Purchases</Anchor>
                     </Stack>
                   </Stack>
                   <Group>
@@ -131,7 +131,7 @@ function ClientFooter() {
                           label: (
                             <Center>
                               <Sun size={14} strokeWidth={1.5}/>
-                              <Box ml={10}>Sáng</Box>
+                              <Box ml={10}>Light</Box>
                             </Center>
                           ),
                         },
@@ -140,7 +140,7 @@ function ClientFooter() {
                           label: (
                             <Center>
                               <Moon size={14} strokeWidth={1.5}/>
-                              <Box ml={10}>Tối</Box>
+                              <Box ml={10}>Dark</Box>
                             </Center>
                           ),
                         },
@@ -148,13 +148,14 @@ function ClientFooter() {
                     />
                   </Group>
                 </Stack>
+
               </Grid.Col>
             </Grid>
           </Grid.Col>
         </Grid>
         <Group className={classes.afterFooter} position="apart">
           <Text color="dimmed" size="sm">
-            © 2022 Electro Corporation. Bảo lưu mọi quyền.
+            © 2025 Srinivasa Battery World.
           </Text>
           <Group spacing="xs">
             <ThemeIcon variant="outline" color="gray" sx={{ width: 50, height: 30 }}>

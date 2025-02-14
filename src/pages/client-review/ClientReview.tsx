@@ -292,7 +292,7 @@ function useGetAllReviewsByUserApi(activePage: number) {
     ['client-api', 'reviews', 'getAllReviewsByUser', requestParams],
     () => FetchUtils.getWithToken(ResourceURL.CLIENT_REVIEW, requestParams),
     {
-      onError: () => NotifyUtils.simpleFailed('Lấy dữ liệu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to retrieve data'),
       refetchOnWindowFocus: false,
       keepPreviousData: true,
     }

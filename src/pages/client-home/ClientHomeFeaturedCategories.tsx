@@ -16,11 +16,11 @@ function ClientHomeFeaturedCategories() {
             color="orange"
             inherit
           >
-            Danh mục nổi bật
+            Featured Category.
           </Text>
         </Title>
         <Button component={Link} to="/all-categories" variant="light" leftIcon={<List size={16}/>} radius="md">
-          Xem tất cả
+          View all.
         </Button>
       </Group>
       <Grid>

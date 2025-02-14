@@ -123,7 +123,7 @@ function PaymentMethodManage() {
 
       <Alert
         icon={<AlertCircle size={16}/>}
-        title="Thông báo"
+        title="Notification"
         color="pink"
         radius="md"
       >

@@ -9,7 +9,7 @@ function AdminNotification() {
     <Center>
       <Stack align="center">
         <Bell size={200} strokeWidth={1} color={theme.colors.gray[5]}/>
-        <Text size="lg">Chức năng Thông báo của Admin hiện chưa được triển khai</Text>
+        <Text size="lg">Chức năng Notification của Admin hiện chưa được triển khai</Text>
       </Stack>
     </Center>
   );
