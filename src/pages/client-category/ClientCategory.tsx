@@ -33,7 +33,7 @@ import ClientCategoryProducts from 'pages/client-category/ClientCategoryProducts
 import useClientCategoryStore from 'stores/use-client-category-store';
 import { useDebouncedValue } from '@mantine/hooks';
 
-function ClientCategory() {
+const ClientCategory = async () => {
   const theme = useMantineTheme();
 
   const { slug } = useParams();
@@ -277,7 +277,7 @@ function ClientCategory() {
       </Container>
     </main>
   );
-}
+};
 
 function useGetCategoryApi(categorySlug: string) {
   const {

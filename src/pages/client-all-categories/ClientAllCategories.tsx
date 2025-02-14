@@ -23,7 +23,7 @@ import ResourceURL from 'constants/ResourceURL';
 import NotifyUtils from 'utils/NotifyUtils';
 import { AlertTriangle } from 'tabler-icons-react';
 
-function ClientAllCategories() {
+const ClientAllCategories = async () =>{
   useTitle();
 
   const theme = useMantineTheme();
@@ -132,6 +132,6 @@ function ClientAllCategories() {
       </Container>
     </main>
   );
-}
+};
 
 export default ClientAllCategories;

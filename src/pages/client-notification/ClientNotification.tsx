@@ -41,7 +41,7 @@ import useAuthStore from 'stores/use-auth-store';
 import useClientSiteStore from 'stores/use-client-site-store';
 import dayjs from 'dayjs';
 
-function ClientNotification() {
+const ClientNotification = async () => {
   useTitle();
 
   const theme = useMantineTheme();
@@ -131,7 +131,7 @@ function ClientNotification() {
       </Container>
     </main>
   );
-}
+};
 
 interface NotificationFigure {
   icon: Icon;

@@ -24,7 +24,7 @@ const dateReducerForStatisticResources = (statisticResources: StatisticResource[
   total: statisticResource.total,
 }));
 
-function AdminDashboard() {
+const AdminDashboard = async () =>{
   const theme = useMantineTheme();
 
   const { statisticResponse } = useGetStatisticApi();
@@ -77,7 +77,7 @@ function AdminDashboard() {
       </Paper>
     </Stack>
   );
-}
+};
 
 interface OverviewCardProps {
   title: string;
