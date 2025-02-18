@@ -107,10 +107,10 @@ function WaybillManage() {
         <td style={{ textAlign: 'right' }}>{MiscUtils.formatPrice(entity.shippingFee) + ' ₫'}</td>
         <td>
           <Stack spacing={0}>
-            <Text size="xs">Khối lượng: <b>{entity.weight}</b> (gram)</Text>
-            <Text size="xs">Chiều dài: <b>{entity.length}</b> (cm)</Text>
-            <Text size="xs">Chiều rộng: <b>{entity.width}</b> (cm)</Text>
-            <Text size="xs">Chiều cao: <b>{entity.height}</b> (cm)</Text>
+            <Text size="xs">Weight: <b>{entity.weight}</b> (grams)</Text>
+            <Text size="xs">Length: <b>{entity.length}</b> (cm)</Text>
+            <Text size="xs">Width: <b>{entity.width}</b> (cm)</Text>
+            <Text size="xs">Height: <b>{entity.height}</b> (cm)</Text>
           </Stack>
         </td>
       </>
@@ -163,23 +163,23 @@ function WaybillManage() {
         <td>{WaybillConfigs.properties.size.label}</td>
         <td>
           <Stack spacing={0}>
-            <Text size="xs">Khối lượng: <b>{entity.weight}</b> (gram)</Text>
-            <Text size="xs">Chiều dài: <b>{entity.length}</b> (cm)</Text>
-            <Text size="xs">Chiều rộng: <b>{entity.width}</b> (cm)</Text>
-            <Text size="xs">Chiều cao: <b>{entity.height}</b> (cm)</Text>
+            <Text size="xs">Weight: <b>{entity.weight}</b> (grams)</Text>
+            <Text size="xs">Length: <b>{entity.length}</b> (cm)</Text>
+            <Text size="xs">Width: <b>{entity.width}</b> (cm)</Text>
+            <Text size="xs">Height: <b>{entity.height}</b> (cm)</Text>
           </Stack>
         </td>
       </tr>
       <tr>
-        <td>Ghi chú vận đơn</td>
+        <td>Waybill Notes</td>
         <td style={{ maxWidth: 300 }}>{entity.note}</td>
       </tr>
       <tr>
-        <td>Người trả phí dịch vụ GHN</td>
+        <td>Person Paying for GHN Service</td>
         <td>{WaybillConfigs.ghnPaymentTypeIdMap[entity.ghnPaymentTypeId]}</td>
       </tr>
       <tr>
-        <td>Ghi chú cho dịch vụ GHN</td>
+        <td>Note for GHN Service</td>
         <td>{WaybillConfigs.ghnRequiredNoteMap[entity.ghnRequiredNote]}</td>
       </tr>
     </>

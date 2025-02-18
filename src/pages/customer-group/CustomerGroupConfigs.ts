@@ -10,38 +10,38 @@ class CustomerGroupConfigs extends Configs {
   static managerPath = ManagerPath.CUSTOMER_GROUP;
   static resourceUrl = ResourceURL.CUSTOMER_GROUP;
   static resourceKey = 'customer-groups';
-  static createTitle = 'Thêm nhóm khách hàng';
-  static updateTitle = 'Cập nhật nhóm khách hàng';
-  static manageTitle = 'Quản lý nhóm khách hàng';
+  static createTitle = 'Add Customer Group';
+  static updateTitle = 'Update Customer Group';
+  static manageTitle = 'Manage Customer Groups';
 
   static manageTitleLinks: TitleLink[] = CustomerConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true),
     code: {
-      label: 'Mã nhóm khách hàng',
+      label: 'Customer Group Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     name: {
-      label: 'Tên nhóm khách hàng',
+      label: 'Customer Group Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     description: {
-      label: 'Mô tả nhóm khách hàng',
+      label: 'Customer Group Description',
       type: EntityPropertyType.STRING,
     },
     color: {
-      label: 'Màu nhóm khách hàng',
+      label: 'Customer Group Color',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái nhóm khách hàng',
+      label: 'Customer Group Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = CustomerGroupConfigs._rawProperties as

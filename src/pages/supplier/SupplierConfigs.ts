@@ -10,100 +10,100 @@ class SupplierConfigs extends Configs {
   static managerPath = ManagerPath.SUPPLIER;
   static resourceUrl = ResourceURL.SUPPLIER;
   static resourceKey = 'suppliers';
-  static createTitle = 'Thêm nhà cung cấp';
-  static updateTitle = 'Cập nhật nhà cung cấp';
-  static manageTitle = 'Quản lý nhà cung cấp';
+  static createTitle = 'Add Supplier';
+  static updateTitle = 'Update Supplier';
+  static manageTitle = 'Manage Suppliers';
 
   static manageTitleLinks: TitleLink[] = ProductConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true),
     displayName: {
-      label: 'Tên hiển thị nhà cung cấp',
+      label: 'Supplier Display Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     code: {
-      label: 'Mã nhà cung cấp',
+      label: 'Supplier Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     contactFullname: {
-      label: 'Họ và tên người liên hệ',
+      label: 'Contact Person Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     contactEmail: {
-      label: 'Email người liên hệ',
+      label: 'Contact Person Email',
       type: EntityPropertyType.STRING,
     },
     contactPhone: {
-      label: 'Số điện thoại người liên hệ',
+      label: 'Contact Person Phone',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     companyName: {
-      label: 'Tên công ty',
+      label: 'Company Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     taxCode: {
-      label: 'Mã số thuế công ty',
+      label: 'Company Tax Code',
       type: EntityPropertyType.STRING,
     },
     email: {
-      label: 'Email công ty',
+      label: 'Company Email',
       type: EntityPropertyType.STRING,
     },
     phone: {
-      label: 'Số điện thoại công ty',
+      label: 'Company Phone',
       type: EntityPropertyType.STRING,
     },
     fax: {
-      label: 'Fax công ty',
+      label: 'Company Fax',
       type: EntityPropertyType.STRING,
     },
     website: {
-      label: 'Website công ty',
+      label: 'Company Website',
       type: EntityPropertyType.STRING,
     },
     'address.line': {
-      label: 'Địa chỉ công ty',
+      label: 'Company Address',
       type: EntityPropertyType.STRING,
     },
     'address.province.name': {
-      label: 'Tên tỉnh thành công ty',
+      label: 'Company Province Name',
       type: EntityPropertyType.STRING,
     },
     'address.district.name': {
-      label: 'Tên quận huyện công ty',
+      label: 'Company District Name',
       type: EntityPropertyType.STRING,
     },
     'address.provinceId': {
-      label: 'Tỉnh thành công ty',
+      label: 'Company Province',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'address.districtId': {
-      label: 'Quận huyện công ty',
+      label: 'Company District',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     description: {
-      label: 'Mô tả công ty',
+      label: 'Company Description',
       type: EntityPropertyType.STRING,
     },
     note: {
-      label: 'Ghi chú công ty',
+      label: 'Company Notes',
       type: EntityPropertyType.STRING,
     },
     status: {
-      label: 'Trạng thái nhà cung cấp',
+      label: 'Supplier Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = SupplierConfigs._rawProperties as

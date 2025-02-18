@@ -50,7 +50,7 @@ function ProductSpecifications({
         onClick={handleCreateProductSpecificationButton}
         disabled={isDisabledCreateProductSpecificationButton}
       >
-        Thêm thông số sản phẩm
+        Add product specification
       </Button>
     </Stack>
   );

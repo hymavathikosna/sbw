@@ -33,7 +33,7 @@ function ManagePagination({
           component="span"
           weight={500}
         >
-          Trang {activePage}
+          Page {activePage}
         </Text>
         <span> / {listResponse.totalPages} </span>
         <Text
@@ -50,7 +50,7 @@ function ManagePagination({
         onChange={handlePaginationButton}
       />
       <Group>
-        <Text size="sm">Số hàng trên trang</Text>
+        <Text size="sm">Items per page</Text>
         <Select
           sx={{ width: 72 }}
           variant="filled"

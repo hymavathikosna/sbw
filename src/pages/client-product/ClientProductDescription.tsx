@@ -12,7 +12,7 @@ function ClientProductDescription({ product }: ClientProductDescriptionProps) {
     <Stack>
       <Group spacing="xs">
         <Receipt/>
-        <Title order={2}>Mô tả sản phẩm</Title>
+        <Title order={2}>Product description</Title>
       </Group>
       <Text>{product.productDescription}</Text>
     </Stack>

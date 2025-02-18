@@ -23,14 +23,14 @@ function ClientUser() {
             <Card radius="md" shadow="sm" p="lg">
               <Stack>
                 <Title order={2}>
-                  Thông tin tài khoản
+                  Account Information
                 </Title>
 
                 <Grid gutter="lg">
                   <Grid.Col lg={6}>
                     <Stack>
                       <Text size="lg" color="dimmed" weight={500}>
-                        Thông tin cá nhân
+                        Personal Information
                       </Text>
 
                       <Group position="apart">
@@ -47,7 +47,7 @@ function ClientUser() {
                           variant="outline"
                           radius="md"
                         >
-                          Cập nhật
+                          Update
                         </Button>
                       </Group>
 
@@ -60,8 +60,8 @@ function ClientUser() {
                             : <Venus size={20} strokeWidth={1.5}/>}
                         </ThemeIcon>
                         <Stack spacing={0}>
-                          <Text weight={500}>Giới tính</Text>
-                          {user?.gender === 'M' ? 'Nam' : 'Nữ'}
+                          <Text weight={500}>Gender</Text>
+                          {user?.gender === 'M' ? 'Male' : 'Female'}
                         </Stack>
                       </Group>
 
@@ -70,7 +70,7 @@ function ClientUser() {
                           <Home size={20} strokeWidth={1.5}/>
                         </ThemeIcon>
                         <Stack spacing={0}>
-                          <Text weight={500}>Địa chỉ</Text>
+                          <Text weight={500}>Address</Text>
                           <Text>
                             {[user?.address.line, user?.address.ward?.name, user?.address.district?.name, user?.address.province?.name]
                               .filter(Boolean)
@@ -84,7 +84,7 @@ function ClientUser() {
                   <Grid.Col lg={6}>
                     <Stack>
                       <Text size="lg" color="dimmed" weight={500}>
-                        Số điện thoại và Email
+                        Phone number and Email
                       </Text>
 
                       <Group position="apart">
@@ -93,7 +93,7 @@ function ClientUser() {
                             <Phone size={20} strokeWidth={1.5}/>
                           </ThemeIcon>
                           <Stack spacing={0}>
-                            <Text weight={500}>Số điện thoại</Text>
+                            <Text weight={500}>Phone number</Text>
                             <Text>{user?.phone}</Text>
                           </Stack>
                         </Group>
@@ -103,7 +103,7 @@ function ClientUser() {
                           variant="outline"
                           radius="md"
                         >
-                          Cập nhật
+                          Update
                         </Button>
                       </Group>
 
@@ -123,12 +123,12 @@ function ClientUser() {
                           variant="outline"
                           radius="md"
                         >
-                          Cập nhật
+                          Update
                         </Button>
                       </Group>
 
                       <Text size="lg" color="dimmed" weight={500}>
-                        Bảo mật
+                        Security
                       </Text>
 
                       <Group position="apart">
@@ -136,7 +136,7 @@ function ClientUser() {
                           <ThemeIcon radius="xl" size="lg" variant="light">
                             <Lock size={20} strokeWidth={1.5}/>
                           </ThemeIcon>
-                          <Text weight={500}>Đổi mật khẩu</Text>
+                          <Text weight={500}>Change password</Text>
                         </Group>
                         <Button
                           component={Link}
@@ -144,7 +144,7 @@ function ClientUser() {
                           variant="outline"
                           radius="md"
                         >
-                          Cập nhật
+                          Update
                         </Button>
                       </Group>
                     </Stack>

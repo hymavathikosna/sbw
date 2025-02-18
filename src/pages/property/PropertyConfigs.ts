@@ -10,33 +10,33 @@ class PropertyConfigs extends Configs {
   static managerPath = ManagerPath.PROPERTY;
   static resourceUrl = ResourceURL.PROPERTY;
   static resourceKey = 'properties';
-  static createTitle = 'Thêm thuộc tính sản phẩm';
-  static updateTitle = 'Cập nhật thuộc tính sản phẩm';
-  static manageTitle = 'Quản lý thuộc tính sản phẩm';
+  static createTitle = 'Add Product Attribute';
+  static updateTitle = 'Update Product Attribute';
+  static manageTitle = 'Manage Product Attribute';
 
   static manageTitleLinks: TitleLink[] = ProductConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     name: {
-      label: 'Tên thuộc tính sản phẩm',
+      label: 'Product Attribute Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     code: {
-      label: 'Mã thuộc tính sản phẩm',
+      label: 'Product Attribute Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     description: {
-      label: 'Mô tả thuộc tính sản phẩm',
+      label: 'Product Attribute Description',
       type: EntityPropertyType.STRING,
     },
     status: {
-      label: 'Trạng thái thuộc tính sản phẩm',
+      label: 'Product Attribute Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = PropertyConfigs._rawProperties as

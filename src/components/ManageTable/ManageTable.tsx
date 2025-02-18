@@ -41,7 +41,7 @@ function ManageTable<T extends BaseResponse>(props: ManageTableProps<T>) {
         />
       </th>
       {tableHeads.map((item) => <th key={item}>{item}</th>)}
-      <th style={{ width: 120 }}>Thao tác</th>
+      <th style={{ width: 120 }}>Action</th>
     </tr>
   );
 
@@ -80,7 +80,7 @@ function ManageTable<T extends BaseResponse>(props: ManageTableProps<T>) {
               color="teal"
               variant="outline"
               size={24}
-              title="Cập nhật"
+              title="Update"
             >
               <Edit size={16}/>
             </ActionIcon>

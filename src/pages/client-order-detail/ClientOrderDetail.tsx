@@ -67,11 +67,11 @@ function ClientOrderDetail() {
       overlayOpacity: 0.55,
       overlayBlur: 3,
       closeOnClickOutside: false,
-      title: <strong>Xác nhận hủy</strong>,
-      children: <Text size="sm">Bạn có muốn hủy đơn hàng này, không thể hoàn tác?</Text>,
+      title: <strong>Cancel Confirmation</strong>,
+      children: <Text size="sm">Do you want to cancel this order? It cannot be undone.</Text>,
       labels: {
-        cancel: 'Không hủy',
-        confirm: 'Hủy',
+        cancel: 'Do not cancel',
+        confirm: 'Cancel',
       },
       confirmProps: { color: 'red' },
       onConfirm: () => cancelOrderApi.mutate(),
@@ -81,24 +81,24 @@ function ClientOrderDetail() {
   const orderStatusBadgeFragment = (status: number) => {
     switch (status) {
     case 1:
-      return <Badge color="gray" variant="filled" size="sm">Đơn hàng mới</Badge>;
+      return <Badge color="gray" variant="filled" size="sm">New Order</Badge>;
     case 2:
-      return <Badge color="blue" variant="filled" size="sm">Đang xử lý</Badge>;
+      return <Badge color="blue" variant="filled" size="sm">Processing</Badge>;
     case 3:
-      return <Badge color="violet" variant="filled" size="sm">Đang giao hàng</Badge>;
+      return <Badge color="violet" variant="filled" size="sm">Shipping</Badge>;
     case 4:
-      return <Badge color="green" variant="filled" size="sm">Đã giao hàng</Badge>;
+      return <Badge color="green" variant="filled" size="sm">Delivered</Badge>;
     case 5:
-      return <Badge color="red" variant="filled" size="sm">Hủy bỏ</Badge>;
+      return <Badge color="red" variant="filled" size="sm">Canceled</Badge>;
     }
   };
 
   const orderPaymentStatusBadgeFragment = (paymentStatus: number) => {
     switch (paymentStatus) {
     case 1:
-      return <Badge color="gray" variant="filled" size="sm">Chưa thanh toán</Badge>;
+      return <Badge color="gray" variant="filled" size="sm">Not Paid</Badge>;
     case 2:
-      return <Badge color="green" variant="filled" size="sm">Đã thanh toán</Badge>;
+      return <Badge color="green" variant="filled" size="sm">Paid</Badge>;
     }
   };
 
@@ -113,27 +113,27 @@ function ClientOrderDetail() {
       0: {
         icon: Circle,
         color: 'gray',
-        text: 'Trạng thái vận đơn không rõ',
+        text: 'Tracking status unclear',
       },
       1: {
         icon: Plus,
         color: 'blue',
-        text: 'Đơn hàng được duyệt và vận đơn được tạo',
+        text: 'Order approved and tracking created',
       },
       2: {
         icon: ArrowRight,
         color: 'orange',
-        text: 'Đang giao hàng',
+        text: 'Shipping in progress',
       },
       3: {
         icon: Check,
         color: 'teal',
-        text: 'Giao hàng thành công',
+        text: 'Delivery successful',
       },
       4: {
         icon: X,
         color: 'pink',
-        text: 'Vận đơn bị hủy',
+        text: 'Tracking canceled',
       },
     };
 
@@ -156,7 +156,7 @@ function ClientOrderDetail() {
     orderContentFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.pink[6] }}>
         <AlertTriangle size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Đã có lỗi xảy ra</Text>
+        <Text size="xl" weight={500}>An error has occurred</Text>
       </Stack>
     );
   }
@@ -174,9 +174,9 @@ function ClientOrderDetail() {
         <Card p="md" radius="md" sx={cardStyles}>
           <Group position="apart">
             <Group>
-              <Text weight={500}>Mã đơn hàng: {order.orderCode}</Text>
+              <Text weight={500}>Order Code: {order.orderCode}</Text>
               <Text color="dimmed">
-                Ngày tạo: {DateUtils.isoDateToString(order.orderCreatedAt)}
+                Created Date: {DateUtils.isoDateToString(order.orderCreatedAt)}
               </Text>
             </Group>
             <Group spacing="xs">
@@ -287,12 +287,12 @@ function ClientOrderDetail() {
             <Table verticalSpacing="sm" horizontalSpacing="lg">
               <thead>
                 <tr>
-                  <th style={{ minWidth: 325 }}><Text weight="initial" size="sm" color="dimmed">Mặt hàng</Text></th>
-                  <th style={{ minWidth: 125 }}><Text weight="initial" size="sm" color="dimmed">Đơn giá</Text></th>
-                  <th style={{ minWidth: 150 }}><Text weight="initial" size="sm" color="dimmed">Số lượng</Text></th>
-                  {/* TODO: Thêm discountPercent cho OrderVariant */}
-                  {/*<th style={{ minWidth: 125 }}><Text weight="initial" size="sm" color="dimmed">Giảm giá</Text></th>*/}
-                  <th style={{ minWidth: 125 }}><Text weight="initial" size="sm" color="dimmed">Thành tiền</Text></th>
+                  <th style={{ minWidth: 325 }}><Text weight="initial" size="sm" color="dimmed">Item</Text></th>
+                  <th style={{ minWidth: 125 }}><Text weight="initial" size="sm" color="dimmed">Unit Price</Text></th>
+                  <th style={{ minWidth: 150 }}><Text weight="initial" size="sm" color="dimmed">Quantity</Text></th>
+                  {/* TODO: Add discountPercent for OrderVariant */}
+                  {/*<th style={{ minWidth: 125 }}><Text weight="initial" size="sm" color="dimmed">Discount</Text></th>*/}
+                  <th style={{ minWidth: 125 }}><Text weight="initial" size="sm" color="dimmed">Total</Text></th>
                 </tr>
               </thead>
               <tbody>
@@ -314,13 +314,13 @@ function ClientOrderDetail() {
           <Grid.Col sm={5} md={4} lg={3}>
             <Stack spacing="xs">
               <Group position="apart">
-                <Text size="sm" color="dimmed">Tạm tính</Text>
+                <Text size="sm" color="dimmed">Provisional total</Text>
                 <Text size="sm" sx={{ textAlign: 'right' }}>
                   {MiscUtils.formatPrice(order.orderTotalAmount) + '\u00A0₫'}
                 </Text>
               </Group>
               <Group position="apart">
-                <Text size="sm" color="dimmed">Thuế (10%)</Text>
+                <Text size="sm" color="dimmed">Tax (10%)</Text>
                 <Text size="sm" sx={{ textAlign: 'right' }}>
                   {MiscUtils.formatPrice(Number(
                     (order.orderTotalAmount * ApplicationConstants.DEFAULT_TAX).toFixed(0))) + '\u00A0₫'}
@@ -328,10 +328,10 @@ function ClientOrderDetail() {
               </Group>
               <Group position="apart">
                 <Group spacing="xs">
-                  <Text size="sm" color="dimmed">Phí vận chuyển</Text>
+                  <Text size="sm" color="dimmed">Shipping Fee</Text>
                   {order.orderStatus === 1 && (
                     <Tooltip
-                      label="Phí vận chuyển có thể chưa được tính và sẽ còn cập nhật"
+                      label="Shipping fee may not have been calculated yet and will be updated"
                       withArrow
                       sx={{ height: 20 }}
                     >
@@ -346,7 +346,7 @@ function ClientOrderDetail() {
                 </Text>
               </Group>
               <Group position="apart">
-                <Text size="sm" weight={500}>Tổng tiền</Text>
+                <Text size="sm" weight={500}>Total amount</Text>
                 <Text size="lg" weight={700} color="blue" sx={{ textAlign: 'right' }}>
                   {MiscUtils.formatPrice(order.orderTotalPay) + '\u00A0₫'}
                 </Text>
@@ -364,7 +364,7 @@ function ClientOrderDetail() {
           onClick={handleCancelOrderButton}
           disabled={![1, 2].includes(order.orderStatus)}
         >
-          Hủy đơn hàng
+          Cancel order
         </Button>
       </Stack>
     );
@@ -382,7 +382,7 @@ function ClientOrderDetail() {
             <Card radius="md" shadow="sm" p="lg">
               <Stack>
                 <Title order={2}>
-                  Chi tiết đơn hàng
+                  Order details
                 </Title>
 
                 {orderContentFragment}
@@ -406,7 +406,7 @@ function OrderItemTableRow({ orderItem, canReview }: { orderItem: ClientOrderVar
       overlayOpacity: 0.55,
       overlayBlur: 3,
       closeOnClickOutside: false,
-      title: <strong>Đánh giá sản phẩm</strong>,
+      title: <strong>Product review</strong>,
       children: <ReviewProductModal orderItem={orderItem}/>,
     });
   };
@@ -448,7 +448,7 @@ function OrderItemTableRow({ orderItem, canReview }: { orderItem: ClientOrderVar
                 sx={{ width: 'fit-content' }}
                 onClick={handleOpenReviewModalButton}
                 disabled={orderItem.orderItemVariant.variantProduct.productIsReviewed}
-                title={orderItem.orderItemVariant.variantProduct.productIsReviewed ? 'Sản phẩm đã được bạn đánh giá' : ''}
+                title={orderItem.orderItemVariant.variantProduct.productIsReviewed ? 'The product has been reviewed by you' : ''}
               >
                 Đánh giá
               </Button>
@@ -482,11 +482,11 @@ function OrderItemTableRow({ orderItem, canReview }: { orderItem: ClientOrderVar
 }
 
 const ratingNameMap: Record<number, string> = {
-  1: 'Rất không hài lòng',
-  2: 'Không hài lòng',
-  3: 'Bình thường',
-  4: 'Hài lòng',
-  5: 'Cực kỳ hài lòng',
+  1: 'Very Dissatisfied',
+  2: 'Dissatisfied',
+  3: 'Neutral',
+  4: 'Satisfied',
+  5: 'Extremely Satisfied',
 };
 
 function ReviewProductModal({ orderItem }: { orderItem: ClientOrderVariantResponse }) {
@@ -501,7 +501,7 @@ function ReviewProductModal({ orderItem }: { orderItem: ClientOrderVariantRespon
     },
     schema: zodResolver(z.object({
       rating: z.number().min(1).max(5),
-      review: z.string().min(3, { message: 'Vui lòng nhập ít nhất 3 ký tự' }),
+      review: z.string().min(3, { message: 'Please enter at least 3 characters' }),
     })),
   });
 
@@ -537,7 +537,7 @@ function ReviewProductModal({ orderItem }: { orderItem: ClientOrderVariantRespon
       </Group>
 
       <Stack spacing="xs" align="center" mb="md">
-        <Text size="lg" weight={500}>Vui lòng đánh giá</Text>
+        <Text size="lg" weight={500}>Please rate</Text>
         <Rating
           style={{ maxWidth: 180 }}
           {...form.getInputProps('rating')}
@@ -549,7 +549,7 @@ function ReviewProductModal({ orderItem }: { orderItem: ClientOrderVariantRespon
       <Textarea
         required
         data-autofocus
-        placeholder="Hãy chia sẻ cảm nhận, đánh giá của bạn về sản phẩm này nhé."
+        placeholder="Please share your thoughts and review of this product."
         autosize
         minRows={4}
         radius="md"
@@ -558,10 +558,10 @@ function ReviewProductModal({ orderItem }: { orderItem: ClientOrderVariantRespon
 
       <Group position="right">
         <Button variant="default" radius="md" onClick={modals.closeAll}>
-          Đóng
+          Close
         </Button>
         <Button type="submit" radius="md" onClick={handleFormSubmit}>
-          Gửi đánh giá
+          Submit review
         </Button>
       </Group>
     </Stack>
@@ -592,10 +592,10 @@ function useCancelOrderApi(orderCode: string) {
     () => FetchUtils.putWithToken(ResourceURL.CLIENT_ORDER_CANCEL + '/' + orderCode, {}),
     {
       onSuccess: () => {
-        NotifyUtils.simpleSuccess('Hủy đơn hàng thành công');
+        NotifyUtils.simpleSuccess('Order cancellation successful');
         void queryClient.invalidateQueries(['client-api', 'orders', 'getOrder', orderCode]);
       },
-      onError: () => NotifyUtils.simpleFailed('Hủy đơn hàng không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Order cancellation failed'),      
     }
   );
 }
@@ -609,16 +609,16 @@ function useCreateReviewApi() {
       onSuccess: (response) => {
         NotifyUtils.simpleSuccess(
           <Text inherit>
-            <span>Đã thêm đánh giá cho sản phẩm </span>
+            <span>You have added a review for the product </span>
             <Anchor component={Link} to={'/product/' + response.reviewProduct.productSlug} inherit>
               {response.reviewProduct.productName}
             </Anchor>
-            <span>. Vui lòng đợi duyệt để hiển thị.</span>
+            <span>. Please wait for approval to display.</span>
           </Text>
         );
         void queryClient.invalidateQueries(['client-api', 'orders', 'getOrder']);
       },
-      onError: () => NotifyUtils.simpleFailed('Không thêm được đánh giá cho sản phẩm'),
+      onError: () => NotifyUtils.simpleFailed('Unable to add a review for the product'),
     }
   );
 }

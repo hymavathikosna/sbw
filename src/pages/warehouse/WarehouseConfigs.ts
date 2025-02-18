@@ -9,87 +9,87 @@ class WarehouseConfigs extends Configs {
   static managerPath = ManagerPath.WAREHOUSE;
   static resourceUrl = ResourceURL.WAREHOUSE;
   static resourceKey = 'warehouses';
-  static createTitle = 'Thêm nhà kho';
-  static updateTitle = 'Cập nhật nhà kho';
-  static manageTitle = 'Quản lý nhà kho';
+  static createTitle = 'Add Warehouse';
+  static updateTitle = 'Update Warehouse';
+  static manageTitle = 'Manage Warehouse';
 
   static manageTitleLinks: TitleLink[] = [
     {
       link: ManagerPath.INVENTORY,
-      label: 'Theo dõi tồn kho',
+      label: 'Track Inventory',
     },
     {
       link: ManagerPath.WAREHOUSE,
-      label: 'Quản lý nhà kho',
+      label: 'Manage Warehouse',
     },
     {
       link: ManagerPath.PURCHASE_ORDER,
-      label: 'Quản lý đơn mua hàng',
+      label: 'Manage Purchase Orders',
     },
     {
       link: ManagerPath.DESTINATION,
-      label: 'Quản lý điểm nhập hàng',
+      label: 'Manage Receiving Points',
     },
     {
       link: ManagerPath.DOCKET,
-      label: 'Quản lý phiếu nhập xuất kho',
+      label: 'Manage Stock In/Out Documents',
     },
     {
       link: ManagerPath.DOCKET_REASON,
-      label: 'Quản lý lý do phiếu NXK',
+      label: 'Manage Stock In/Out Document Reasons',
     },
     {
       link: ManagerPath.COUNT,
-      label: 'Quản lý phiếu kiểm kho',
+      label: 'Manage Stock Count Documents',
     },
     {
       link: ManagerPath.TRANSFER,
-      label: 'Quản lý phiếu chuyển kho',
+      label: 'Manage Warehouse Transfer Documents',
     },
   ];
-
+  
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     code: {
-      label: 'Mã nhà kho',
+      label: 'Warehouse Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     name: {
-      label: 'Tên nhà kho',
+      label: 'Warehouse Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'address.line': {
-      label: 'Địa chỉ',
+      label: 'Address',
       type: EntityPropertyType.STRING,
     },
     'address.province.name': {
-      label: 'Tên tỉnh thành',
+      label: 'Province Name',
       type: EntityPropertyType.STRING,
     },
     'address.district.name': {
-      label: 'Tên quận huyện',
+      label: 'District Name',
       type: EntityPropertyType.STRING,
     },
     status: {
-      label: 'Trạng thái nhà kho',
+      label: 'Warehouse Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     'address.provinceId': {
-      label: 'Tỉnh thành',
+      label: 'Province',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'address.districtId': {
-      label: 'Quận huyện',
+      label: 'District',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
-  };
+  };  
 
   static properties = WarehouseConfigs._rawProperties as
     EntityPropertySchema<typeof WarehouseConfigs._rawProperties & typeof PageConfigs.properties>;

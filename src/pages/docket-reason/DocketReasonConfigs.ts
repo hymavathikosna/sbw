@@ -10,24 +10,24 @@ class DocketReasonConfigs extends Configs {
   static managerPath = ManagerPath.DOCKET_REASON;
   static resourceUrl = ResourceURL.DOCKET_REASON;
   static resourceKey = 'docket-reasons';
-  static createTitle = 'Thêm lý do phiếu NXK';
-  static updateTitle = 'Cập nhật lý do phiếu NXK';
-  static manageTitle = 'Quản lý lý do phiếu NXK';
+  static createTitle = 'Add NXK Ticket Reason';
+  static updateTitle = 'Update NXK Ticket Reason';
+  static manageTitle = 'Manage NXK Ticket Reasons';
 
   static manageTitleLinks: TitleLink[] = WarehouseConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     name: {
-      label: 'Tên lý do phiếu NXK',
+      label: 'NXK Ticket Reason Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái lý do phiếu NXK',
+      label: 'NXK Ticket Reason Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = DocketReasonConfigs._rawProperties as

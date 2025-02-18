@@ -10,38 +10,38 @@ class CustomerResourceConfigs extends Configs {
   static managerPath = ManagerPath.CUSTOMER_RESOURCE;
   static resourceUrl = ResourceURL.CUSTOMER_RESOURCE;
   static resourceKey = 'customer-resources';
-  static createTitle = 'Thêm nguồn khách hàng';
-  static updateTitle = 'Cập nhật nguồn khách hàng';
-  static manageTitle = 'Quản lý nguồn khách hàng';
+  static createTitle = 'Add Customer Source';
+  static updateTitle = 'Update Customer Source';
+  static manageTitle = 'Manage Customer Sources';
 
   static manageTitleLinks: TitleLink[] = CustomerConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true),
     code: {
-      label: 'Mã nguồn khách hàng',
+      label: 'Customer Source Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     name: {
-      label: 'Tên nguồn khách hàng',
+      label: 'Customer Source Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     description: {
-      label: 'Mô tả nguồn khách hàng',
+      label: 'Customer Source Description',
       type: EntityPropertyType.STRING,
     },
     color: {
-      label: 'Màu nguồn khách hàng',
+      label: 'Customer Source Color',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái nguồn khách hàng',
+      label: 'Customer Source Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = CustomerResourceConfigs._rawProperties as

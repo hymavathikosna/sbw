@@ -10,51 +10,51 @@ class CategoryConfigs extends Configs {
   static managerPath = ManagerPath.CATEGORY;
   static resourceUrl = ResourceURL.CATEGORY;
   static resourceKey = 'categories';
-  static createTitle = 'Thêm danh mục sản phẩm';
-  static updateTitle = 'Cập nhật danh mục sản phẩm';
-  static manageTitle = 'Quản lý danh mục sản phẩm';
+  static createTitle = 'Add Product Category';
+  static updateTitle = 'Update Product Category';
+  static manageTitle = 'Manage Product Categories';
 
   static manageTitleLinks: TitleLink[] = ProductConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true),
     name: {
-      label: 'Tên danh mục sản phẩm',
+      label: 'Product Category Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     slug: {
-      label: 'Slug danh mục sản phẩm',
+      label: 'Product Category Slug',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     description: {
-      label: 'Mô tả danh mục sản phẩm',
+      label: 'Product Category Description',
       type: EntityPropertyType.STRING,
     },
     thumbnail: {
-      label: 'Hình đại diện',
+      label: 'Thumbnail',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'parentCategory.name': {
-      label: 'Tên danh mục cha',
+      label: 'Parent Category Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái danh mục sản phẩm',
+      label: 'Product Category Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     parentCategoryId: {
-      label: 'Danh mục cha',
+      label: 'Parent Category',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
-    },
+    },    
   };
 
   static properties = CategoryConfigs._rawProperties as

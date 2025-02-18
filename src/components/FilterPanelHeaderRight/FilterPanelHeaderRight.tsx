@@ -15,7 +15,7 @@ function FilterPanelHeaderRight(props: FilterPanelHeaderRightProps) {
 
   return (
     <Group spacing="sm">
-      <Tooltip label="Hủy tạo bộ lọc" withArrow>
+      <Tooltip label="Cancel filter creation" withArrow>
         <ActionIcon
           color="red"
           variant="light"
@@ -29,7 +29,7 @@ function FilterPanelHeaderRight(props: FilterPanelHeaderRightProps) {
         variant="light"
         onClick={handleCreateFilterButton}
       >
-        Tạo bộ lọc
+        Create filter
       </Button>
     </Group>
   );

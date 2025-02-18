@@ -25,7 +25,7 @@ function FilterPanelMainLeft() {
     <Grid.Col span={1}>
       <Stack spacing="sm">
         <Box className={classes.titleFilterPanel}>
-          Sắp xếp
+          Sort
         </Box>
         {sortCriteriaListFragment}
         <Button
@@ -33,7 +33,7 @@ function FilterPanelMainLeft() {
           onClick={handleCreateSortCriteriaButton}
           disabled={isDisabledCreateSortCriteriaButton}
         >
-          Thêm tiêu chí sắp xếp
+          Add sorting criteria
         </Button>
       </Stack>
     </Grid.Col>

@@ -11,52 +11,52 @@ class DocketConfigs extends Configs {
   static managerPath = ManagerPath.DOCKET;
   static resourceUrl = ResourceURL.DOCKET;
   static resourceKey = 'dockets';
-  static createTitle = 'Thêm phiếu nhập xuất kho';
-  static updateTitle = 'Cập nhật phiếu nhập xuất kho';
-  static manageTitle = 'Quản lý phiếu nhập xuất kho';
+  static createTitle = 'Add Inventory In/Out Ticket';
+  static updateTitle = 'Update Inventory In/Out Ticket';
+  static manageTitle = 'Manage Inventory In/Out Tickets';
 
   static manageTitleLinks: TitleLink[] = WarehouseConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true),
     type: {
-      label: 'Loại phiếu NXK',
+      label: 'Export/Import Order Type',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     code: {
-      label: 'Mã phiếu NXK',
+      label: 'Export/Import Order Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     totalVariants: {
-      label: 'Số mặt hàng',
+      label: 'Number of Items',
       type: EntityPropertyType.PLACEHOLDER,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'reason.name': {
-      label: 'Tên lý do phiếu NXK',
+      label: 'Export/Import Order Reason Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'warehouse.name': {
-      label: 'Tên nhà kho',
+      label: 'Warehouse Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     note: {
-      label: 'Ghi chú phiếu NXK',
+      label: 'Export/Import Order Note',
       type: EntityPropertyType.STRING,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     status: {
-      label: 'Trạng thái phiếu NXK',
+      label: 'Export/Import Order Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = DocketConfigs._rawProperties as
@@ -82,7 +82,7 @@ class DocketConfigs extends Configs {
     docketVariants: z.array(z.object({
       variantId: z.number(),
       quantity: z.number(),
-    })).min(1, 'Cần thêm ít nhất 1 mặt hàng'),
+    })).min(1, 'You need to add at least 1 item'),
     purchaseOrderId: z.string().nullable(),
     orderId: z.string().nullable(),
     note: z.string(),

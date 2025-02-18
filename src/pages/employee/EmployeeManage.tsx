@@ -158,7 +158,7 @@ function EmployeeManage() {
       </tr>
       <tr>
         <td>{EmployeeConfigs.properties['user.gender'].label}</td>
-        <td>{entity.user.gender === 'M' ? 'Nam' : 'Nữ'}</td>
+        <td>{entity.user.gender === 'M' ? 'Male' : 'Female'}</td>
       </tr>
       <tr>
         <td>{EmployeeConfigs.properties['user.address.line'].label}</td>

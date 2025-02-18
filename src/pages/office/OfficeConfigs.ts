@@ -10,58 +10,58 @@ class OfficeConfigs extends Configs {
   static managerPath = ManagerPath.OFFICE;
   static resourceUrl = ResourceURL.OFFICE;
   static resourceKey = 'offices';
-  static createTitle = 'Thêm văn phòng';
-  static updateTitle = 'Cập nhật văn phòng';
-  static manageTitle = 'Quản lý văn phòng';
+  static createTitle = 'Add Office';
+  static updateTitle = 'Update Office';
+  static manageTitle = 'Manage Offices';
 
   static manageTitleLinks: TitleLink[] = EmployeeConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     name: {
-      label: 'Tên văn phòng',
+      label: 'Office Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'address.line': {
-      label: 'Địa chỉ',
+      label: 'Address',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'address.province.name': {
-      label: 'Tên tỉnh thành',
+      label: 'Province/City Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'address.province.code': {
-      label: 'Mã tỉnh thành',
+      label: 'Province/City Code',
       type: EntityPropertyType.STRING,
     },
     'address.district.name': {
-      label: 'Tên quận huyện',
+      label: 'District Name',
       type: EntityPropertyType.STRING,
     },
     'address.district.code': {
-      label: 'Mã quận huyện',
+      label: 'District Code',
       type: EntityPropertyType.STRING,
     },
     status: {
-      label: 'Trạng thái văn phòng',
+      label: 'Office Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     'address.provinceId': {
-      label: 'Tỉnh thành',
+      label: 'Province/City',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'address.districtId': {
-      label: 'Quận huyện',
+      label: 'District',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
-    },
+    },    
   };
 
   static properties = OfficeConfigs._rawProperties as

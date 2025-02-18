@@ -10,21 +10,21 @@ class DepartmentConfigs extends Configs {
   static managerPath = ManagerPath.DEPARTMENT;
   static resourceUrl = ResourceURL.DEPARTMENT;
   static resourceKey = 'departments';
-  static createTitle = 'Thêm phòng ban';
-  static updateTitle = 'Cập nhật phòng ban';
-  static manageTitle = 'Quản lý phòng ban';
+  static createTitle = 'Add Department';
+  static updateTitle = 'Update Department';
+  static manageTitle = 'Manage Departments';
 
   static manageTitleLinks: TitleLink[] = EmployeeConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     name: {
-      label: 'Tên phòng ban',
+      label: 'Department Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái phòng ban',
+      label: 'Department Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },

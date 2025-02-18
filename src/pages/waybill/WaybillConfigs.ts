@@ -10,56 +10,56 @@ class WaybillConfigs extends Configs {
   static managerPath = ManagerPath.WAYBILL;
   static resourceUrl = ResourceURL.WAYBILL;
   static resourceKey = 'waybills';
-  static createTitle = 'Thêm vận đơn';
-  static updateTitle = 'Cập nhật vận đơn';
-  static manageTitle = 'Quản lý vận đơn';
+  static createTitle = 'Add Shipment';
+  static updateTitle = 'Update Shipment';
+  static manageTitle = 'Manage Shipments';
 
   static manageTitleLinks: TitleLink[] = [
     {
       link: ManagerPath.WAYBILL,
-      label: 'Quản lý vận đơn',
+      label: 'Manage Shipments',
     },
   ];
-
+  
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true),
     code: {
-      label: 'Mã vận đơn',
+      label: 'Waybill Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'order.code': {
-      label: 'Mã đơn hàng',
+      label: 'Order Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     shippingDate: {
-      label: 'Ngày gửi hàng',
+      label: 'Shipping Date',
       type: EntityPropertyType.DATE,
       isShowInTable: true,
     },
     expectedDeliveryTime: {
-      label: 'Thời gian giao dự kiến',
+      label: 'Expected Delivery Time',
       type: EntityPropertyType.DATE,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái vận đơn',
+      label: 'Waybill Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     codAmount: {
-      label: 'Tiền thu hộ',
+      label: 'Cash on Delivery (COD) Amount',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     shippingFee: {
-      label: 'Phí vận chuyển',
+      label: 'Shipping Fee',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     size: {
-      label: 'Thông số kiện hàng',
+      label: 'Package Size',
       type: EntityPropertyType.PLACEHOLDER,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
@@ -82,8 +82,8 @@ class WaybillConfigs extends Configs {
   };
 
   static createUpdateFormSchema = z.object({
-    orderId: z.string({ invalid_type_error: 'Vui lòng không để trống' }),
-    shippingDate: z.date({ invalid_type_error: 'Vui lòng không để trống' }),
+    orderId: z.string({ invalid_type_error: 'Please do not leave this field empty' }),
+    shippingDate: z.date({ invalid_type_error: 'Please do not leave this field empty' }),
     weight: z.number().min(1),
     length: z.number().min(1),
     width: z.number().min(1),
@@ -93,15 +93,16 @@ class WaybillConfigs extends Configs {
   });
 
   static ghnRequiredNoteMap: Record<RequiredNote, string> = {
-    [RequiredNote.CHOTHUHANG]: 'Cho thử hàng',
-    [RequiredNote.CHOXEMHANGKHONGTHU]: 'Cho xem hàng, không cho thử',
-    [RequiredNote.KHONGCHOXEMHANG]: 'Không cho xem hàng',
+    [RequiredNote.CHOTHUHANG]: 'Allow item trial',
+    [RequiredNote.CHOXEMHANGKHONGTHU]: 'Allow item viewing, no trial',
+    [RequiredNote.KHONGCHOXEMHANG]: 'Do not allow item viewing',
   };
 
   static ghnPaymentTypeIdMap: Record<number, string> = {
-    1: 'Người bán',
-    2: 'Người mua',
+    1: 'Seller',
+    2: 'Buyer',
   };
+
 }
 
 export default WaybillConfigs;

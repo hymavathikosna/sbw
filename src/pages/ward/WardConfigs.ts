@@ -6,9 +6,9 @@ class WardConfigs extends Configs {
   static managerPath = ManagerPath.WARD;
   static resourceUrl = ResourceURL.WARD;
   static resourceKey = 'wards';
-  static createTitle = 'Thêm phường xã';
-  static updateTitle = 'Cập nhật phường xã';
-  static manageTitle = 'Quản lý phường xã';
+  static createTitle = 'Add Ward/District';
+  static updateTitle = 'Update Ward/District';
+  static manageTitle = 'Manage Ward/District';
 }
 
 export default WardConfigs;

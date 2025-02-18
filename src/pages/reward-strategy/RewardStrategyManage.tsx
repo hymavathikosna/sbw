@@ -74,10 +74,10 @@ function RewardStrategyManage() {
         await updateRewardStrategyApi.mutateAsync(request);
       }));
 
-      NotifyUtils.simpleSuccess('Cập nhật thành công');
+      NotifyUtils.simpleSuccess('Update successful');
       void queryClient.invalidateQueries([RewardStrategyConfigs.resourceKey, 'getAll']);
     } catch (e) {
-      NotifyUtils.simpleFailed('Cập nhật không thành công');
+      NotifyUtils.simpleFailed('Update failed');
     }
   };
 
@@ -87,7 +87,7 @@ function RewardStrategyManage() {
       overlayColor: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2],
       overlayOpacity: 0.55,
       overlayBlur: 3,
-      title: <strong>Sửa công thức tính</strong>,
+      title: <strong>Edit calculation formula</strong>,
       children: <UpdateFormulaModal rewardStrategy={rewardStrategy}/>,
     });
   };
@@ -95,19 +95,19 @@ function RewardStrategyManage() {
   const rewardStrategyStatusBadgeFragment = (status: number) => {
     switch (status) {
     case 1:
-      return <Badge color="blue" variant="filled" size="sm">Đang kích hoạt</Badge>;
+      return <Badge color="blue" variant="filled" size="sm">Activating</Badge>;
     case 2:
-      return <Badge color="pink" variant="filled" size="sm">Không kích hoạt</Badge>;
+      return <Badge color="pink" variant="filled" size="sm">Deactivated</Badge>;
     }
   };
 
   const entitiesTableHeadsFragment = (
     <tr>
-      <th>Kích hoạt</th>
-      <th>Chiến lược điểm thưởng</th>
-      <th>Mã</th>
-      <th>Công thức tính</th>
-      <th>Trạng thái</th>
+      <th>Activate</th>
+      <th>Reward Strategy</th>
+      <th>Code</th>
+      <th>Calculation Formula</th>
+      <th>Status</th>
     </tr>
   );
 
@@ -128,7 +128,7 @@ function RewardStrategyManage() {
             color="blue"
             variant="outline"
             size="sm"
-            title="Cập nhật công thức mới"
+            title="Update the new calculation formula"
             onClick={() => handleUpdateFormulaButton(entity)}
           >
             <MathFunction size={15} strokeWidth={1.5}/>
@@ -166,7 +166,7 @@ function RewardStrategyManage() {
         disabled={disabledUpdateButton}
         onClick={handleUpdateButton}
       >
-        Cập nhật
+        Update
       </Button>
     </Stack>
   );
@@ -193,30 +193,30 @@ function UpdateFormulaModal({ rewardStrategy }: { rewardStrategy: RewardStrategy
 
     try {
       await updateRewardStrategyApi.mutateAsync({ id: rewardStrategy.id, body: requestBody });
-      NotifyUtils.simpleSuccess('Cập nhật thành công');
+      NotifyUtils.simpleSuccess('Update successful');
       void queryClient.invalidateQueries([RewardStrategyConfigs.resourceKey, 'getAll']);
       setCurrentFormula(formValues.formula);
     } catch (e) {
-      NotifyUtils.simpleFailed('Cập nhật không thành công');
+      NotifyUtils.simpleFailed('Update failed');
     }
   });
 
   return (
     <form onSubmit={handleFormSubmit}>
       <Stack>
-        <Text size="sm" color="dimmed">Công thức tính của chiến lược &quot;{rewardStrategy.name}&quot;</Text>
+        <Text size="sm" color="dimmed">Calculation formula of the strategy &quot;{rewardStrategy.name}&quot;</Text>
         <TextInput
           data-autofocus
           required
-          placeholder="Nhập công thức tính"
+          placeholder="Enter calculation formula"
           {...form.getInputProps('formula')}
         />
         <Group position="right">
           <Button variant="default" onClick={modals.closeAll}>
-            Đóng
+            Close
           </Button>
           <Button type="submit" disabled={MiscUtils.isEquals(form.values, { formula: currentFormula })}>
-            Cập nhật
+            Update
           </Button>
         </Group>
       </Stack>

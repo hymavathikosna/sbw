@@ -12,172 +12,172 @@ class ProductConfigs extends Configs {
   static managerPath = ManagerPath.PRODUCT;
   static resourceUrl = ResourceURL.PRODUCT;
   static resourceKey = 'products';
-  static createTitle = 'Thêm sản phẩm';
-  static updateTitle = 'Cập nhật sản phẩm';
-  static manageTitle = 'Quản lý sản phẩm';
+  static createTitle = 'Add product';
+  static updateTitle = 'Update product';
+  static manageTitle = 'Manage product';
 
   static manageTitleLinks: TitleLink[] = [
     {
       link: ManagerPath.PRODUCT,
-      label: 'Quản lý sản phẩm',
+      label: 'Manage products',
     },
     {
       link: ManagerPath.CATEGORY,
-      label: 'Quản lý danh mục sản phẩm',
+      label: 'Manage product categories',
     },
     {
       link: ManagerPath.BRAND,
-      label: 'Quản lý nhãn hiệu',
+      label: 'Manage brands',
     },
     {
       link: ManagerPath.SUPPLIER,
-      label: 'Quản lý nhà cung cấp',
+      label: 'Manage suppliers',
     },
     {
       link: ManagerPath.UNIT,
-      label: 'Quản lý đơn vị tính',
+      label: 'Manage units of measurement',
     },
     {
       link: ManagerPath.TAG,
-      label: 'Quản lý tag',
+      label: 'Manage tags',
     },
     {
       link: ManagerPath.GUARANTEE,
-      label: 'Quản lý bảo hành',
+      label: 'Manage warranties',
     },
     {
       link: ManagerPath.PROPERTY,
-      label: 'Quản lý thuộc tính sản phẩm',
+      label: 'Manage product properties',
     },
     {
       link: ManagerPath.SPECIFICATION,
-      label: 'Quản lý thông số sản phẩm',
-    },
+      label: 'Manage product specifications',
+    },    
   ];
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true),
     name: {
-      label: 'Tên sản phẩm',
+      label: 'Product Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     code: {
-      label: 'Mã sản phẩm',
+      label: 'Product Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     slug: {
-      label: 'Slug sản phẩm',
+      label: 'Product Slug',
       type: EntityPropertyType.STRING,
     },
     shortDescription: {
-      label: 'Mô tả ngắn sản phẩm',
+      label: 'Product Short Description',
       type: EntityPropertyType.STRING,
     },
     description: {
-      label: 'Mô tả sản phẩm',
+      label: 'Product Description',
       type: EntityPropertyType.STRING,
     },
     thumbnail: {
-      label: 'Hình đại diện',
+      label: 'Thumbnail',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     images: {
-      label: 'Hình ảnh sản phẩm',
+      label: 'Product Images',
       type: EntityPropertyType.ARRAY,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     status: {
-      label: 'Trạng thái sản phẩm',
+      label: 'Product Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     'category.name': {
-      label: 'Tên danh mục sản phẩm',
+      label: 'Product Category Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'brand.name': {
-      label: 'Tên nhãn hiệu',
+      label: 'Brand Name',
       type: EntityPropertyType.STRING,
     },
     'supplier.displayName': {
-      label: 'Tên nhà cung cấp',
+      label: 'Supplier Name',
       type: EntityPropertyType.STRING,
     },
     'unit.name': {
-      label: 'Tên đơn vị tính',
+      label: 'Unit Name',
       type: EntityPropertyType.STRING,
     },
     tags: {
-      label: 'Danh sách tag',
+      label: 'Tag List',
       type: EntityPropertyType.ARRAY,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     specifications: {
-      label: 'Thông số sản phẩm',
+      label: 'Product Specifications',
       type: EntityPropertyType.COLLECTION,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     properties: {
-      label: 'Thuộc tính sản phẩm',
+      label: 'Product Properties',
       type: EntityPropertyType.COLLECTION,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     variants: {
-      label: 'Phiên bản',
+      label: 'Variants',
       type: EntityPropertyType.ARRAY,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     weight: {
-      label: 'Khối lượng sản phẩm',
+      label: 'Product Weight',
       type: EntityPropertyType.NUMBER,
     },
     'guarantee.name': {
-      label: 'Tên bảo hành sản phẩm',
+      label: 'Product Warranty Name',
       type: EntityPropertyType.STRING,
     },
     categoryId: {
-      label: 'Danh mục sản phẩm',
+      label: 'Product Category',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     brandId: {
-      label: 'Nhãn hiệu',
+      label: 'Brand',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     supplierId: {
-      label: 'Nhà cung cấp',
+      label: 'Supplier',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     unitId: {
-      label: 'Đơn vị tính',
+      label: 'Unit',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     guaranteeId: {
-      label: 'Bảo hành',
+      label: 'Warranty',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
-    },
+    },    
   };
 
   static properties = ProductConfigs._rawProperties as

@@ -36,11 +36,11 @@ const formSchema = z.object({
 const genderSelectList: SelectOption[] = [
   {
     value: 'M',
-    label: 'Nam',
+    label: 'Male',
   },
   {
     value: 'F',
-    label: 'Nữ',
+    label: 'Female',
   },
 ];
 
@@ -106,9 +106,9 @@ function ClientSettingPersonal() {
     {
       onSuccess: (userResponse) => {
         updateUser(userResponse);
-        NotifyUtils.simpleSuccess('Cập nhật thành công');
+        NotifyUtils.simpleSuccess('Update successful');
       },
-      onError: () => NotifyUtils.simpleFailed('Cập nhật không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Update failed'),    
     }
   );
 
@@ -140,7 +140,7 @@ function ClientSettingPersonal() {
             <Card radius="md" shadow="sm" p="lg">
               <Stack>
                 <Title order={2}>
-                  Cập nhật thông tin cá nhân
+                  Update personal information
                 </Title>
                 <Grid>
                   <Grid.Col lg={6}>
@@ -149,8 +149,8 @@ function ClientSettingPersonal() {
                         <TextInput
                           required
                           radius="md"
-                          label="Tên tài khoản"
-                          placeholder="Nhập tên tài khoản của bạn"
+                          label="Account name"
+                          placeholder="Enter your account name"
                           {...form.getInputProps('username')}
                           disabled
                           // TODO: Hiện tại chưa cho phép sửa username
@@ -158,31 +158,31 @@ function ClientSettingPersonal() {
                         <TextInput
                           required
                           radius="md"
-                          label="Họ và tên"
-                          placeholder="Nhập họ và tên của bạn"
+                          label="Full Name"
+                          placeholder="Enter your full name"
                           {...form.getInputProps('fullname')}
                         />
                         <Select
                           required
                           radius="md"
-                          label="Giới tính"
-                          placeholder="Chọn giới tính"
+                          label="Gender"
+                          placeholder="Select gender"
                           data={genderSelectList}
                           {...form.getInputProps('gender')}
                         />
                         <Select
                           required
                           radius="md"
-                          label="Tỉnh thành"
-                          placeholder="Chọn tỉnh thành"
+                          label="City/Province"
+                          placeholder="Select city/province"
                           data={provinceSelectList}
                           {...form.getInputProps('address.provinceId')}
                         />
                         <Select
                           required
                           radius="md"
-                          label="Quận huyện"
-                          placeholder="Chọn quận huyện"
+                          label="District"
+                          placeholder="Select district"
                           data={districtSelectList}
                           disabled={form.values['address.provinceId'] === null}
                           {...form.getInputProps('address.districtId')}
@@ -190,8 +190,8 @@ function ClientSettingPersonal() {
                         <Select
                           required
                           radius="md"
-                          label="Phường xã"
-                          placeholder="Chọn phường xã"
+                          label="Ward"
+                          placeholder="Select ward"
                           data={wardSelectList}
                           disabled={form.values['address.districtId'] === null}
                           {...form.getInputProps('address.wardId')}
@@ -199,8 +199,8 @@ function ClientSettingPersonal() {
                         <TextInput
                           required
                           radius="md"
-                          label="Địa chỉ"
-                          placeholder="Nhập địa chỉ của bạn"
+                          label="Address"
+                          placeholder="Enter your address"
                           {...form.getInputProps('address.line')}
                         />
                         <Button
@@ -208,7 +208,7 @@ function ClientSettingPersonal() {
                           type="submit"
                           disabled={MiscUtils.isEquals(initialFormValues, form.values)}
                         >
-                          Cập nhật
+                          Update
                         </Button>
                       </Stack>
                     </form>

@@ -20,10 +20,10 @@ function ProtectedRoute({ children }: { children: JSX.Element }): JSX.Element {
             >
               401
             </Text>
-            <Title>Vui lòng <Anchor component={Link} to="/signin" inherit>đăng nhập</Anchor> để truy cập</Title>
+            <Title>Please <Anchor component={Link} to="/signin" inherit>log in</Anchor> to access</Title>
             <Group position="center">
               <Button component={Link} to="/" variant="subtle" size="md">
-                Trở về Home
+                Return to Home
               </Button>
             </Group>
           </Stack>

@@ -27,8 +27,8 @@ function SupplierCreate() {
           <Stack spacing={0}>
             <Grid p="sm">
               <Grid.Col>
-                <Title order={4}>Thông tin cơ bản</Title>
-                <Text size="sm">Một số thông tin chung</Text>
+                <Title order={4}>Basic Information</Title>
+                <Text size="sm">Some general information</Text>
               </Grid.Col>
               <Grid.Col xs={6}>
                 <TextInput
@@ -45,8 +45,8 @@ function SupplierCreate() {
                 />
               </Grid.Col>
               <Grid.Col>
-                <Title order={4}>Người liên hệ</Title>
-                <Text size="sm">Thông tin người liên hệ khi đặt hàng, mua hàng</Text>
+                <Title order={4}>Contact Person</Title>
+                <Text size="sm">Contact information for placing orders and purchasing</Text>
               </Grid.Col>
               <Grid.Col xs={6}>
                 <TextInput
@@ -67,8 +67,8 @@ function SupplierCreate() {
                 />
               </Grid.Col>
               <Grid.Col>
-                <Title order={4}>Thông tin công ty</Title>
-                <Text size="sm">Thông tin chi tiết nhà cung cấp</Text>
+                <Title order={4}>Company Information</Title>
+                <Text size="sm">Detailed Supplier Information</Text>
               </Grid.Col>
               <Grid.Col xs={6}>
                 <TextInput
@@ -158,8 +158,8 @@ function SupplierCreate() {
             <Divider mt="xs"/>
 
             <Group position="apart" p="sm">
-              <Button variant="default" onClick={form.reset}>Mặc định</Button>
-              <Button type="submit">Thêm</Button>
+              <Button variant="default" onClick={form.reset}>Default</Button>
+              <Button type="submit">Add</Button>
             </Group>
           </Stack>
         </Paper>

@@ -20,21 +20,21 @@ function SearchPanel() {
       <Group position="apart">
         <Group spacing="sm">
           <TextInput
-            placeholder="Từ khóa"
+            placeholder="Keyword"
             icon={<Search size={14}/>}
             sx={{ width: 250 }}
             ref={searchInputRef}
             onKeyDown={handleSearchInput}
           />
           <Select
-            placeholder="Chọn bộ lọc"
+            placeholder="Select filter"
             icon={<AdjustmentsHorizontal size={14}/>}
             clearable
             data={filterSelectList}
             value={activeFilterId}
             onChange={handleFilterSelect}
           />
-          <Tooltip label="Sửa bộ lọc" withArrow>
+          <Tooltip label="Edit filter" withArrow>
             <ActionIcon
               color="teal"
               variant="light"
@@ -48,7 +48,7 @@ function SearchPanel() {
             leftIcon={<Filter/>}
             onClick={handleAddFilterButton}
           >
-            Thêm bộ lọc
+            Add filter
           </Button>
         </Group>
 

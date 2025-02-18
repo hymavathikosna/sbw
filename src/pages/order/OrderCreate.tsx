@@ -110,7 +110,7 @@ function OrderCreate() {
                   </Text>
                 </Grid.Col>
                 <Grid.Col span={6}>
-                  <Text size="sm" weight={500}>Phí vận chuyển:</Text>
+                  <Text size="sm" weight={500}>Shipping Fee:</Text>
                 </Grid.Col>
                 <Grid.Col span={6}>
                   <NumberInput
@@ -128,14 +128,14 @@ function OrderCreate() {
                   />
                 </Grid.Col>
                 <Grid.Col span={6}>
-                  <Text size="sm" weight={500}>Tổng tiền trả:</Text>
+                  <Text size="sm" weight={500}>Total amount paid:</Text>
                 </Grid.Col>
                 <Grid.Col span={6}>
                   <Stack spacing={2.5} sx={{ textAlign: 'right' }}>
                     <Text size="md" color="blue" weight={500}>
                       {MiscUtils.formatPrice(form.values.totalPay) + ' ₫'}
                     </Text>
-                    <Text size="xs" color="dimmed">(chưa tính phí vận chuyển)</Text>
+                    <Text size="xs" color="dimmed">(Shipping fee not included)</Text>
                   </Stack>
                 </Grid.Col>
               </Grid>
@@ -152,7 +152,7 @@ function OrderCreate() {
                     <Select
                       required
                       rightSection={isFetchingUserListResponse ? <Loader size={16}/> : null}
-                      label="Người đặt hàng"
+                      label="Customer"
                       placeholder="--"
                       searchable
                       onSearchChange={setUserSelectKeyword}
@@ -179,49 +179,49 @@ function OrderCreate() {
                   <Grid.Col>
                     <TextInput
                       required
-                      label="Tên người nhận"
+                      label="Recipient's Name"
                       {...form.getInputProps('toName')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <TextInput
                       required
-                      label="Số điện thoại người nhận"
+                      label="Recipient's Phone Number"
                       {...form.getInputProps('toPhone')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <TextInput
                       required
-                      label="Tỉnh thành người nhận"
+                      label="Recipient's Province"
                       {...form.getInputProps('toProvinceName')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <TextInput
                       required
-                      label="Quận huyện người nhận"
+                      label="Recipient's District"
                       {...form.getInputProps('toDistrictName')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <TextInput
                       required
-                      label="Phường xã người nhận"
+                      label="Recipient's Ward"
                       {...form.getInputProps('toWardName')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <TextInput
                       required
-                      label="Địa chỉ người nhận"
+                      label="Recipient's Address"
                       {...form.getInputProps('toAddress')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <Select
                       required
-                      label="Nguồn đơn hàng"
+                      label="Order Source"
                       placeholder="--"
                       data={orderResourceSelectList}
                       {...form.getInputProps('orderResourceId')}
@@ -229,25 +229,25 @@ function OrderCreate() {
                   </Grid.Col>
                   <Grid.Col>
                     <Select
-                      label="Lý do hủy đơn hàng"
+                      label="Order Cancellation Reason"
                       placeholder="--"
                       clearable
                       data={orderCancellationReasonSelectList}
-                      // Chỉ bật khi trạng thái đơn hàng là "Hủy bỏ" (5)
+                      // Only enable when the order status is "Cancelled" (5)
                       disabled={form.values.status !== '5'}
                       {...form.getInputProps('orderCancellationReasonId')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <Textarea
-                      label="Ghi chú đơn hàng"
+                      label="Order Notes"
                       {...form.getInputProps('note')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <Select
                       required
-                      label="Hình thức thanh toán"
+                      label="Payment Method"
                       placeholder="--"
                       data={paymentMethodSelectList}
                       {...form.getInputProps('paymentMethodType')}
@@ -256,7 +256,7 @@ function OrderCreate() {
                   <Grid.Col>
                     <Select
                       required
-                      label="Trạng thái thanh toán"
+                      label="Payment Status"
                       placeholder="--"
                       data={paymentStatusSelectList}
                       {...form.getInputProps('paymentStatus')}
@@ -267,7 +267,7 @@ function OrderCreate() {
                 <Divider mt="xs"/>
 
                 <Group position="apart" p="sm">
-                  <Button variant="default" onClick={resetForm}>Mặc định</Button>
+                  <Button variant="default" onClick={resetForm}>Default</Button>
                   <Button type="submit">Thêm</Button>
                 </Group>
               </Stack>

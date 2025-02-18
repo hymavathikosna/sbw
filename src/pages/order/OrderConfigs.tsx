@@ -18,55 +18,55 @@ class OrderConfigs extends Configs {
   static managerPath = ManagerPath.ORDER;
   static resourceUrl = ResourceURL.ORDER;
   static resourceKey = 'orders';
-  static createTitle = 'Thêm đơn hàng';
-  static updateTitle = 'Cập nhật đơn hàng';
-  static manageTitle = 'Quản lý đơn hàng';
+  static createTitle = 'Add Order';
+  static updateTitle = 'Update Order';
+  static manageTitle = 'Manage Orders';
 
   static manageTitleLinks: TitleLink[] = OrderResourceConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true),
     code: {
-      label: 'Mã đơn hàng',
+      label: 'Order Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'orderResource.name': {
-      label: 'Tên nguồn đơn hàng',
+      label: 'Order Source Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     user: {
-      label: 'Người đặt hàng',
+      label: 'Order Placed By',
       type: EntityPropertyType.PLACEHOLDER,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     to: {
-      label: 'Người nhận hàng',
+      label: 'Recipient',
       type: EntityPropertyType.PLACEHOLDER,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     totalPay: {
-      label: 'Tổng tiền trả',
+      label: 'Total Payment',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     warehouse: {
-      label: 'Kho',
+      label: 'Warehouse',
       type: EntityPropertyType.PLACEHOLDER,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     status: {
-      label: 'Trạng thái đơn hàng',
+      label: 'Order Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = OrderConfigs._rawProperties as
@@ -112,7 +112,7 @@ class OrderConfigs extends Configs {
       price: z.number(),
       quantity: z.number(),
       amount: z.number(),
-    })).min(1, 'Cần thêm ít nhất 1 mặt hàng'),
+    })).min(1, 'You need to add at least 1 item'),
     totalAmount: z.number().min(0),
     tax: z.number().min(0),
     shippingCost: z.number().min(0),
@@ -124,24 +124,24 @@ class OrderConfigs extends Configs {
   static orderStatusBadgeFragment = (status: number) => {
     switch (status) {
     case 1:
-      return <Badge color="gray" variant="outline" size="sm">Đơn hàng mới</Badge>;
+      return <Badge color="gray" variant="outline" size="sm">New Order</Badge>;
     case 2:
-      return <Badge color="blue" variant="outline" size="sm">Đang xử lý</Badge>;
+      return <Badge color="blue" variant="outline" size="sm">Processing</Badge>;
     case 3:
-      return <Badge color="violet" variant="outline" size="sm">Đang giao hàng</Badge>;
+      return <Badge color="violet" variant="outline" size="sm">In Delivery</Badge>;
     case 4:
-      return <Badge color="green" variant="outline" size="sm">Đã giao hàng</Badge>;
+      return <Badge color="green" variant="outline" size="sm">Delivered</Badge>;
     case 5:
-      return <Badge color="red" variant="outline" size="sm">Hủy bỏ</Badge>;
+      return <Badge color="red" variant="outline" size="sm">Canceled</Badge>;      
     }
   };
 
   static orderPaymentStatusBadgeFragment = (paymentStatus: number) => {
     switch (paymentStatus) {
     case 1:
-      return <Badge color="gray" variant="outline" size="sm">Chưa thanh toán</Badge>;
+      return <Badge color="gray" variant="outline" size="sm">Not Paid</Badge>;
     case 2:
-      return <Badge color="green" variant="outline" size="sm">Đã thanh toán</Badge>;
+      return <Badge color="green" variant="outline" size="sm">Paid</Badge>;      
     }
   };
 
@@ -180,15 +180,15 @@ class OrderConfigs extends Configs {
           </td>
         </tr>
         <tr>
-          <td>Tên lý do hủy đơn hàng</td>
+          <td>Order Cancellation Reason</td>
           <td>{entity.orderCancellationReason?.name}</td>
         </tr>
         <tr>
-          <td>Ghi chú đơn hàng</td>
+          <td>Order Note</td>
           <td style={{ maxWidth: 300 }}>{entity.note}</td>
         </tr>
         <tr>
-          <td>Người đặt hàng</td>
+          <td>Orderer</td>
           <td>
             <Stack spacing={0}>
               <Text size="sm">{entity.user.fullname}</Text>
@@ -197,7 +197,7 @@ class OrderConfigs extends Configs {
           </td>
         </tr>
         <tr>
-          <td>Người nhận hàng</td>
+          <td>Receiver</td>
           <td>
             <Stack spacing={0}>
               <Text size="sm">{entity.toName}</Text>
@@ -209,19 +209,19 @@ class OrderConfigs extends Configs {
           </td>
         </tr>
         <tr>
-          <td>Số mặt hàng</td>
+          <td>Number of Items</td>
           <td>{entity.orderVariants.length} SKU</td>
         </tr>
         <tr>
-          <td>Tổng thành tiền</td>
+          <td>Total Amount</td>
           <td>{MiscUtils.formatPrice(entity.totalAmount) + ' ₫'}</td>
         </tr>
         <tr>
-          <td>Thuế</td>
+          <td>Tax</td>
           <td>{entity.tax * 100 + '%'}</td>
         </tr>
         <tr>
-          <td>Phí vận chuyển</td>
+          <td>Shipping Fee</td>
           <td>{MiscUtils.formatPrice(entity.shippingCost) + ' ₫'}</td>
         </tr>
         <tr>
@@ -229,11 +229,11 @@ class OrderConfigs extends Configs {
           <td>{MiscUtils.formatPrice(entity.totalPay) + ' ₫'}</td>
         </tr>
         <tr>
-          <td>Hình thức thanh toán</td>
+          <td>Payment Method</td>
           <td><PaymentMethodIcon/></td>
         </tr>
         <tr>
-          <td>Trạng thái thanh toán</td>
+          <td>Payment Status</td>
           <td>{OrderConfigs.orderPaymentStatusBadgeFragment(entity.paymentStatus)}</td>
         </tr>
       </>

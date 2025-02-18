@@ -30,7 +30,7 @@ function ChatButton() {
     <Affix position={{ bottom: 20, right: 20 }}>
       <Card shadow="sm" p="xs" radius="xl">
         <Tooltip
-          label="Yêu cầu tư vấn mua hàng"
+          label="Request for purchasing advice"
           position="left"
           placement="center"
           withArrow
@@ -78,7 +78,7 @@ function Shortcut() {
             variant="outline"
             color={dark ? 'yellow' : 'blue'}
             onClick={() => toggleColorScheme()}
-            title="Thay đổi chế độ màu"
+            title="Change the color mode"
           >
             {dark ? <Sun size={14}/> : <MoonStars size={14}/>}
           </ActionIcon>

@@ -92,7 +92,7 @@ function useUserUpdateViewModel(id: number) {
 
     if (!MiscUtils.isEquals(formValues, prevFormValues) && user) {
       if (checkAdmin) {
-        form.setFieldError('roles', 'Người quản trị không được xóa quyền Người quản trị');
+        form.setFieldError('roles', 'Administrators cannot delete the Administrator role');
       } else {
         const requestBody: UserRequest = {
           username: formValues.username,
@@ -125,22 +125,22 @@ function useUserUpdateViewModel(id: number) {
   const genderSelectList: SelectOption[] = [
     {
       value: 'M',
-      label: 'Nam',
+      label: 'Male',
     },
     {
       value: 'F',
-      label: 'Nữ',
+      label: 'Female',
     },
   ];
 
   const statusSelectList: SelectOption[] = [
     {
       value: '1',
-      label: 'Đã kích hoạt',
+      label: 'Activated',
     },
     {
       value: '2',
-      label: 'Chưa kích hoạt',
+      label: 'Not Activated',
     },
   ];
 

@@ -59,7 +59,7 @@ function ClientOrder() {
     ordersContentFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.pink[6] }}>
         <AlertTriangle size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Đã có lỗi xảy ra</Text>
+        <Text size="xl" weight={500}>An error has occurred</Text>
       </Stack>
     );
   }
@@ -68,7 +68,7 @@ function ClientOrder() {
     ordersContentFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.blue[6] }}>
         <Marquee size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Chưa có đơn hàng nào</Text>
+        <Text size="xl" weight={500}>No orders yet</Text>
       </Stack>
     );
   }
@@ -87,7 +87,7 @@ function ClientOrder() {
             onChange={(page: number) => (page !== activePage) && setActivePage(page)}
           />
           <Text>
-            <Text component="span" weight={500}>Trang {activePage}</Text>
+            <Text component="span" weight={500}>Page {activePage}</Text>
             <span> / {orders.totalPages}</span>
           </Text>
         </Group>
@@ -107,7 +107,7 @@ function ClientOrder() {
             <Card radius="md" shadow="sm" p="lg">
               <Stack>
                 <Title order={2}>
-                  Đơn hàng của tôi
+                  My orders
                 </Title>
 
                 {ordersContentFragment}
@@ -126,24 +126,24 @@ function ClientOrderCard({ order }: { order: ClientSimpleOrderResponse }) {
   const orderStatusBadgeFragment = (status: number) => {
     switch (status) {
     case 1:
-      return <Badge color="gray" variant="filled" size="sm">Đơn hàng mới</Badge>;
+      return <Badge color="gray" variant="filled" size="sm">New Order</Badge>;
     case 2:
-      return <Badge color="blue" variant="filled" size="sm">Đang xử lý</Badge>;
+      return <Badge color="blue" variant="filled" size="sm">Processing</Badge>;
     case 3:
-      return <Badge color="violet" variant="filled" size="sm">Đang giao hàng</Badge>;
+      return <Badge color="violet" variant="filled" size="sm">Out for Delivery</Badge>;
     case 4:
-      return <Badge color="green" variant="filled" size="sm">Đã giao hàng</Badge>;
+      return <Badge color="green" variant="filled" size="sm">Delivered</Badge>;
     case 5:
-      return <Badge color="red" variant="filled" size="sm">Hủy bỏ</Badge>;
+      return <Badge color="red" variant="filled" size="sm">Cancelled</Badge>;      
     }
   };
 
   const orderPaymentStatusBadgeFragment = (paymentStatus: number) => {
     switch (paymentStatus) {
     case 1:
-      return <Badge color="gray" variant="filled" size="sm">Chưa thanh toán</Badge>;
+      return <Badge color="gray" variant="filled" size="sm">Unpaid</Badge>;
     case 2:
-      return <Badge color="green" variant="filled" size="sm">Đã thanh toán</Badge>;
+      return <Badge color="green" variant="filled" size="sm">Paid</Badge>;      
     }
   };
 
@@ -156,9 +156,9 @@ function ClientOrderCard({ order }: { order: ClientSimpleOrderResponse }) {
       <Stack>
         <Group position="apart">
           <Group>
-            <Text weight={500}>Mã đơn hàng: {order.orderCode}</Text>
+            <Text weight={500}>Order ID: {order.orderCode}</Text>
             <Text color="dimmed">
-              Ngày tạo: {DateUtils.isoDateToString(order.orderCreatedAt, 'DD/MM/YYYY')}
+              Creation Date: {DateUtils.isoDateToString(order.orderCreatedAt, 'DD/MM/YYYY')}
             </Text>
           </Group>
           <Group spacing="xs">

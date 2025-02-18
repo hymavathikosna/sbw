@@ -25,19 +25,19 @@ class PageConfigs {
       type: EntityPropertyType.NUMBER,
     },
     createdAt: {
-      label: 'Ngày tạo',
+      label: 'Creation date',
       type: EntityPropertyType.DATE,
     },
     updatedAt: {
-      label: 'Ngày cập nhật',
+      label: 'Update date',
       type: EntityPropertyType.DATE,
     },
     createdBy: {
-      label: 'Người tạo',
+      label: 'Creator',
       type: EntityPropertyType.NUMBER,
     },
     updatedBy: {
-      label: 'Người cập nhật',
+      label: 'Updater',
       type: EntityPropertyType.NUMBER,
     },
   };
@@ -104,8 +104,8 @@ class PageConfigs {
   };
 
   static paymentMethodNameMap: Record<PaymentMethodType, string> = {
-    [PaymentMethodType.CASH]: 'Thanh toán tiền mặt',
-    [PaymentMethodType.PAYPAL]: 'Thanh toán PayPal',
+    [PaymentMethodType.CASH]: 'Cash Payment',
+    [PaymentMethodType.PAYPAL]: 'PayPal Payment',
   };
 }
 

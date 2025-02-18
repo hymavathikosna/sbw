@@ -41,7 +41,7 @@ import useAuthStore from 'stores/use-auth-store';
 import useClientSiteStore from 'stores/use-client-site-store';
 import dayjs from 'dayjs';
 
-const ClientNotification = async () => {
+function ClientNotification() {
   useTitle();
 
   const theme = useMantineTheme();
@@ -100,7 +100,7 @@ const ClientNotification = async () => {
             onChange={(page: number) => (page !== activePage) && setActivePage(page)}
           />
           <Text>
-            <Text component="span" weight={500}>Trang {activePage}</Text>
+            <Text component="span" weight={500}>Page {activePage}</Text>
             <span> / {notifications.totalPages}</span>
           </Text>
         </Group>
@@ -131,7 +131,7 @@ const ClientNotification = async () => {
       </Container>
     </main>
   );
-};
+}
 
 interface NotificationFigure {
   icon: Icon;
@@ -291,7 +291,7 @@ function useUpdateNotificationApi(id: number) {
     (requestBody) => FetchUtils.putWithToken(ResourceURL.CLIENT_NOTIFICATION + '/' + id, requestBody),
     {
       onSuccess: () => queryClient.invalidateQueries(['client-api', 'notifications', 'getAllNotifications']),
-      onError: () => NotifyUtils.simpleFailed('Cập nhật không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Update không thành công'),
     }
   );
 }

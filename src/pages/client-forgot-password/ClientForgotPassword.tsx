@@ -19,7 +19,7 @@ function ClientForgotPassword() {
 
   const formSchema = z.object({
     email: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
-      .email({ message: 'Nhập email đúng định dạng' }),
+      .email({ message: 'Please enter a valid email address' }),
   });
 
   const form = useForm({
@@ -30,8 +30,8 @@ function ClientForgotPassword() {
   const forgotPasswordApi = useMutation<Empty, ErrorMessage, { email: string }>(
     (request) => FetchUtils.get(ResourceURL.CLIENT_FORGOT_PASSWORD, { email: request.email }),
     {
-      onSuccess: () => NotifyUtils.simpleSuccess('Đã gửi email đổi mật khẩu thành công'),
-      onError: () => NotifyUtils.simpleFailed('Gửi email không thành công'),
+      onSuccess: () => NotifyUtils.simpleSuccess('Password reset email sent successfully'),
+      onError: () => NotifyUtils.simpleFailed('Failed to send email'),
     }
   );
 
@@ -43,9 +43,9 @@ function ClientForgotPassword() {
     <main>
       <Container size="xl">
         <Stack align="center">
-          <Title order={2}>Yêu cầu cấp lại mật khẩu</Title>
+          <Title order={2}>Request Password Reset</Title>
 
-          <Text size="sm" color="dimmed">Nhập email của bạn để nhận thư chứa đường dẫn thay đổi mật khẩu</Text>
+          <Text size="sm" color="dimmed">Enter your email to receive a link to reset your password</Text>
 
           <Card withBorder shadow="md" mt={20} p={30} radius="md" sx={{ width: '100%', maxWidth: 400 }}>
             <form onSubmit={handleFormSubmit}>
@@ -54,7 +54,7 @@ function ClientForgotPassword() {
                   required
                   radius="md"
                   label="Email"
-                  placeholder="Nhập email của bạn"
+                  placeholder="Enter your email"
                   {...form.getInputProps('email')}
                 />
                 <Button
@@ -62,7 +62,7 @@ function ClientForgotPassword() {
                   type="submit"
                   disabled={MiscUtils.isEquals(initialFormValues, form.values) || forgotPasswordApi.isLoading}
                 >
-                  Yêu cầu
+                Request
                 </Button>
               </Stack>
             </form>

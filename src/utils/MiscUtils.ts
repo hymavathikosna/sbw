@@ -83,12 +83,12 @@ class MiscUtils {
     const replaceMillion = (price: string) => price.replace(/000000$/, ' tr');
 
     if (priceOption[0] === '0') {
-      return 'Dưới ' + replaceMillion(priceOption[1]);
+      return 'Under ' + replaceMillion(priceOption[1]);
     } else if (priceOption[1] === 'max') {
       return 'Trên ' + replaceMillion(priceOption[0]);
     }
 
-    return replaceMillion(priceOption[0]) + ' đến ' + replaceMillion(priceOption[1]);
+    return replaceMillion(priceOption[0]) + 'To' + replaceMillion(priceOption[1]);
   };
 
   // eslint-disable-next-line no-console

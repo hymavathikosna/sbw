@@ -14,11 +14,11 @@ function useCreatePreorderApi() {
       onSuccess: (response) =>
         NotifyUtils.simpleSuccess(
           <Text inherit>
-            <span>Đã thêm sản phẩm {response.preorderProduct.productName} vào </span>
-            <Anchor component={Link} to="/user/preorder" inherit>danh sách đặt trước</Anchor>
+            <span>Product {response.preorderProduct.productName} has been added to the </span>
+            <Anchor component={Link} to="/user/preorder" inherit>preorder list</Anchor>
           </Text>
         ),
-      onError: () => NotifyUtils.simpleFailed('Không thêm được sản phẩm vào danh sách đặt trước'),
+      onError: () => NotifyUtils.simpleFailed('Failed to add product to preorder list'),
     }
   );
 }

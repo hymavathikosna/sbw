@@ -50,7 +50,7 @@ function ProductProperties({
         onClick={handleCreateProductPropertyButton}
         disabled={isDisabledCreateProductPropertyButton}
       >
-        Thêm thuộc tính sản phẩm
+        Add product attribute
       </Button>
     </Stack>
   );

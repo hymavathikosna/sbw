@@ -166,7 +166,7 @@ function OrderUpdate() {
                     <Select
                       required
                       rightSection={isFetchingUserListResponse ? <Loader size={16}/> : null}
-                      label="Người đặt hàng"
+                      label="Order Placer"
                       placeholder="--"
                       searchable
                       onSearchChange={setUserSelectKeyword}
@@ -193,49 +193,49 @@ function OrderUpdate() {
                   <Grid.Col>
                     <TextInput
                       required
-                      label="Tên người nhận"
+                      label="Recipient's Name"
                       {...form.getInputProps('toName')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <TextInput
                       required
-                      label="Số điện thoại người nhận"
+                      label="Recipient's Phone Number"
                       {...form.getInputProps('toPhone')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <TextInput
                       required
-                      label="Tỉnh thành người nhận"
+                      label="Recipient's Province"
                       {...form.getInputProps('toProvinceName')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <TextInput
                       required
-                      label="Quận huyện người nhận"
+                      label="Recipient's District"
                       {...form.getInputProps('toDistrictName')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <TextInput
                       required
-                      label="Phường xã người nhận"
+                      label="Recipient's Ward"
                       {...form.getInputProps('toWardName')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <TextInput
                       required
-                      label="Địa chỉ người nhận"
+                      label="Recipient's Address"
                       {...form.getInputProps('toAddress')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <Select
                       required
-                      label="Nguồn đơn hàng"
+                      label="Order Source"
                       placeholder="--"
                       data={orderResourceSelectList}
                       {...form.getInputProps('orderResourceId')}
@@ -243,25 +243,25 @@ function OrderUpdate() {
                   </Grid.Col>
                   <Grid.Col>
                     <Select
-                      label="Lý do hủy đơn hàng"
+                      label="Order Cancellation Reason"
                       placeholder="--"
                       clearable
                       data={orderCancellationReasonSelectList}
-                      // Chỉ bật khi trạng thái đơn hàng là "Hủy bỏ" (5)
+                      // Only enable when the order status is "Cancelled" (5)
                       disabled={form.values.status !== '5'}
                       {...form.getInputProps('orderCancellationReasonId')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <Textarea
-                      label="Ghi chú đơn hàng"
+                      label="Order Notes"
                       {...form.getInputProps('note')}
                     />
                   </Grid.Col>
                   <Grid.Col>
                     <Select
                       required
-                      label="Hình thức thanh toán"
+                      label="Payment Method"
                       placeholder="--"
                       data={paymentMethodSelectList}
                       {...form.getInputProps('paymentMethodType')}
@@ -270,7 +270,7 @@ function OrderUpdate() {
                   <Grid.Col>
                     <Select
                       required
-                      label="Trạng thái thanh toán"
+                      label="Payment Status"
                       placeholder="--"
                       data={paymentStatusSelectList}
                       {...form.getInputProps('paymentStatus')}
@@ -281,8 +281,8 @@ function OrderUpdate() {
                 <Divider mt="xs"/>
 
                 <Group position="apart" p="sm">
-                  <Button variant="default" onClick={resetForm}>Mặc định</Button>
-                  <Button type="submit">Cập nhật</Button>
+                  <Button variant="default" onClick={resetForm}>Default</Button>
+                  <Button type="submit">Update</Button>
                 </Group>
               </Stack>
             </Paper>

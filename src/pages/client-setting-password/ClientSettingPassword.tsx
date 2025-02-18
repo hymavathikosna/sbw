@@ -14,11 +14,11 @@ import MiscUtils from 'utils/MiscUtils';
 
 const formSchema = z.object({
   oldPassword: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
-    .min(1, MessageUtils.min('Mật khẩu', 1)),
+    .min(1, MessageUtils.min('Password', 1)),
   newPassword: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
-    .min(1, MessageUtils.min('Mật khẩu', 1)),
+    .min(1, MessageUtils.min('Password', 1)),
   newPasswordAgain: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
-    .min(1, MessageUtils.min('Mật khẩu', 1)),
+    .min(1, MessageUtils.min('Password', 1)),
 });
 
 function ClientSettingPassword() {
@@ -38,14 +38,14 @@ function ClientSettingPassword() {
   const updatePasswordSettingApi = useMutation<never, ErrorMessage, ClientPasswordSettingUserRequest>(
     (requestBody) => FetchUtils.postWithToken(ResourceURL.CLIENT_USER_PASSWORD_SETTING, requestBody),
     {
-      onSuccess: () => NotifyUtils.simpleSuccess('Cập nhật thành công'),
-      onError: () => NotifyUtils.simpleFailed('Cập nhật không thành công'),
+      onSuccess: () => NotifyUtils.simpleSuccess('Update thành công'),
+      onError: () => NotifyUtils.simpleFailed('Update không thành công'),
     }
   );
 
   const handleFormSubmit = form.onSubmit((formValues) => {
     if (formValues.newPassword !== formValues.newPasswordAgain) {
-      form.setFieldError('newPasswordAgain', 'Mật khẩu không trùng khớp');
+      form.setFieldError('newPasswordAgain', 'Password không trùng khớp');
     } else {
       const requestBody: ClientPasswordSettingUserRequest = {
         oldPassword: formValues.oldPassword,
@@ -68,7 +68,7 @@ function ClientSettingPassword() {
             <Card radius="md" shadow="sm" p="lg">
               <Stack>
                 <Title order={2}>
-                  Đổi mật khẩu
+                  Change password
                 </Title>
                 <Grid>
                   <Grid.Col lg={6}>
@@ -77,14 +77,14 @@ function ClientSettingPassword() {
                         <PasswordInput
                           required
                           radius="md"
-                          label="Mật khẩu hiện tại"
+                          label="Password hiện tại"
                           placeholder="Nhập mật khẩu hiện tại"
                           {...form.getInputProps('oldPassword')}
                         />
                         <PasswordInput
                           required
                           radius="md"
-                          label="Mật khẩu mới"
+                          label="Password mới"
                           placeholder="Nhập mật khẩu mới"
                           {...form.getInputProps('newPassword')}
                         />
@@ -100,7 +100,7 @@ function ClientSettingPassword() {
                           type="submit"
                           disabled={MiscUtils.isEquals(initialFormValues, form.values)}
                         >
-                          Cập nhật
+                          Update
                         </Button>
                       </Stack>
                     </form>

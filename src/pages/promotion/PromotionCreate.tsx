@@ -64,15 +64,15 @@ function PromotionCreate() {
                     resourceKey: CategoryConfigs.resourceKey,
                     resultListSize: 5,
                     resultFragment: categoryResponse => <Text size="sm">{categoryResponse.name}</Text>,
-                    inputLabel: 'Thêm danh mục sản phẩm',
-                    inputPlaceholder: 'Nhập tên danh mục sản phẩm',
+                    inputLabel: 'Add product category',
+                    inputPlaceholder: 'Enter product category name',
                     selectedFragment: categoryResponse => <Text size="sm">{categoryResponse.name}</Text>,
-                    deleteButtonTitle: 'Xóa danh mục sản phẩm này',
+                    deleteButtonTitle: 'Delete this product category',
                   }}
                   errorSearchInput={form.errors.categoryIds}
                 />
               </Tabs.Tab>
-              <Tabs.Tab tabKey={AddProductMode.PRODUCT} label="Sản phẩm">
+              <Tabs.Tab tabKey={AddProductMode.PRODUCT} label="Product">
                 <EntityFinder<ProductResponse>
                   selections={products}
                   onClickItem={handleAddProductFinder}
@@ -85,23 +85,23 @@ function PromotionCreate() {
                       <Stack spacing={2}>
                         <Text size="sm">{productResponse.name}</Text>
                         <Group spacing="xs">
-                          <Text size="xs" color="dimmed">Mã: {productResponse.code}</Text>
-                          <Text size="xs" color="dimmed">Danh mục: {productResponse.category?.name}</Text>
+                          <Text size="xs" color="dimmed">Code: {productResponse.code}</Text>
+                          <Text size="xs" color="dimmed">Category: {productResponse.category?.name}</Text>
                         </Group>
                       </Stack>
                     ),
-                    inputLabel: 'Thêm sản phẩm',
-                    inputPlaceholder: 'Nhập tên sản phẩm',
+                    inputLabel: 'Add product',
+                    inputPlaceholder: 'Enter product name',
                     selectedFragment: productResponse => (
                       <Stack spacing={2}>
                         <Text size="sm">{productResponse.name}</Text>
                         <Group spacing="xs">
-                          <Text size="xs" color="dimmed">Mã: {productResponse.code}</Text>
-                          <Text size="xs" color="dimmed">Danh mục: {productResponse.category?.name}</Text>
+                          <Text size="xs" color="dimmed">Code: {productResponse.code}</Text>
+                          <Text size="xs" color="dimmed">Category: {productResponse.category?.name}</Text>
                         </Group>
                       </Stack>
                     ),
-                    deleteButtonTitle: 'Xóa sản phẩm này',
+                    deleteButtonTitle: 'Delete this product',
                   }}
                   errorSearchInput={form.errors.productIds}
                 />
@@ -161,7 +161,7 @@ function PromotionCreate() {
                 <Divider mt="xs"/>
 
                 <Group position="apart" p="sm">
-                  <Button variant="default" onClick={resetForm}>Mặc định</Button>
+                  <Button variant="default" onClick={resetForm}>Default</Button>
                   <Button type="submit">Thêm</Button>
                 </Group>
               </Stack>

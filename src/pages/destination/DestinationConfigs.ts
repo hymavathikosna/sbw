@@ -9,58 +9,58 @@ class DestinationConfigs extends Configs {
   static managerPath = ManagerPath.DESTINATION;
   static resourceUrl = ResourceURL.DESTINATION;
   static resourceKey = 'destinations';
-  static createTitle = 'Thêm điểm nhập hàng';
-  static updateTitle = 'Cập nhật điểm nhập hàng';
-  static manageTitle = 'Quản lý điểm nhập hàng';
+  static createTitle = 'Add Receiving Point';
+  static updateTitle = 'Update Receiving Point';
+  static manageTitle = 'Manage Receiving Points';
 
   static manageTitleLinks: TitleLink[] = WarehouseConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     contactFullname: {
-      label: 'Họ và tên người liên hệ',
+      label: 'Contact Full Name',
       type: EntityPropertyType.STRING,
     },
     contactEmail: {
-      label: 'Email người liên hệ',
+      label: 'Contact Email',
       type: EntityPropertyType.STRING,
     },
     contactPhone: {
-      label: 'Số điện thoại người liên hệ',
+      label: 'Contact Phone Number',
       type: EntityPropertyType.STRING,
     },
     'address.line': {
-      label: 'Địa chỉ',
+      label: 'Address',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'address.province.name': {
-      label: 'Tên tỉnh thành',
+      label: 'Province Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'address.district.name': {
-      label: 'Tên quận huyện',
+      label: 'District Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái điểm nhập hàng',
+      label: 'Receiving Point Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     'address.provinceId': {
-      label: 'Tỉnh thành',
+      label: 'Province',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'address.districtId': {
-      label: 'Quận huyện',
+      label: 'District',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
-    },
+    },    
   };
 
   static properties = DestinationConfigs._rawProperties as

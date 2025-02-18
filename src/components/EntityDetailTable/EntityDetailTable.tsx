@@ -18,19 +18,19 @@ function EntityDetailTable<T>({
   const { isLoading, isError, data } = useGetByIdApi<T>(resourceUrl, resourceKey, entityId);
 
   if (isLoading) {
-    return <>Đang tải...</>;
+    return <>Loading...</>;
   }
 
   if (isError) {
-    return <>Đã có lỗi truy vấn</>;
+    return <>An error occurred while fetching data</>;
   }
 
   return (
     <Table striped highlightOnHover>
       <thead>
         <tr>
-          <th>Thuộc tính</th>
-          <th>Giá trị</th>
+          <th>Attribute</th>
+          <th>Value</th>
         </tr>
       </thead>
       <tbody>{entityDetailTableRowsFragment(data as T)}</tbody>

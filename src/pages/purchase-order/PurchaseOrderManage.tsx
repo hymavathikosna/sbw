@@ -36,19 +36,19 @@ function PurchaseOrderManage() {
   const purchaseOrderStatusBadgeFragment = (status: number) => {
     switch (status) {
     case 1:
-      return <Badge color="gray" variant="outline" size="sm">Đơn hàng mới</Badge>;
+      return <Badge color="gray" variant="outline" size="sm">New Order</Badge>;
     case 2:
-      return <Badge color="yellow" variant="outline" size="sm">Đang chờ duyệt</Badge>;
+      return <Badge color="yellow" variant="outline" size="sm">Pending Approval</Badge>;
     case 3:
-      return <Badge color="violet" variant="outline" size="sm">Đã duyệt</Badge>;
+      return <Badge color="violet" variant="outline" size="sm">Approved</Badge>;
     case 4:
-      return <Badge color="blue" variant="outline" size="sm">Đang xử lý</Badge>;
+      return <Badge color="blue" variant="outline" size="sm">Processing</Badge>;
     case 5:
-      return <Badge color="green" variant="outline" size="sm">Hoàn thành</Badge>;
+      return <Badge color="green" variant="outline" size="sm">Completed</Badge>;
     case 6:
-      return <Badge color="orange" variant="outline" size="sm">Không duyệt</Badge>;
+      return <Badge color="orange" variant="outline" size="sm">Rejected</Badge>;
     case 7:
-      return <Badge color="red" variant="outline" size="sm">Hủy bỏ</Badge>;
+      return <Badge color="red" variant="outline" size="sm">Cancelled</Badge>;      
     }
   };
 
@@ -86,7 +86,7 @@ function PurchaseOrderManage() {
           color="blue"
           variant="hover"
           size={24}
-          title="Tạo phiếu nhập kho"
+          title="Create Stock Receipt"
         >
           <Plus/>
         </ActionIcon>
@@ -131,7 +131,7 @@ function PurchaseOrderManage() {
         </td>
       </tr>
       <tr>
-        <td>Người liên hệ điểm nhập hàng</td>
+        <td>Contact Person at the Stock Entry Point</td>
         <td>
           <Stack spacing={0}>
             {[entity.destination.contactFullname, entity.destination.contactPhone, entity.destination.contactEmail]

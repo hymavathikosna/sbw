@@ -27,9 +27,9 @@ function ClientChangePassword() {
 
   const formSchema = z.object({
     newPassword: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
-      .min(1, MessageUtils.min('Mật khẩu', 1)),
+      .min(1, MessageUtils.min('Password', 1)),
     newPasswordAgain: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
-      .min(1, MessageUtils.min('Mật khẩu', 1)),
+      .min(1, MessageUtils.min('Password', 1)),
   });
 
   const initialFormValues = {
@@ -46,15 +46,15 @@ function ClientChangePassword() {
     (requestBody) => FetchUtils.put(ResourceURL.CLIENT_RESET_PASSWORD, requestBody),
     {
       onSuccess: () => {
-        NotifyUtils.simpleSuccess('Đổi mật khẩu mới thành công');
+        NotifyUtils.simpleSuccess('Change password mới thành công');
       },
-      onError: () => NotifyUtils.simpleFailed('Đổi mật khẩu không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Change password không thành công'),
     }
   );
 
   const handleFormSubmit = form.onSubmit((formValues) => {
     if (formValues.newPassword !== formValues.newPasswordAgain) {
-      form.setFieldError('newPasswordAgain', 'Mật khẩu không trùng khớp');
+      form.setFieldError('newPasswordAgain', 'Password không trùng khớp');
     } else if (token && email) {
       const requestBody: ResetPasswordRequest = {
         token: token,
@@ -70,7 +70,7 @@ function ClientChangePassword() {
     <main>
       <Container size="xl">
         <Stack align="center">
-          <Title order={2}>Đổi mật khẩu</Title>
+          <Title order={2}>Change password</Title>
 
           <Card withBorder shadow="md" mt={20} p={30} radius="md" sx={{ width: '100%', maxWidth: 400 }}>
             <form onSubmit={handleFormSubmit}>
@@ -78,7 +78,7 @@ function ClientChangePassword() {
                 <PasswordInput
                   required
                   radius="md"
-                  label="Mật khẩu mới"
+                  label="Password mới"
                   placeholder="Nhập mật khẩu mới"
                   {...form.getInputProps('newPassword')}
                 />
@@ -94,7 +94,7 @@ function ClientChangePassword() {
                   type="submit"
                   disabled={MiscUtils.isEquals(initialFormValues, form.values) || resetPasswordApi.isLoading}
                 >
-                  Đổi mật khẩu
+                  Change password
                 </Button>
               </Stack>
             </form>

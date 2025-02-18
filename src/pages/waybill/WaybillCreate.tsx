@@ -132,7 +132,7 @@ function WaybillCreate() {
             <Divider mt="xs"/>
 
             <Group position="apart" p="sm">
-              <Button variant="default" onClick={form.reset}>Mặc định</Button>
+              <Button variant="default" onClick={form.reset}>Default</Button>
               <Button type="submit">Thêm</Button>
             </Group>
           </Stack>

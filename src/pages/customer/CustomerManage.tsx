@@ -114,7 +114,7 @@ function CustomerManage() {
       </tr>
       <tr>
         <td>{CustomerConfigs.properties['user.gender'].label}</td>
-        <td>{entity.user.gender === 'M' ? 'Nam' : 'Nữ'}</td>
+        <td>{entity.user.gender === 'M' ? 'Male' : 'Female'}</td>
       </tr>
       <tr>
         <td>{CustomerConfigs.properties['user.address.line'].label}</td>

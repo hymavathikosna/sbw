@@ -10,24 +10,24 @@ class UnitConfigs extends Configs {
   static managerPath = ManagerPath.UNIT;
   static resourceUrl = ResourceURL.UNIT;
   static resourceKey = 'units';
-  static createTitle = 'Thêm đơn vị tính';
-  static updateTitle = 'Cập nhật đơn vị tính';
-  static manageTitle = 'Quản lý đơn vị tính';
+  static createTitle = 'Add Unit of Measurement';
+  static updateTitle = 'Update Unit of Measurement';
+  static manageTitle = 'Manage Unit of Measurement';
 
   static manageTitleLinks: TitleLink[] = ProductConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     name: {
-      label: 'Tên đơn vị tính',
+      label: 'Unit of Measurement Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái đơn vị tính',
+      label: 'Unit of Measurement Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = UnitConfigs._rawProperties as

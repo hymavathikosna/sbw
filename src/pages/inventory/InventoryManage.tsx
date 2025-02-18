@@ -32,23 +32,23 @@ function InventoryManage() {
       overlayColor: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2],
       overlayOpacity: 0.55,
       overlayBlur: 3,
-      title: <strong>Lịch sử nhập xuất của sản phẩm &quot;{productName}&quot;</strong>,
+      title: <strong>Product inventory history &quot;{productName}&quot;</strong>,
       children: <ProductInventoryTransactionsModal transactions={transactions}/>,
     });
   };
 
   const entitiesTableHeadsFragment = (
     <tr>
-      <th>Mã sản phẩm</th>
-      <th>Tên sản phẩm</th>
-      <th>Nhãn hiệu</th>
-      <th>Nhà cung cấp</th>
-      <th>Tồn thực tế</th>
-      <th>Chờ xuất</th>
-      <th>Có thể bán</th>
-      <th>Sắp về</th>
-      <th>Theo dõi</th>
-      <th>Lịch sử</th>
+      <th>Product Code</th>
+      <th>Product Name</th>
+      <th>Brand</th>
+      <th>Supplier</th>
+      <th>Actual Stock</th>
+      <th>Pending Dispatch</th>
+      <th>Available for Sale</th>
+      <th>Coming Soon</th>
+      <th>Track</th>
+      <th>History</th>
     </tr>
   );
 
@@ -67,14 +67,14 @@ function InventoryManage() {
           color="blue"
           variant="hover"
           size={24}
-          title="Thiết lập định mức tồn kho cho sản phẩm"
+          title="Set inventory level for the product"
         >
           <Plus/>
         </ActionIcon>
       </td>
       <td>
         <Anchor inherit onClick={() => handleTransactionsAnchor(entity.product.name, entity.transactions)}>
-          Giao dịch
+          Transaction
         </Anchor>
       </td>
     </tr>
@@ -117,22 +117,22 @@ function ProductInventoryTransactionsModal({ transactions }: { transactions: Doc
   const docketTypeBadgeFragment = (type: number) => {
     switch (type) {
     case 1:
-      return <Badge color="blue" variant="filled" size="sm">Nhập</Badge>;
+      return <Badge color="blue" variant="filled" size="sm">Import</Badge>;
     case 2:
-      return <Badge color="orange" variant="filled" size="sm">Xuất</Badge>;
+      return <Badge color="orange" variant="filled" size="sm">Export</Badge>;
     }
   };
 
   const docketStatusBadgeFragment = (status: number) => {
     switch (status) {
     case 1:
-      return <Badge color="gray" variant="outline" size="sm">Mới</Badge>;
+      return <Badge color="gray" variant="outline" size="sm">New</Badge>;
     case 2:
-      return <Badge color="blue" variant="outline" size="sm">Đang xử lý</Badge>;
+      return <Badge color="blue" variant="outline" size="sm">In Progress</Badge>;
     case 3:
-      return <Badge color="green" variant="outline" size="sm">Hoàn thành</Badge>;
+      return <Badge color="green" variant="outline" size="sm">Completed</Badge>;
     case 4:
-      return <Badge color="red" variant="outline" size="sm">Hủy bỏ</Badge>;
+      return <Badge color="red" variant="outline" size="sm">Cancelled</Badge>;      
     }
   };
 
@@ -145,15 +145,15 @@ function ProductInventoryTransactionsModal({ transactions }: { transactions: Doc
     >
       <thead>
         <tr>
-          <th>Phiếu</th>
-          <th>Ngày tạo</th>
-          <th>Lý do</th>
-          <th>Mã đơn nhập hàng</th>
-          <th>Mã đơn hàng</th>
-          <th>Số lượng</th>
+          <th>Receipt</th>
+          <th>Creation Date</th>
+          <th>Reason</th>
+          <th>Purchase Order Code</th>
+          <th>Order Code</th>
+          <th>Quantity</th>
           <th>SKU</th>
-          <th>Kho</th>
-          <th>Trạng thái</th>
+          <th>Warehouse</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody>

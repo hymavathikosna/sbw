@@ -97,8 +97,8 @@ function VariantFinder({ selectedVariants, onClickItem, errorSearchInput }: Vari
         target={
           <TextInput
             required
-            label="Thêm mặt hàng"
-            placeholder="Nhập tên, mã sản phẩm hay SKU để tìm..."
+            label="Add Item"
+            placeholder="Enter name, product code, or SKU to search..."
             value={keyword}
             onChange={(event) => setKeyword(event.currentTarget.value)}
             icon={<Search size={14}/>}
@@ -109,7 +109,7 @@ function VariantFinder({ selectedVariants, onClickItem, errorSearchInput }: Vari
       >
         <Stack spacing={0}>
           {(!variants || variants.totalElements === 0)
-            ? <Text size="sm" p="sm" color="dimmed" sx={{ fontStyle: 'italic' }}>Không có kết quả</Text>
+            ? <Text size="sm" p="sm" color="dimmed" sx={{ fontStyle: 'italic' }}>No results</Text>
             : variants.content.map(variant => (
               <UnstyledButton
                 key={variant.sku}

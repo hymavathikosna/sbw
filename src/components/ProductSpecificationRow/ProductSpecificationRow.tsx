@@ -80,13 +80,13 @@ function ProductSpecificationRow({
         color="blue"
         variant="hover"
         size={36}
-        title="Di chuyển thông số sản phẩm"
+        title="Move product specification"
       >
         <DragDrop/>
       </ActionIcon>
       <Select
         sx={{ width: '100%' }}
-        placeholder="Chọn thông số"
+        placeholder="Select specification"
         icon={<AB size={14}/>}
         clearable
         searchable
@@ -96,7 +96,7 @@ function ProductSpecificationRow({
       />
       <TextInput
         sx={{ width: '100%' }}
-        placeholder="Nhập giá trị"
+        placeholder="Enter value"
         icon={<Keyboard size={14}/>}
         value={specification.value}
         onChange={(event) => handleProductSpecificationValueInput(event.currentTarget.value, index)}
@@ -106,7 +106,7 @@ function ProductSpecificationRow({
         color="red"
         variant="hover"
         size={36}
-        title="Xóa thông số"
+        title="Delete specification"
         onClick={() => handleDeleteProductSpecificationButton(index)}
       >
         <PlaystationX/>

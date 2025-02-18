@@ -25,13 +25,13 @@ function DefaultPropertyPanel({
           <Text><Code color="blue">{id}</Code></Text>
         </Stack>
         <Stack spacing={5}>
-          <Text size="sm">Ngày tạo</Text>
+          <Text size="sm">Creation date</Text>
           <Text>
             <Code color="blue">{DateUtils.isoDateToString(createdAt)}</Code>
           </Text>
         </Stack>
         <Stack spacing={5}>
-          <Text size="sm">Ngày cập nhật</Text>
+          <Text size="sm">Update date</Text>
           <Text>
             <Code color="blue">{DateUtils.isoDateToString(updatedAt)}</Code>
           </Text>

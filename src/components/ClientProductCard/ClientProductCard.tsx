@@ -143,7 +143,7 @@ function ClientProductCard({ product, search }: ClientProductCardProps) {
               size="lg"
               radius="xl"
               variant="filled"
-              title="Thêm vào danh sách yêu thích"
+              title="Add to favorites list"
               onClick={handleCreateWishButton}
             >
               <HeartPlus size={18}/>
@@ -155,7 +155,7 @@ function ClientProductCard({ product, search }: ClientProductCardProps) {
                   size="lg"
                   radius="xl"
                   variant="filled"
-                  title="Thêm vào giỏ hàng"
+                  title="Add to cart"
                   onClick={handleAddToCartButton}
                 >
                   <ShoppingCartPlus size={18}/>
@@ -167,7 +167,7 @@ function ClientProductCard({ product, search }: ClientProductCardProps) {
                   size="lg"
                   radius="xl"
                   variant="filled"
-                  title="Notification khi có hàng"
+                  title="Back in stock notification"
                   onClick={handleCreatePreorderButton}
                 >
                   <BellPlus size={18}/>
@@ -182,7 +182,7 @@ function ClientProductCard({ product, search }: ClientProductCardProps) {
                 {product.productName}
               </Highlight>
             </Text>
-            {!product.productSaleable && <Badge size="xs" color="red" variant="filled">Hết hàng</Badge>}
+            {!product.productSaleable && <Badge size="xs" color="red" variant="filled">Out of stock</Badge>}
           </Group>
           <Text weight={500} color="pink">
             {product.productPriceRange
@@ -202,7 +202,7 @@ function ClientProductCard({ product, search }: ClientProductCardProps) {
             </Group>
           )}
           <Text size="sm" color="dimmed">
-            {product.productVariants.length} phiên bản
+            {product.productVariants.length} Version
           </Text>
         </Stack>
       </Stack>

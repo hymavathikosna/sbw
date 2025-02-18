@@ -33,7 +33,7 @@ import ClientCategoryProducts from 'pages/client-category/ClientCategoryProducts
 import useClientCategoryStore from 'stores/use-client-category-store';
 import { useDebouncedValue } from '@mantine/hooks';
 
-const ClientCategory = async () => {
+function ClientCategory() {
   const theme = useMantineTheme();
 
   const { slug } = useParams();
@@ -265,7 +265,7 @@ const ClientCategory = async () => {
                       <Radio value="highest-price" label="Price: High to Low"/>
                     </RadioGroup>
                   </Group>
-                  <Text>{totalProducts} sản phẩm</Text>
+                  <Text>{totalProducts} product</Text>
                 </Group>
 
                 <ClientCategoryProducts categorySlug={category.categorySlug}/>
@@ -277,7 +277,7 @@ const ClientCategory = async () => {
       </Container>
     </main>
   );
-};
+}
 
 function useGetCategoryApi(categorySlug: string) {
   const {

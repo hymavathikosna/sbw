@@ -176,7 +176,7 @@ function DocketCreate() {
                 <Divider mt="xs"/>
 
                 <Group position="apart" p="sm">
-                  <Button variant="default" onClick={resetForm}>Mặc định</Button>
+                  <Button variant="default" onClick={resetForm}>Default</Button>
                   <Button type="submit">Thêm</Button>
                 </Group>
               </Stack>

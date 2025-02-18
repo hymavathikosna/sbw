@@ -87,13 +87,13 @@ function ProductPropertyRow({
         color="blue"
         variant="hover"
         size={36}
-        title="Di chuyển thuộc tính sản phẩm"
+        title="Move product attribute"
       >
         <DragDrop/>
       </ActionIcon>
       <Select
         sx={{ width: '100%' }}
-        placeholder="Chọn thuộc tính"
+        placeholder="Select attribute"
         icon={<AB size={14}/>}
         clearable
         searchable
@@ -103,11 +103,11 @@ function ProductPropertyRow({
       />
       <MultiSelect
         sx={{ width: '100%' }}
-        placeholder="Nhập giá trị"
+        placeholder="Enter value"
         icon={<Keyboard size={14}/>}
         searchable
         creatable
-        getCreateLabel={(value) => `+ Thêm giá trị ${value}`}
+        getCreateLabel={(value) => `+ Add value ${value}`}
         data={productProperty.value}
         value={productProperty.value}
         onCreate={(value) => handleCreateProductPropertyValueInput(value, index)}
@@ -118,7 +118,7 @@ function ProductPropertyRow({
         color="red"
         variant="hover"
         size={36}
-        title="Xóa thuộc tính"
+        title="Delete attribute"
         onClick={() => handleDeleteProductPropertyButton(index)}
       >
         <PlaystationX/>

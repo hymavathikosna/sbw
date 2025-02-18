@@ -77,7 +77,7 @@ function ClientChat() {
             <Card radius="md" shadow="sm" p="lg">
               <Stack>
                 <Title order={2}>
-                  Yêu cầu tư vấn
+                  Request for advice
                 </Title>
 
                 <Card
@@ -101,12 +101,12 @@ function ClientChat() {
                         {isErrorRoomExistenceResponse && (
                           <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.pink[6] }}>
                             <AlertTriangle size={125} strokeWidth={1}/>
-                            <Text size="xl" weight={500}>Đã có lỗi xảy ra</Text>
+                            <Text size="xl" weight={500}>An error has occurred</Text>
                           </Stack>
                         )}
                         {roomExistenceResponse && !roomExistenceResponse.roomExistence && (
                           <Button size="lg" onClick={handleCreateRoomButton}>
-                            Gửi yêu cầu tư vấn!
+                            Send a request for advice
                           </Button>
                         )}
                       </Box>
@@ -244,7 +244,7 @@ export function MessageInput({ roomId, userId }: { roomId: number, userId: numbe
       borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]}`,
     }}>
       <TextInput
-        placeholder="Nhập tin nhắn"
+        placeholder="Enter a message"
         variant="filled"
         radius="md"
         sx={{ flexGrow: 1 }}
@@ -257,7 +257,7 @@ export function MessageInput({ roomId, userId }: { roomId: number, userId: numbe
         radius="md"
         variant="light"
         size="lg"
-        title="Gửi tin nhắn"
+        title="Send a message"
         onClick={handleSendMessageButton}
       >
         <Send size={18}/>
@@ -291,7 +291,7 @@ function useCreateRoomApi() {
     () => FetchUtils.postWithToken(ResourceURL.CLIENT_CHAT_CREATE_ROOM, {}),
     {
       onSuccess: () => queryClient.invalidateQueries(['client-api', 'chat', 'getRoom']),
-      onError: () => NotifyUtils.simpleFailed('Khởi tạo yêu cầu tư vấn không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Failed to initialize consultation request'),
     }
   );
 }

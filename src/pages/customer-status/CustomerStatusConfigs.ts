@@ -10,38 +10,38 @@ class CustomerStatusConfigs extends Configs {
   static managerPath = ManagerPath.CUSTOMER_STATUS;
   static resourceUrl = ResourceURL.CUSTOMER_STATUS;
   static resourceKey = 'customer-status';
-  static createTitle = 'Thêm trạng thái khách hàng';
-  static updateTitle = 'Cập nhật trạng thái khách hàng';
-  static manageTitle = 'Quản lý trạng thái khách hàng';
+  static createTitle = 'Add Customer Status';
+  static updateTitle = 'Update Customer Status';
+  static manageTitle = 'Manage Customer Statuses';
 
   static manageTitleLinks: TitleLink[] = CustomerConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true),
     code: {
-      label: 'Mã trạng thái khách hàng',
+      label: 'Customer Status Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     name: {
-      label: 'Tên trạng thái khách hàng',
+      label: 'Customer Status Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     description: {
-      label: 'Mô tả trạng thái khách hàng',
+      label: 'Customer Status Description',
       type: EntityPropertyType.STRING,
     },
     color: {
-      label: 'Màu trạng thái khách hàng',
+      label: 'Customer Status Color',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái trạng thái khách hàng',
+      label: 'Customer Status Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = CustomerStatusConfigs._rawProperties as

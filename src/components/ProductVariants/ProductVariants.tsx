@@ -63,10 +63,10 @@ function ProductVariants({
       <thead>
         <tr>
           <th>#</th>
-          <th>Phiên bản</th>
+          <th>Variant</th>
           <th>SKU</th>
-          <th>Giá vốn</th>
-          <th>Giá bán</th>
+          <th>Cost Price</th>
+          <th>Selling Price</th>
         </tr>
       </thead>
       <tbody>

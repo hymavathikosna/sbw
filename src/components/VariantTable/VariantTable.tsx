@@ -52,16 +52,16 @@ function VariantTable({
       <thead>
         <tr>
           <th style={{ textAlign: 'center' }}>STT</th>
-          <th>Mặt hàng</th>
-          {type === EntityType.PURCHASE_ORDER && <th style={{ textAlign: 'right' }}>Giá vốn</th>}
-          {type === EntityType.ORDER && <th style={{ textAlign: 'right' }}>Giá bán</th>}
-          {type !== EntityType.COUNT && <th style={{ textAlign: 'center' }}>Số lượng</th>}
-          {type === EntityType.COUNT && <th style={{ textAlign: 'center' }}>Tồn kho</th>}
-          {type === EntityType.COUNT && <th style={{ textAlign: 'center' }}>Kiểm thực tế</th>}
-          {type === EntityType.COUNT && <th style={{ textAlign: 'center' }}>Chênh lệch</th>}
+          <th>Item</th>
+          {type === EntityType.PURCHASE_ORDER && <th style={{ textAlign: 'right' }}>Cost Price</th>}
+          {type === EntityType.ORDER && <th style={{ textAlign: 'right' }}>Selling Price</th>}
+          {type !== EntityType.COUNT && <th style={{ textAlign: 'center' }}>Quantity</th>}
+          {type === EntityType.COUNT && <th style={{ textAlign: 'center' }}>Stock</th>}
+          {type === EntityType.COUNT && <th style={{ textAlign: 'center' }}>Actual Check</th>}
+          {type === EntityType.COUNT && <th style={{ textAlign: 'center' }}>Difference</th>}
           {[EntityType.PURCHASE_ORDER, EntityType.ORDER].includes(type) &&
-            <th style={{ textAlign: 'right' }}>Thành tiền</th>}
-          <th style={{ textAlign: 'center' }}>Thao tác</th>
+            <th style={{ textAlign: 'right' }}>Total</th>}
+          <th style={{ textAlign: 'center' }}>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -154,7 +154,7 @@ function VariantTable({
                   color="red"
                   variant="outline"
                   size={24}
-                  title="Xóa mặt hàng này"
+                  title="Delete this item"
                   onClick={() => handleDeleteVariantButton(index)}
                 >
                   <Trash size={16}/>

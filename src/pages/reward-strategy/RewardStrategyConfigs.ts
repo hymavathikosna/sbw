@@ -5,11 +5,11 @@ import ManagerPath from 'constants/ManagerPath';
 class RewardStrategyConfigs extends Configs {
   static resourceUrl = ResourceURL.REWARD_STRATEGY;
   static resourceKey = 'reward-strategies';
-  static manageTitle = 'Quản lý chiến lược điểm thưởng';
+  static manageTitle = 'Manage reward point strategy';
   static manageTitleLinks: TitleLink[] = [
     {
       link: ManagerPath.REWARD_STRATEGY,
-      label: 'QL chiến lược điểm thưởng',
+      label: 'Manage reward point strategy',
     },
   ];
 }

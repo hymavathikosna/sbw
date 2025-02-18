@@ -12,46 +12,46 @@ class PromotionConfigs extends Configs {
   static managerPath = ManagerPath.PROMOTION;
   static resourceUrl = ResourceURL.PROMOTION;
   static resourceKey = 'promotions';
-  static createTitle = 'Thêm khuyến mãi';
-  static updateTitle = 'Cập nhật khuyến mãi';
-  static manageTitle = 'Quản lý khuyến mãi';
+  static createTitle = 'Add Promotion';
+  static updateTitle = 'Update Promotion';
+  static manageTitle = 'Manage Promotions';
 
   static manageTitleLinks = PaymentMethodConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true),
     name: {
-      label: 'Tên khuyến mãi',
+      label: 'Promotion Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     startDate: {
-      label: 'Ngày bắt đầu khuyến mãi',
+      label: 'Promotion Start Date',
       type: EntityPropertyType.DATE,
       isShowInTable: true,
     },
     endDate: {
-      label: 'Ngày kết thúc khuyến mãi',
+      label: 'Promotion End Date',
       type: EntityPropertyType.DATE,
       isShowInTable: true,
     },
     percent: {
-      label: 'Phần trăm giảm giá',
+      label: 'Discount Percentage',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái khuyến mãi',
+      label: 'Promotion Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     numberOfProducts: {
-      label: 'Số sản phẩm',
+      label: 'Number of Products',
       type: EntityPropertyType.PLACEHOLDER,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
-    },
+    },    
   };
 
   static properties = PromotionConfigs._rawProperties as
@@ -71,7 +71,7 @@ class PromotionConfigs extends Configs {
 
   static createUpdateFormSchema = z.object({
     name: z.string().min(2, MessageUtils.min(PromotionConfigs.properties.name.label, 2)),
-    range: z.array(z.date({ invalid_type_error: 'Vui lòng không để trống' })).length(2),
+    range: z.array(z.date({ invalid_type_error: 'Please do not leave blank' })).length(2),
     percent: z.number().min(1).max(100),
     status: z.string(),
     productIds: z.array(z.number()),

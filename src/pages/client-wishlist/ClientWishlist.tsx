@@ -57,7 +57,7 @@ function ClientWishlist() {
     wishlistContentFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.pink[6] }}>
         <AlertTriangle size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Đã có lỗi xảy ra</Text>
+        <Text size="xl" weight={500}>An error has occurred</Text>
       </Stack>
     );
   }
@@ -66,7 +66,7 @@ function ClientWishlist() {
     wishlistContentFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.blue[6] }}>
         <HeartBroken size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Chưa có sản phẩm yêu thích</Text>
+        <Text size="xl" weight={500}>No favorite products yet</Text>
       </Stack>
     );
   }
@@ -85,7 +85,7 @@ function ClientWishlist() {
             onChange={(page: number) => (page !== activePage) && setActivePage(page)}
           />
           <Text>
-            <Text component="span" weight={500}>Trang {activePage}</Text>
+            <Text component="span" weight={500}>Page {activePage}</Text>
             <span> / {wishes.totalPages}</span>
           </Text>
         </Group>
@@ -105,7 +105,7 @@ function ClientWishlist() {
             <Card radius="md" shadow="sm" p="lg">
               <Stack>
                 <Title order={2}>
-                  Sản phẩm yêu thích
+                  Favorite products
                 </Title>
 
                 {wishlistContentFragment}
@@ -131,16 +131,16 @@ function ClientWishCard({ wish }: { wish: ClientWishResponse }) {
       overlayOpacity: 0.55,
       overlayBlur: 3,
       closeOnClickOutside: false,
-      title: <strong>Xác nhận xóa</strong>,
+      title: <strong>Confirm delete</strong>,
       children: (
         <Text size="sm">
-          Xóa sản phẩm <strong>{wish.wishProduct.productName}</strong> khỏi danh sách yêu thích?
+          Are you sure you want to remove the product <strong>{wish.wishProduct.productName}</strong> from your wishlist?
         </Text>
       ),
       labels: {
-        cancel: 'Không xóa',
-        confirm: 'Xóa',
-      },
+        cancel: 'Do not delete',
+        confirm: 'Delete',
+      },      
       confirmProps: { color: 'red' },
       onConfirm: () => deleteWishesApi.mutate([wish.wishId]),
     });
@@ -162,7 +162,7 @@ function ClientWishCard({ wish }: { wish: ClientWishResponse }) {
             {wish.wishProduct.productName}
           </Anchor>
           <Text size="sm" color="dimmed">
-            Thêm vào lúc {DateUtils.isoDateToString(wish.wishCreatedAt)}
+            Added at {DateUtils.isoDateToString(wish.wishCreatedAt)}
           </Text>
         </Stack>
       </Group>
@@ -173,7 +173,7 @@ function ClientWishCard({ wish }: { wish: ClientWishResponse }) {
         compact
         onClick={handleDeleteWishButton}
       >
-        Xóa
+        Delete
       </Button>
     </Group>
   );
@@ -209,10 +209,10 @@ function useDeleteWishesApi() {
     (entityIds) => FetchUtils.deleteWithToken(ResourceURL.CLIENT_WISH, entityIds),
     {
       onSuccess: () => {
-        NotifyUtils.simpleSuccess('Xóa sản phẩm yêu thích thành công');
+        NotifyUtils.simpleSuccess('Successfully removed the product from favorites');
         void queryClient.invalidateQueries(['client-api', 'wishes', 'getAllWishes']);
       },
-      onError: () => NotifyUtils.simpleFailed('Xóa sản phẩm yêu thích thất bại'),
+      onError: () => NotifyUtils.simpleFailed('Failed to remove the product from favorites'),      
     }
   );
 }

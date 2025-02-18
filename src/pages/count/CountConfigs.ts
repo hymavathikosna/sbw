@@ -11,36 +11,36 @@ class CountConfigs extends Configs {
   static managerPath = ManagerPath.COUNT;
   static resourceUrl = ResourceURL.COUNT;
   static resourceKey = 'counts';
-  static createTitle = 'Thêm phiếu kiểm kho';
-  static updateTitle = 'Cập nhật phiếu kiểm kho';
-  static manageTitle = 'Quản lý phiếu kiểm kho';
+  static createTitle = 'Add Inventory Check Ticket';
+  static updateTitle = 'Update Inventory Check Ticket';
+  static manageTitle = 'Manage Inventory Check Tickets';
 
   static manageTitleLinks: TitleLink[] = WarehouseConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true),
     code: {
-      label: 'Mã phiếu kiểm kho',
+      label: 'Inventory Check Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     totalVariants: {
-      label: 'Số mặt hàng',
+      label: 'Number of Items',
       type: EntityPropertyType.PLACEHOLDER,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'warehouse.name': {
-      label: 'Tên nhà kho',
+      label: 'Warehouse Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái phiếu kiểm kho',
+      label: 'Inventory Check Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = CountConfigs._rawProperties as
@@ -61,7 +61,7 @@ class CountConfigs extends Configs {
       variantId: z.number(),
       inventory: z.number(),
       actualInventory: z.number(),
-    })).min(1, 'Cần thêm ít nhất 1 mặt hàng'),
+    })).min(1, 'You need to add at least 1 item'),
     note: z.string(),
     status: z.string(),
   });

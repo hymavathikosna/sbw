@@ -11,26 +11,26 @@ class TransferConfigs extends Configs {
   static managerPath = ManagerPath.TRANSFER;
   static resourceUrl = ResourceURL.TRANSFER;
   static resourceKey = 'transfers';
-  static createTitle = 'Thêm phiếu chuyển kho';
-  static updateTitle = 'Cập nhật phiếu chuyển kho';
-  static manageTitle = 'Quản lý phiếu chuyển kho';
+  static createTitle = 'Add Warehouse Transfer Document';
+  static updateTitle = 'Update Warehouse Transfer Document';
+  static manageTitle = 'Manage Warehouse Transfer Documents';
 
   static manageTitleLinks: TitleLink[] = WarehouseConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true),
     code: {
-      label: 'Mã phiếu chuyển kho',
+      label: 'Warehouse Transfer Document Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'exportDocket.warehouse.name': {
-      label: 'Tên kho xuất',
+      label: 'Export Warehouse Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'exportDocket.status': {
-      label: 'Trạng thái phiếu xuất',
+      label: 'Export Document Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
@@ -42,21 +42,21 @@ class TransferConfigs extends Configs {
       isNotAddToFilterCriteria: true,
     },
     'importDocket.warehouse.name': {
-      label: 'Tên kho nhập',
+      label: 'Import Warehouse Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'importDocket.status': {
-      label: 'Trạng thái phiếu nhập',
+      label: 'Import Document Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     note: {
-      label: 'Ghi chú phiếu chuyển kho',
+      label: 'Warehouse Transfer Document Note',
       type: EntityPropertyType.STRING,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
-    },
+    },    
   };
 
   static properties = TransferConfigs._rawProperties as
@@ -77,7 +77,7 @@ class TransferConfigs extends Configs {
     docketVariants: z.array(z.object({
       variantId: z.number(),
       quantity: z.number(),
-    })).min(1, 'Cần thêm ít nhất 1 mặt hàng'),
+    })).min(1, 'At least one item is required'),
     note: z.string(),
   });
 }

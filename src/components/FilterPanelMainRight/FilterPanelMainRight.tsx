@@ -25,7 +25,7 @@ function FilterPanelMainRight() {
     <Grid.Col span={3}>
       <Stack spacing="sm">
         <Box className={classes.titleFilterPanel}>
-          Lọc
+          Filter
         </Box>
         {filterCriteriaListFragment}
         <Button
@@ -33,7 +33,7 @@ function FilterPanelMainRight() {
           onClick={handleCreateFilterCriteriaButton}
           disabled={isDisabledCreateFilterCriteriaButton}
         >
-          Thêm tiêu chí lọc
+          Add filter criteria
         </Button>
       </Stack>
     </Grid.Col>

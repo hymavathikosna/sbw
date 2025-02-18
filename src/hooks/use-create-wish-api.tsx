@@ -14,11 +14,11 @@ function useCreateWishApi() {
       onSuccess: (response) =>
         NotifyUtils.simpleSuccess(
           <Text inherit>
-            <span>Đã thêm sản phẩm {response.wishProduct.productName} vào </span>
-            <Anchor component={Link} to="/user/wishlist" inherit>danh sách yêu thích</Anchor>
+            <span>Product {response.wishProduct.productName} has been added to the </span>
+            <Anchor component={Link} to="/user/wishlist" inherit>wishlist</Anchor>
           </Text>
         ),
-      onError: () => NotifyUtils.simpleFailed('Không thêm được sản phẩm vào danh sách yêu thích'),
+      onError: () => NotifyUtils.simpleFailed('Failed to add product to wishlist'),
     }
   );
 }

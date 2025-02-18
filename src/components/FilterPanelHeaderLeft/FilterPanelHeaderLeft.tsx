@@ -18,8 +18,8 @@ function FilterPanelHeaderLeft({
         sx={{ width: 250 }}
         ref={filterNameInputRef}
       />
-      <Text size="sm">Ngày tạo: <Code color="blue">__/__/____</Code></Text>
-      <Text size="sm">Ngày sửa: <Code color="blue">__/__/____</Code></Text>
+      <Text size="sm">Creation date: <Code color="blue">__/__/____</Code></Text>
+      <Text size="sm">Modification date: <Code color="blue">__/__/____</Code></Text>
     </Group>
   );
 }

@@ -135,6 +135,7 @@ function ClientSignupStepOne({ nextStep }: { nextStep: () => void }) {
     status: '2', // Không dùng
     roles: [] as string[], // Không dùng
   };
+  const phoneNumberRegex = /^(?:\+?\d{1,3})?[\s\-()]?(\d{1,4})[\s\-()]?(\d{1,4})[\s\-()]?(\d{1,4})$/;
 
   const formSchema = z.object({
     username: z.string({ invalid_type_error: 'Please do not leave this field empty' })
@@ -145,7 +146,7 @@ function ClientSignupStepOne({ nextStep }: { nextStep: () => void }) {
     email: z.string({ invalid_type_error: 'Please do not leave this field empty' })
       .email({ message: 'Enter a valid email format' }),
     phone: z.string({ invalid_type_error: 'Please do not leave this field empty' })
-      .regex(/(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/, { message: 'Enter a valid phone number format' }),
+      .regex(phoneNumberRegex, { message: 'Enter a valid phone number format' }),
     gender: z.string({ invalid_type_error: 'Please do not leave this field empty' }),
     'address.line': z.string({ invalid_type_error: 'Please do not leave this field empty' }),
     'address.provinceId': z.string({ invalid_type_error: 'Please do not leave this field empty' }),

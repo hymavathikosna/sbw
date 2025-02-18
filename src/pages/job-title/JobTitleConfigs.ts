@@ -10,24 +10,24 @@ class JobTitleConfigs extends Configs {
   static managerPath = ManagerPath.JOB_TITLE;
   static resourceUrl = ResourceURL.JOB_TITLE;
   static resourceKey = 'job-titles';
-  static createTitle = 'Thêm chức danh công việc';
-  static updateTitle = 'Cập nhật chức danh công việc';
-  static manageTitle = 'Quản lý chức danh công việc';
+  static createTitle = 'Add Job Title';
+  static updateTitle = 'Update Job Title';
+  static manageTitle = 'Manage Job Titles';
 
   static manageTitleLinks: TitleLink[] = EmployeeConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     name: {
-      label: 'Tên chức danh công việc',
+      label: 'Job Title Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái chức danh công việc',
+      label: 'Job Title Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = JobTitleConfigs._rawProperties as

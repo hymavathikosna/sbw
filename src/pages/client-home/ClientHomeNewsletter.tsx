@@ -19,10 +19,10 @@ function ClientHomeNewsletter() {
         <Group>
           <Mailbox size={40} strokeWidth={1}/>
           <Text weight={500} sx={{ fontSize: theme.fontSizes.xl }}>
-            Đăng ký nhận tin
+            Subscribe for updates
           </Text>
           <Text sx={{ fontSize: theme.fontSizes.md }}>
-            và cập nhật khuyến mãi liên tục...
+            And receive continuous promotion updates...
           </Text>
         </Group>
         <TextInput
@@ -39,7 +39,7 @@ function ClientHomeNewsletter() {
               },
             },
           }}
-          placeholder="Địa chỉ email"
+          placeholder="Email address"
           radius="md"
           size="md"
           icon={<At size={16}/>}

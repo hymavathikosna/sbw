@@ -102,7 +102,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
       saveCartApi.mutate(cartRequest, {
         onSuccess: () => NotifyUtils.simpleSuccess(
           <Text inherit>
-            Đã thêm mặt hàng vừa chọn vào <Anchor component={Link} to="/cart" inherit>giỏ hàng</Anchor>
+            You have added the selected item to the <Anchor component={Link} to="/cart" inherit>cart</Anchor>
           </Text>
         ),
       });
@@ -154,7 +154,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
                 >
                   <Stack align="center" justify="center" sx={{ height: '100%' }}>
                     <PhotoOff size={100} strokeWidth={1}/>
-                    <Text>Không có hình cho sản phẩm này</Text>
+                    <Text>No image for this product</Text>
                   </Stack>
                 </Box>
               )}
@@ -162,10 +162,10 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
           <Grid.Col md={6}>
             <Stack spacing="lg">
               <Stack spacing={2} sx={{ alignItems: 'start' }}>
-                {!product.productSaleable && <Badge color="red" variant="filled" mb={5}>Hết hàng</Badge>}
+                {!product.productSaleable && <Badge color="red" variant="filled" mb={5}>Out of stock</Badge>}
                 {product.productBrand && (
                   <Group spacing={5}>
-                    <Text size="sm">Thương hiệu:</Text>
+                    <Text size="sm">Brand:</Text>
                     <Anchor component={Link} to={'/brand/' + product.productBrand.brandId} size="sm">
                       {product.productBrand.brandName}
                     </Anchor>
@@ -177,7 +177,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
                 <Group mt={7.5} spacing="lg">
                   <Group spacing="xs">
                     <ReviewStarGroup ratingScore={product.productAverageRatingScore}/>
-                    <Text size="sm">{product.productCountReviews} đánh giá</Text>
+                    <Text size="sm">{product.productCountReviews} Rating</Text>
                   </Group>
                   {/* TODO: Doanh số sản phẩm */}
                   {/*<Group spacing={5}>*/}
@@ -219,7 +219,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
               </Box>
 
               <Stack spacing="xs">
-                <Text weight={500}>Phiên bản</Text>
+                <Text weight={500}>Version</Text>
                 {product.productVariants.length > 0
                   ? product.productVariants.some(variant => variant.variantProperties)
                     ? (
@@ -257,8 +257,8 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
                                   </React.Fragment>
                                 ))}
                               </SimpleGrid>
-                              <Text size="xs" color="dimmed">Tồn kho: {variant.variantInventory}</Text>
-                              <Text size="xs" color="dimmed">Giá: {MiscUtils.formatPrice(
+                              <Text size="xs" color="dimmed">Stock: {variant.variantInventory}</Text>
+                              <Text size="xs" color="dimmed">Price: {MiscUtils.formatPrice(
                                 MiscUtils.calculateDiscountedPrice(
                                   variant.variantPrice,
                                   product.productPromotion ? product.productPromotion.promotionPercent : 0
@@ -269,8 +269,8 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
                         ))}
                       </Group>
                     )
-                    : <Text color="dimmed" size="sm">Sản phẩm chỉ có duy nhất một phiên bản mặc định</Text>
-                  : <Text color="dimmed" size="sm">Không có phiên bản nào</Text>}
+                    : <Text color="dimmed" size="sm">The product only has a single default version</Text>
+                  : <Text color="dimmed" size="sm">No versions available</Text>}
               </Stack>
 
               {product.productSaleable && (
@@ -308,7 +308,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
                       leftIcon={<BellPlus/>}
                       onClick={handleCreatePreorderButton}
                     >
-                      Đặt trước
+                      Pre-order
                     </Button>
                   )
                   : (
@@ -319,7 +319,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
                       leftIcon={<ShoppingCart/>}
                       onClick={handleAddToCartButton}
                     >
-                      Chọn mua
+                      Select to buy
                     </Button>
                   )}
                 <Button
@@ -330,7 +330,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
                   leftIcon={<Heart/>}
                   onClick={handleCreateWishButton}
                 >
-                  Yêu thích
+                  Favorite
                 </Button>
               </Group>
             </Stack>

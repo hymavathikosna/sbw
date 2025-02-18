@@ -9,39 +9,39 @@ class CustomerConfigs extends Configs {
   static managerPath = ManagerPath.CUSTOMER;
   static resourceUrl = ResourceURL.CUSTOMER;
   static resourceKey = 'customers';
-  static createTitle = 'Thêm khách hàng';
-  static updateTitle = 'Cập nhật khách hàng';
-  static manageTitle = 'Quản lý khách hàng';
-
+  static createTitle = 'Add Customer';
+  static updateTitle = 'Update Customer';
+  static manageTitle = 'Manage Customers';
+  
   static CUSTOMER_ROLE_ID = 3;
-
+  
   static manageTitleLinks: TitleLink[] = [
     {
       link: ManagerPath.CUSTOMER,
-      label: 'Quản lý khách hàng',
+      label: 'Manage Customers',
     },
     {
       link: ManagerPath.CUSTOMER_GROUP,
-      label: 'Quản lý nhóm khách hàng',
+      label: 'Manage Customer Groups',
     },
     {
       link: ManagerPath.CUSTOMER_STATUS,
-      label: 'Quản lý trạng thái khách hàng',
+      label: 'Manage Customer Statuses',
     },
     {
       link: ManagerPath.CUSTOMER_RESOURCE,
-      label: 'Quản lý nguồn khách hàng',
+      label: 'Manage Customer Sources',
     },
   ];
-
+  
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true),
     'user.username': {
-      label: 'Tên đăng nhập',
+      label: 'Username',
       type: EntityPropertyType.STRING,
     },
     'user.fullname': {
-      label: 'Họ và tên',
+      label: 'Full Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
@@ -50,103 +50,103 @@ class CustomerConfigs extends Configs {
       type: EntityPropertyType.STRING,
     },
     'user.phone': {
-      label: 'Số điện thoại',
+      label: 'Phone Number',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'user.gender': {
-      label: 'Giới tính',
+      label: 'Gender',
       type: EntityPropertyType.OPTION,
     },
     'user.address.line': {
-      label: 'Địa chỉ khách hàng',
+      label: 'Customer Address',
       type: EntityPropertyType.STRING,
     },
     'user.address.province.name': {
-      label: 'Tên tỉnh thành khách hàng',
+      label: 'Customer Province/State Name',
       type: EntityPropertyType.STRING,
     },
     'user.address.province.code': {
-      label: 'Mã tỉnh thành khách hàng',
+      label: 'Customer Province/State Code',
       type: EntityPropertyType.STRING,
     },
     'user.address.district.name': {
-      label: 'Tên quận huyện khách hàng',
+      label: 'Customer District Name',
       type: EntityPropertyType.STRING,
     },
     'user.address.district.code': {
-      label: 'Mã quận huyện khách hàng',
+      label: 'Customer District Code',
       type: EntityPropertyType.STRING,
     },
     'user.avatar': {
-      label: 'Ảnh đại diện',
+      label: 'Profile Picture',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'user.status': {
-      label: 'Trạng thái người dùng',
+      label: 'User Status',
       type: EntityPropertyType.NUMBER,
     },
     'user.roles': {
-      label: 'Quyền người dùng',
+      label: 'User Roles',
       type: EntityPropertyType.ARRAY,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'user.password': {
-      label: 'Mật khẩu',
+      label: 'Password',
       type: EntityPropertyType.STRING,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'user.address.provinceId': {
-      label: 'Tỉnh thành',
+      label: 'Province/State',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'user.address.districtId': {
-      label: 'Quận huyện',
+      label: 'District',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'customerGroup.name': {
-      label: 'Tên nhóm khách hàng',
+      label: 'Customer Group Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     customerGroupId: {
-      label: 'Nhóm khách hàng',
+      label: 'Customer Group',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'customerStatus.name': {
-      label: 'Tên trạng thái khách hàng',
+      label: 'Customer Status Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     customerStatusId: {
-      label: 'Trạng thái khách hàng',
+      label: 'Customer Status',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'customerResource.name': {
-      label: 'Tên nguồn khách hàng',
+      label: 'Customer Source Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     customerResourceId: {
-      label: 'Nguồn khách hàng',
+      label: 'Customer Source',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
-  };
+  };  
 
   static properties = CustomerConfigs._rawProperties as
     EntityPropertySchema<typeof CustomerConfigs._rawProperties & typeof PageConfigs.properties>;

@@ -14,7 +14,7 @@ function ClientProductSpecification({ product }: ClientProductSpecificationProps
     <Stack>
       <Group spacing="xs">
         <Apps/>
-        <Title order={2}>Thông số sản phẩm</Title>
+        <Title order={2}>Product specifications</Title>
       </Group>
       <Box
         sx={{
@@ -26,8 +26,8 @@ function ClientProductSpecification({ product }: ClientProductSpecificationProps
         <Table>
           <thead>
             <tr>
-              <th>Thông số</th>
-              <th>Giá trị</th>
+              <th>Specification</th>
+              <th>Value</th>
             </tr>
           </thead>
           <tbody>

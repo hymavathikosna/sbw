@@ -22,7 +22,7 @@ function ManageHeaderButtons(props: ManageHeaderButtonsProps) {
         variant="outline"
         leftIcon={<Plus/>}
       >
-        Thêm mới
+        Add new
       </Button>
       <Button
         variant="outline"
@@ -30,7 +30,7 @@ function ManageHeaderButtons(props: ManageHeaderButtonsProps) {
         leftIcon={<Trash/>}
         onClick={handleDeleteBatchEntitiesButton}
       >
-        Xóa hàng loạt
+        bulk delete
       </Button>
     </Group>
   );

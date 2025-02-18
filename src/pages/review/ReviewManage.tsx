@@ -53,61 +53,61 @@ function ReviewManage() {
       overlayOpacity: 0.55,
       overlayBlur: 3,
       closeOnClickOutside: false,
-      title: <strong>Xác nhận xóa</strong>,
-      children: <Text size="sm">Xóa phần tử có ID {entityId}?</Text>,
+      title: <strong>Confirm Deletion</strong>,
+      children: <Text size="sm">Delete the item with ID {entityId}?</Text>,
       labels: {
-        cancel: 'Không xóa',
-        confirm: 'Xóa',
+        cancel: 'Do not delete',
+        confirm: 'Delete',
       },
       confirmProps: { color: 'red' },
       onConfirm: () => deleteByIdApi.mutate(entityId),
     });
   };
-
+  
   const handleCheckReviewButton = (review: ReviewResponse) => {
     modals.openModal({
       size: 'xl',
       overlayColor: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2],
       overlayOpacity: 0.55,
       overlayBlur: 3,
-      title: <strong>Xem xét Đánh giá ID {review.id}</strong>,
+      title: <strong>Review ID {review.id} Details</strong>,
       children: <CheckReviewModal review={review}/>,
     });
   };
-
+  
   const handleReplyReviewButton = (review: ReviewResponse) => {
     modals.openModal({
       size: 'xl',
       overlayColor: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2],
       overlayOpacity: 0.55,
       overlayBlur: 3,
-      title: <strong>Phản hồi Đánh giá ID {review.id}</strong>,
+      title: <strong>Reply to Review ID {review.id}</strong>,
       children: <ReplyReviewModal review={review}/>,
     });
   };
-
+  
   const reviewStatusBadgeFragment = (status: number) => {
     switch (status) {
     case 1:
-      return <Badge color="gray" variant="filled" size="sm">Chưa duyệt</Badge>;
+      return <Badge color="gray" variant="filled" size="sm">Pending</Badge>;
     case 2:
-      return <Badge color="teal" variant="filled" size="sm">Đã duyệt</Badge>;
+      return <Badge color="teal" variant="filled" size="sm">Approved</Badge>;
     case 3:
-      return <Badge color="pink" variant="filled" size="sm">Không duyệt</Badge>;
+      return <Badge color="pink" variant="filled" size="sm">Rejected</Badge>;
     }
-  };
+  };  
 
   const entitiesTableHeadsFragment = (
     <tr>
       <th>ID</th>
-      <th>Ngày tạo</th>
-      <th>Người dùng</th>
-      <th>Sản phẩm</th>
-      <th>Số sao</th>
-      <th>Tóm lược nội dung</th>
-      <th>Có phản hồi?</th>
-      <th>Trạng thái</th>
-      <th style={{ width: 120 }}>Thao tác</th>
+      <th>Creation date</th>
+      <th>User</th>
+      <th>Product</th>
+      <th>Rating</th>
+      <th>Content Summary</th>
+      <th>Has Feedback?</th>
+      <th>Status</th>
+      <th style={{ width: 120 }}>Action</th>
     </tr>
   );
 

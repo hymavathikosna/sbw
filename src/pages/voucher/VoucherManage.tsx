@@ -9,10 +9,9 @@ function VoucherManage() {
     <Center>
       <Stack align="center">
         <CurrencyDollar size={200} strokeWidth={1} color={theme.colors.gray[5]}/>
-        <Text size="lg">Sổ quỹ là chức năng quản lý dòng tiền của hệ thống</Text>
+        <Text size="lg">The cashbook is a feature for managing the system&apos;s cash flow</Text>
         <Text>
-          Tham khảo: <Anchor href="https://www.teamcrop.com/ho-tro/module-so-quy" target="_blank">Module sổ quỹ của
-          Teamcrop</Anchor>
+          Reference: <Anchor href="https://www.teamcrop.com/ho-tro/module-so-quy" target="_blank">Teamcrop&apos;s cashbook module</Anchor>
         </Text>
       </Stack>
     </Center>

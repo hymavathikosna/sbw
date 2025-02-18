@@ -5,11 +5,11 @@ import ResourceURL from 'constants/ResourceURL';
 class ReviewConfigs extends Configs {
   static resourceUrl = ResourceURL.REVIEW;
   static resourceKey = 'reviews';
-  static manageTitle = 'Quản lý đánh giá sản phẩm';
+  static manageTitle = 'Manage Product Reviews';
   static manageTitleLinks: TitleLink[] = [
     {
       link: ManagerPath.REVIEW,
-      label: 'Quản lý đánh giá sản phẩm',
+      label: 'Manage Product Reviews',
     },
   ];
 }

@@ -37,10 +37,10 @@ function ProductManage() {
 
   const productStatusBadgeFragment = (status: number) => {
     if (status === 1) {
-      return <Badge variant="outline" size="sm">Có hiệu lực</Badge>;
+      return <Badge variant="outline" size="sm">Effective</Badge>;
     }
 
-    return <Badge color="red" variant="outline" size="sm">Vô hiệu lực</Badge>;
+    return <Badge color="red" variant="outline" size="sm">Not in effect</Badge>;
   };
 
   const showedPropertiesFragment = (entity: ProductResponse) => (
@@ -94,7 +94,7 @@ function ProductManage() {
               size="sm"
               sx={{ textTransform: 'none' }}
             >
-              ... và {entity.tags.length - 2} tag nữa
+              ... And {entity.tags.length - 2} Another tag
             </Badge>
           )}
         </Stack>
@@ -217,8 +217,8 @@ function ProductManage() {
         <td style={{ maxWidth: 300 }}>
           {entity.specifications && (
             <Grid gutter="xs">
-              <Grid.Col span={6}><strong>Thông số</strong></Grid.Col>
-              <Grid.Col span={6}><strong>Giá trị</strong></Grid.Col>
+              <Grid.Col span={6}><strong>Specification</strong></Grid.Col>
+              <Grid.Col span={6}><strong>Value</strong></Grid.Col>
               {entity.specifications.content.map((specification, index) => (
                 <React.Fragment key={index}>
                   <Grid.Col span={6}>{specification.name}</Grid.Col>
@@ -234,8 +234,8 @@ function ProductManage() {
         <td style={{ maxWidth: 300 }}>
           {entity.properties && (
             <Grid gutter="xs">
-              <Grid.Col span={6}><strong>Thuộc tính</strong></Grid.Col>
-              <Grid.Col span={6}><strong>Giá trị</strong></Grid.Col>
+              <Grid.Col span={6}><strong>Attribute</strong></Grid.Col>
+              <Grid.Col span={6}><strong>Value</strong></Grid.Col>
               {entity.properties.content.map((property, index) => (
                 <React.Fragment key={index}>
                   <Grid.Col span={6}>{property.name}</Grid.Col>
@@ -263,7 +263,7 @@ function ProductManage() {
       </tr>
       <tr>
         <td>{ProductConfigs.properties.variants.label}</td>
-        <td>{entity.variants.length === 0 ? <em>không có</em> : entity.variants.length + ' phiên bản'}</td>
+        <td>{entity.variants.length === 0 ? <em>None</em> : entity.variants.length + ' Version'}</td>
       </tr>
       <tr>
         <td>{ProductConfigs.properties.weight.label}</td>

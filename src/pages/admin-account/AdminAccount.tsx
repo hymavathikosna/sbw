@@ -8,12 +8,12 @@ function AdminAccount() {
 
   return (
     <Stack>
-      <Title order={3}>Thông tin tài khoản</Title>
+      <Title order={3}>Account Information</Title>
 
       <Paper shadow="xs" p="lg" sx={{ maxWidth: 500 }}>
         <Stack>
           <Text size="lg" color="dimmed" weight={500}>
-            Thông tin cá nhân
+            Personal Information
           </Text>
 
           <Group>
@@ -33,8 +33,8 @@ function AdminAccount() {
                 : <Venus size={20} strokeWidth={1.5}/>}
             </ThemeIcon>
             <Stack spacing={0}>
-              <Text weight={500}>Giới tính</Text>
-              {user?.gender === 'M' ? 'Nam' : 'Nữ'}
+              <Text weight={500}>Gender</Text>
+              {user?.gender === 'M' ? 'Male' : 'Female'}
             </Stack>
           </Group>
 
@@ -43,7 +43,7 @@ function AdminAccount() {
               <Home size={20} strokeWidth={1.5}/>
             </ThemeIcon>
             <Stack spacing={0}>
-              <Text weight={500}>Địa chỉ</Text>
+              <Text weight={500}>Address</Text>
               <Text>
                 {[user?.address.line, user?.address.ward?.name, user?.address.district?.name, user?.address.province?.name]
                   .filter(Boolean)
@@ -53,7 +53,7 @@ function AdminAccount() {
           </Group>
 
           <Text size="lg" color="dimmed" weight={500}>
-            Số điện thoại và Email
+            Phone number and Email
           </Text>
 
           <Group spacing="sm">
@@ -77,7 +77,7 @@ function AdminAccount() {
           </Group>
 
           <Text size="lg" color="dimmed" weight={500}>
-            Quyền người dùng
+            User rights
           </Text>
 
           <Group spacing="xs">

@@ -55,7 +55,7 @@ function ClientProductReviews({ productSlug }: ClientProductReviewsProps) {
     reviewsContentFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.pink[6] }}>
         <AlertTriangle size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Đã có lỗi xảy ra</Text>
+        <Text size="xl" weight={500}>An error has occurred</Text>
       </Stack>
     );
   }
@@ -63,7 +63,7 @@ function ClientProductReviews({ productSlug }: ClientProductReviewsProps) {
   if (reviews && reviews.totalElements === 0) {
     reviewsContentFragment = (
       <Alert icon={<AlertCircle size={16}/>} title="Notification" color="cyan" radius="md">
-        Sản phẩm hiện không có đánh giá nào
+        The product currently has no reviews
       </Alert>
     );
   }
@@ -101,7 +101,7 @@ function ClientProductReviews({ productSlug }: ClientProductReviewsProps) {
                     <Stack spacing="xs">
                       <Group spacing="xs">
                         <Messages size={14}/>
-                        <Text size="sm" weight={500}>Phản hồi từ cửa hàng</Text>
+                        <Text size="sm" weight={500}>Feedback from the store</Text>
                       </Group>
                       <Text size="sm">{review.reviewReply}</Text>
                     </Stack>
@@ -118,7 +118,7 @@ function ClientProductReviews({ productSlug }: ClientProductReviewsProps) {
             onChange={(page: number) => (page !== activePage) && setActivePage(page)}
           />
           <Text>
-            <Text component="span" weight={500}>Trang {activePage}</Text>
+            <Text component="span" weight={500}>Page {activePage}</Text>
             <span> / {reviews.totalPages}</span>
           </Text>
         </Group>
@@ -131,7 +131,7 @@ function ClientProductReviews({ productSlug }: ClientProductReviewsProps) {
       <Group position="apart">
         <Group spacing="xs">
           <Edit/>
-          <Title order={2}>Đánh giá sản phẩm</Title>
+          <Title order={2}>Product review</Title>
         </Group>
         {reviews && reviews.totalElements > 0 &&
           <Badge size="lg" ml="xs" variant="filled">{reviews.totalElements}</Badge>}

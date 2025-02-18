@@ -98,8 +98,8 @@ function DestinationUpdate() {
             <Divider mt="xs"/>
 
             <Group position="apart" p="sm">
-              <Button variant="default" onClick={form.reset}>Mặc định</Button>
-              <Button type="submit">Cập nhật</Button>
+              <Button variant="default" onClick={form.reset}>Default</Button>
+              <Button type="submit">Update</Button>
             </Group>
           </Stack>
         </Paper>

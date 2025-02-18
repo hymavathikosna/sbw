@@ -18,10 +18,10 @@ function VariantTablePopover({
 
   const variantStatusBadgeFragment = (status: number) => {
     if (status === 1) {
-      return <Badge variant="outline" size="sm">Có hiệu lực</Badge>;
+      return <Badge variant="outline" size="sm">Effective</Badge>;
     }
 
-    return <Badge color="red" variant="outline" size="sm">Vô hiệu lực</Badge>;
+    return <Badge color="red" variant="outline" size="sm">Not in effect</Badge>;
   };
 
   if (variants.length === 0) {
@@ -36,9 +36,9 @@ function VariantTablePopover({
       placement="end"
       withArrow
       transition="pop-top-right"
-      title="Thông tin phiên bản"
+      title="Version Information"
       withCloseButton
-      closeButtonLabel="Đóng hộp thông tin phiên bản"
+      closeButtonLabel="Close version information box"
       spacing="sm"
       shadow="md"
       target={
@@ -48,7 +48,7 @@ function VariantTablePopover({
           compact
           onClick={() => setOpened((o) => !o)}
         >
-          {variants.length + ' phiên bản'}
+          {variants.length + ' Version'}
         </Button>
       }
     >
@@ -67,9 +67,9 @@ function VariantTablePopover({
               </th>
             ))}
             <th>SKU</th>
-            <th>Giá vốn</th>
-            <th>Giá bán</th>
-            <th>Trạng thái</th>
+            <th>Cost Price</th>
+            <th>Selling Price</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>

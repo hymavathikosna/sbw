@@ -10,24 +10,24 @@ class ProvinceConfigs extends Configs {
   static managerPath = ManagerPath.PROVINCE;
   static resourceUrl = ResourceURL.PROVINCE;
   static resourceKey = 'provinces';
-  static createTitle = 'Thêm tỉnh thành';
-  static updateTitle = 'Cập nhật tỉnh thành';
-  static manageTitle = 'Quản lý tỉnh thành';
+  static createTitle = 'Add Province/City';
+  static updateTitle = 'Update Province/City';
+  static manageTitle = 'Manage Province/City';
 
   static manageTitleLinks: TitleLink[] = AddressConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     name: {
-      label: 'Tên tỉnh thành',
+      label: 'Province/City Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     code: {
-      label: 'Mã tỉnh thành',
+      label: 'Province/City Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = ProvinceConfigs._rawProperties as

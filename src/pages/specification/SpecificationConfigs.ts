@@ -10,33 +10,33 @@ class SpecificationConfigs extends Configs {
   static managerPath = ManagerPath.SPECIFICATION;
   static resourceUrl = ResourceURL.SPECIFICATION;
   static resourceKey = 'specifications';
-  static createTitle = 'Thêm thông số sản phẩm';
-  static updateTitle = 'Cập nhật thông số sản phẩm';
-  static manageTitle = 'Quản lý thông số sản phẩm';
+  static createTitle = 'Add Product Specifications';
+  static updateTitle = 'Update Product Specifications';
+  static manageTitle = 'Manage Product Specifications';
 
   static manageTitleLinks: TitleLink[] = ProductConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     name: {
-      label: 'Tên thông số sản phẩm',
+      label: 'Product Specification Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     code: {
-      label: 'Mã thông số sản phẩm',
+      label: 'Product Specification Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     description: {
-      label: 'Mô tả thông số sản phẩm',
+      label: 'Product Specification Description',
       type: EntityPropertyType.STRING,
     },
     status: {
-      label: 'Trạng thái thông số sản phẩm',
+      label: 'Product Specification Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = SpecificationConfigs._rawProperties as

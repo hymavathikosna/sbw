@@ -8,62 +8,62 @@ class AddressConfigs extends Configs {
   static managerPath = ManagerPath.ADDRESS;
   static resourceUrl = ResourceURL.ADDRESS;
   static resourceKey = 'addresses';
-  static createTitle = 'Thêm địa chỉ';
-  static updateTitle = 'Cập nhật địa chỉ';
-  static manageTitle = 'Quản lý địa chỉ';
+  static createTitle = 'Add Address';
+  static updateTitle = 'Update Address';
+  static manageTitle = 'Manage Addresses';
 
   static manageTitleLinks: TitleLink[] = [
     {
       link: ManagerPath.ADDRESS,
-      label: 'Quản lý địa chỉ',
+      label: 'Manage Addresses',
     },
     {
       link: ManagerPath.PROVINCE,
-      label: 'Quản lý tỉnh thành',
+      label: 'Manage Provinces',
     },
     {
       link: ManagerPath.DISTRICT,
-      label: 'Quản lý quận huyện',
+      label: 'Manage Districts',
     },
   ];
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     line: {
-      label: 'Địa chỉ',
+      label: 'Address',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'province.name': {
-      label: 'Tên tỉnh thành',
+      label: 'Province Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'province.code': {
-      label: 'Mã tỉnh thành',
+      label: 'Province Code',
       type: EntityPropertyType.STRING,
     },
     'district.name': {
-      label: 'Tên quận huyện',
+      label: 'District Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'district.code': {
-      label: 'Mã quận huyện',
+      label: 'District Code',
       type: EntityPropertyType.STRING,
     },
     provinceId: {
-      label: 'Tỉnh thành',
+      label: 'Province',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     districtId: {
-      label: 'Quận huyện',
+      label: 'District',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
-    },
+    },    
   };
 
   static properties = AddressConfigs._rawProperties as

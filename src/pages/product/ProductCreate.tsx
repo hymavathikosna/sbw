@@ -58,8 +58,8 @@ function ProductCreate() {
           <Stack spacing={0}>
             <Grid p="sm">
               <Grid.Col>
-                <Title order={4}>Thông tin cơ bản</Title>
-                <Text size="sm">Một số thông tin chung</Text>
+                <Title order={4}>Basic Information</Title>
+                <Text size="sm">Some general information</Text>
               </Grid.Col>
               <Grid.Col>
                 <TextInput
@@ -95,8 +95,8 @@ function ProductCreate() {
                 />
               </Grid.Col>
               <Grid.Col>
-                <Title order={4}>Hình sản phẩm</Title>
-                <Text size="sm">Thêm danh sách hình giới thiệu sản phẩm và chọn hình đại diện</Text>
+                <Title order={4}>Product Images</Title>
+                <Text size="sm">Add a list of product showcase images and select a representative image</Text>
               </Grid.Col>
               <Grid.Col>
                 <ProductImagesDropzone
@@ -107,8 +107,8 @@ function ProductCreate() {
                 />
               </Grid.Col>
               <Grid.Col>
-                <Title order={4}>Thông số sản phẩm</Title>
-                <Text size="sm">Thêm các thông số của sản phẩm</Text>
+                <Title order={4}>Product Specifications</Title>
+                <Text size="sm">Add product specifications</Text>
               </Grid.Col>
               <Grid.Col>
                 <ProductSpecifications
@@ -119,8 +119,8 @@ function ProductCreate() {
                 />
               </Grid.Col>
               <Grid.Col>
-                <Title order={4}>Thuộc tính sản phẩm</Title>
-                <Text size="sm">Thêm mới thuộc tính giúp sản phẩm có nhiều lựa chọn, như kích cỡ hay màu sắc</Text>
+                <Title order={4}>Product Attributes</Title>
+                <Text size="sm">Add new attributes to provide more options for the product, such as size or color</Text>
               </Grid.Col>
               <Grid.Col>
                 <ProductProperties
@@ -131,8 +131,8 @@ function ProductCreate() {
                 />
               </Grid.Col>
               <Grid.Col>
-                <Title order={4}>Phiên bản sản phẩm</Title>
-                <Text size="sm">Phiên bản mặc định của sản phẩm hoặc phiên bản dựa vào thuộc tính sản phẩm</Text>
+                <Title order={4}>Product Variants</Title>
+                <Text size="sm">The default variant of the product or a variant based on product attributes</Text>
               </Grid.Col>
               <Grid.Col>
                 <ProductVariants
@@ -145,8 +145,8 @@ function ProductCreate() {
                 />
               </Grid.Col>
               <Grid.Col>
-                <Title order={4}>Thông tin bổ sung</Title>
-                <Text size="sm">Một số thông tin thêm</Text>
+                <Title order={4}>Additional Information</Title>
+                <Text size="sm">Some extra information</Text>
               </Grid.Col>
               <Grid.Col xs={6}>
                 <Select
@@ -204,7 +204,7 @@ function ProductCreate() {
                   searchable
                   creatable
                   data={tagSelectList}
-                  getCreateLabel={(tagName) => `+ Tạo tag ${tagName}`}
+                  getCreateLabel={(tagName) => `+ Create tag ${tagName}`}
                   {...form.getInputProps('tags')}
                 />
               </Grid.Col>
@@ -213,7 +213,7 @@ function ProductCreate() {
                   precision={2}
                   min={0}
                   label={ProductConfigs.properties.weight.label}
-                  description="Tính theo gam"
+                  description="Calculated by gram"
                   {...form.getInputProps('weight')}
                 />
               </Grid.Col>
@@ -232,8 +232,8 @@ function ProductCreate() {
             <Divider mt="xs"/>
 
             <Group position="apart" p="sm">
-              <Button variant="default" onClick={resetForm}>Mặc định</Button>
-              <Button type="submit">Thêm</Button>
+              <Button variant="default" onClick={resetForm}>Default</Button>
+              <Button type="submit">Add</Button>
             </Group>
           </Stack>
         </Paper>

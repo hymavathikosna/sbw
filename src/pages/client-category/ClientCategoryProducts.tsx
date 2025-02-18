@@ -49,7 +49,7 @@ function ClientCategoryProducts({ categorySlug }: ClientCategoryProductsProps) {
     return (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.blue[6] }}>
         <Marquee size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Không có sản phẩm</Text>
+        <Text size="xl" weight={500}>No products</Text>
       </Stack>
     );
   }
@@ -71,7 +71,7 @@ function ClientCategoryProducts({ categorySlug }: ClientCategoryProductsProps) {
           onChange={(page: number) => (page !== activePage) && updateActivePage(page)}
         />
         <Text>
-          <Text component="span" weight={500}>Trang {activePage}</Text>
+          <Text component="span" weight={500}>Page {activePage}</Text>
           <span> / {products.totalPages}</span>
         </Text>
       </Group>

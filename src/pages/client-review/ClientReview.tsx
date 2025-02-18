@@ -60,7 +60,7 @@ function ClientReview() {
     reviewContentFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.pink[6] }}>
         <AlertTriangle size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Đã có lỗi xảy ra</Text>
+        <Text size="xl" weight={500}>An error occurred</Text>
       </Stack>
     );
   }
@@ -69,7 +69,7 @@ function ClientReview() {
     reviewContentFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.blue[6] }}>
         <Marquee size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Chưa có đánh giá sản phẩm nào</Text>
+        <Text size="xl" weight={500}>No product reviews yet</Text>
       </Stack>
     );
   }
@@ -88,7 +88,7 @@ function ClientReview() {
             onChange={(page: number) => (page !== activePage) && setActivePage(page)}
           />
           <Text>
-            <Text component="span" weight={500}>Trang {activePage}</Text>
+            <Text component="span" weight={500}>Page {activePage}</Text>
             <span> / {reviews.totalPages}</span>
           </Text>
         </Group>
@@ -108,7 +108,7 @@ function ClientReview() {
             <Card radius="md" shadow="sm" p="lg">
               <Stack>
                 <Title order={2}>
-                  Đánh giá sản phẩm
+                  Product Review
                 </Title>
 
                 <Card
@@ -123,15 +123,15 @@ function ClientReview() {
                   <Group spacing="lg">
                     <Group spacing="xs">
                       <ColorSwatch color={theme.colors.gray[5]} size={20}/>
-                      <Text size="sm">Chưa duyệt</Text>
+                      <Text size="sm">Not Approved</Text>
                     </Group>
                     <Group spacing="xs">
                       <ColorSwatch color={theme.colors.teal[5]} size={20}/>
-                      <Text size="sm">Đã duyệt</Text>
+                      <Text size="sm">Approved</Text>
                     </Group>
                     <Group spacing="xs">
                       <ColorSwatch color={theme.colors.pink[5]} size={20}/>
-                      <Text size="sm">Không duyệt</Text>
+                      <Text size="sm">Rejected</Text>
                     </Group>
                   </Group>
                 </Card>
@@ -159,15 +159,15 @@ function ClientReviewCard({ review }: { review: ClientReviewResponse }) {
       overlayOpacity: 0.55,
       overlayBlur: 3,
       closeOnClickOutside: false,
-      title: <strong>Xác nhận xóa</strong>,
+      title: <strong>Confirm Deletion</strong>,
       children: (
         <Text size="sm">
-          Xóa đánh giá ở sản phẩm <strong>{review.reviewProduct.productName}</strong>?
+          Are you sure you want to delete the review for the product <strong>{review.reviewProduct.productName}</strong>?
         </Text>
       ),
       labels: {
-        cancel: 'Không xóa',
-        confirm: 'Xóa',
+        cancel: 'Do not delete',
+        confirm: 'Delete',
       },
       confirmProps: { color: 'red' },
       onConfirm: () => deleteReviewsApi.mutate([review.reviewId]),
@@ -177,11 +177,11 @@ function ClientReviewCard({ review }: { review: ClientReviewResponse }) {
   const reviewStatusBadgeFragment = (status: number) => {
     switch (status) {
     case 1:
-      return <Badge color="gray" variant="filled" size="sm">Chưa duyệt</Badge>;
+      return <Badge color="gray" variant="filled" size="sm">Pending</Badge>;
     case 2:
-      return <Badge color="teal" variant="filled" size="sm">Đã duyệt</Badge>;
+      return <Badge color="teal" variant="filled" size="sm">Approved</Badge>;
     case 3:
-      return <Badge color="pink" variant="filled" size="sm">Không duyệt</Badge>;
+      return <Badge color="pink" variant="filled" size="sm">Rejected</Badge>;      
     }
   };
 
@@ -268,7 +268,7 @@ function ClientReviewCard({ review }: { review: ClientReviewResponse }) {
             }}
           >
             <Stack spacing="xs">
-              <Text size="sm" weight={500}>Phản hồi từ cửa hàng</Text>
+              <Text size="sm" weight={500}>Feedback from the store</Text>
               <Text size="sm">{review.reviewReply}</Text>
             </Stack>
           </Card>
@@ -308,10 +308,10 @@ function useDeleteReviewsApi() {
     (entityIds) => FetchUtils.deleteWithToken(ResourceURL.CLIENT_REVIEW, entityIds),
     {
       onSuccess: () => {
-        NotifyUtils.simpleSuccess('Xóa đánh giá thành công');
+        NotifyUtils.simpleSuccess('Review deleted successfully');
         void queryClient.invalidateQueries(['client-api', 'reviews', 'getAllReviewsByUser']);
       },
-      onError: () => NotifyUtils.simpleFailed('Xóa đánh giá thất bại'),
+      onError: () => NotifyUtils.simpleFailed('Failed to delete review'),    
     }
   );
 }

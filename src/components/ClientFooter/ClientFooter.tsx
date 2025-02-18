@@ -74,7 +74,7 @@ function ClientFooter() {
                 </Stack>
               </Group>
               <Stack spacing={theme.spacing.xs / 2}>
-                <Text weight={500}>Địa chỉ liên hệ</Text>
+                <Text weight={500}>Address liên hệ</Text>
                 <Text>Tòa nhà Bitexco, Quận 1, Thành phố Hồ Chí Minh</Text>
               </Stack>
               <Group spacing="sm">

@@ -59,7 +59,7 @@ function ClientPreorder() {
     preorderContentFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.pink[6] }}>
         <AlertTriangle size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Đã có lỗi xảy ra</Text>
+        <Text size="xl" weight={500}>An error has occurred</Text>
       </Stack>
     );
   }
@@ -68,7 +68,7 @@ function ClientPreorder() {
     preorderContentFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.blue[6] }}>
         <Marquee size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Chưa đặt trước sản phẩm nào</Text>
+        <Text size="xl" weight={500}>No pre-ordered products yet</Text>
       </Stack>
     );
   }
@@ -87,7 +87,7 @@ function ClientPreorder() {
             onChange={(page: number) => (page !== activePage) && setActivePage(page)}
           />
           <Text>
-            <Text component="span" weight={500}>Trang {activePage}</Text>
+            <Text component="span" weight={500}>Page {activePage}</Text>
             <span> / {preorders.totalPages}</span>
           </Text>
         </Group>
@@ -107,7 +107,7 @@ function ClientPreorder() {
             <Card radius="md" shadow="sm" p="lg">
               <Stack>
                 <Title order={2}>
-                  Đặt trước sản phẩm
+                  Pre-order product
                 </Title>
 
                 {preorderContentFragment}
@@ -136,16 +136,16 @@ function ClientPreorderCard({ preorder }: { preorder: ClientPreorderResponse }) 
       overlayOpacity: 0.55,
       overlayBlur: 3,
       closeOnClickOutside: false,
-      title: <strong>Xác nhận hủy</strong>,
+      title: <strong>Confirm Cancellation</strong>,
       children: (
         <Text size="sm">
-          Hủy Notification đặt trước cho sản phẩm <strong>{preorder.preorderProduct.productName}</strong>,
-          không thể hoàn tác?
+          Cancel the preorder notification for the product <strong>{preorder.preorderProduct.productName}</strong>,
+          this action cannot be undone?
         </Text>
       ),
       labels: {
-        cancel: 'Không hủy',
-        confirm: 'Hủy',
+        cancel: 'Do not cancel',
+        confirm: 'Cancel',
       },
       confirmProps: { color: 'orange' },
       onConfirm: () => {
@@ -168,15 +168,15 @@ function ClientPreorderCard({ preorder }: { preorder: ClientPreorderResponse }) 
       overlayOpacity: 0.55,
       overlayBlur: 3,
       closeOnClickOutside: false,
-      title: <strong>Xác nhận xóa</strong>,
+      title: <strong>Confirm Deletion</strong>,
       children: (
         <Text size="sm">
-          Xóa sản phẩm <strong>{preorder.preorderProduct.productName}</strong> khỏi danh sách đặt trước?
+          Delete the product <strong>{preorder.preorderProduct.productName}</strong> from the preorder list?
         </Text>
       ),
       labels: {
-        cancel: 'Không xóa',
-        confirm: 'Xóa',
+        cancel: 'Do not delete',
+        confirm: 'Delete',
       },
       confirmProps: { color: 'red' },
       onConfirm: () => deletePreordersApi.mutate([preorder.preorderId]),
@@ -186,11 +186,11 @@ function ClientPreorderCard({ preorder }: { preorder: ClientPreorderResponse }) 
   const preorderStatusBadgeFragment = (status: number) => {
     switch (status) {
     case 1:
-      return <Badge color="gray" variant="outline" size="sm">Chưa Notification</Badge>;
+      return <Badge color="gray" variant="outline" size="sm">No Notification</Badge>;
     case 2:
-      return <Badge color="green" variant="outline" size="sm">Đã Notification</Badge>;
+      return <Badge color="green" variant="outline" size="sm">Notification Sent</Badge>;
     case 3:
-      return <Badge color="pink" variant="outline" size="sm">Hủy Notification</Badge>;
+      return <Badge color="pink" variant="outline" size="sm">Notification Canceled</Badge>;      
     }
   };
 
@@ -213,7 +213,7 @@ function ClientPreorderCard({ preorder }: { preorder: ClientPreorderResponse }) 
             {preorderStatusBadgeFragment(preorder.preorderStatus)}
           </Group>
           <Text size="sm" color="dimmed">
-            Cập nhật lúc {DateUtils.isoDateToString(preorder.preorderUpdatedAt)}
+            Updated at {DateUtils.isoDateToString(preorder.preorderUpdatedAt)}
           </Text>
         </Stack>
       </Group>
@@ -224,11 +224,11 @@ function ClientPreorderCard({ preorder }: { preorder: ClientPreorderResponse }) 
           color="orange"
           leftIcon={<BellOff size={18} strokeWidth={1.5}/>}
           compact
-          title="Hủy Notification"
+          title="Cancel Notification"
           onClick={handleCancelPreorderButton}
           disabled={preorder.preorderStatus !== 1}
         >
-          Hủy
+          Cancel
         </Button>
         <Button
           variant="outline"
@@ -237,7 +237,7 @@ function ClientPreorderCard({ preorder }: { preorder: ClientPreorderResponse }) 
           compact
           onClick={handleDeletePreorderButton}
         >
-          Xóa
+          Delete
         </Button>
       </Group>
     </Group>
@@ -274,10 +274,10 @@ function useUpdatePreorderApi() {
     (requestBody) => FetchUtils.putWithToken(ResourceURL.CLIENT_PREORDER, requestBody),
     {
       onSuccess: () => {
-        NotifyUtils.simpleSuccess('Cập nhật thành công');
+        NotifyUtils.simpleSuccess('Update successful');
         void queryClient.invalidateQueries(['client-api', 'preorders', 'getAllPreorders']);
       },
-      onError: () => NotifyUtils.simpleFailed('Cập nhật không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Update failed'),      
     }
   );
 }
@@ -289,10 +289,10 @@ function useDeletePreordersApi() {
     (entityIds) => FetchUtils.deleteWithToken(ResourceURL.CLIENT_PREORDER, entityIds),
     {
       onSuccess: () => {
-        NotifyUtils.simpleSuccess('Xóa đặt trước sản phẩm thành công');
+        NotifyUtils.simpleSuccess('Successfully deleted the preordered product');
         void queryClient.invalidateQueries(['client-api', 'preorders', 'getAllPreorders']);
       },
-      onError: () => NotifyUtils.simpleFailed('Xóa đặt trước sản phẩm thất bại'),
+      onError: () => NotifyUtils.simpleFailed('Failed to delete the preordered product'),      
     }
   );
 }

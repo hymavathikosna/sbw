@@ -38,9 +38,9 @@ function ClientSettingPhone() {
     {
       onSuccess: (userResponse) => {
         updateUser(userResponse);
-        NotifyUtils.simpleSuccess('Cập nhật thành công');
+        NotifyUtils.simpleSuccess('Update thành công');
       },
-      onError: () => NotifyUtils.simpleFailed('Cập nhật không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Update không thành công'),
     }
   );
 
@@ -64,7 +64,7 @@ function ClientSettingPhone() {
             <Card radius="md" shadow="sm" p="lg">
               <Stack>
                 <Title order={2}>
-                  Cập nhật số điện thoại
+                  Update số điện thoại
                 </Title>
                 <Grid>
                   <Grid.Col lg={6}>
@@ -82,7 +82,7 @@ function ClientSettingPhone() {
                           type="submit"
                           disabled={MiscUtils.isEquals(initialFormValues, form.values)}
                         >
-                          Cập nhật
+                          Update
                         </Button>
                       </Stack>
                     </form>

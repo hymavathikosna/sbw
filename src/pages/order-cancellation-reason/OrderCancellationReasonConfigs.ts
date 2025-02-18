@@ -10,28 +10,28 @@ class OrderCancellationReasonConfigs extends Configs {
   static managerPath = ManagerPath.ORDER_CANCELLATION_REASON;
   static resourceUrl = ResourceURL.ORDER_CANCELLATION_REASON;
   static resourceKey = 'order-cancellation-reasons';
-  static createTitle = 'Thêm lý do hủy đơn hàng';
-  static updateTitle = 'Cập nhật lý do hủy đơn hàng';
-  static manageTitle = 'Quản lý lý do hủy đơn hàng';
+  static createTitle = 'Add Order Cancellation Reason';
+  static updateTitle = 'Update Order Cancellation Reason';
+  static manageTitle = 'Manage Order Cancellation Reasons';
 
   static manageTitleLinks: TitleLink[] = OrderResourceConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     name: {
-      label: 'Tên lý do hủy đơn hàng',
+      label: 'Order Cancellation Reason Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     note: {
-      label: 'Ghi chú lý do hủy đơn hàng',
+      label: 'Order Cancellation Reason Note',
       type: EntityPropertyType.STRING,
     },
     status: {
-      label: 'Trạng thái lý do hủy đơn hàng',
+      label: 'Order Cancellation Reason Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = OrderCancellationReasonConfigs._rawProperties as

@@ -10,29 +10,29 @@ class TagConfigs extends Configs {
   static managerPath = ManagerPath.TAG;
   static resourceUrl = ResourceURL.TAG;
   static resourceKey = 'tags';
-  static createTitle = 'Thêm tag';
-  static updateTitle = 'Cập nhật tag';
-  static manageTitle = 'Quản lý tag';
+  static createTitle = 'Add Tag';
+  static updateTitle = 'Update Tag';
+  static manageTitle = 'Manage Tags';
 
   static manageTitleLinks: TitleLink[] = ProductConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     name: {
-      label: 'Tên tag',
+      label: 'Tag Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     slug: {
-      label: 'Slug tag',
+      label: 'Tag Slug',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái tag',
+      label: 'Tag Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = TagConfigs._rawProperties as

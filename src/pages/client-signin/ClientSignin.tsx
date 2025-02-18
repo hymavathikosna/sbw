@@ -63,7 +63,7 @@ const formSchema = z.object({
   username: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
     .min(2, MessageUtils.min('Tên tài khoản', 2)),
   password: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
-    .min(1, MessageUtils.min('Mật khẩu', 1)),
+    .min(1, MessageUtils.min('Password', 1)),
 });
 
 function ClientSignin() {
@@ -136,12 +136,12 @@ function ClientSignin() {
           updateCurrentTotalCartItems(0);
         }
 
-        NotifyUtils.simpleSuccess('Đăng nhập thành công');
+        NotifyUtils.simpleSuccess('Login successful');
         setOpenedAlert(true);
       } catch (e) {
         resetAuthState();
-        NotifyUtils.simpleFailed('Đăng nhập thất bại');
-      }
+        NotifyUtils.simpleFailed('Login failed');
+      }        
     }
   });
 
@@ -152,60 +152,60 @@ function ClientSignin() {
           {(styles) => (
             <Alert
               style={styles}
-              icon={<AlertCircle size={16}/>}
-              title="Bạn đã đăng nhập thành công!"
+              icon={<AlertCircle size={16} />}
+              title="You have logged in successfully!"
               color="teal"
               radius="md"
               mb="xl"
             >
-              Trở về trang chủ trong vòng {counter} giây...
+              Returning to the homepage in {counter} seconds...
             </Alert>
           )}
         </Transition>
         <Card className={classes.wrapper} radius="md" shadow="sm" p={0}>
           <Card className={classes.form} radius={0} p={30}>
             <Title order={2} align="center" mt="md" mb={50}>
-              Đăng nhập
+              Log in
             </Title>
 
             <form onSubmit={handleFormSubmit}>
               <TextInput
                 required
                 radius="md"
-                label="Tên tài khoản"
-                placeholder="Nhập tên tài khoản của bạn"
+                label="Username"
+                placeholder="Enter your username"
                 size="md"
                 disabled={!!user}
                 {...form.getInputProps('username')}
               />
               <PasswordInput
                 required
-                label="Mật khẩu"
+                label="Password"
                 radius="md"
-                placeholder="Nhập mật khẩu của bạn"
+                placeholder="Enter your password"
                 mt="md"
                 size="md"
                 disabled={!!user}
                 {...form.getInputProps('password')}
               />
               <Box mt={5}>
-                <Anchor component={Link} to="/forgot" size="sm">Quên mật khẩu?</Anchor>
+                <Anchor component={Link} to="/forgot" size="sm">Forgot password?</Anchor>
               </Box>
-              {/* TODO: Hoàn chỉnh checkbox */}
-              {/*<Checkbox*/}
-              {/*  label="Giữ trạng thái đăng nhập"*/}
-              {/*  mt="xl"*/}
-              {/*  size="md"*/}
-              {/*  disabled={!!user}*/}
-              {/*/>*/}
+            
+              {/* TODO: Complete the checkbox */}
+              {/* <Checkbox */}
+              {/*   label="Keep me logged in" */}
+              {/*   mt="xl" */}
+              {/*   size="md" */}
+              {/*   disabled={!!user} */}
+              {/* /> */}
               <Button type="submit" fullWidth mt="xl" size="md" disabled={!!user} radius="md">
-                Đăng nhập
-              </Button>
+                Log in
+              </Button> 
+              <Text align="center" mt="md">
+                No account? <Anchor component={Link} to="/signup" weight={700}>Sign up now</Anchor>
+              </Text>
             </form>
-
-            <Text align="center" mt="md">
-              Không có tài khoản? <Anchor component={Link} to="/signup" weight={700}>Đăng ký ngay</Anchor>
-            </Text>
           </Card>
         </Card>
       </Container>

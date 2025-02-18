@@ -9,47 +9,47 @@ class EmployeeConfigs extends Configs {
   static managerPath = ManagerPath.EMPLOYEE;
   static resourceUrl = ResourceURL.EMPLOYEE;
   static resourceKey = 'employees';
-  static createTitle = 'Thêm nhân viên';
-  static updateTitle = 'Cập nhật nhân viên';
-  static manageTitle = 'Quản lý nhân viên';
+  static createTitle = 'Add Employee';
+  static updateTitle = 'Update Employee';
+  static manageTitle = 'Manage Employees';
 
   static EMPLOYEE_ROLE_ID = 2;
 
   static manageTitleLinks: TitleLink[] = [
     {
       link: ManagerPath.EMPLOYEE,
-      label: 'Quản lý nhân viên',
+      label: 'Manage Employees',
     },
     {
       link: ManagerPath.OFFICE,
-      label: 'Quản lý văn phòng',
+      label: 'Manage Offices',
     },
     {
       link: ManagerPath.DEPARTMENT,
-      label: 'Quản lý phòng ban',
+      label: 'Manage Departments',
     },
     {
       link: ManagerPath.JOB_TYPE,
-      label: 'Quản lý loại hình công việc',
+      label: 'Manage Job Types',
     },
     {
       link: ManagerPath.JOB_LEVEL,
-      label: 'Quản lý cấp bậc công việc',
+      label: 'Manage Job Levels',
     },
     {
       link: ManagerPath.JOB_TITLE,
-      label: 'Quản lý chức danh công việc',
+      label: 'Manage Job Titles',
     },
   ];
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true),
     'user.username': {
-      label: 'Tên đăng nhập',
+      label: 'Username',
       type: EntityPropertyType.STRING,
     },
     'user.fullname': {
-      label: 'Họ và tên',
+      label: 'Full Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
@@ -58,165 +58,164 @@ class EmployeeConfigs extends Configs {
       type: EntityPropertyType.STRING,
     },
     'user.phone': {
-      label: 'Số điện thoại',
+      label: 'Phone Number',
       type: EntityPropertyType.STRING,
     },
     'user.gender': {
-      label: 'Giới tính',
+      label: 'Gender',
       type: EntityPropertyType.OPTION,
     },
     'user.address.line': {
-      label: 'Địa chỉ nhân viên',
+      label: 'Employee Address',
       type: EntityPropertyType.STRING,
     },
     'user.address.province.name': {
-      label: 'Tên tỉnh thành nhân viên',
+      label: 'Employee Province/State Name',
       type: EntityPropertyType.STRING,
     },
     'user.address.province.code': {
-      label: 'Mã tỉnh thành nhân viên',
+      label: 'Employee Province/State Code',
       type: EntityPropertyType.STRING,
     },
     'user.address.district.name': {
-      label: 'Tên quận huyện nhân viên',
+      label: 'Employee District Name',
       type: EntityPropertyType.STRING,
     },
     'user.address.district.code': {
-      label: 'Mã quận huyện nhân viên',
+      label: 'Employee District Code',
       type: EntityPropertyType.STRING,
     },
     'user.avatar': {
-      label: 'Ảnh đại diện',
+      label: 'Profile Picture',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'user.status': {
-      label: 'Trạng thái người dùng',
+      label: 'User Status',
       type: EntityPropertyType.NUMBER,
     },
     'user.roles': {
-      label: 'Quyền người dùng',
+      label: 'User Roles',
       type: EntityPropertyType.ARRAY,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'user.password': {
-      label: 'Mật khẩu',
+      label: 'Password',
       type: EntityPropertyType.STRING,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'user.address.provinceId': {
-      label: 'Tỉnh thành',
+      label: 'Province/State',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'user.address.districtId': {
-      label: 'Quận huyện',
+      label: 'District',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'office.name': {
-      label: 'Tên văn phòng',
+      label: 'Office Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'office.address.line': {
-      label: 'Địa chỉ văn phòng',
+      label: 'Office Address',
       type: EntityPropertyType.STRING,
     },
     'office.address.province.name': {
-      label: 'Tên tỉnh thành văn phòng',
+      label: 'Office Province/State Name',
       type: EntityPropertyType.STRING,
     },
     'office.address.province.code': {
-      label: 'Mã tỉnh thành văn phòng',
+      label: 'Office Province/State Code',
       type: EntityPropertyType.STRING,
     },
     'office.address.district.name': {
-      label: 'Tên quận huyện văn phòng',
+      label: 'Office District Name',
       type: EntityPropertyType.STRING,
     },
     'office.address.district.code': {
-      label: 'Mã quận huyện văn phòng',
+      label: 'Office District Code',
       type: EntityPropertyType.STRING,
     },
     'office.status': {
-      label: 'Trạng thái văn phòng',
+      label: 'Office Status',
       type: EntityPropertyType.NUMBER,
     },
     officeId: {
-      label: 'Văn phòng',
+      label: 'Office',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'department.name': {
-      label: 'Tên phòng ban',
+      label: 'Department Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'department.status': {
-      label: 'Trạng thái phòng ban',
+      label: 'Department Status',
       type: EntityPropertyType.NUMBER,
     },
     departmentId: {
-      label: 'Phòng ban',
+      label: 'Department',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'jobType.name': {
-      label: 'Tên loại hình công việc',
+      label: 'Job Type Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'jobType.status': {
-      label: 'Trạng thái loại hình công việc',
+      label: 'Job Type Status',
       type: EntityPropertyType.NUMBER,
     },
     jobTypeId: {
-      label: 'Loại hình công việc',
+      label: 'Job Type',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'jobLevel.name': {
-      label: 'Tên cấp bậc công việc',
+      label: 'Job Level Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'jobLevel.status': {
-      label: 'Trạng thái cấp bậc công việc',
+      label: 'Job Level Status',
       type: EntityPropertyType.NUMBER,
     },
     jobLevelId: {
-      label: 'Cấp bậc công việc',
+      label: 'Job Level',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     'jobTitle.name': {
-      label: 'Tên chức danh công việc',
+      label: 'Job Title Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'jobTitle.status': {
-      label: 'Trạng thái chức danh công việc',
+      label: 'Job Title Status',
       type: EntityPropertyType.NUMBER,
     },
     jobTitleId: {
-      label: 'Chức danh công việc',
+      label: 'Job Title',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
   };
-
   static properties = EmployeeConfigs._rawProperties as
     EntityPropertySchema<typeof EmployeeConfigs._rawProperties & typeof PageConfigs.properties>;
 

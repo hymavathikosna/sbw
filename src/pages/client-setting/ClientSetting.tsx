@@ -20,7 +20,7 @@ function ClientSetting() {
             <Card radius="md" shadow="sm" p="lg">
               <Stack>
                 <Title order={2}>
-                  Thiết đặt
+                  Settings
                 </Title>
 
                 <Group position="apart">
@@ -29,8 +29,8 @@ function ClientSetting() {
                       <User strokeWidth={1.5}/>
                     </ThemeIcon>
                     <Stack spacing={0}>
-                      <Text weight={500}>Thông tin cá nhân</Text>
-                      <Text color="dimmed" size="sm">Cập nhật họ và tên, giới tính, địa chỉ...</Text>
+                      <Text weight={500}>Personal Information</Text>
+                      <Text color="dimmed" size="sm">Update full name, gender, address...</Text>
                     </Stack>
                   </Group>
                   <Button
@@ -39,7 +39,7 @@ function ClientSetting() {
                     variant="outline"
                     radius="md"
                   >
-                    Cập nhật
+                    Update
                   </Button>
                 </Group>
 
@@ -49,8 +49,8 @@ function ClientSetting() {
                       <Phone strokeWidth={1.5}/>
                     </ThemeIcon>
                     <Stack spacing={0}>
-                      <Text weight={500}>Số điện thoại</Text>
-                      <Text color="dimmed" size="sm">Thay đổi số điện thoại hiện tại bằng số mới</Text>
+                      <Text weight={500}>Phone Number</Text>
+                      <Text color="dimmed" size="sm">Change the current phone number to a new one</Text>
                     </Stack>
                   </Group>
                   <Button
@@ -59,7 +59,7 @@ function ClientSetting() {
                     variant="outline"
                     radius="md"
                   >
-                    Cập nhật
+                    Update
                   </Button>
                 </Group>
 
@@ -70,7 +70,7 @@ function ClientSetting() {
                     </ThemeIcon>
                     <Stack spacing={0}>
                       <Text weight={500}>Email</Text>
-                      <Text color="dimmed" size="sm">Thay đổi email hiện tại bằng email mới</Text>
+                      <Text color="dimmed" size="sm">Change the current email to a new one</Text>
                     </Stack>
                   </Group>
                   <Button
@@ -79,7 +79,7 @@ function ClientSetting() {
                     variant="outline"
                     radius="md"
                   >
-                    Cập nhật
+                    Update
                   </Button>
                 </Group>
 
@@ -89,8 +89,8 @@ function ClientSetting() {
                       <Lock strokeWidth={1.5}/>
                     </ThemeIcon>
                     <Stack spacing={0}>
-                      <Text weight={500}>Mật khẩu</Text>
-                      <Text color="dimmed" size="sm">Thay đổi mật khẩu hiện tại</Text>
+                      <Text weight={500}>Password</Text>
+                      <Text color="dimmed" size="sm">Change the current password</Text>
                     </Stack>
                   </Group>
                   <Button
@@ -99,7 +99,7 @@ function ClientSetting() {
                     variant="outline"
                     radius="md"
                   >
-                    Cập nhật
+                    Update
                   </Button>
                 </Group>
               </Stack>

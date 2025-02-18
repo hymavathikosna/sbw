@@ -10,24 +10,24 @@ class JobTypeConfigs extends Configs {
   static managerPath = ManagerPath.JOB_TYPE;
   static resourceUrl = ResourceURL.JOB_TYPE;
   static resourceKey = 'job-types';
-  static createTitle = 'Thêm loại hình công việc';
-  static updateTitle = 'Cập nhật loại hình công việc';
-  static manageTitle = 'Quản lý loại hình công việc';
+  static createTitle = 'Add Job Type';
+  static updateTitle = 'Update Job Type';
+  static manageTitle = 'Manage Job Types';
 
   static manageTitleLinks: TitleLink[] = EmployeeConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     name: {
-      label: 'Tên loại hình công việc',
+      label: 'Job Type Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái loại hình công việc',
+      label: 'Job Type Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = JobTypeConfigs._rawProperties as

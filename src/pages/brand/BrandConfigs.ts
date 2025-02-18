@@ -10,33 +10,33 @@ class BrandConfigs extends Configs {
   static managerPath = ManagerPath.BRAND;
   static resourceUrl = ResourceURL.BRAND;
   static resourceKey = 'brands';
-  static createTitle = 'Thêm nhãn hiệu';
-  static updateTitle = 'Cập nhật nhãn hiệu';
-  static manageTitle = 'Quản lý nhãn hiệu';
+  static createTitle = 'Add Brand';
+  static updateTitle = 'Update Brand';
+  static manageTitle = 'Manage Brands';
 
   static manageTitleLinks: TitleLink[] = ProductConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     name: {
-      label: 'Tên nhãn hiệu',
+      label: 'Brand Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     code: {
-      label: 'Mã nhãn hiệu',
+      label: 'Brand Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     description: {
-      label: 'Mô tả nhãn hiệu',
+      label: 'Brand Description',
       type: EntityPropertyType.STRING,
     },
     status: {
-      label: 'Trạng thái nhãn hiệu',
+      label: 'Brand Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = BrandConfigs._rawProperties as

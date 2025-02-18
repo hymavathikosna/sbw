@@ -76,7 +76,7 @@ function ProductVariantsForUpdate({
       overlayColor: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2],
       overlayOpacity: 0.55,
       overlayBlur: 3,
-      title: 'Thêm phiên bản',
+      title: 'Add version',
       children: <AddVariantsModal
         remainingPropertyValueCombinations={remainingPropertyValueCombinations()}
         handleAddVariantsButton={handleAddVariantsButton}
@@ -95,10 +95,10 @@ function ProductVariantsForUpdate({
         <thead>
           <tr>
             <th>#</th>
-            <th>Phiên bản</th>
+            <th>Variant</th>
             <th>SKU</th>
-            <th>Giá vốn</th>
-            <th>Giá bán</th>
+            <th>Cost Price</th>
+            <th>Selling Price</th>
           </tr>
         </thead>
         <tbody>
@@ -121,8 +121,7 @@ function ProductVariantsForUpdate({
         onClick={handleOpenAddVariantsModalButton}
         disabled={isDisabledOpenAddVariantsModalButton}
       >
-        Thêm phiên bản sản
-        phẩm {!isDisabledOpenAddVariantsModalButton && `(${propertyValueCombinations.length - variants.length})`}
+        Add product variant {!isDisabledOpenAddVariantsModalButton && `(${propertyValueCombinations.length - variants.length})`}
       </Button>
     </Stack>
   );

@@ -58,10 +58,10 @@ function PaymentMethodManage() {
           await updatePaymentMethodApi.mutateAsync(request);
         }));
 
-        NotifyUtils.simpleSuccess('Cập nhật thành công');
+        NotifyUtils.simpleSuccess('Update successful');
         void queryClient.invalidateQueries([PaymentMethodConfigs.resourceKey, 'getAll']);
       } catch (e) {
-        NotifyUtils.simpleFailed('Cập nhật không thành công');
+        NotifyUtils.simpleFailed('Update failed');
       }
     }
   };
@@ -69,18 +69,18 @@ function PaymentMethodManage() {
   const paymentMethodStatusBadgeFragment = (status: number) => {
     switch (status) {
     case 1:
-      return <Badge color="blue" variant="filled" size="sm">Đang sử dụng</Badge>;
+      return <Badge color="blue" variant="filled" size="sm">In use</Badge>;
     case 2:
-      return <Badge color="pink" variant="filled" size="sm">Không sử dụng</Badge>;
+      return <Badge color="pink" variant="filled" size="sm">Not in use</Badge>;      
     }
   };
 
   const entitiesTableHeadsFragment = (
     <tr>
-      <th>Kích hoạt</th>
-      <th>Hình thức thanh toán</th>
-      <th>Mã</th>
-      <th>Trạng thái</th>
+      <th>Activate</th>
+      <th>Payment Method</th>
+      <th>Code</th>
+      <th>Status</th>
     </tr>
   );
 
@@ -127,7 +127,7 @@ function PaymentMethodManage() {
         color="pink"
         radius="md"
       >
-        Kích hoạt một vài hoặc tất cả các hình thức thanh toán, luôn phải có ít nhất một hình thức thanh toán được chọn.
+        Activate one or more payment methods, there must always be at least one payment method selected.
       </Alert>
 
       <Paper shadow="xs" sx={{ position: 'relative', height: listResponse.content.length === 0 ? 170 : 'auto' }}>
@@ -143,7 +143,7 @@ function PaymentMethodManage() {
         disabled={disabledUpdateButton}
         onClick={handleUpdateButton}
       >
-        Cập nhật
+        Update
       </Button>
     </Stack>
   );

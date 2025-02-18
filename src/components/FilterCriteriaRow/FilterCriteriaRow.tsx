@@ -37,7 +37,7 @@ function FilterCriteriaRow({
     filterValueInputFragment = (
       <TextInput
         sx={{ width: '100%' }}
-        placeholder="Nhập giá trị"
+        placeholder="Enter value"
         icon={<Keyboard size={14}/>}
         value={filterCriteria.value || undefined}
         onChange={value => handleFilterValueInput(value, index)}
@@ -50,7 +50,7 @@ function FilterCriteriaRow({
     filterValueInputFragment = (
       <NumberInput
         sx={{ width: '100%' }}
-        placeholder="Nhập giá trị"
+        placeholder="Enter value"
         icon={<Keyboard size={14}/>}
         value={filterCriteria.value ? Number(filterCriteria.value) : undefined}
         onChange={value => handleFilterValueInput(value, index)}
@@ -65,7 +65,7 @@ function FilterCriteriaRow({
     filterValueInputFragment = (
       <DatePicker
         sx={{ width: '100%' }}
-        placeholder="Nhập giá trị"
+        placeholder="Enter value"
         icon={<Keyboard size={14}/>}
         value={filterCriteria.value ? new Date(filterCriteria.value) : undefined}
         onChange={value => handleFilterValueInput(value, index)}
@@ -80,7 +80,7 @@ function FilterCriteriaRow({
     filterValueInputFragment = (
       <Input
         sx={{ width: '100%' }}
-        placeholder="Nhập giá trị"
+        placeholder="Enter value"
         icon={<Keyboard size={14}/>}
         disabled={isDisabledFilterValueInput}
       />
@@ -96,13 +96,13 @@ function FilterCriteriaRow({
         color="blue"
         variant="hover"
         size={36}
-        title="Di chuyển tiêu chí lọc"
+        title="Move filter criterion"
       >
         <DragDrop/>
       </ActionIcon>
       <Select
         sx={{ width: '100%' }}
-        placeholder="Chọn thuộc tính"
+        placeholder="Select attribute"
         icon={<AB size={14}/>}
         clearable
         value={filterCriteria.property}
@@ -111,7 +111,7 @@ function FilterCriteriaRow({
       />
       <Select
         sx={{ width: '100%' }}
-        placeholder="Chọn cách lọc"
+        placeholder="Select filter method"
         icon={<Filter size={14}/>}
         clearable
         value={filterCriteria.operator}
@@ -124,7 +124,7 @@ function FilterCriteriaRow({
         color="red"
         variant="hover"
         size={36}
-        title="Xóa tiêu chí lọc"
+        title="Delete filter criterion"
         onClick={() => handleDeleteFilterCriteriaButton(index)}
       >
         <PlaystationX/>

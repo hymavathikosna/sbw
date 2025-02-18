@@ -23,7 +23,7 @@ import ResourceURL from 'constants/ResourceURL';
 import NotifyUtils from 'utils/NotifyUtils';
 import { AlertTriangle } from 'tabler-icons-react';
 
-const ClientAllCategories = async () =>{
+function ClientAllCategories() {
   useTitle();
 
   const theme = useMantineTheme();
@@ -120,10 +120,10 @@ const ClientAllCategories = async () =>{
                   Home
                 </Anchor>
                 <Text color="dimmed">
-                  Tất cả danh mục sản phẩm
+                  All product categories
                 </Text>
               </Breadcrumbs>
-              <Title order={2}>Tất cả danh mục sản phẩm</Title>
+              <Title order={2}>All product categories</Title>
             </Stack>
           </Card>
 
@@ -132,6 +132,6 @@ const ClientAllCategories = async () =>{
       </Container>
     </main>
   );
-};
+}
 
 export default ClientAllCategories;

@@ -125,8 +125,8 @@ function PurchaseOrderUpdate() {
                 <Divider mt="xs"/>
 
                 <Group position="apart" p="sm">
-                  <Button variant="default" onClick={resetForm}>Mặc định</Button>
-                  <Button type="submit">Cập nhật</Button>
+                  <Button variant="default" onClick={resetForm}>Default</Button>
+                  <Button type="submit">Update</Button>
                 </Group>
               </Stack>
             </Paper>

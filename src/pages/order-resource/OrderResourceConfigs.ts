@@ -9,59 +9,59 @@ class OrderResourceConfigs extends Configs {
   static managerPath = ManagerPath.ORDER_RESOURCE;
   static resourceUrl = ResourceURL.ORDER_RESOURCE;
   static resourceKey = 'order-resources';
-  static createTitle = 'Thêm nguồn đơn hàng';
-  static updateTitle = 'Cập nhật nguồn đơn hàng';
-  static manageTitle = 'Quản lý nguồn đơn hàng';
+  static createTitle = 'Add Order Source';
+  static updateTitle = 'Update Order Source';
+  static manageTitle = 'Manage Order Sources';
 
   static manageTitleLinks: TitleLink[] = [
     {
       link: ManagerPath.ORDER,
-      label: 'Quản lý đơn hàng',
+      label: 'Manage Orders',
     },
     {
       link: ManagerPath.ORDER_RESOURCE,
-      label: 'Quản lý nguồn đơn hàng',
+      label: 'Manage Order Sources',
     },
     {
       link: ManagerPath.ORDER_CANCELLATION_REASON,
-      label: 'Quản lý lý do hủy đơn hàng',
+      label: 'Manage Order Cancellation Reasons',
     },
   ];
-
+  
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true),
     code: {
-      label: 'Mã nguồn đơn hàng',
+      label: 'Order Source Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     name: {
-      label: 'Tên nguồn đơn hàng',
+      label: 'Order Source Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     color: {
-      label: 'Màu nguồn đơn hàng',
+      label: 'Order Source Color',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'customerResource.name': {
-      label: 'Tên nguồn khách hàng',
+      label: 'Customer Source Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     customerResourceId: {
-      label: 'Nguồn khách hàng',
+      label: 'Customer Source',
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     status: {
-      label: 'Trạng thái nguồn đơn hàng',
+      label: 'Order Source Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
-  };
+  };  
 
   static properties = OrderResourceConfigs._rawProperties as
     EntityPropertySchema<typeof OrderResourceConfigs._rawProperties & typeof PageConfigs.properties>;

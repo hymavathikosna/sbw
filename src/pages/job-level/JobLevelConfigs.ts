@@ -10,24 +10,24 @@ class JobLevelConfigs extends Configs {
   static managerPath = ManagerPath.JOB_LEVEL;
   static resourceUrl = ResourceURL.JOB_LEVEL;
   static resourceKey = 'job-levels';
-  static createTitle = 'Thêm cấp bậc công việc';
-  static updateTitle = 'Cập nhật cấp bậc công việc';
-  static manageTitle = 'Quản lý cấp bậc công việc';
+  static createTitle = 'Add Job Level';
+  static updateTitle = 'Update Job Level';
+  static manageTitle = 'Manage Job Levels';
 
   static manageTitleLinks: TitleLink[] = EmployeeConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     name: {
-      label: 'Tên cấp bậc công việc',
+      label: 'Job Level Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái cấp bậc công việc',
+      label: 'Job Level Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = JobLevelConfigs._rawProperties as

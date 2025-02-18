@@ -29,7 +29,7 @@ function ClientSearch() {
   const theme = useMantineTheme();
 
   const searchQuery = new URLSearchParams(useLocation().search).get('q');
-  useTitle(`Kết quả tìm kiếm cho "${searchQuery}"`);
+  useTitle(`Search results for "${searchQuery}"`);
 
   const [activePage, setActivePage] = useState(1);
   const [activeSort, setActiveSort] = useState<string | null>(null);
@@ -76,7 +76,7 @@ function ClientSearch() {
     resultFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.pink[6] }}>
         <AlertTriangle size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Đã có lỗi xảy ra</Text>
+        <Text size="xl" weight={500}>An error has occurred</Text>
       </Stack>
     );
   }
@@ -85,7 +85,7 @@ function ClientSearch() {
     resultFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.blue[6] }}>
         <Marquee size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Không có sản phẩm</Text>
+        <Text size="xl" weight={500}>No products available</Text>
       </Stack>
     );
   }
@@ -108,7 +108,7 @@ function ClientSearch() {
             onChange={(page: number) => (page !== activePage) && setActivePage(page)}
           />
           <Text>
-            <Text component="span" weight={500}>Trang {activePage}</Text>
+            <Text component="span" weight={500}>Page {activePage}</Text>
             <span> / {products.totalPages}</span>
           </Text>
         </Group>
@@ -122,7 +122,7 @@ function ClientSearch() {
         <Stack spacing={theme.spacing.xl * 1.5}>
           <Card radius="md" shadow="sm" p="lg">
             <Title order={2}>
-              Kết quả tìm kiếm cho &quot;<Text component="span" color="yellow" inherit>{searchQuery}</Text>&quot;
+              Search results for &quot;<Text component="span" color="yellow" inherit>{searchQuery}</Text>&quot;
             </Title>
           </Card>
 
@@ -140,14 +140,14 @@ function ClientSearch() {
                   <Radio value="highest-price" label="Price: High to Low"/>
                 </RadioGroup>
               </Group>
-              <Text>{products?.totalElements || 0} sản phẩm</Text>
+              <Text>{products?.totalElements || 0} Product</Text>
             </Group>
 
             <Group spacing="xs">
               <ChartCandle size={20}/>
-              <Text weight={500} mr={theme.spacing.xs}>Lọc theo</Text>
+              <Text weight={500} mr={theme.spacing.xs}>Filter by</Text>
               <Checkbox
-                label="Chỉ tính còn hàng"
+                label="Only in stock"
                 checked={activeSaleable}
                 onChange={(event) => {
                   setActiveSaleable(event.currentTarget.checked);

@@ -36,13 +36,13 @@ function TransferManage() {
   const docketStatusBadgeFragment = (status: number) => {
     switch (status) {
     case 1:
-      return <Badge color="gray" variant="outline" size="sm">Mới</Badge>;
+      return <Badge color="gray" variant="outline" size="sm">New</Badge>;
     case 2:
-      return <Badge color="blue" variant="outline" size="sm">Đang xử lý</Badge>;
+      return <Badge color="blue" variant="outline" size="sm">Processing</Badge>;
     case 3:
-      return <Badge color="green" variant="outline" size="sm">Hoàn thành</Badge>;
+      return <Badge color="green" variant="outline" size="sm">Completed</Badge>;
     case 4:
-      return <Badge color="red" variant="outline" size="sm">Hủy bỏ</Badge>;
+      return <Badge color="red" variant="outline" size="sm">Cancelled</Badge>;      
     }
   };
 
@@ -82,7 +82,7 @@ function TransferManage() {
         <td>{entity.code}</td>
       </tr>
       <tr>
-        <td>Mã phiếu xuất</td>
+        <td>Export document code</td>
         <td>{entity.exportDocket.code}</td>
       </tr>
       <tr>
@@ -94,7 +94,7 @@ function TransferManage() {
         <td>{docketStatusBadgeFragment(entity.exportDocket.status)}</td>
       </tr>
       <tr>
-        <td>Mã phiếu nhập</td>
+        <td>Import document code</td>
         <td>{entity.importDocket.code}</td>
       </tr>
       <tr>
@@ -106,7 +106,7 @@ function TransferManage() {
         <td>{docketStatusBadgeFragment(entity.importDocket.status)}</td>
       </tr>
       <tr>
-        <td>Số mặt hàng</td>
+        <td>Number of products</td>
         <td>{MiscUtils.formatPrice(entity.exportDocket.docketVariants.length)} SKU</td>
       </tr>
       <tr>

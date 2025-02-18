@@ -11,52 +11,52 @@ class PurchaseOrderConfigs extends Configs {
   static managerPath = ManagerPath.PURCHASE_ORDER;
   static resourceUrl = ResourceURL.PURCHASE_ORDER;
   static resourceKey = 'purchase-orders';
-  static createTitle = 'Thêm đơn mua hàng';
-  static updateTitle = 'Cập nhật đơn mua hàng';
-  static manageTitle = 'Quản lý đơn mua hàng';
+  static createTitle = 'Add Purchase Order';
+  static updateTitle = 'Update Purchase Order';
+  static manageTitle = 'Manage Purchase Orders';
 
   static manageTitleLinks: TitleLink[] = WarehouseConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true),
     code: {
-      label: 'Mã đơn mua hàng',
+      label: 'Purchase Order Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'supplier.displayName': {
-      label: 'Tên nhà cung cấp',
+      label: 'Supplier Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     'destination.address.line': {
-      label: 'Địa chỉ điểm nhập hàng',
+      label: 'Shipping Address',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     totalAmount: {
-      label: 'Tổng thành tiền',
+      label: 'Total Amount',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
     },
     note: {
-      label: 'Ghi chú đơn mua hàng',
+      label: 'Purchase Order Notes',
       type: EntityPropertyType.STRING,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     warehouse: {
-      label: 'Kho',
+      label: 'Warehouse',
       type: EntityPropertyType.PLACEHOLDER,
       isShowInTable: true,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
     },
     status: {
-      label: 'Trạng thái đơn mua hàng',
+      label: 'Purchase Order Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = PurchaseOrderConfigs._rawProperties as
@@ -80,7 +80,7 @@ class PurchaseOrderConfigs extends Configs {
       cost: z.number(),
       quantity: z.number(),
       amount: z.number(),
-    })).min(1, 'Cần thêm ít nhất 1 mặt hàng'),
+    })).min(1, 'At least 1 item is required'),
     destinationId: z.string(),
     totalAmount: z.number().min(0),
     note: z.string(),

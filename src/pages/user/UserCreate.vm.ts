@@ -78,11 +78,11 @@ function useUserCreateViewModel() {
   const genderSelectList: SelectOption[] = [
     {
       value: 'M',
-      label: 'Nam',
+      label: 'Male',
     },
     {
       value: 'F',
-      label: 'Nữ',
+      label: 'Female',
     },
   ];
 

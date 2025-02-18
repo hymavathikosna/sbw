@@ -63,7 +63,7 @@ function ClientReward() {
     rewardContentFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.pink[6] }}>
         <AlertTriangle size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Đã có lỗi xảy ra</Text>
+        <Text size="xl" weight={500}>An error has occurred</Text>
       </Stack>
     );
   }
@@ -76,7 +76,7 @@ function ClientReward() {
         <Group position="apart">
           <Award size={85} strokeWidth={1} color={theme.colors.grape[5]}/>
           <Stack align="center">
-            <Text color="grape" weight={500}>Tổng điểm thưởng tích lũy của bạn là</Text>
+            <Text color="grape" weight={500}>Your accumulated reward points are</Text>
             <Badge radius="md" color="grape" size="xl" variant="filled">{reward.rewardTotalScore}</Badge>
           </Stack>
           <Award size={85} strokeWidth={1} color={theme.colors.grape[5]}/>
@@ -89,7 +89,7 @@ function ClientReward() {
         >
           <Stack spacing="lg">
             <Text size="sm" color="dimmed" weight={500}>
-              Lịch sử nhận điểm thưởng
+              Reward points history
             </Text>
 
             <Stack spacing="xs">
@@ -132,7 +132,7 @@ function ClientReward() {
             <Card radius="md" shadow="sm" p="lg">
               <Stack>
                 <Title order={2}>
-                  Điểm thưởng
+                  Reward points
                 </Title>
 
                 {rewardContentFragment}

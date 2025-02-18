@@ -57,7 +57,7 @@ function UserManage() {
           {entity.phone}
         </Highlight>
       </td>
-      <td>{entity.gender === 'M' ? 'Nam' : 'Nữ'}</td>
+      <td>{entity.gender === 'M' ? 'Male' : 'Female'}</td>
       <td>
         <Avatar src={entity.avatar} alt={entity.fullname} radius="xl" size="sm"/>
       </td>
@@ -102,7 +102,7 @@ function UserManage() {
       </tr>
       <tr>
         <td>{UserConfigs.properties.gender.label}</td>
-        <td>{entity.gender === 'M' ? 'Nam' : 'Nữ'}</td>
+        <td>{entity.gender === 'M' ? 'Male' : 'Female'}</td>
       </tr>
       <tr>
         <td>{UserConfigs.properties['address.line'].label}</td>

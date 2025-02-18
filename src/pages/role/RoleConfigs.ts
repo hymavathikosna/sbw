@@ -10,29 +10,29 @@ class RoleConfigs extends Configs {
   static managerPath = ManagerPath.ROLE;
   static resourceUrl = ResourceURL.ROLE;
   static resourceKey = 'roles';
-  static createTitle = 'Thêm quyền';
-  static updateTitle = 'Cập nhật quyền';
-  static manageTitle = 'Quản lý quyền';
+  static createTitle = 'Add Permission';
+  static updateTitle = 'Update Permission';
+  static manageTitle = 'Manage Permissions';
 
   static manageTitleLinks: TitleLink[] = UserConfigs.manageTitleLinks;
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true, true, true),
     code: {
-      label: 'Mã quyền',
+      label: 'Permission Code',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     name: {
-      label: 'Tên quyền',
+      label: 'Permission Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
     },
     status: {
-      label: 'Trạng thái quyền',
+      label: 'Permission Status',
       type: EntityPropertyType.NUMBER,
       isShowInTable: true,
-    },
+    },    
   };
 
   static properties = RoleConfigs._rawProperties as
