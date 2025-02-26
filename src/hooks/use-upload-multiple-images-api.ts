@@ -8,8 +8,8 @@ function useUploadMultipleImagesApi() {
   return useMutation<CollectionWrapper<UploadedImageResponse>, ErrorMessage, File[]>(
     (images) => FetchUtils.uploadMultipleImages(images),
     {
-      onSuccess: () => NotifyUtils.simpleSuccess('Tải hình lên thành công'),
-      onError: () => NotifyUtils.simpleFailed('Tải hình lên không thành công'),
+      onSuccess: () => NotifyUtils.simpleSuccess('Image upload successful'),
+      onError: () => NotifyUtils.simpleFailed('Image upload failed'),
     }
   );
 }

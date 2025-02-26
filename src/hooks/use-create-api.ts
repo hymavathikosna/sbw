@@ -6,8 +6,8 @@ function useCreateApi<I, O>(resourceUrl: string) {
   return useMutation<O, ErrorMessage, I>(
     (requestBody) => FetchUtils.create<I, O>(resourceUrl, requestBody),
     {
-      onSuccess: () => NotifyUtils.simpleSuccess('Tạo thành công'),
-      onError: () => NotifyUtils.simpleFailed('Tạo không thành công'),
+      onSuccess: () => NotifyUtils.simpleSuccess('Created successfully'),
+      onError: () => NotifyUtils.simpleFailed('Creation failed'),
     }
   );
 }

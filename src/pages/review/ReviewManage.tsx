@@ -297,13 +297,13 @@ function CheckReviewModal({ review }: { review: ReviewResponse }) {
       </Blockquote>
       <Group position="right">
         <Button variant="default" onClick={modals.closeAll}>
-          Đóng
+            Close
         </Button>
         <Button color="teal" onClick={handleCheckReviewButton} disabled={review.status === 2}>
-          Duyệt
+            Approve
         </Button>
         <Button color="pink" onClick={handleUncheckReviewButton} disabled={review.status === 3}>
-          Không duyệt
+            Disapprove
         </Button>
       </Group>
     </Stack>
@@ -354,7 +354,7 @@ function ReplyReviewModal({ review }: { review: ReviewResponse }) {
       </Group>
       <Textarea
         data-autofocus
-        placeholder="Nhập nội dung phản hồi"
+        placeholder="Enter feedback content"
         autosize
         minRows={4}
         value={reply}
@@ -369,8 +369,7 @@ function ReplyReviewModal({ review }: { review: ReviewResponse }) {
           onClick={handleReplyReviewButton}
           disabled={(!review.reply && reply.length === 0) || (!!review.reply && review.reply === reply)}
         >
-          {!review.reply ? 'Thêm phản hồi' : (reply.length === 0 ? 'Xóa phản hồi' : 'Sửa phản hồi')}
-        </Button>
+          {!review.reply ? 'Add feedback' : (reply.length === 0 ? 'Delete feedback' : 'Edit feedback')}        </Button>
       </Group>
     </Stack>
   );

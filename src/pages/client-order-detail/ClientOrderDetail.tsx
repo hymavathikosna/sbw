@@ -466,7 +466,7 @@ function OrderItemTableRow({ orderItem, canReview }: { orderItem: ClientOrderVar
           {orderItem.orderItemQuantity}
         </Text>
       </td>
-      {/* TODO: Thêm discountPercent cho OrderVariant */}
+      {/* TODO: Add discountPercent cho OrderVariant */}
       {/*<td>*/}
       {/*  <Text size="sm">*/}
       {/*    {MiscUtils.formatPrice(0) + '₹'}*/}

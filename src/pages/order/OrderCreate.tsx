@@ -268,7 +268,7 @@ function OrderCreate() {
 
                 <Group position="apart" p="sm">
                   <Button variant="default" onClick={resetForm}>Default</Button>
-                  <Button type="submit">Thêm</Button>
+                  <Button type="submit">Add</Button>
                 </Group>
               </Stack>
             </Paper>

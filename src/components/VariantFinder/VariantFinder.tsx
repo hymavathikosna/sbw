@@ -54,7 +54,7 @@ function VariantResult({ variant, keyword, disabled }: VariantResultProps) {
           <ThemeIcon radius="lg" color="green" size="xs">
             <Check size={12}/>
           </ThemeIcon>
-          <Text weight={500} color="green" size="xs">Đã thêm</Text>
+          <Text weight={500} color="green" size="xs">Added</Text>
         </Group>
       )}
     </Group>

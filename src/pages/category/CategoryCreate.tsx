@@ -76,7 +76,7 @@ function CategoryCreate() {
 
             <Group position="apart" p="sm">
               <Button variant="default" onClick={form.reset}>Default</Button>
-              <Button type="submit">Thêm</Button>
+              <Button type="submit">Add</Button>
             </Group>
           </Stack>
         </Paper>

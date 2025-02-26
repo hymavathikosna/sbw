@@ -39,10 +39,10 @@ const dropzoneChildren = (status: DropzoneStatus, theme: MantineTheme) => {
 
       <div>
         <Text size="xl" inline>
-          Kéo thả hoặc bấm để chọn hình
+            Drag and drop or click to select an image
         </Text>
         <Text size="sm" color="dimmed" inline mt={7}>
-          Dung lượng mỗi tập tin không quá 5 MB
+            The file size should not exceed 5 MB
         </Text>
       </div>
     </Group>
@@ -96,11 +96,11 @@ function ProductImagesDropzone({
       overlayOpacity: 0.55,
       overlayBlur: 3,
       closeOnClickOutside: false,
-      title: <strong>Xác nhận xóa</strong>,
-      children: <Text size="sm">Xóa tất cả hình?</Text>,
+      title: <strong>Confirm Deletion</strong>,
+      children: <Text size="sm">Delete all images?</Text>,
       labels: {
-        cancel: 'Không xóa',
-        confirm: 'Xóa',
+        cancel: 'Do not delete',
+        confirm: 'Delete',
       },
       confirmProps: { color: 'red' },
       onConfirm: () => {
@@ -317,7 +317,7 @@ function ProductImagesDropzone({
             label={
               <>
                 <CirclePlus size={12}/>
-                <Box ml={5}>Hình mới thêm, chưa được lưu</Box>
+                <Box ml={5}>The new image has been added, but not saved yet</Box>
               </>
             }
           />
@@ -330,7 +330,7 @@ function ProductImagesDropzone({
             sx={{ marginTop: theme.spacing.sm }}
             onClick={handleDeleteAllImagesButton}
           >
-            Xóa tất cả hình
+            Delete all images
           </Button>
         </>
       )}
