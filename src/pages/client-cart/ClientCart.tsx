@@ -448,7 +448,7 @@ function CartItemTableRow({ cartItem }: { cartItem: ClientCartVariantResponse })
               +
             </ActionIcon>
           </Group>
-          <Text size="xs" color="dimmed">Tồn kho: {cartItem.cartItemVariant.variantInventory}</Text>
+          <Text size="xs" color="dimmed">Inventory: {cartItem.cartItemVariant.variantInventory}</Text>
         </Stack>
       </td>
       <td>
@@ -467,7 +467,7 @@ function CartItemTableRow({ cartItem }: { cartItem: ClientCartVariantResponse })
           color="red"
           variant="outline"
           size={24}
-          title="Xóa"
+          title="Delete"
           onClick={handleDeleteCartItemButton}
           sx={{ margin: 'auto' }}
         >

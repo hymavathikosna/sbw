@@ -275,7 +275,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
 
               {product.productSaleable && (
                 <Stack spacing="xs">
-                  <Text weight={500}>Số lượng</Text>
+                  <Text weight={500}>Quantity</Text>
                   <Group spacing={5}>
                     <ActionIcon size={36} variant="default" onClick={() => quantityInputHandlers.current?.decrement()}>
                       –

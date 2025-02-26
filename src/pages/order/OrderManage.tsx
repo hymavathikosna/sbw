@@ -58,10 +58,10 @@ function OrderManage() {
               color="blue"
               variant="outline"
               size="sm"
-              title="Sao chép mã đơn hàng này"
+              title="Copy this order code"
               onClick={() => {
                 void navigator.clipboard.writeText(entity.code);
-                NotifyUtils.simple(<Text inherit>Đã sao chép mã đơn hàng <strong>{entity.code}</strong></Text>);
+                NotifyUtils.simple(<Text inherit>Order code has been copied <strong>{entity.code}</strong></Text>);
               }}
             >
               <Clipboard size={15} strokeWidth={1.5}/>
@@ -116,7 +116,7 @@ function OrderManage() {
             color="blue"
             variant="hover"
             size={24}
-            title="Tạo phiếu xuất kho"
+            title="Create an outbound stock slip"
             component="a"
             href={DocketConfigs.managerPath + '/create'}
             target="_blank"

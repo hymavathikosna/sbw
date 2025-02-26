@@ -64,7 +64,7 @@ function UserUpdate() {
                 <PasswordInput
                   label={UserConfigs.properties.password.label}
                   {...form.getInputProps('password')}
-                  placeholder="Nhập mật khẩu mới hoặc để trống"
+                  placeholder="Enter a new password or leave it blank"
                 />
               </Grid.Col>
               <Grid.Col xs={6}>

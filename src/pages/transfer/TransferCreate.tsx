@@ -64,7 +64,7 @@ function TransferCreate() {
                   <Grid.Col>
                     <Select
                       required
-                      label="Kho xuất"
+                      label="Shipping Warehouse"
                       placeholder="--"
                       data={warehouseSelectList}
                       value={form.values['exportDocket.warehouseId']}
@@ -75,7 +75,7 @@ function TransferCreate() {
                   <Grid.Col>
                     <Select
                       required
-                      label="Kho nhập"
+                      label="Inbound Warehouse"
                       placeholder="--"
                       data={warehouseSelectList}
                       value={form.values['importDocket.warehouseId']}

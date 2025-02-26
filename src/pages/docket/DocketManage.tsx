@@ -35,22 +35,22 @@ function DocketManage() {
   const docketTypeBadgeFragment = (type: number) => {
     switch (type) {
     case 1:
-      return <Badge color="blue" variant="filled" size="sm">Nhập</Badge>;
+      return <Badge color="blue" variant="filled" size="sm">Input</Badge>;
     case 2:
-      return <Badge color="orange" variant="filled" size="sm">Xuất</Badge>;
+      return <Badge color="orange" variant="filled" size="sm">Output</Badge>;
     }
   };
 
   const docketStatusBadgeFragment = (status: number) => {
     switch (status) {
     case 1:
-      return <Badge color="gray" variant="outline" size="sm">Mới</Badge>;
+      return <Badge color="gray" variant="outline" size="sm">New</Badge>;
     case 2:
-      return <Badge color="blue" variant="outline" size="sm">Đang xử lý</Badge>;
+      return <Badge color="blue" variant="outline" size="sm">In Process</Badge>;
     case 3:
-      return <Badge color="green" variant="outline" size="sm">Hoàn thành</Badge>;
+      return <Badge color="green" variant="outline" size="sm">Completed</Badge>;
     case 4:
-      return <Badge color="red" variant="outline" size="sm">Hủy bỏ</Badge>;
+      return <Badge color="red" variant="outline" size="sm">Cancelled</Badge>;
     }
   };
 
@@ -116,11 +116,11 @@ function DocketManage() {
         <td>{entity.warehouse.name}</td>
       </tr>
       <tr>
-        <td>Mã đơn mua hàng</td>
+        <td>Purchase Order Code</td>
         <td>{entity.purchaseOrder?.code}</td>
       </tr>
       <tr>
-        <td>Mã đơn hàng</td>
+        <td>Order Code</td>
         <td>{entity.order?.code}</td>
       </tr>
       <tr>

@@ -53,7 +53,7 @@ function WaybillCreate() {
                   required
                   rightSection={isFetchingOrderListResponse ? <Loader size={16}/> : null}
                   label="Đơn hàng"
-                  placeholder="Nhập mã đơn hàng và chọn đơn hàng"
+                  placeholder="Enter the order code and select an order"
                   searchable
                   clearable
                   onSearchChange={setOrderSelectKeyword}

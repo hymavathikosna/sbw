@@ -291,7 +291,7 @@ function useUpdateNotificationApi(id: number) {
     (requestBody) => FetchUtils.putWithToken(ResourceURL.CLIENT_NOTIFICATION + '/' + id, requestBody),
     {
       onSuccess: () => queryClient.invalidateQueries(['client-api', 'notifications', 'getAllNotifications']),
-      onError: () => NotifyUtils.simpleFailed('Update không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Update Unsuccessful'),
     }
   );
 }

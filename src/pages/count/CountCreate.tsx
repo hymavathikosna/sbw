@@ -64,7 +64,7 @@ function CountCreate() {
                   <Grid.Col>
                     <Select
                       required
-                      label="Nhà kho"
+                      label="Warehouse"
                       placeholder="--"
                       data={warehouseSelectList}
                       {...form.getInputProps('warehouseId')}
@@ -72,7 +72,7 @@ function CountCreate() {
                   </Grid.Col>
                   <Grid.Col>
                     <Textarea
-                      label="Ghi chú phiếu kiểm kho"
+                      label="Inventory Check Note"
                       {...form.getInputProps('note')}
                     />
                   </Grid.Col>

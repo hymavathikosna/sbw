@@ -140,7 +140,7 @@ function DocketUpdate() {
                   <Grid.Col>
                     <Select
                       required
-                      label="Lý do phiếu NXK"
+                      label="Reason for Stock Dispatch Slip"
                       placeholder="--"
                       data={reasonSelectList}
                       {...form.getInputProps('reasonId')}
@@ -149,7 +149,7 @@ function DocketUpdate() {
                   <Grid.Col>
                     <Select
                       required
-                      label="Nhà kho"
+                      label="Warehouse"
                       placeholder="--"
                       data={warehouseSelectList}
                       {...form.getInputProps('warehouseId')}
@@ -158,7 +158,7 @@ function DocketUpdate() {
                   <Grid.Col>
                     <Select
                       rightSection={isFetchingPurchaseOrderListResponse ? <Loader size={16}/> : null}
-                      label="Đơn mua hàng"
+                      label="Purchase Order"
                       placeholder="--"
                       searchable
                       clearable
@@ -170,7 +170,7 @@ function DocketUpdate() {
                   <Grid.Col>
                     <Select
                       rightSection={isFetchingOrderListResponse ? <Loader size={16}/> : null}
-                      label="Đơn hàng"
+                      label="Order"
                       placeholder="--"
                       searchable
                       clearable

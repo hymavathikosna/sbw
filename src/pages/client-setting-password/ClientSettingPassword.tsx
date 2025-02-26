@@ -38,14 +38,14 @@ function ClientSettingPassword() {
   const updatePasswordSettingApi = useMutation<never, ErrorMessage, ClientPasswordSettingUserRequest>(
     (requestBody) => FetchUtils.postWithToken(ResourceURL.CLIENT_USER_PASSWORD_SETTING, requestBody),
     {
-      onSuccess: () => NotifyUtils.simpleSuccess('Update thành công'),
-      onError: () => NotifyUtils.simpleFailed('Update không thành công'),
+      onSuccess: () => NotifyUtils.simpleSuccess('Update Successful'),
+      onError: () => NotifyUtils.simpleFailed('Update Unsuccessful'),
     }
   );
 
   const handleFormSubmit = form.onSubmit((formValues) => {
     if (formValues.newPassword !== formValues.newPasswordAgain) {
-      form.setFieldError('newPasswordAgain', 'Password không trùng khớp');
+      form.setFieldError('newPasswordAgain', 'Passwords do not match');
     } else {
       const requestBody: ClientPasswordSettingUserRequest = {
         oldPassword: formValues.oldPassword,
@@ -77,22 +77,22 @@ function ClientSettingPassword() {
                         <PasswordInput
                           required
                           radius="md"
-                          label="Password hiện tại"
-                          placeholder="Nhập mật khẩu hiện tại"
+                          label="Current Password"
+                          placeholder="Enter current password"
                           {...form.getInputProps('oldPassword')}
                         />
                         <PasswordInput
                           required
                           radius="md"
-                          label="Password mới"
-                          placeholder="Nhập mật khẩu mới"
+                          label="New Password"
+                          placeholder="Enter new password"
                           {...form.getInputProps('newPassword')}
                         />
                         <PasswordInput
                           required
                           radius="md"
-                          label="Nhập lại mật khẩu mới"
-                          placeholder="Nhập lại mật khẩu mới"
+                          label="Confirm New Password"
+                          placeholder="Re-enter new password"
                           {...form.getInputProps('newPasswordAgain')}
                         />
                         <Button

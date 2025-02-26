@@ -9,10 +9,10 @@ function useDeleteByIdApi<T = number>(resourceUrl: string, resourceKey: string) 
     (entityId) => FetchUtils.deleteById(resourceUrl, entityId),
     {
       onSuccess: () => {
-        NotifyUtils.simpleSuccess('Xóa thành công');
+        NotifyUtils.simpleSuccess('Delete Successful');
         void queryClient.invalidateQueries([resourceKey, 'getAll']);
       },
-      onError: () => NotifyUtils.simpleFailed('Xóa không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Delete Unsuccessful'),
     }
   );
 }

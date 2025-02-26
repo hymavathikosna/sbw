@@ -16,7 +16,7 @@ import { ClientPhoneSettingUserRequest } from 'types';
 const formSchema = z.object({
   // Source: https://fozg.net/blog/validate-vietnamese-phone-number
   phone: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
-    .regex(/(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/, { message: 'Nhập số điện thoại đúng định dạng' }),
+    .regex(/(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/, { message: 'Enter a valid phone number' }),
 });
 
 function ClientSettingPhone() {
@@ -38,9 +38,9 @@ function ClientSettingPhone() {
     {
       onSuccess: (userResponse) => {
         updateUser(userResponse);
-        NotifyUtils.simpleSuccess('Update thành công');
+        NotifyUtils.simpleSuccess('Update Successful');
       },
-      onError: () => NotifyUtils.simpleFailed('Update không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Update Unsuccessful'),
     }
   );
 
@@ -64,7 +64,7 @@ function ClientSettingPhone() {
             <Card radius="md" shadow="sm" p="lg">
               <Stack>
                 <Title order={2}>
-                  Update số điện thoại
+                 Update phone number
                 </Title>
                 <Grid>
                   <Grid.Col lg={6}>
@@ -73,8 +73,8 @@ function ClientSettingPhone() {
                         <TextInput
                           required
                           radius="md"
-                          label="Số điện thoại"
-                          placeholder="Nhập số điện thoại của bạn"
+                          label="Phone Number"
+                          placeholder="Enter your phone number"
                           {...form.getInputProps('phone')}
                         />
                         <Button

@@ -94,7 +94,7 @@ function OrderCreate() {
             <Group position="right">
               <Grid p="sm" gutter="xs" style={{ width: '45%' }}>
                 <Grid.Col span={6}>
-                  <Text size="sm" weight={500}>Tổng thành tiền:</Text>
+                  <Text size="sm" weight={500}>Total amount:</Text>
                 </Grid.Col>
                 <Grid.Col span={6}>
                   <Text size="md" color="blue" weight={500} sx={{ textAlign: 'right' }}>

@@ -35,13 +35,13 @@ function CountManage() {
   const countStatusBadgeFragment = (status: number) => {
     switch (status) {
     case 1:
-      return <Badge color="gray" variant="outline" size="sm">Mới</Badge>;
+      return <Badge color="gray" variant="outline" size="sm">New</Badge>;
     case 2:
-      return <Badge color="blue" variant="outline" size="sm">Đang xử lý</Badge>;
+      return <Badge color="blue" variant="outline" size="sm">In Process</Badge>;
     case 3:
-      return <Badge color="green" variant="outline" size="sm">Hoàn thành</Badge>;
+      return <Badge color="green" variant="outline" size="sm">Completed</Badge>;
     case 4:
-      return <Badge color="red" variant="outline" size="sm">Hủy bỏ</Badge>;
+      return <Badge color="red" variant="outline" size="sm">Cancelled</Badge>;      
     }
   };
 
@@ -93,7 +93,7 @@ function CountManage() {
         <td>{MiscUtils.formatPrice(entity.countVariants.length)} SKU</td>
       </tr>
       <tr>
-        <td>Ghi chú phiếu kiểm kho</td>
+        <td>Inventory Check Note</td>
         <td style={{ maxWidth: 300 }}>{entity.note}</td>
       </tr>
       <tr>

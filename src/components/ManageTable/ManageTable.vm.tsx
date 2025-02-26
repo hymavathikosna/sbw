@@ -65,10 +65,10 @@ function useManageTableViewModel<T extends BaseResponse>({
       overlayBlur: 3,
       closeOnClickOutside: false,
       title: <strong>Xác nhận xóa</strong>,
-      children: <Text size="sm">Xóa phần tử có ID {entityId}?</Text>,
+      children: <Text size="sm">Delete phần tử có ID {entityId}?</Text>,
       labels: {
         cancel: 'Không xóa',
-        confirm: 'Xóa',
+        confirm: 'Delete',
       },
       confirmProps: { color: 'red' },
       onConfirm: () => handleConfirmedDeleteEntityButton(entityId),

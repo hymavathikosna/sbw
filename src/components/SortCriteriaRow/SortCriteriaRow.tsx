@@ -55,7 +55,7 @@ function SortCriteriaRow({
         color="red"
         variant="hover"
         size={36}
-        title="Xóa tiêu chí sắp xếp"
+        title="Delete tiêu chí sắp xếp"
         onClick={() => handleDeleteSortCriteriaButton(index)}
       >
         <PlaystationX/>

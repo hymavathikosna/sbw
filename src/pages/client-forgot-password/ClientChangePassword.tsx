@@ -46,15 +46,15 @@ function ClientChangePassword() {
     (requestBody) => FetchUtils.put(ResourceURL.CLIENT_RESET_PASSWORD, requestBody),
     {
       onSuccess: () => {
-        NotifyUtils.simpleSuccess('Change password mới thành công');
+        NotifyUtils.simpleSuccess('Change password mới Successful');
       },
-      onError: () => NotifyUtils.simpleFailed('Change password không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Change password Unsuccessful'),
     }
   );
 
   const handleFormSubmit = form.onSubmit((formValues) => {
     if (formValues.newPassword !== formValues.newPasswordAgain) {
-      form.setFieldError('newPasswordAgain', 'Password không trùng khớp');
+      form.setFieldError('newPasswordAgain', 'Passwords do not match');
     } else if (token && email) {
       const requestBody: ResetPasswordRequest = {
         token: token,
@@ -78,15 +78,15 @@ function ClientChangePassword() {
                 <PasswordInput
                   required
                   radius="md"
-                  label="Password mới"
-                  placeholder="Nhập mật khẩu mới"
+                  label="New Password"
+                  placeholder="Enter new password"
                   {...form.getInputProps('newPassword')}
                 />
                 <PasswordInput
                   required
                   radius="md"
-                  label="Nhập lại mật khẩu mới"
-                  placeholder="Nhập lại mật khẩu mới"
+                  label="Confirm New Password"
+                  placeholder="Re-enter new password"
                   {...form.getInputProps('newPasswordAgain')}
                 />
                 <Button

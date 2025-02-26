@@ -242,7 +242,7 @@ function ClientReviewCard({ review }: { review: ClientReviewResponse }) {
             compact
             onClick={handleDeleteReviewButton}
           >
-            Xóa
+            Delete
           </Button>
         </Group>
 

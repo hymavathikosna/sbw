@@ -167,7 +167,7 @@ function ReviewManage() {
             color="pink"
             variant="outline"
             size={24}
-            title="Xóa"
+            title="Delete"
             onClick={() => handleDeleteEntityButton(entity.id)}
           >
             <Trash size={16}/>

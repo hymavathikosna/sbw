@@ -258,7 +258,7 @@ function ClientHeader() {
             </Group>
             <Group spacing="xs">
               <Badge color="pink" size="xs" variant="filled">Hot</Badge>
-              <Text size="sm" color="dimmed">Free shipping for orders over 1 million VND</Text>
+              <Text size="sm" color="dimmed">Free shipping for orders over 1 million INR</Text>
             </Group>
           </Group>
         </Stack>

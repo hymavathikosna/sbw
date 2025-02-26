@@ -142,31 +142,31 @@ function useDocketUpdateViewModel(id: number) {
   const typeSelectList: SelectOption[] = [
     {
       value: '1',
-      label: 'Nhập',
+      label: 'Input',
     },
     {
       value: '2',
-      label: 'Xuất',
+      label: 'Output',
     },
   ];
 
   const statusSelectList: SelectOption[] = [
     {
       value: '1',
-      label: 'Mới',
+      label: 'New',
     },
     {
       value: '2',
-      label: 'Đang xử lý',
+      label: 'In Process',
     },
     {
       value: '3',
-      label: 'Hoàn thành',
+      label: 'Completed',
     },
     {
       value: '4',
-      label: 'Hủy bỏ',
-    },
+      label: 'Cancelled',
+    },    
   ];
 
   return {

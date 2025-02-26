@@ -88,7 +88,7 @@ function ManageTable<T extends BaseResponse>(props: ManageTableProps<T>) {
               color="red"
               variant="outline"
               size={24}
-              title="Xóa"
+              title="Delete"
               onClick={() => handleDeleteEntityButton(entity.id)}
             >
               <Trash size={16}/>

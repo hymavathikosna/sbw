@@ -61,7 +61,7 @@ function AdminAccount() {
               <Phone size={20} strokeWidth={1.5}/>
             </ThemeIcon>
             <Stack spacing={0}>
-              <Text weight={500}>Số điện thoại</Text>
+              <Text weight={500}>Phone number</Text>
               <Text>{user?.phone}</Text>
             </Stack>
           </Group>

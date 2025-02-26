@@ -65,7 +65,7 @@ function PurchaseOrderUpdate() {
             <Divider mt={5}/>
 
             <Text p="sm" size="sm" weight={500} sx={{ textAlign: 'right' }}>
-              <span>Tổng thành tiền: </span>
+              <span>Total amount: </span>
               <Text size="md" color="blue" component="span">
                 {MiscUtils.formatPrice(form.values.totalAmount) + '₹'}
               </Text>
@@ -88,7 +88,7 @@ function PurchaseOrderUpdate() {
                   <Grid.Col>
                     <Select
                       required
-                      label="Nhà cung cấp"
+                      label="Supplier"
                       placeholder="--"
                       searchable
                       data={supplierSelectList}
@@ -98,7 +98,7 @@ function PurchaseOrderUpdate() {
                   <Grid.Col>
                     <Select
                       required
-                      label="Điểm nhập hàng"
+                      label="Point of entry for goods"
                       placeholder="--"
                       searchable
                       data={destinationSelectList}

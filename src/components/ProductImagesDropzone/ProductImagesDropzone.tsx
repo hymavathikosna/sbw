@@ -234,7 +234,7 @@ function ProductImagesDropzone({
               <ActionIcon
                 color="red"
                 variant="light"
-                title="Xóa hình này"
+                title="Delete hình này"
                 onClick={() => handleDeleteImageButton(index, 'imageResponses')}
               >
                 <X/>
@@ -279,7 +279,7 @@ function ProductImagesDropzone({
           <ActionIcon
             color="red"
             variant="light"
-            title="Xóa hình này"
+            title="Delete hình này"
             onClick={() => handleDeleteImageButton(index, 'imageFiles')}
           >
             <X/>

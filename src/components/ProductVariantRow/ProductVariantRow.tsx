@@ -69,7 +69,7 @@ function ProductVariantRow({
         <TextInput
           styles={{ input: { fontFamily: 'monospace' } }}
           size="xs"
-          placeholder="Nhập SKU"
+          placeholder="Enter SKU"
           value={variant.sku}
           onChange={(event) => handleVariantSkuInput(event.currentTarget.value, index)}
           disabled={!selectedVariantIndexes.includes(index)}
@@ -78,7 +78,7 @@ function ProductVariantRow({
       <td>
         <NumberInput
           size="xs"
-          placeholder="Nhập giá gốc"
+          placeholder="Enter the original price"
           value={variant.cost}
           onChange={(value) => handleVariantCostInput(value || 0, index)}
           disabled={!selectedVariantIndexes.includes(index)}
@@ -92,7 +92,7 @@ function ProductVariantRow({
       <td>
         <NumberInput
           size="xs"
-          placeholder="Nhập giá bán"
+          placeholder="Enter the selling price"
           value={variant.price}
           onChange={(value) => handleVariantPriceInput(value || 0, index)}
           disabled={!selectedVariantIndexes.includes(index)}

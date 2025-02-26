@@ -15,7 +15,7 @@ import MiscUtils from 'utils/MiscUtils';
 
 const formSchema = z.object({
   email: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
-    .email({ message: 'Nhập email đúng định dạng' }),
+    .email({ message: 'Enter a valid email address' }),
 });
 
 function ClientSettingEmail() {
@@ -37,9 +37,9 @@ function ClientSettingEmail() {
     {
       onSuccess: (userResponse) => {
         updateUser(userResponse);
-        NotifyUtils.simpleSuccess('Update thành công');
+        NotifyUtils.simpleSuccess('Update Successful');
       },
-      onError: () => NotifyUtils.simpleFailed('Update không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Update Unsuccessful'),
     }
   );
 
@@ -73,7 +73,7 @@ function ClientSettingEmail() {
                           required
                           radius="md"
                           label="Email"
-                          placeholder="Nhập email của bạn"
+                          placeholder="Enter your email"
                           {...form.getInputProps('email')}
                         />
                         <Button

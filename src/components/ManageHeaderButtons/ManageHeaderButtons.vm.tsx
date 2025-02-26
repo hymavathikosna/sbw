@@ -30,10 +30,10 @@ function useManageHeaderButtonsViewModel({
         overlayBlur: 3,
         closeOnClickOutside: false,
         title: <strong>Xác nhận xóa</strong>,
-        children: <Text size="sm">Xóa (các) phần tử có ID {selection.join(', ')}?</Text>,
+        children: <Text size="sm">Delete (các) phần tử có ID {selection.join(', ')}?</Text>,
         labels: {
           cancel: 'Không xóa',
-          confirm: 'Xóa',
+          confirm: 'Delete',
         },
         confirmProps: { color: 'red' },
         onConfirm: () => handleConfirmedDeleteBatchEntitiesButton(selection),

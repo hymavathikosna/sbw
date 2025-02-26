@@ -9,11 +9,11 @@ function useUpdateApi<I, O>(resourceUrl: string, resourceKey: string, entityId: 
     (requestBody) => FetchUtils.update<I, O>(resourceUrl, entityId, requestBody),
     {
       onSuccess: () => {
-        NotifyUtils.simpleSuccess('Update thành công');
+        NotifyUtils.simpleSuccess('Update Successful');
         void queryClient.invalidateQueries([resourceKey, 'getById', entityId]);
         void queryClient.invalidateQueries([resourceKey, 'getAll']);
       },
-      onError: () => NotifyUtils.simpleFailed('Update không thành công'),
+      onError: () => NotifyUtils.simpleFailed('Update Unsuccessful'),
     }
   );
 }

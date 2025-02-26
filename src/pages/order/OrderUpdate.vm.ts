@@ -206,34 +206,34 @@ function useOrderUpdateViewModel(id: number) {
   const statusSelectList: SelectOption[] = [
     {
       value: '1',
-      label: 'Đơn hàng mới',
+      label: 'New Order',
     },
     {
       value: '2',
-      label: 'Đang xử lý',
+      label: 'In Process',
     },
     {
       value: '3',
-      label: 'Đang giao hàng',
+      label: 'Out for Delivery',
     },
     {
       value: '4',
-      label: 'Đã giao hàng',
+      label: 'Delivered',
     },
     {
       value: '5',
-      label: 'Hủy bỏ',
+      label: 'Cancelled',
     },
   ];
 
   const paymentStatusSelectList: SelectOption[] = [
     {
       value: '1',
-      label: 'Chưa thanh toán',
+      label: 'Unpaid',
     },
     {
       value: '2',
-      label: 'Đã thanh toán',
+      label: 'Paid',
     },
   ];
 

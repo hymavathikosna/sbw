@@ -149,32 +149,32 @@ function usePurchaseOrderUpdateViewModel(id: number) {
   const statusSelectList: SelectOption[] = [
     {
       value: '1',
-      label: 'Đơn hàng mới',
+      label: 'New Order',
     },
     {
       value: '2',
-      label: 'Đang chờ duyệt',
+      label: 'Pending Approval',
     },
     {
       value: '3',
-      label: 'Đã duyệt',
+      label: 'Approved',
     },
     {
       value: '4',
-      label: 'Đang xử lý',
+      label: 'In Process',
     },
     {
       value: '5',
-      label: 'Hoàn thành',
+      label: 'Completed',
     },
     {
       value: '6',
-      label: 'Không duyệt',
+      label: 'Not Approved',
     },
     {
       value: '7',
-      label: 'Hủy bỏ',
-    },
+      label: 'Cancelled',
+    },    
   ];
 
   return {

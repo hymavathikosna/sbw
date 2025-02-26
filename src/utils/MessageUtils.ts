@@ -1,6 +1,6 @@
 class MessageUtils {
-  static min = (subject: string, value: number) => `${subject} có ít nhất ${value} ký tự`;
-  static max = (subject: string, value: number) => `${subject} chỉ có nhiều nhất ${value} ký tự`;
+  static min = (subject: string, value: number) => `${subject} must have at least ${value} characters`;
+  static max = (subject: string, value: number) => `${subject} only up to ${value} characters`;
 }
 
 export default MessageUtils;

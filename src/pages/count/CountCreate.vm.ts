@@ -91,20 +91,20 @@ function useCountCreateViewModel() {
   const statusSelectList: SelectOption[] = [
     {
       value: '1',
-      label: 'Mới',
+      label: 'New',
     },
     {
       value: '2',
-      label: 'Đang xử lý',
+      label: 'In Process',
     },
     {
       value: '3',
-      label: 'Hoàn thành',
+      label: 'Completed',
     },
     {
       value: '4',
-      label: 'Hủy bỏ',
-    },
+      label: 'Cancelled',
+    },    
   ];
 
   return {
