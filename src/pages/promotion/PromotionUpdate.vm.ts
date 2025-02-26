@@ -44,7 +44,7 @@ function usePromotionUpdateViewModel(id: number) {
     setPrevFormValues(formValues);
     if (!MiscUtils.isEquals(formValues, prevFormValues)) {
       if (formValues.productIds.length === 0) {
-        form.setFieldError('productIds', 'Cần thêm ít nhất 1 sản phẩm');
+        form.setFieldError('productIds', 'Need to add at least one product');
       } else {
         const requestBody: PromotionRequest = {
           name: formValues.name,
@@ -73,11 +73,11 @@ function usePromotionUpdateViewModel(id: number) {
   const statusSelectList: SelectOption[] = [
     {
       value: '1',
-      label: 'Có hiệu lực',
+      label: 'In effect',
     },
     {
       value: '2',
-      label: 'Vô hiệu lực',
+      label: 'Not in effect',
     },
   ];
 

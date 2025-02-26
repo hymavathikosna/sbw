@@ -80,8 +80,8 @@ function VariantTablePopover({
                 <td key={index}>{property.value}</td>
               ))}
               <td>{variant.sku}</td>
-              <td style={{ textAlign: 'right' }}>{MiscUtils.formatPrice(variant.cost) + ' ₫'}</td>
-              <td style={{ textAlign: 'right' }}>{MiscUtils.formatPrice(variant.price) + ' ₫'}</td>
+              <td style={{ textAlign: 'right' }}>{MiscUtils.formatPrice(variant.cost) + '₹'}</td>
+              <td style={{ textAlign: 'right' }}>{MiscUtils.formatPrice(variant.price) + '₹'}</td>
               <td>{variantStatusBadgeFragment(variant.status)}</td>
             </tr>
           ))}

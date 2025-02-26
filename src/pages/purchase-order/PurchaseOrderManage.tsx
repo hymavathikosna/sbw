@@ -79,7 +79,7 @@ function PurchaseOrderManage() {
         </Stack>
       </td>
       <td style={{ textAlign: 'right' }}>
-        {MiscUtils.formatPrice(entity.totalAmount) + ' ₫'}
+        {MiscUtils.formatPrice(entity.totalAmount) + '₹'}
       </td>
       <td>
         <ActionIcon
@@ -142,7 +142,7 @@ function PurchaseOrderManage() {
       </tr>
       <tr>
         <td>{PurchaseOrderConfigs.properties.totalAmount.label}</td>
-        <td>{MiscUtils.formatPrice(entity.totalAmount) + ' ₫'}</td>
+        <td>{MiscUtils.formatPrice(entity.totalAmount) + '₹'}</td>
       </tr>
       <tr>
         <td>{PurchaseOrderConfigs.properties.note.label}</td>

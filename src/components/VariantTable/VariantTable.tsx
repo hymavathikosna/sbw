@@ -90,12 +90,12 @@ function VariantTable({
             </td>
             {type === EntityType.PURCHASE_ORDER && (
               <td style={{ textAlign: 'right' }}>
-                {MiscUtils.formatPrice(variant.cost) + ' ₫'}
+                {MiscUtils.formatPrice(variant.cost) + '₹'}
               </td>
             )}
             {type === EntityType.ORDER && (
               <td style={{ textAlign: 'right' }}>
-                {MiscUtils.formatPrice(variant.price) + ' ₫'}
+                {MiscUtils.formatPrice(variant.price) + '₹'}
               </td>
             )}
             {type !== EntityType.COUNT && handleQuantityInput && (
@@ -145,7 +145,7 @@ function VariantTable({
             {[EntityType.PURCHASE_ORDER, EntityType.ORDER].includes(type) && (
               <td style={{ textAlign: 'right' }}>
                 {MiscUtils.formatPrice(
-                  (variantRequests[index] as PurchaseOrderVariantRequest | OrderVariantRequest).amount) + ' ₫'}
+                  (variantRequests[index] as PurchaseOrderVariantRequest | OrderVariantRequest).amount) + '₹'}
               </td>
             )}
             <td>

@@ -412,12 +412,12 @@ function CartItemTableRow({ cartItem }: { cartItem: ClientCartVariantResponse })
                   ? cartItem.cartItemVariant.variantProduct.productPromotion.promotionPercent
                   : 0
               )
-            )} ₫
+            )}₹
           </Text>
           {cartItem.cartItemVariant.variantProduct.productPromotion && (
             <Group spacing="xs">
               <Text size="xs" color="dimmed" sx={{ textDecoration: 'line-through' }}>
-                {MiscUtils.formatPrice(cartItem.cartItemVariant.variantPrice)} ₫
+                {MiscUtils.formatPrice(cartItem.cartItemVariant.variantPrice)}₹
               </Text>
               <Badge color="pink" variant="filled" size="sm">
                 -{cartItem.cartItemVariant.variantProduct.productPromotion.promotionPercent}%
@@ -459,7 +459,7 @@ function CartItemTableRow({ cartItem }: { cartItem: ClientCartVariantResponse })
               cartItem.cartItemVariant.variantProduct.productPromotion
                 ? cartItem.cartItemVariant.variantProduct.productPromotion.promotionPercent
                 : 0
-            )) + ' ₫'}
+            )) + '₹'}
         </Text>
       </td>
       <td>

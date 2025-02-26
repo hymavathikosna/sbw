@@ -103,8 +103,8 @@ function WaybillManage() {
         <td>{DateUtils.isoDateToString(entity.shippingDate, 'DD/MM/YYYY')}</td>
         <td>{DateUtils.isoDateToString(entity.expectedDeliveryTime, 'DD/MM/YYYY')}</td>
         <td>{waybillStatusBadgeFragment(entity.status)}</td>
-        <td style={{ textAlign: 'right' }}>{MiscUtils.formatPrice(entity.codAmount) + ' ₫'}</td>
-        <td style={{ textAlign: 'right' }}>{MiscUtils.formatPrice(entity.shippingFee) + ' ₫'}</td>
+        <td style={{ textAlign: 'right' }}>{MiscUtils.formatPrice(entity.codAmount) + '₹'}</td>
+        <td style={{ textAlign: 'right' }}>{MiscUtils.formatPrice(entity.shippingFee) + '₹'}</td>
         <td>
           <Stack spacing={0}>
             <Text size="xs">Weight: <b>{entity.weight}</b> (grams)</Text>
@@ -153,11 +153,11 @@ function WaybillManage() {
       </tr>
       <tr>
         <td>{WaybillConfigs.properties.codAmount.label}</td>
-        <td>{MiscUtils.formatPrice(entity.codAmount) + ' ₫'}</td>
+        <td>{MiscUtils.formatPrice(entity.codAmount) + '₹'}</td>
       </tr>
       <tr>
         <td>{WaybillConfigs.properties.shippingFee.label}</td>
-        <td>{MiscUtils.formatPrice(entity.shippingFee) + ' ₫'}</td>
+        <td>{MiscUtils.formatPrice(entity.shippingFee) + '₹'}</td>
       </tr>
       <tr>
         <td>{WaybillConfigs.properties.size.label}</td>

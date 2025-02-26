@@ -65,26 +65,26 @@ function EmployeeManage() {
 
   const jobTypeStatusBadgeFragment = (status: number) => {
     if (status === 1) {
-      return <Badge variant="outline" size="sm">Có hiệu lực</Badge>;
+      return <Badge variant="outline" size="sm">In effect</Badge>;
     }
 
-    return <Badge color="red" variant="outline" size="sm">Vô hiệu lực</Badge>;
+    return <Badge color="red" variant="outline" size="sm">Not in effect</Badge>;
   };
 
   const jobLevelStatusBadgeFragment = (status: number) => {
     if (status === 1) {
-      return <Badge variant="outline" size="sm">Có hiệu lực</Badge>;
+      return <Badge variant="outline" size="sm">In effect</Badge>;
     }
 
-    return <Badge color="red" variant="outline" size="sm">Vô hiệu lực</Badge>;
+    return <Badge color="red" variant="outline" size="sm">Not in effect</Badge>;
   };
 
   const jobTitleStatusBadgeFragment = (status: number) => {
     if (status === 1) {
-      return <Badge variant="outline" size="sm">Có hiệu lực</Badge>;
+      return <Badge variant="outline" size="sm">In effect</Badge>;
     }
 
-    return <Badge color="red" variant="outline" size="sm">Vô hiệu lực</Badge>;
+    return <Badge color="red" variant="outline" size="sm">Not in effect</Badge>;
   };
 
   const showedPropertiesFragment = (entity: EmployeeResponse) => (

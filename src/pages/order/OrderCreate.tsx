@@ -98,7 +98,7 @@ function OrderCreate() {
                 </Grid.Col>
                 <Grid.Col span={6}>
                   <Text size="md" color="blue" weight={500} sx={{ textAlign: 'right' }}>
-                    {MiscUtils.formatPrice(form.values.totalAmount) + ' ₫'}
+                    {MiscUtils.formatPrice(form.values.totalAmount) + '₹'}
                   </Text>
                 </Grid.Col>
                 <Grid.Col span={6}>
@@ -106,7 +106,7 @@ function OrderCreate() {
                 </Grid.Col>
                 <Grid.Col span={6}>
                   <Text size="md" color="blue" weight={500} sx={{ textAlign: 'right' }}>
-                    {MiscUtils.formatPrice(Number((form.values.totalAmount * form.values.tax).toFixed(0))) + ' ₫'}
+                    {MiscUtils.formatPrice(Number((form.values.totalAmount * form.values.tax).toFixed(0))) + '₹'}
                   </Text>
                 </Grid.Col>
                 <Grid.Col span={6}>
@@ -133,7 +133,7 @@ function OrderCreate() {
                 <Grid.Col span={6}>
                   <Stack spacing={2.5} sx={{ textAlign: 'right' }}>
                     <Text size="md" color="blue" weight={500}>
-                      {MiscUtils.formatPrice(form.values.totalPay) + ' ₫'}
+                      {MiscUtils.formatPrice(form.values.totalPay) + '₹'}
                     </Text>
                     <Text size="xs" color="dimmed">(Shipping fee not included)</Text>
                   </Stack>

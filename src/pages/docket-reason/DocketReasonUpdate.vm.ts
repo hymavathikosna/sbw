@@ -43,11 +43,11 @@ function useDocketReasonUpdateViewModel(id: number) {
   const statusSelectList: SelectOption[] = [
     {
       value: '1',
-      label: 'Có hiệu lực',
+      label: 'In effect',
     },
     {
       value: '2',
-      label: 'Vô hiệu lực',
+      label: 'Not in effect',
     },
   ];
 

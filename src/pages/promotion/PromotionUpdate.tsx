@@ -60,23 +60,23 @@ function PromotionUpdate() {
                   <Stack spacing={2}>
                     <Text size="sm">{productResponse.name}</Text>
                     <Group spacing="xs">
-                      <Text size="xs" color="dimmed">Mã: {productResponse.code}</Text>
-                      <Text size="xs" color="dimmed">Danh mục: {productResponse.category?.name}</Text>
+                      <Text size="xs" color="dimmed">Code: {productResponse.code}</Text>
+                      <Text size="xs" color="dimmed">Category: {productResponse.category?.name}</Text>
                     </Group>
                   </Stack>
                 ),
-                inputLabel: 'Thêm sản phẩm',
-                inputPlaceholder: 'Nhập tên sản phẩm',
+                inputLabel: 'Add product',
+                inputPlaceholder: 'Enter product name',
                 selectedFragment: productResponse => (
                   <Stack spacing={2}>
                     <Text size="sm">{productResponse.name}</Text>
                     <Group spacing="xs">
-                      <Text size="xs" color="dimmed">Mã: {productResponse.code}</Text>
-                      <Text size="xs" color="dimmed">Danh mục: {productResponse.category?.name}</Text>
+                      <Text size="xs" color="dimmed">Code: {productResponse.code}</Text>
+                      <Text size="xs" color="dimmed">Category: {productResponse.category?.name}</Text>
                     </Group>
                   </Stack>
                 ),
-                deleteButtonTitle: 'Xóa sản phẩm này',
+                deleteButtonTitle: 'Delete this product',
               }}
               errorSearchInput={form.errors.productIds}
             />
@@ -104,8 +104,8 @@ function PromotionUpdate() {
                       clearable={false}
                       minDate={DateUtils.today()}
                       allowSingleDateInRange={false}
-                      label="Khoảng thời gian"
-                      placeholder="Chọn thời gian diễn ra khuyến mãi"
+                      label="Duration"
+                      placeholder="Select the promotion period"
                       value={form.values.range}
                       onChange={value => form.setFieldValue('range', value)}
                       error={form.errors['range.0']}

@@ -203,12 +203,12 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
                         product.productVariants[selectedVariantIndex]?.variantPrice,
                         product.productPromotion ? product.productPromotion.promotionPercent : 0
                       )
-                    )} ₫
+                    )}₹
                   </Text>
                   {product.productPromotion && (
                     <>
                       <Text sx={{ textDecoration: 'line-through' }}>
-                        {MiscUtils.formatPrice(product.productVariants[selectedVariantIndex]?.variantPrice)} ₫
+                        {MiscUtils.formatPrice(product.productVariants[selectedVariantIndex]?.variantPrice)}₹
                       </Text>
                       <Badge color="pink" size="lg" variant="filled">
                         -{product.productPromotion.promotionPercent}%
@@ -263,7 +263,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
                                   variant.variantPrice,
                                   product.productPromotion ? product.productPromotion.promotionPercent : 0
                                 )
-                              )} ₫</Text>
+                              )}₹</Text>
                             </Stack>
                           </UnstyledButton>
                         ))}

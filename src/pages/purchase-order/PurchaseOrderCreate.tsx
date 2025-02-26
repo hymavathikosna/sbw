@@ -54,7 +54,7 @@ function PurchaseOrderCreate() {
             <Text p="sm" size="sm" weight={500} sx={{ textAlign: 'right' }}>
               <span>Tổng thành tiền: </span>
               <Text size="md" color="blue" component="span">
-                {MiscUtils.formatPrice(form.values.totalAmount) + ' ₫'}
+                {MiscUtils.formatPrice(form.values.totalAmount) + '₹'}
               </Text>
             </Text>
           </Paper>

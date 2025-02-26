@@ -107,7 +107,7 @@ function OrderManage() {
         </td>
         <td style={{ textAlign: 'right' }}>
           <Stack align="end" spacing={5}>
-            <Text weight={500} size="sm">{MiscUtils.formatPrice(entity.totalPay) + ' ₫'}</Text>
+            <Text weight={500} size="sm">{MiscUtils.formatPrice(entity.totalPay) + '₹'}</Text>
             <PaymentMethodIcon color={theme.colors.gray[5]}/>
           </Stack>
         </td>

@@ -458,7 +458,7 @@ function OrderItemTableRow({ orderItem, canReview }: { orderItem: ClientOrderVar
       </td>
       <td>
         <Text size="sm">
-          {MiscUtils.formatPrice(orderItem.orderItemPrice) + ' ₫'}
+          {MiscUtils.formatPrice(orderItem.orderItemPrice) + '₹'}
         </Text>
       </td>
       <td>
@@ -469,12 +469,12 @@ function OrderItemTableRow({ orderItem, canReview }: { orderItem: ClientOrderVar
       {/* TODO: Thêm discountPercent cho OrderVariant */}
       {/*<td>*/}
       {/*  <Text size="sm">*/}
-      {/*    {MiscUtils.formatPrice(0) + ' ₫'}*/}
+      {/*    {MiscUtils.formatPrice(0) + '₹'}*/}
       {/*  </Text>*/}
       {/*</td>*/}
       <td>
         <Text weight={500} size="sm" color="blue">
-          {MiscUtils.formatPrice(orderItem.orderItemAmount) + ' ₫'}
+          {MiscUtils.formatPrice(orderItem.orderItemAmount) + '₹'}
         </Text>
       </td>
     </tr>

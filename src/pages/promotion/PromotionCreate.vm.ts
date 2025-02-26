@@ -21,9 +21,9 @@ function usePromotionCreateViewModel() {
 
   const handleFormSubmit = form.onSubmit((formValues) => {
     if (addProductMode === AddProductMode.CATEGORY && formValues.categoryIds.length === 0) {
-      form.setFieldError('categoryIds', 'Cần thêm ít nhất 1 danh mục sản phẩm');
+      form.setFieldError('categoryIds', 'Need to add at least one product category');
     } else if (addProductMode === AddProductMode.PRODUCT && formValues.productIds.length === 0) {
-      form.setFieldError('productIds', 'Cần thêm ít nhất 1 sản phẩm');
+      form.setFieldError('productIds', 'Need to add at least one product');
     } else {
       const requestBody: PromotionRequest = {
         name: formValues.name,
@@ -61,11 +61,11 @@ function usePromotionCreateViewModel() {
   const statusSelectList: SelectOption[] = [
     {
       value: '1',
-      label: 'Có hiệu lực',
+      label: 'In effect',
     },
     {
       value: '2',
-      label: 'Vô hiệu lực',
+      label: 'Not in effect',
     },
   ];
 

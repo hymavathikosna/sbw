@@ -33,10 +33,10 @@ function PromotionManage() {
 
   const promotionStatusBadgeFragment = (status: number) => {
     if (status === 1) {
-      return <Badge variant="outline" size="sm">Có hiệu lực</Badge>;
+      return <Badge variant="outline" size="sm">In effect</Badge>;
     }
 
-    return <Badge color="red" variant="outline" size="sm">Vô hiệu lực</Badge>;
+    return <Badge color="red" variant="outline" size="sm">No longer in effect</Badge>;
   };
 
   const showedPropertiesFragment = (entity: PromotionResponse) => (
@@ -52,7 +52,7 @@ function PromotionManage() {
       <td>{DateUtils.isoDateToString(entity.endDate)}</td>
       <td>{entity.percent}%</td>
       <td>{promotionStatusBadgeFragment(entity.status)}</td>
-      <td>{entity.products.length} sản phẩm</td>
+      <td>{entity.products.length} Product</td>
     </>
   );
 
@@ -92,7 +92,7 @@ function PromotionManage() {
       </tr>
       <tr>
         <td>{PromotionConfigs.properties.numberOfProducts.label}</td>
-        <td>{entity.products.length} sản phẩm</td>
+        <td>{entity.products.length} Product</td>
       </tr>
     </>
   );

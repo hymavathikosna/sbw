@@ -219,10 +219,10 @@ function ClientOrderCard({ order }: { order: ClientSimpleOrderResponse }) {
             component={Link}
             to={'/order/detail/' + order.orderCode}
           >
-            Xem chi tiết
+            View details
           </Button>
           <Group spacing={5}>
-            <Text>Tổng tiền: </Text>
+            <Text>Total amount </Text>
             <Text weight={500} size="lg">{MiscUtils.formatPrice(order.orderTotalPay) + '\u00A0₫'}</Text>
           </Group>
         </Group>

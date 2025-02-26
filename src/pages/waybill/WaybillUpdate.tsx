@@ -110,13 +110,13 @@ function WaybillUpdate() {
               <Grid.Col xs={6}>
                 <Stack spacing={4}>
                   <Text size="sm" weight={500}>Cash on Delivery Amount</Text>
-                  <Text>{MiscUtils.formatPrice(waybill.codAmount)} ₫</Text>
+                  <Text>{MiscUtils.formatPrice(waybill.codAmount)}₹</Text>
                 </Stack>
               </Grid.Col>
               <Grid.Col xs={6}>
                 <Stack spacing={4}>
                   <Text size="sm" weight={500}>Shipping Fee</Text>
-                  <Text>{MiscUtils.formatPrice(waybill.shippingFee)} ₫</Text>
+                  <Text>{MiscUtils.formatPrice(waybill.shippingFee)}₹</Text>
                 </Stack>
               </Grid.Col>
               <Grid.Col xs={6}>

@@ -115,7 +115,7 @@ function OrderUpdate() {
                 </Grid.Col>
                 <Grid.Col span={6}>
                   <Text size="md" color="blue" weight={500} sx={{ textAlign: 'right' }}>
-                    {MiscUtils.formatPrice(form.values.totalAmount) + ' ₫'}
+                    {MiscUtils.formatPrice(form.values.totalAmount) + '₹'}
                   </Text>
                 </Grid.Col>
                 <Grid.Col span={6}>
@@ -123,7 +123,7 @@ function OrderUpdate() {
                 </Grid.Col>
                 <Grid.Col span={6}>
                   <Text size="md" color="blue" weight={500} sx={{ textAlign: 'right' }}>
-                    {MiscUtils.formatPrice(Number((form.values.totalAmount * form.values.tax).toFixed(0))) + ' ₫'}
+                    {MiscUtils.formatPrice(Number((form.values.totalAmount * form.values.tax).toFixed(0))) + '₹'}
                   </Text>
                 </Grid.Col>
                 <Grid.Col span={6}>
@@ -145,11 +145,11 @@ function OrderUpdate() {
                   />
                 </Grid.Col>
                 <Grid.Col span={6}>
-                  <Text size="sm" weight={500}>Tổng tiền trả:</Text>
+                  <Text size="sm" weight={500}>Total amount to be paid:</Text>
                 </Grid.Col>
                 <Grid.Col span={6}>
                   <Text size="md" color="blue" weight={500} sx={{ textAlign: 'right' }}>
-                    {MiscUtils.formatPrice(form.values.totalPay) + ' ₫'}
+                    {MiscUtils.formatPrice(form.values.totalPay) + '₹'}
                   </Text>
                 </Grid.Col>
               </Grid>

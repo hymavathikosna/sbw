@@ -214,7 +214,7 @@ class OrderConfigs extends Configs {
         </tr>
         <tr>
           <td>Total Amount</td>
-          <td>{MiscUtils.formatPrice(entity.totalAmount) + ' ₫'}</td>
+          <td>{MiscUtils.formatPrice(entity.totalAmount) + '₹'}</td>
         </tr>
         <tr>
           <td>Tax</td>
@@ -222,11 +222,11 @@ class OrderConfigs extends Configs {
         </tr>
         <tr>
           <td>Shipping Fee</td>
-          <td>{MiscUtils.formatPrice(entity.shippingCost) + ' ₫'}</td>
+          <td>{MiscUtils.formatPrice(entity.shippingCost) + '₹'}</td>
         </tr>
         <tr>
           <td>{OrderConfigs.properties.totalPay.label}</td>
-          <td>{MiscUtils.formatPrice(entity.totalPay) + ' ₫'}</td>
+          <td>{MiscUtils.formatPrice(entity.totalPay) + '₹'}</td>
         </tr>
         <tr>
           <td>Payment Method</td>

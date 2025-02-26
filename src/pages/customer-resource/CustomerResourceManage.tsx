@@ -33,10 +33,10 @@ function CustomerResourceManage() {
 
   const customerResourceStatusBadgeFragment = (status: number) => {
     if (status === 1) {
-      return <Badge variant="outline" size="sm">Có hiệu lực</Badge>;
+      return <Badge variant="outline" size="sm">In effect</Badge>;
     }
 
-    return <Badge color="red" variant="outline" size="sm">Vô hiệu lực</Badge>;
+    return <Badge color="red" variant="outline" size="sm">Not in effect</Badge>;
   };
 
   const showedPropertiesFragment = (entity: CustomerResourceResponse) => (
