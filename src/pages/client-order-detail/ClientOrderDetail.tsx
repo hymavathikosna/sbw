@@ -216,7 +216,7 @@ function ClientOrderDetail() {
           <Grid.Col md={4}>
             <Card p="md" radius="md" sx={cardStyles}>
               <Stack spacing="xs">
-                <Text weight={500} color="dimmed">Hình thức thanh toán</Text>
+                <Text weight={500} color="dimmed">Payment method</Text>
                 <Group spacing="xs">
                   <PaymentMethodIcon color={theme.colors.gray[5]}/>
                   <Text size="sm">{PageConfigs.paymentMethodNameMap[order.orderPaymentMethodType]}</Text>

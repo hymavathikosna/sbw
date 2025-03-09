@@ -71,7 +71,7 @@ function ClientNotification() {
     notificationContentFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.pink[6] }}>
         <AlertTriangle size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Đã có lỗi xảy ra</Text>
+        <Text size="xl" weight={500}>An error has occurred</Text>
       </Stack>
     );
   }
@@ -80,7 +80,7 @@ function ClientNotification() {
     notificationContentFragment = (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.blue[6] }}>
         <Marquee size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Chưa có Notification nào</Text>
+        <Text size="xl" weight={500}>There are no notifications</Text>
       </Stack>
     );
   }

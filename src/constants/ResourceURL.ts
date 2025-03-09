@@ -105,6 +105,12 @@ class ResourceURL {
   static CLIENT_REGISTRATION_CHANGE_EMAIL = (userId: number) => apiPath + `/auth/registration/${userId}/change-email`;
   static CLIENT_FORGOT_PASSWORD = apiPath + '/auth/forgot-password';
   static CLIENT_RESET_PASSWORD = apiPath + '/auth/reset-password';
+
+  static VEHICLETYPE = apiPath + '/vehicle-types';
+  static CARMAKE = apiPath + '/car-makes';
+  static CARMODELS = apiPath + '/car-models';
+  static CARMAKES = apiPath + '/car-variants';
+
 }
 
 export default ResourceURL;

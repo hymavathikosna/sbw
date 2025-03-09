@@ -125,6 +125,22 @@ const navbarLinks: NavbarLink[] = [
     icon: Box,
     childLinks: [
       {
+        link: '/admin/vehicle-type',
+        label: 'Vehicle Types',
+      },
+      {
+        link: '/admin/car-make',
+        label: 'Car Makes',
+      },
+      {
+        link: '/admin/car-model',
+        label: 'Car Models',
+      },
+      {
+        link: '/admin/car-variant',
+        label: 'Car Variants',
+      },
+      {
         link: '/admin/category',
         label: 'Product Categories',
       },

@@ -21,10 +21,10 @@ function ClientPaymentCancel() {
       <ElectroLogo/>
       <Stack align="center" sx={{ alignItems: 'center', color: theme.colors.pink[6] }}>
         <X size={100} strokeWidth={1}/>
-        <Text weight={500}>Đã hủy thanh toán PayPal</Text>
+        <Text weight={500}>Payment has been canceled PayPal</Text>
       </Stack>
       <Button size="lg" mt="xl" onClick={handleCloseWindow}>
-        Đóng cửa sổ này
+        Close this window
       </Button>
     </Stack>
   );

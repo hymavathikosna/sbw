@@ -89,11 +89,11 @@ function useUserCreateViewModel() {
   const statusSelectList: SelectOption[] = [
     {
       value: '1',
-      label: 'Đã kích hoạt',
+      label: 'Activated',
     },
     {
       value: '2',
-      label: 'Chưa kích hoạt',
+      label: 'Not activated',
     },
   ];
 

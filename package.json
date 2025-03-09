@@ -1,5 +1,5 @@
 {
-  "name": "electro-client",
+  "name": "sbw-client",
   "version": "0.1.0",
   "homepage": "/",
   "private": true,
@@ -23,7 +23,7 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^18.0.4",
     "dayjs": "^1.11.2",
-    "electro-client": "file:",
+    "sbw-client": "file:",
     "immer": "^9.0.14",
     "lodash.isequal": "^4.5.0",
     "react": "^17.0.2",
@@ -36,6 +36,7 @@
     "react-stomp-hooks": "^2.1.0",
     "react-tracked": "^1.7.9",
     "recharts": "^2.4.3",
+    "scheduler": "^0.25.0",
     "tabler-icons-react": "^1.48.0",
     "typescript": "^5.7.3",
     "web-vitals": "^2.1.4",

@@ -101,7 +101,7 @@ class FetchUtils {
    */
   static async getWithToken<O>(resourceUrl: string, requestParams?: BasicRequestParams, isAdmin?: boolean): Promise<O> {
     const token = JSON.parse(localStorage
-      .getItem(isAdmin ? 'electro-admin-auth-store' : 'electro-auth-store') || '{}').state?.jwtToken;
+      .getItem(isAdmin ? 'sbw-admin-auth-store' : 'sbw-auth-store') || '{}').state?.jwtToken;
 
     // Source: https://stackoverflow.com/a/70426220
     const response = await fetch(FetchUtils.concatParams(resourceUrl, requestParams), {
@@ -126,7 +126,7 @@ class FetchUtils {
    */
   static async postWithToken<I, O>(resourceUrl: string, requestBody: I, isAdmin?: boolean): Promise<O> {
     const token = JSON.parse(localStorage
-      .getItem(isAdmin ? 'electro-admin-auth-store' : 'electro-auth-store') || '{}').state?.jwtToken;
+      .getItem(isAdmin ? 'sbw-admin-auth-store' : 'sbw-auth-store') || '{}').state?.jwtToken;
 
     const response = await fetch(resourceUrl, {
       method: 'POST',
@@ -152,7 +152,7 @@ class FetchUtils {
    */
   static async putWithToken<I, O>(resourceUrl: string, requestBody: I, isAdmin?: boolean): Promise<O> {
     const token = JSON.parse(localStorage
-      .getItem(isAdmin ? 'electro-admin-auth-store' : 'electro-auth-store') || '{}').state?.jwtToken;
+      .getItem(isAdmin ? 'sbw-admin-auth-store' : 'sbw-auth-store') || '{}').state?.jwtToken;
 
     const response = await fetch(resourceUrl, {
       method: 'PUT',
@@ -178,7 +178,7 @@ class FetchUtils {
    */
   static async deleteWithToken<T>(resourceUrl: string, entityIds: T[], isAdmin?: boolean) {
     const token = JSON.parse(localStorage
-      .getItem(isAdmin ? 'electro-admin-auth-store' : 'electro-auth-store') || '{}').state?.jwtToken;
+      .getItem(isAdmin ? 'sbw-admin-auth-store' : 'sbw-auth-store') || '{}').state?.jwtToken;
 
     const response = await fetch(resourceUrl, {
       method: 'DELETE',

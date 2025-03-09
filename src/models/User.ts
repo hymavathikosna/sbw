@@ -13,7 +13,11 @@ export interface UserResponse extends BaseResponse {
   status: number;
   roles: RoleResponse[];
 }
-
+export interface UserOTPRequest { 
+  phone: string; 
+  status: number;
+  roles: Role_UserRequest[];
+}
 export interface UserRequest {
   username: string;
   password: string | null;

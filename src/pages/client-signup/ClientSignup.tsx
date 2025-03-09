@@ -515,14 +515,14 @@ function ChangeEmailModal({ userId }: { userId: number | null }) {
         />
         <Group position="right">
           <Button radius="md" variant="default" onClick={modals.closeAll}>
-            Đóng
+            Close
           </Button>
           <Button
             radius="md"
             type="submit"
             disabled={MiscUtils.isEquals(initialFormValues, form.values) || changeRegistrationEmailApi.isLoading}
           >
-            Thay đổi và Gửi
+            Many thanks
           </Button>
         </Group>
       </Stack>

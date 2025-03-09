@@ -362,7 +362,7 @@ function ReplyReviewModal({ review }: { review: ReviewResponse }) {
       />
       <Group position="right">
         <Button variant="default" onClick={modals.closeAll}>
-          Đóng
+          Close
         </Button>
         <Button
           color="grape"

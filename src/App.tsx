@@ -85,7 +85,22 @@ import AdminAccount from 'pages/admin-account';
 import RewardManage from 'pages/reward-strategy';
 import ClientReward from 'pages/client-reward';
 import ClientSignup from 'pages/client-signup';
+import ClientSignupOTP from 'pages/client-signup';
 import ClientForgotPassword, { ClientChangePassword } from 'pages/client-forgot-password';
+import ClientSigninOTP from 'pages/client-signin/ClientSignin-otp';
+import Batteries from 'pages/batteries/Batteries';
+import VehicleTypeCreate from 'pages/vehicleType/VehicleTypeCreate';
+import VehicleTypeManage from 'pages/vehicleType/VehicleTypeManage';
+import VehicleTypeUpdate from 'pages/vehicleType/VehicleTypeUpdate';
+import CarMakeManage from 'pages/carMake/CarMakeManage';
+import CarMakeCreate from 'pages/carMake/CarMakeCreate';
+import CarMakeUpdate from 'pages/carMake/CarMakeUpdate';
+import CarModelCreate from 'pages/carModel/CarModelCreate';
+import CarModelManage from 'pages/carModel/CarModelManage';
+import CarModelUpdate from 'pages/carModel/CarModelUpdate';
+import CarVariantCreate from 'pages/carVariant/CarVariantCreate';
+import CarVariantManage from 'pages/carVariant/CarVariantManage';
+import CarVariantUpdate from 'pages/carVariant/CarVariantUpdate';
 
 const queryClient = new QueryClient();
 
@@ -109,6 +124,8 @@ function App() {
                   <Route path="/category/:slug" element={<ClientCategory/>}/>
                   <Route path="/search" element={<ClientSearch/>}/>
                   <Route path="/signin" element={<ClientSignin/>}/>
+                  <Route path="/signin-otp" element={<ClientSigninOTP/>}/>
+                  <Route path="/batteries" element={<Batteries/>}/>
                   <Route path="/user" element={(
                     <ProtectedRoute>
                       <ClientUser/>
@@ -188,6 +205,7 @@ function App() {
                     </ProtectedRoute>
                   )}/>
                   <Route path="/signup" element={<ClientSignup/>}/>
+                  <Route path="/signup-otp" element={<ClientSignupOTP/>}/>
                   <Route path="/forgot" element={<ClientForgotPassword/>}/>
                   <Route path="/change-password" element={<ClientChangePassword/>}/>
                 </Route>
@@ -364,6 +382,22 @@ function App() {
                   <Route path={ManagerPath.ACCOUNT} element={<AdminAccount/>}/>
                   {/* REWARD */}
                   <Route path={ManagerPath.REWARD_STRATEGY} element={<RewardManage/>}/>
+                  {/* VEHICLETYPE */}
+                  <Route path={ManagerPath.VEHICLETYPE} element={<VehicleTypeManage/>}/>
+                  <Route path={ManagerPath.VEHICLETYPE + '/create'} element={<VehicleTypeCreate/>}/>
+                  <Route path={ManagerPath.VEHICLETYPE + '/update/:id'} element={<VehicleTypeUpdate/>}/>
+                  {/* CARMAKE */}
+                  <Route path={ManagerPath.CARMAKE} element={<CarMakeManage/>}/>
+                  <Route path={ManagerPath.CARMAKE + '/create'} element={<CarMakeCreate/>}/>
+                  <Route path={ManagerPath.CARMAKE + '/update/:id'} element={<CarMakeUpdate/>}/>
+                  {/* CARMODEL */}
+                  <Route path={ManagerPath.CARMODEL} element={<CarModelManage/>}/>
+                  <Route path={ManagerPath.CARMODEL + '/create'} element={<CarModelCreate/>}/>
+                  <Route path={ManagerPath.CARMODEL + '/update/:id'} element={<CarModelUpdate/>}/>
+                  {/* CARVARIANT */}
+                  <Route path={ManagerPath.CARVARIANT} element={<CarVariantManage/>}/>
+                  <Route path={ManagerPath.CARVARIANT + '/create'} element={<CarVariantCreate/>}/>
+                  <Route path={ManagerPath.CARVARIANT + '/update/:id'} element={<CarVariantUpdate/>}/>
                 </Route>
                 <Route path="/payment/success" element={<ClientPaymentSuccess/>}/>
                 <Route path="/payment/cancel" element={<ClientPaymentCancel/>}/>

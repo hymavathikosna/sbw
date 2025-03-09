@@ -1,3 +1,4 @@
 import ClientSignup from 'pages/client-signup/ClientSignup';
+import ClientSignupOTP from 'pages/client-signup/ClientSignup-OTP';
 
-export { ClientSignup as default };
+export { ClientSignup,ClientSignupOTP as default };

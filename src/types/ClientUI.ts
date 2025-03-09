@@ -47,7 +47,7 @@ interface ClientBrandResponse {
 // USER & SETTING
 
 export interface ClientPersonalSettingUserRequest {
-  username: string;
+  email: string;
   fullname: string;
   gender: string;
   address: AddressRequest;

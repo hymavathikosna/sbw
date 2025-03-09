@@ -40,7 +40,7 @@ function ClientCategoryProducts({ categorySlug }: ClientCategoryProductsProps) {
     return (
       <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.pink[6] }}>
         <AlertTriangle size={125} strokeWidth={1}/>
-        <Text size="xl" weight={500}>Đã có lỗi xảy ra</Text>
+        <Text size="xl" weight={500}>An error has occurred</Text>
       </Stack>
     );
   }

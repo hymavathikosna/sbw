@@ -28,7 +28,7 @@ function ManageMain({
         {!isLoading && (
           <Stack my={theme.spacing.xl} sx={{ alignItems: 'center', color: theme.colors.blue[6] }}>
             <Marquee size={75} strokeWidth={1}/>
-            <Text size="lg" weight={500}>Không có nội dung</Text>
+            <Text size="lg" weight={500}>No content to display</Text>
           </Stack>
         )}
       </Center>

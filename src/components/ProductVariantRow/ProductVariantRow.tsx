@@ -63,7 +63,7 @@ function ProductVariantRow({
         />
       </td>
       <td>
-        {variant.properties ? variant.properties.content.map(p => p.value).join(' ⋅ ') : <em>mặc định</em>}
+        {variant.properties ? variant.properties.content.map(p => p.value).join(' ⋅ ') : <em>default</em>}
       </td>
       <td>
         <TextInput

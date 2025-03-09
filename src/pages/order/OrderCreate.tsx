@@ -102,7 +102,7 @@ function OrderCreate() {
                   </Text>
                 </Grid.Col>
                 <Grid.Col span={6}>
-                  <Text size="sm" weight={500}>Thuế ({form.values.tax * 100 + '%'}):</Text>
+                  <Text size="sm" weight={500}>tax ({form.values.tax * 100 + '%'}):</Text>
                 </Grid.Col>
                 <Grid.Col span={6}>
                   <Text size="md" color="blue" weight={500} sx={{ textAlign: 'right' }}>

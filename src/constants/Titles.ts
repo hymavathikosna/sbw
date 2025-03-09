@@ -3,6 +3,7 @@ const titles: Record<string, string> = {
   '/all-categories': 'All product categories',
   '/category/:slug': 'Category',
   '/signin': 'Sign in',
+  '/signin-otp': 'Sign in using OTP',
   '/user': 'Account',
   '/user/setting': 'Settings',
   '/user/setting/personal': 'Update personal information',
@@ -21,6 +22,7 @@ const titles: Record<string, string> = {
   '/payment/cancel': 'Payment canceled',
   '/user/reward': 'Reward points',
   '/signup': 'Sign up',
+  '/signup-otp': 'Sign up With OTP',
   '/forgot': 'Password reset request',
 
   '/admin': 'Admin',

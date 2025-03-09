@@ -53,7 +53,7 @@ function SearchPanel() {
         </Group>
 
         <Group spacing="sm">
-          <Tooltip label="Đặt mặc định" withArrow>
+          <Tooltip label="Set as default" withArrow>
             <ActionIcon
               color="red"
               variant="filled"

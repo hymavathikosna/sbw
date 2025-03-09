@@ -34,7 +34,7 @@ const useAdminAuthStore = create<AdminAuthState & AdminAuthAction>()(
         },
       }),
       {
-        name: 'electro-admin-auth-store',
+        name: 'sbw-admin-auth-store',
         getStorage: () => localStorage,
       }
     ),

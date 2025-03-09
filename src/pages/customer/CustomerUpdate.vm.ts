@@ -151,11 +151,11 @@ function useCustomerUpdateViewModel(id: number) {
   const userStatusSelectList: SelectOption[] = [
     {
       value: '1',
-      label: 'Đã kích hoạt',
+      label: 'Activated',
     },
     {
       value: '2',
-      label: 'Chưa kích hoạt',
+      label: 'Not activated',
     },
   ];
 

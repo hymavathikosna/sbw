@@ -57,7 +57,7 @@ const useAuthStore = create<AuthState & AuthAction>()(
           () => ({ currentSignupUserId: value }), false, 'AuthStore/updateCurrentSignupUserId'),
       }),
       {
-        name: 'electro-auth-store',
+        name: 'sbw-auth-store',
         getStorage: () => localStorage,
       }
     ),

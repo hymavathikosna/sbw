@@ -171,7 +171,7 @@ function CustomerCreate() {
             <Divider mt="xs"/>
 
             <Group position="apart" p="sm">
-              <Button variant="default" onClick={form.reset}>Default</Button>
+              <Button variant="default" onClick={form.reset}>Reset</Button>
               <Button type="submit">Add</Button>
             </Group>
           </Stack>

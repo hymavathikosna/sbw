@@ -35,7 +35,7 @@ function ClientUser() {
 
                       <Group position="apart">
                         <Group>
-                          <Avatar color="cyan" size="lg" radius="md">{user?.fullname.charAt(0)}</Avatar>
+                          <Avatar color="cyan" size="lg" radius="md">{user?.fullname?.charAt(0)}</Avatar>
                           <Stack spacing={0}>
                             <Text weight={500}>{user?.fullname}</Text>
                             <Text color="dimmed">@{user?.username}</Text>
@@ -72,7 +72,7 @@ function ClientUser() {
                         <Stack spacing={0}>
                           <Text weight={500}>Address</Text>
                           <Text>
-                            {[user?.address.line, user?.address.ward?.name, user?.address.district?.name, user?.address.province?.name]
+                            {[user?.address?.line, user?.address?.ward?.name, user?.address?.district?.name, user?.address?.province?.name]
                               .filter(Boolean)
                               .join(', ')}
                           </Text>

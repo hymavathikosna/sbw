@@ -101,7 +101,10 @@ function ClientHeader() {
       navigate('/search?q=' + search.trim());
     }
   };
-
+  const handleBatteriesClick = () => { 
+    navigate('/batteries');  
+  };
+  
   const handleSignoutMenu = () => {
     if (user) {
       resetAuthState();
@@ -246,8 +249,8 @@ function ClientHeader() {
               >
                 <CategoryMenu setOpenedCategoryMenu={setOpenedCategoryMenu}/>
               </Popover>
-              <Button variant="subtle" radius="md">
-                New Products
+              <Button variant="subtle" radius="md" onClick={() => handleBatteriesClick()}>
+                Batteries
               </Button>
               <Button variant="subtle" color="green" radius="md">
                 Trending Products

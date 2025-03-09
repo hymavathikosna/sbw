@@ -23,8 +23,10 @@ import WardConfigs from 'pages/ward/WardConfigs';
 import useSelectAddress from 'hooks/use-select-address';
 
 const formSchema = z.object({
-  username: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
-    .min(2, MessageUtils.min('Tên tài khoản', 2)),
+  //username: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
+  //.min(2, MessageUtils.min('Tên tài khoản', 2)),
+  email: z.string({ invalid_type_error: 'Please do not leave this field empty' })
+    .email({ message: 'Enter a valid email format' }),
   fullname: z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
   gender: z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
   'address.line': z.string({ invalid_type_error: 'Please do not leave this field empty.' }),
@@ -50,13 +52,14 @@ function ClientSettingPersonal() {
   const { user, updateUser } = useAuthStore();
 
   const initialFormValues = {
-    username: user?.username as string,
+    email: user?.email as string,
+    //username: user?.username as string,
     fullname: user?.fullname as string,
     gender: user?.gender as 'M' | 'F',
-    'address.line': user?.address.line as string,
-    'address.provinceId': String(user?.address.province?.id) as string | null,
-    'address.districtId': String(user?.address.district?.id) as string | null,
-    'address.wardId': String(user?.address.ward?.id) as string | null,
+    'address.line': user?.address?.line as string,
+    'address.provinceId': String(user?.address?.province?.id) as string | null,
+    'address.districtId': String(user?.address?.district?.id) as string | null,
+    'address.wardId': String(user?.address?.ward?.id) as string | null,
   };
 
   const form = useForm({
@@ -64,7 +67,7 @@ function ClientSettingPersonal() {
     schema: zodResolver(formSchema),
   });
 
-  useSelectAddress(form, 'address.provinceId', 'address.districtId', 'address.wardId');
+  //useSelectAddress(form, 'address.provinceId', 'address.districtId', 'address.wardId');
 
   const [provinceSelectList, setProvinceSelectList] = useState<SelectOption[]>([]);
   const [districtSelectList, setDistrictSelectList] = useState<SelectOption[]>([]);
@@ -114,7 +117,7 @@ function ClientSettingPersonal() {
 
   const handleFormSubmit = form.onSubmit((formValues) => {
     const requestBody: ClientPersonalSettingUserRequest = {
-      username: formValues.username,
+      email: formValues.email,
       fullname: formValues.fullname,
       gender: formValues.gender,
       address: {
@@ -149,12 +152,12 @@ function ClientSettingPersonal() {
                         <TextInput
                           required
                           radius="md"
-                          label="Account name"
-                          placeholder="Enter your account name"
-                          {...form.getInputProps('username')}
-                          disabled
+                          label="Email"
+                          placeholder="Enter your email address"
+                          {...form.getInputProps('email')}
+                          //disabled
                           // TODO: Hiện tại chưa cho phép sửa username
-                        />
+                        /> 
                         <TextInput
                           required
                           radius="md"

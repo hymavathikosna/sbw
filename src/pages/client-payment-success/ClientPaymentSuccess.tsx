@@ -21,10 +21,10 @@ function ClientPaymentSuccess() {
       <ElectroLogo/>
       <Stack align="center" sx={{ alignItems: 'center', color: theme.colors.teal[6] }}>
         <Check size={100} strokeWidth={1}/>
-        <Text weight={500}>Thanh toán PayPal Successful</Text>
+        <Text weight={500}>Payment PayPal Successful</Text>
       </Stack>
       <Button size="lg" mt="xl" onClick={handleCloseWindow}>
-        Đóng cửa sổ này
+        Close this window
       </Button>
     </Stack>
   );

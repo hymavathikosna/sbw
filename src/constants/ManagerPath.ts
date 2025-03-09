@@ -4,7 +4,7 @@ class ManagerPath {
   static DISTRICT = '/admin/address/district';
   static WARD = '/admin/address/ward';
 
-  static USER = '/admin/user';
+  static USER = '/admin/VehicleType';
   static ROLE = '/admin/user/role';
 
   static EMPLOYEE = '/admin/employee';
@@ -55,6 +55,11 @@ class ManagerPath {
   static CHAT = '/admin/chat';
   static NOTIFICATION = '/admin/notification';
   static ACCOUNT = '/admin/account';
+
+  static VEHICLETYPE = '/admin/vehicle-type';
+  static CARMAKE = '/admin/car-make';
+  static CARMODEL = '/admin/car-model';
+  static CARVARIANT = '/admin/car-variant';
 }
 
 export default ManagerPath;
