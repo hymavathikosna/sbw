@@ -20,7 +20,7 @@ function useCarModelUpdateViewModel(id: number) {
     (carModelResponse) => {
       setCarModel(carModelResponse);
       const formValues: typeof form.values = {
-        modelname: carModelResponse.modelName,
+        modelName: carModelResponse.modelName,
         carMakeId:String(carModelResponse.carMake.id) || null, 
       };
       form.setValues(formValues);
@@ -32,7 +32,7 @@ function useCarModelUpdateViewModel(id: number) {
     setPrevFormValues(formValues);
     if (!MiscUtils.isEquals(formValues, prevFormValues)) {
       const requestBody: CarModelRequest = {
-        modelName: formValues.modelname,
+        modelName: formValues.modelName,
         carMakeId:Number(formValues.carMakeId) ||null
       };
       updateApi.mutate(requestBody);

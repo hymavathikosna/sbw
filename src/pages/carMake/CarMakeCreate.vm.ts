@@ -29,10 +29,10 @@ function useCarMakeCreateViewModel() {
     }
   );
 
-  const handleFormSubmit = form.onSubmit((formValues) => {
+  const handleFormSubmitCar = form.onSubmit((formValues) => {
     alert('Hu');
     const requestBody: CarMakeRequest = {
-      makeName: formValues.makename,
+      makeName: formValues.makeName,
       vehicleTypeId: Number(formValues.vehicleTypeId) || null, 
     };
     createApi.mutate(requestBody);
@@ -41,8 +41,8 @@ function useCarMakeCreateViewModel() {
 
   return {
     form,
-    handleFormSubmit, 
-    vehicleTypeSelectList
+    handleFormSubmitCar, 
+    vehicleTypeSelectList,
   };
 }
 

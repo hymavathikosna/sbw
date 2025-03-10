@@ -6,8 +6,8 @@ import PageConfigs from 'pages/PageConfigs';
 import ManagerPath from 'constants/ManagerPath';
 
 class CarModelConfigs extends Configs {
-  static managerPath = ManagerPath.CARMAKE;
-  static resourceUrl = ResourceURL.CARMAKE;
+  static managerPath = ManagerPath.CARMODEL;
+  static resourceUrl = ResourceURL.CARMODEL;
   static resourceKey = 'carModels';
   static createTitle = 'Add CarModel';
   static updateTitle = 'Update CarModel';
@@ -15,7 +15,7 @@ class CarModelConfigs extends Configs {
 
   static manageTitleLinks: TitleLink[] = [
     {
-      link: ManagerPath.CARMAKE,
+      link: ManagerPath.CARMODEL,
       label: 'Manage CarModels',
     }
   ];
@@ -39,7 +39,7 @@ class CarModelConfigs extends Configs {
     EntityPropertySchema<typeof CarModelConfigs._rawProperties & typeof PageConfigs.properties>;
 
   static initialCreateUpdateFormValues = {
-    modelname: '', 
+    modelName: '', 
     carMakeId: null as string | null,
   };
 

@@ -30,7 +30,7 @@ function useCarVariantCreateViewVariant() {
 
   const handleFormSubmit = form.onSubmit((formValues) => {
     const requestBody: CarVariantRequest = {
-      variantName: formValues.modelname,
+      variantName: formValues.variantName,
       carModelId: Number(formValues.carModelId) || null, 
     };
     createApi.mutate(requestBody);

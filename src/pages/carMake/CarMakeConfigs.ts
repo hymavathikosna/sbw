@@ -17,7 +17,7 @@ class CarMakeConfigs extends Configs {
     {
       link: ManagerPath.CARMAKE,
       label: 'Manage CarMakes',
-    }
+    },
   ];
 
   protected static _rawProperties = {
@@ -32,6 +32,7 @@ class CarMakeConfigs extends Configs {
       type: EntityPropertyType.NUMBER,
       isNotAddToSortCriteria: true,
       isNotAddToFilterCriteria: true,
+      isShowInTable: true,
     },
   };
 
@@ -39,7 +40,7 @@ class CarMakeConfigs extends Configs {
     EntityPropertySchema<typeof CarMakeConfigs._rawProperties & typeof PageConfigs.properties>;
 
   static initialCreateUpdateFormValues = {
-    makename: '', 
+    makeName: '', 
     vehicleTypeId: null as string | null,
   };
 

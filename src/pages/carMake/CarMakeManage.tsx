@@ -47,6 +47,11 @@ function CarMakeManage() {
           {entity.makeName}
         </Highlight>
       </td> 
+      <td>
+        <Highlight highlight={searchToken} highlightColor="blue" size="sm">
+          {entity.vehicleType.vehicleTypeName}
+        </Highlight>
+      </td> 
     </>
   );
 

@@ -16,10 +16,12 @@ import useCarMakeCreateViewModel from 'pages/carMake/CarMakeCreate.vm';
 function CarMakeCreate() {
   const {
     form,
-    handleFormSubmit,
+    handleFormSubmitCar,
     vehicleTypeSelectList,
   } = useCarMakeCreateViewModel();
-
+   
+  // console.log('form.errors:', form.errors);  
+  
   return (
     <Stack sx={{ maxWidth: 800 }}>
       <CreateUpdateTitle
@@ -29,7 +31,7 @@ function CarMakeCreate() {
 
       <DefaultPropertyPanel/>
 
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmitCar}>
         <Paper shadow="xs">
           <Stack spacing={0}>
             <Grid p="sm">
@@ -37,12 +39,16 @@ function CarMakeCreate() {
                 <TextInput
                   required
                   label={CarMakeConfigs.properties.makeName.label}
-                  {...form.getInputProps('makename')}
+                  id="makeName"  
+                  key="makeName"
+                  {...form.getInputProps('makeName')}
                 />
               </Grid.Col>
               <Grid.Col xs={6}>
                 <Select
                   label={CarMakeConfigs.properties.vehicleTypeId.label}
+                  id="vehicleTypeId"  
+                  key="vehicleTypeId"  
                   placeholder="--"
                   clearable
                   searchable

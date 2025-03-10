@@ -17,7 +17,7 @@ function CarVariantCreate() {
   const {
     form,
     handleFormSubmit,
-    carModelSelectList
+    carModelSelectList,
   } = useCarVariantCreateViewVariant();
 
   return (
@@ -36,8 +36,8 @@ function CarVariantCreate() {
               <Grid.Col xs={6}>
                 <TextInput
                   required
-                  label={CarVariantConfigs.properties.carVariantname.label}
-                  {...form.getInputProps('modelname')}
+                  label={CarVariantConfigs.properties.variantName.label}
+                  {...form.getInputProps('variantName')}
                 />
               </Grid.Col>
               <Grid.Col xs={6}>

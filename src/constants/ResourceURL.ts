@@ -108,8 +108,8 @@ class ResourceURL {
 
   static VEHICLETYPE = apiPath + '/vehicle-types';
   static CARMAKE = apiPath + '/car-makes';
-  static CARMODELS = apiPath + '/car-models';
-  static CARMAKES = apiPath + '/car-variants';
+  static CARMODEL = apiPath + '/car-models';
+  static CARVARIANT = apiPath + '/car-variants';
 
 }
 

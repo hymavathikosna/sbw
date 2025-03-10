@@ -6,8 +6,8 @@ import PageConfigs from 'pages/PageConfigs';
 import ManagerPath from 'constants/ManagerPath';
 
 class CarVariantConfigs extends Configs {
-  static managerPath = ManagerPath.CARMAKE;
-  static resourceUrl = ResourceURL.CARMAKE;
+  static managerPath = ManagerPath.CARVARIANT;
+  static resourceUrl = ResourceURL.CARVARIANT;
   static resourceKey = 'carVariants';
   static createTitle = 'Add CarVariant';
   static updateTitle = 'Update CarVariant';
@@ -15,14 +15,14 @@ class CarVariantConfigs extends Configs {
 
   static manageTitleLinks: TitleLink[] = [
     {
-      link: ManagerPath.CARMAKE,
+      link: ManagerPath.CARVARIANT,
       label: 'Manage CarVariants',
-    }
+    },
   ];
 
   protected static _rawProperties = {
     ...PageConfigs.getProperties(true),
-    modelName: {
+    variantName: {
       label: 'Variant Name',
       type: EntityPropertyType.STRING,
       isShowInTable: true,
@@ -39,12 +39,12 @@ class CarVariantConfigs extends Configs {
     EntityPropertySchema<typeof CarVariantConfigs._rawProperties & typeof PageConfigs.properties>;
 
   static initialCreateUpdateFormValues = {
-    modelname: '', 
+    variantName: '', 
     carModelId: null as string | null,
   };
 
   static createUpdateFormSchema = z.object({
-    variantName: z.string().min(2, MessageUtils.min(CarVariantConfigs.properties.modelName.label, 2)),
+    variantName: z.string().min(2, MessageUtils.min(CarVariantConfigs.properties.variantName.label, 2)),
     carModelId: z.string().nullable(),
   });
 }

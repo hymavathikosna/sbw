@@ -49,7 +49,7 @@ function CarModelUpdate() {
                 <TextInput
                   required
                   label={CarModelConfigs.properties.carModelname.label}
-                  {...form.getInputProps('modelname')}
+                  {...form.getInputProps('modelName')}
                 />
               </Grid.Col>
                

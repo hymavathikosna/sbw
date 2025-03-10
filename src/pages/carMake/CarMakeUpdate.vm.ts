@@ -5,6 +5,10 @@ import { CarMakeRequest, CarMakeResponse } from 'models/CarMake';
 import useUpdateApi from 'hooks/use-update-api';
 import useGetByIdApi from 'hooks/use-get-by-id-api';
 import MiscUtils from 'utils/MiscUtils';  
+import useGetAllApi from 'hooks/use-get-all-api';
+import { VehicleTypeResponse } from 'models/VehicleType';
+import VehicleTypeConfigs from 'pages/vehicleType/VehicleTypeConfigs';
+import { SelectOption } from 'types';
 
 function useCarMakeUpdateViewModel(id: number) {
   const form = useForm({
@@ -14,25 +18,36 @@ function useCarMakeUpdateViewModel(id: number) {
 
   const [carMake, setCarMake] = useState<CarMakeResponse>();
   const [prevFormValues, setPrevFormValues] = useState<typeof form.values>(); 
+  const [vehicleTypeSelectList, setVehicleTypeSelectList] = useState<SelectOption[]>([]);
 
   const updateApi = useUpdateApi<CarMakeRequest, CarMakeResponse>(CarMakeConfigs.resourceUrl, CarMakeConfigs.resourceKey, id);
   useGetByIdApi<CarMakeResponse>(CarMakeConfigs.resourceUrl, CarMakeConfigs.resourceKey, id,
     (carMakeResponse) => {
       setCarMake(carMakeResponse);
       const formValues: typeof form.values = {
-        makename: carMakeResponse.makeName,
-        vehicleTypeId:String(carMakeResponse.vehicleType.id) || null, 
+        makeName: carMakeResponse.makeName,
+        vehicleTypeId:String(carMakeResponse.vehicleType?.id) || null, 
       };
       form.setValues(formValues);
       setPrevFormValues(formValues);
     }
   ); 
-
+  useGetAllApi<VehicleTypeResponse>(VehicleTypeConfigs.resourceUrl, VehicleTypeConfigs.resourceKey,
+    { all: 1 },
+    (vehicleTypeListResponse) => {
+      const selectList: SelectOption[] = vehicleTypeListResponse.content.map((item) => ({
+        value: String(item.id),
+        label: item.vehicleTypeName,
+      }));
+      setVehicleTypeSelectList(selectList);
+    }
+  );
   const handleFormSubmit = form.onSubmit((formValues) => {
+    alert('hi');
     setPrevFormValues(formValues);
     if (!MiscUtils.isEquals(formValues, prevFormValues)) {
       const requestBody: CarMakeRequest = {
-        makeName: formValues.makename,
+        makeName: formValues.makeName,
         vehicleTypeId:Number(formValues.vehicleTypeId) ||null
       };
       updateApi.mutate(requestBody);
@@ -46,6 +61,7 @@ function useCarMakeUpdateViewModel(id: number) {
     form,
     handleFormSubmit, 
     isDisabledUpdateButton,
+    vehicleTypeSelectList,
   };
 }
 

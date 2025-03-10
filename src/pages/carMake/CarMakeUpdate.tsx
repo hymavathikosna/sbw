@@ -5,6 +5,7 @@ import {
   Grid,
   Group, 
   Paper, 
+  Select, 
   Stack,
   TextInput
 } from '@mantine/core';
@@ -20,12 +21,13 @@ function CarMakeUpdate() {
     form,
     handleFormSubmit, 
     isDisabledUpdateButton,
+    vehicleTypeSelectList,
   } = useCarMakeUpdateViewModel(Number(id));
 
   if (!carMake) {
     return null;
   }
-
+  console.log('form.errors:', form.errors);  
   return (
     <Stack sx={{ maxWidth: 800 }}>
       <CreateUpdateTitle
@@ -48,11 +50,20 @@ function CarMakeUpdate() {
               <Grid.Col xs={6}>
                 <TextInput
                   required
-                  label={CarMakeConfigs.properties.carMakename.label}
-                  {...form.getInputProps('makename')}
+                  label={CarMakeConfigs.properties.makeName.label}
+                  {...form.getInputProps('makeName')}
                 />
               </Grid.Col>
-               
+              <Grid.Col xs={6}>
+                <Select
+                  label={CarMakeConfigs.properties.vehicleTypeId.label}
+                  placeholder="--"
+                  clearable
+                  searchable
+                  data={vehicleTypeSelectList}
+                  {...form.getInputProps('vehicleTypeId')}
+                />
+              </Grid.Col> 
             </Grid>
 
             <Divider mt="xs"/>

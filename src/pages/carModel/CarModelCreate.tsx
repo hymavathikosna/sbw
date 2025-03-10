@@ -17,7 +17,7 @@ function CarModelCreate() {
   const {
     form,
     handleFormSubmit,
-    carMakeSelectList
+    carMakeSelectList,
   } = useCarModelCreateViewModel();
 
   return (
@@ -36,8 +36,8 @@ function CarModelCreate() {
               <Grid.Col xs={6}>
                 <TextInput
                   required
-                  label={CarModelConfigs.properties.carModelname.label}
-                  {...form.getInputProps('modelname')}
+                  label={CarModelConfigs.properties.modelName.label}
+                  {...form.getInputProps('modelName')}
                 />
               </Grid.Col>
               <Grid.Col xs={6}>

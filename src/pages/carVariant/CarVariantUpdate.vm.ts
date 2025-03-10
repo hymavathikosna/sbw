@@ -20,7 +20,7 @@ function useCarVariantUpdateViewVariant(id: number) {
     (carVariantResponse) => {
       setCarVariant(carVariantResponse);
       const formValues: typeof form.values = {
-        modelname: carVariantResponse.variantName,
+        variantName: carVariantResponse.variantName,
         carModelId:String(carVariantResponse.carModel.id) || null, 
       };
       form.setValues(formValues);
@@ -32,7 +32,7 @@ function useCarVariantUpdateViewVariant(id: number) {
     setPrevFormValues(formValues);
     if (!MiscUtils.isEquals(formValues, prevFormValues)) {
       const requestBody: CarVariantRequest = {
-        variantName: formValues.modelname,
+        variantName: formValues.variantName,
         carModelId:Number(formValues.carModelId) ||null
       };
       updateApi.mutate(requestBody);

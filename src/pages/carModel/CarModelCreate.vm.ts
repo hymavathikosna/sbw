@@ -30,7 +30,7 @@ function useCarModelCreateViewModel() {
 
   const handleFormSubmit = form.onSubmit((formValues) => {
     const requestBody: CarModelRequest = {
-      modelName: formValues.modelname,
+      modelName: formValues.modelName,
       carMakeId: Number(formValues.carMakeId) || null, 
     };
     createApi.mutate(requestBody);
