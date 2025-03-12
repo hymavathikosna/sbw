@@ -7,6 +7,10 @@ import { GuaranteeResponse } from 'models/Guarantee';
 import { VariantPropertyItem, VariantRequest } from 'models/Variant';
 import { CollectionWrapper } from 'types';
 import { ImageRequest, ImageResponse } from 'models/Image';
+import { VehicleTypeResponse } from './VehicleType';
+import { CarMakeResponse } from './CarMake';
+import { CarModelResponse } from './CarModel';
+import { CarVariantResponse } from './CarVariant';
 
 export interface ProductResponse extends BaseResponse {
   name: string;
@@ -17,6 +21,10 @@ export interface ProductResponse extends BaseResponse {
   images: ImageResponse[];
   status: number;
   category: CategoryResponse | null;
+  vehicleType: VehicleTypeResponse | null;
+  carMake: CarMakeResponse | null;
+  carModel: CarModelResponse | null;
+  carVariant: CarVariantResponse | null;
   brand: BrandResponse | null;
   supplier: SupplierResponse | null;
   unit: UnitResponse | null;
@@ -76,6 +84,10 @@ export interface ProductRequest {
   variants: VariantRequest[];
   weight: number | null;
   guaranteeId: number | null;
+  vehicleTypeId: number | null;
+  carMakeId: number | null;
+  carModelId: number | null;
+  carVariantId: number | null;
 }
 
 export interface ProductRequest_TagRequest {

@@ -42,6 +42,10 @@ function ProductCreate() {
     productPropertySelectList, setProductPropertySelectList,
     selectedVariantIndexes, setSelectedVariantIndexes,
     resetForm,
+    vehicleTypeSelectList,
+    carMakeSelectList,
+    carModelSelectList,
+    carVariantSelectList,
   } = useProductCreateViewModel();
 
   return (
@@ -165,6 +169,46 @@ function ProductCreate() {
                   searchable
                   data={categorySelectList}
                   {...form.getInputProps('categoryId')}
+                />
+              </Grid.Col>
+              <Grid.Col xs={6}>
+                <Select
+                  label={ProductConfigs.properties.vehicleTypeId.label}
+                  placeholder="--"
+                  clearable
+                  searchable
+                  data={vehicleTypeSelectList}
+                  {...form.getInputProps('vehicleTypeId')}
+                />
+              </Grid.Col>
+              <Grid.Col xs={6}>
+                <Select
+                  label={ProductConfigs.properties.carMakeId.label}
+                  placeholder="--"
+                  clearable
+                  searchable
+                  data={carMakeSelectList}
+                  {...form.getInputProps('carMakeId')}
+                />
+              </Grid.Col>
+              <Grid.Col xs={6}>
+                <Select
+                  label={ProductConfigs.properties.carModelId.label}
+                  placeholder="--"
+                  clearable
+                  searchable
+                  data={carModelSelectList}
+                  {...form.getInputProps('carModelId')}
+                />
+              </Grid.Col>
+              <Grid.Col xs={6}>
+                <Select
+                  label={ProductConfigs.properties.carVariantId.label}
+                  placeholder="--"
+                  clearable
+                  searchable
+                  data={carVariantSelectList}
+                  {...form.getInputProps('carVariantId')}
                 />
               </Grid.Col>
               <Grid.Col xs={6}>

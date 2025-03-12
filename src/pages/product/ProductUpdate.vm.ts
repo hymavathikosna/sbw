@@ -33,6 +33,14 @@ import SpecificationConfigs from 'pages/specification/SpecificationConfigs';
 import { PropertyResponse } from 'models/Property';
 import PropertyConfigs from 'pages/property/PropertyConfigs';
 import { VariantRequest } from 'models/Variant';
+import { CarMakeResponse } from 'models/CarMake';
+import { CarModelResponse } from 'models/CarModel';
+import { CarVariantResponse } from 'models/CarVariant';
+import { VehicleTypeResponse } from 'models/VehicleType';
+import CarMakeConfigs from 'pages/carMake/CarMakeConfigs';
+import CarModelConfigs from 'pages/carModel/CarModelConfigs';
+import CarVariantConfigs from 'pages/carVariant/CarVariantConfigs';
+import VehicleTypeConfigs from 'pages/vehicleType/VehicleTypeConfigs';
 
 function useProductUpdateViewModel(id: number) {
   const form = useForm({
@@ -56,6 +64,10 @@ function useProductUpdateViewModel(id: number) {
 
   const [productPropertySelectList, setProductPropertySelectList] = useState<SelectOption[]>([]);
   const [selectedVariantIndexes, setSelectedVariantIndexes] = useState<number[]>([]);
+  const [vehicleTypeSelectList, setVehicleTypeSelectList] = useState<SelectOption[]>([]);
+  const [carMakeSelectList, setCarMakeSelectList] = useState<SelectOption[]>([]);
+  const [carModelSelectList, setCarModelSelectList] = useState<SelectOption[]>([]);
+  const [carVariantSelectList, setCarVariantSelectList] = useState<SelectOption[]>([]);
 
   const queryClient = useQueryClient();
   const updateApi = useUpdateApi<ProductRequest, ProductResponse>(ProductConfigs.resourceUrl, ProductConfigs.resourceKey, id);
@@ -73,6 +85,10 @@ function useProductUpdateViewModel(id: number) {
         images: productResponse.images,
         status: String(productResponse.status),
         categoryId: productResponse.category ? String(productResponse.category.id) : null,
+        vehicleTypeId: productResponse.vehicleType ? String(productResponse.vehicleType.id) : null,
+        carMakeId: productResponse.carMake ? String(productResponse.carMake.id) : null,
+        carModelId: productResponse.carModel ? String(productResponse.carModel.id) : null,
+        carVariantId: productResponse.carVariant ? String(productResponse.carVariant.id) : null,
         brandId: productResponse.brand ? String(productResponse.brand.id) : null,
         supplierId: productResponse.supplier ? String(productResponse.supplier.id) : null,
         unitId: productResponse.unit ? String(productResponse.unit.id) : null,
@@ -199,7 +215,46 @@ function useProductUpdateViewModel(id: number) {
       status: 1,
     };
   });
-
+  useGetAllApi<VehicleTypeResponse>(VehicleTypeConfigs.resourceUrl, VehicleTypeConfigs.resourceKey,
+    { all: 1 },
+    (vehicleTypeListResponse) => {
+      const selectList: SelectOption[] = vehicleTypeListResponse.content.map((item) => ({
+        value: String(item.id),
+        label: item.vehicleTypeName,
+      }));
+      setVehicleTypeSelectList(selectList);
+    }
+  );
+  useGetAllApi<CarMakeResponse>(CarMakeConfigs.resourceUrl, CarMakeConfigs.resourceKey,
+    { all: 1 },
+    (carMakeListResponse) => {
+      const selectList: SelectOption[] = carMakeListResponse.content.map((item) => ({
+        value: String(item.id),
+        label: item.makeName,
+      }));
+      setCarMakeSelectList(selectList);
+    }
+  );
+  useGetAllApi<CarModelResponse>(CarModelConfigs.resourceUrl, CarModelConfigs.resourceKey,
+    { all: 1 },
+    (carModelListResponse) => {
+      const selectList: SelectOption[] = carModelListResponse.content.map((item) => ({
+        value: String(item.id),
+        label: item.modelName,
+      }));
+      setCarModelSelectList(selectList);
+    }
+  );
+  useGetAllApi<CarVariantResponse>(CarVariantConfigs.resourceUrl, CarVariantConfigs.resourceKey,
+    { all: 1 },
+    (carVariantListResponse) => {
+      const selectList: SelectOption[] = carVariantListResponse.content.map((item) => ({
+        value: String(item.id),
+        label: item.variantName,
+      }));
+      setCarVariantSelectList(selectList);
+    }
+  );
   const transformImages = (uploadedImageResponses: UploadedImageResponse[]): ImageRequest[] => {
     /**
      * NOTE:
@@ -254,6 +309,10 @@ function useProductUpdateViewModel(id: number) {
           images: [...formValues.images, ...(uploadedImageResponses ? transformImages(uploadedImageResponses) : [])],
           status: Number(formValues.status),
           categoryId: Number(formValues.categoryId) || null,
+          vehicleTypeId: Number(formValues.categoryId) || null,
+          carMakeId: Number(formValues.carMakeId) || null,
+          carModelId: Number(formValues.carModelId) || null,
+          carVariantId: Number(formValues.carVariantId) || null,
           brandId: Number(formValues.brandId) || null,
           supplierId: Number(formValues.supplierId) || null,
           unitId: Number(formValues.unitId) || null,
@@ -313,6 +372,10 @@ function useProductUpdateViewModel(id: number) {
     productPropertySelectList, setProductPropertySelectList,
     selectedVariantIndexes, setSelectedVariantIndexes,
     resetForm,
+    vehicleTypeSelectList,
+    carMakeSelectList,
+    carModelSelectList,
+    carVariantSelectList,
   };
 }
 

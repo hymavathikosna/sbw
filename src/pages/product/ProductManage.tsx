@@ -74,6 +74,26 @@ function ProductManage() {
         </Highlight>
       </td>
       <td>
+        <Highlight highlight={searchToken} highlightColor="blue" size="sm">
+          {entity.vehicleType?.vehicleTypeName || ''}
+        </Highlight>
+      </td>
+      <td>
+        <Highlight highlight={searchToken} highlightColor="blue" size="sm">
+          {entity.carMake?.makeName || ''}
+        </Highlight>
+      </td>
+      <td>
+        <Highlight highlight={searchToken} highlightColor="blue" size="sm">
+          {entity.carModel?.modelName || ''}
+        </Highlight>
+      </td>
+      <td>
+        <Highlight highlight={searchToken} highlightColor="blue" size="sm">
+          {entity.carVariant?.variantName || ''}
+        </Highlight>
+      </td>
+      <td>
         <Stack spacing="xs" align="flex-start">
           {entity.tags
             .sort((a, b) => a.name.localeCompare(b.name))

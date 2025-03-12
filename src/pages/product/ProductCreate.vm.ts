@@ -32,12 +32,25 @@ import { ImageRequest, UploadedImageResponse } from 'models/Image';
 import { PropertyResponse } from 'models/Property';
 import PropertyConfigs from 'pages/property/PropertyConfigs';
 import { VariantRequest } from 'models/Variant';
+import { VehicleTypeResponse } from 'models/VehicleType';
+import VehicleTypeConfigs from 'pages/vehicleType/VehicleTypeConfigs';
+import { CarMakeResponse } from 'models/CarMake';
+import { CarModelResponse } from 'models/CarModel';
+import { CarVariantResponse } from 'models/CarVariant';
+import CarMakeConfigs from 'pages/carMake/CarMakeConfigs';
+import CarModelConfigs from 'pages/carModel/CarModelConfigs';
+import CarVariantConfigs from 'pages/carVariant/CarVariantConfigs';
 
 function useProductCreateViewModel() {
   const form = useForm({
     initialValues: ProductConfigs.initialCreateUpdateFormValues,
     schema: zodResolver(ProductConfigs.createUpdateFormSchema),
   });
+
+  const [vehicleTypeSelectList, setVehicleTypeSelectList] = useState<SelectOption[]>([]);
+  const [carMakeSelectList, setCarMakeSelectList] = useState<SelectOption[]>([]);
+  const [carModelSelectList, setCarModelSelectList] = useState<SelectOption[]>([]);
+  const [carVariantSelectList, setCarVariantSelectList] = useState<SelectOption[]>([]);
 
   const [categorySelectList, setCategorySelectList] = useState<SelectOption[]>([]);
   const [brandSelectList, setBrandSelectList] = useState<SelectOption[]>([]);
@@ -185,6 +198,46 @@ function useProductCreateViewModel() {
     return variants.filter((_, index) => selectedVariantIndexes.includes(index));
   };
 
+  useGetAllApi<VehicleTypeResponse>(VehicleTypeConfigs.resourceUrl, VehicleTypeConfigs.resourceKey,
+    { all: 1 },
+    (vehicleTypeListResponse) => {
+      const selectList: SelectOption[] = vehicleTypeListResponse.content.map((item) => ({
+        value: String(item.id),
+        label: item.vehicleTypeName,
+      }));
+      setVehicleTypeSelectList(selectList);
+    }
+  );
+  useGetAllApi<CarMakeResponse>(CarMakeConfigs.resourceUrl, CarMakeConfigs.resourceKey,
+    { all: 1 },
+    (carMakeListResponse) => {
+      const selectList: SelectOption[] = carMakeListResponse.content.map((item) => ({
+        value: String(item.id),
+        label: item.makeName,
+      }));
+      setCarMakeSelectList(selectList);
+    }
+  );
+  useGetAllApi<CarModelResponse>(CarModelConfigs.resourceUrl, CarModelConfigs.resourceKey,
+    { all: 1 },
+    (carModelListResponse) => {
+      const selectList: SelectOption[] = carModelListResponse.content.map((item) => ({
+        value: String(item.id),
+        label: item.modelName,
+      }));
+      setCarModelSelectList(selectList);
+    }
+  );
+  useGetAllApi<CarVariantResponse>(CarVariantConfigs.resourceUrl, CarVariantConfigs.resourceKey,
+    { all: 1 },
+    (carVariantListResponse) => {
+      const selectList: SelectOption[] = carVariantListResponse.content.map((item) => ({
+        value: String(item.id),
+        label: item.variantName,
+      }));
+      setCarVariantSelectList(selectList);
+    }
+  );
   const handleFormSubmit = form.onSubmit((formValues) => {
     const createProduct = (uploadedImageResponses?: UploadedImageResponse[]) => {
       const requestBody: ProductRequest = {
@@ -196,6 +249,10 @@ function useProductCreateViewModel() {
         images: uploadedImageResponses ? transformImages(uploadedImageResponses) : [],
         status: Number(formValues.status),
         categoryId: Number(formValues.categoryId) || null,
+        vehicleTypeId: Number(formValues.categoryId) || null,
+        carMakeId: Number(formValues.carMakeId) || null,
+        carModelId: Number(formValues.carModelId) || null,
+        carVariantId: Number(formValues.carVariantId) || null,
         brandId: Number(formValues.brandId) || null,
         supplierId: Number(formValues.supplierId) || null,
         unitId: Number(formValues.unitId) || null,
@@ -259,6 +316,10 @@ function useProductCreateViewModel() {
     productPropertySelectList, setProductPropertySelectList,
     selectedVariantIndexes, setSelectedVariantIndexes,
     resetForm,
+    vehicleTypeSelectList,
+    carMakeSelectList,
+    carModelSelectList,
+    carVariantSelectList,
   };
 }
 

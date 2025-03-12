@@ -48,6 +48,10 @@ function ProductUpdate() {
     productPropertySelectList, setProductPropertySelectList,
     selectedVariantIndexes, setSelectedVariantIndexes,
     resetForm,
+    vehicleTypeSelectList,
+    carMakeSelectList,
+    carModelSelectList,
+    carVariantSelectList,
   } = useProductUpdateViewModel(Number(id));
 
   if (!product) {
