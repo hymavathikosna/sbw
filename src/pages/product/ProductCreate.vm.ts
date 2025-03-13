@@ -209,7 +209,7 @@ function useProductCreateViewModel() {
     }
   );
   useGetAllApi<CarMakeResponse>(CarMakeConfigs.resourceUrl, CarMakeConfigs.resourceKey,
-    { all: 1 },
+    { all: 1, filter: `vehicleType.id==${form.values['vehicleTypeId'] || 0}` },
     (carMakeListResponse) => {
       const selectList: SelectOption[] = carMakeListResponse.content.map((item) => ({
         value: String(item.id),
@@ -219,7 +219,7 @@ function useProductCreateViewModel() {
     }
   );
   useGetAllApi<CarModelResponse>(CarModelConfigs.resourceUrl, CarModelConfigs.resourceKey,
-    { all: 1 },
+    { all: 1, filter: `carMake.id==${form.values['carMakeId'] || 0}` },
     (carModelListResponse) => {
       const selectList: SelectOption[] = carModelListResponse.content.map((item) => ({
         value: String(item.id),
@@ -229,7 +229,7 @@ function useProductCreateViewModel() {
     }
   );
   useGetAllApi<CarVariantResponse>(CarVariantConfigs.resourceUrl, CarVariantConfigs.resourceKey,
-    { all: 1 },
+    { all: 1, filter: `carModel.id==${form.values['carModelId'] || 0}` },
     (carVariantListResponse) => {
       const selectList: SelectOption[] = carVariantListResponse.content.map((item) => ({
         value: String(item.id),
