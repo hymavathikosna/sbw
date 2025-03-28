@@ -233,6 +233,8 @@ function ClientHeader() {
           </Group>
           <Group position="apart" mb="md">
             <Group spacing={theme.spacing.xs / 2}>
+              {/* 
+
               <Popover
                 opened={openedCategoryMenu}
                 onClose={() => setOpenedCategoryMenu(false)}
@@ -248,7 +250,7 @@ function ClientHeader() {
                 shadow="md"
               >
                 <CategoryMenu setOpenedCategoryMenu={setOpenedCategoryMenu}/>
-              </Popover>
+              </Popover>*/}
               <Button variant="subtle" radius="md" onClick={() => handleBatteriesClick()}>
                 Batteries
               </Button>

@@ -29,10 +29,10 @@ function useManageHeaderButtonsViewModel({
         overlayOpacity: 0.55,
         overlayBlur: 3,
         closeOnClickOutside: false,
-        title: <strong>Xác nhận xóa</strong>,
-        children: <Text size="sm">Delete (các) phần tử có ID {selection.join(', ')}?</Text>,
+        title: <strong>Confirm delete</strong>,
+        children: <Text size="sm">Delete elements with ID {selection.join(', ')}?</Text>,
         labels: {
-          cancel: 'Không xóa',
+          cancel: 'Cancel',
           confirm: 'Delete',
         },
         confirmProps: { color: 'red' },

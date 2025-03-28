@@ -32,6 +32,7 @@ import ClientCategorySkeleton from 'pages/client-category/ClientCategorySkeleton
 import ClientCategoryProducts from 'pages/client-category/ClientCategoryProducts';
 import useClientCategoryStore from 'stores/use-client-category-store';
 import { useDebouncedValue } from '@mantine/hooks';
+import Batteries from 'pages/batteries/Batteries';
 
 function ClientCategory() {
   const theme = useMantineTheme();
@@ -153,7 +154,7 @@ function ClientCategory() {
                   {category.categoryName}
                 </Text>
               </Breadcrumbs>
-
+              <Batteries></Batteries>
               <Group spacing="xs" sx={{ alignItems: 'baseline' }}>
                 <Title order={2}>{category.categoryName}</Title>
                 {category.categoryChildren.length > 0 && (
@@ -268,7 +269,7 @@ function ClientCategory() {
                   <Text>{totalProducts} product</Text>
                 </Group>
 
-                <ClientCategoryProducts categorySlug={category.categorySlug}/>
+                <ClientCategoryProducts categorySlug={category.categorySlug} vehicleTypeId={ 3 }/>
               </Stack>
             </Grid.Col>
           </Grid>

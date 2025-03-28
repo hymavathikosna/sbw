@@ -309,7 +309,7 @@ function useProductUpdateViewModel(id: number) {
           images: [...formValues.images, ...(uploadedImageResponses ? transformImages(uploadedImageResponses) : [])],
           status: Number(formValues.status),
           categoryId: Number(formValues.categoryId) || null,
-          vehicleTypeId: Number(formValues.categoryId) || null,
+          vehicleTypeId: Number(formValues.vehicleTypeId) || null,
           carMakeId: Number(formValues.carMakeId) || null,
           carModelId: Number(formValues.carModelId) || null,
           carVariantId: Number(formValues.carVariantId) || null,

@@ -1,57 +1,149 @@
 import React, { useState } from 'react';
+import {
+  Button,
+  Divider,
+  Grid,
+  Group,
+  MultiSelect,
+  NumberInput,
+  Paper,
+  Select,
+  Stack,
+  Text,
+  Textarea,
+  TextInput,
+  Title
+} from '@mantine/core';
+import { CollectionWrapper, FileWithPreview, SelectOption } from 'types';
+import { useForm, zodResolver } from '@mantine/form';
+import ProductConfigs from 'pages/product/ProductConfigs';
+import useGetAllApi from 'hooks/use-get-all-api';
+import { CarMakeResponse } from 'models/CarMake';
+import { CarModelResponse } from 'models/CarModel';
+import { CarVariantResponse } from 'models/CarVariant';
+import { VehicleTypeResponse } from 'models/VehicleType';
+import CarMakeConfigs from 'pages/carMake/CarMakeConfigs';
+import CarModelConfigs from 'pages/carModel/CarModelConfigs';
+import CarVariantConfigs from 'pages/carVariant/CarVariantConfigs';
+import VehicleTypeConfigs from 'pages/vehicleType/VehicleTypeConfigs';
+import { z } from 'zod';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Batteries = () => {
-  // Sample data for the dropdowns
-  const cars = {
-    Honda: {
-      Accord: ['Petrol', 'Diesel'],
-      Civic: ['Petrol', 'Hybrid'],
-    },
-    Toyota: {
-      Corolla: ['Petrol', 'Diesel'],
-      Camry: ['Hybrid'],
-    },
-    Ford: {
-      Mustang: ['Petrol'],
-      F150: ['Diesel', 'Electric'],
-    },
-  };
+  const navigate = useNavigate();
+  const form = useForm({
+    initialValues: { vehicleTypeId: null as string | null,
+      carMakeId: null as string | null,
+      carModelId: null as string | null,
+      carVariantId: null as string | null },
+    schema: zodResolver(z.object({ vehicleTypeId: z.string().nullable(),
+      carMakeId: z.string().nullable(),
+      carModelId: z.string().nullable(),
+      carVariantId: z.string().nullable() })),
+  });
 
-  // React state to store selected Make, Model, and Variant
-  const [make, setMake] = useState('');
-  const [model, setModel] = useState('');
-  const [variant, setVariant] = useState('');
-
-  // Function to handle the Make dropdown change
-  const handleMakeChange = (e) => {
-    setMake(e.target.value);
-    setModel(''); // Reset model selection when Make changes
-    setVariant(''); // Reset variant selection when Make changes
-  };
-
-  // Function to handle the Model dropdown change
-  const handleModelChange = (e) => {
-    setModel(e.target.value);
-    setVariant(''); // Reset variant selection when Model changes
-  };
-
-  // Function to handle the Variant dropdown change
-  const handleVariantChange = (e) => {
-    setVariant(e.target.value);
-  };
-
-  // Handle "Find Now" button click
-  const handleFindNowClick = () => {
-    if (make && model && variant) {
-      alert(`Finding Batteries for ${variant} ${model} (${make})`);
-    } else {
-      alert('Please select Make, Model, and Variant to find the Batteries.');
+  const [vehicleTypeSelectList, setVehicleTypeSelectList] = useState<SelectOption[]>([]);
+  const [carMakeSelectList, setCarMakeSelectList] = useState<SelectOption[]>([]);
+  const [carModelSelectList, setCarModelSelectList] = useState<SelectOption[]>([]);
+  const [carVariantSelectList, setCarVariantSelectList] = useState<SelectOption[]>([]);
+  useGetAllApi<VehicleTypeResponse>(VehicleTypeConfigs.resourceUrl, VehicleTypeConfigs.resourceKey,
+    { all: 1 },
+    (vehicleTypeListResponse) => {
+      const selectList: SelectOption[] = vehicleTypeListResponse.content.map((item) => ({
+        value: String(item.id),
+        label: item.vehicleTypeName,
+      }));
+      setVehicleTypeSelectList(selectList);
     }
+  );
+  useGetAllApi<CarMakeResponse>(CarMakeConfigs.resourceUrl, CarMakeConfigs.resourceKey,
+    { all: 1, filter: `vehicleType.id==${form.values['vehicleTypeId'] || 0}` },
+    (carMakeListResponse) => {
+      const selectList: SelectOption[] = carMakeListResponse.content.map((item) => ({
+        value: String(item.id),
+        label: item.makeName,
+      }));
+      setCarMakeSelectList(selectList);
+    }
+  );
+  useGetAllApi<CarModelResponse>(CarModelConfigs.resourceUrl, CarModelConfigs.resourceKey,
+    { all: 1, filter: `carMake.id==${form.values['carMakeId'] || 0}` },
+    (carModelListResponse) => {
+      const selectList: SelectOption[] = carModelListResponse.content.map((item) => ({
+        value: String(item.id),
+        label: item.modelName,
+      }));
+      setCarModelSelectList(selectList);
+    }
+  );
+  useGetAllApi<CarVariantResponse>(CarVariantConfigs.resourceUrl, CarVariantConfigs.resourceKey,
+    { all: 1 },
+    (carVariantListResponse) => {
+      const selectList: SelectOption[] = carVariantListResponse.content.map((item) => ({
+        value: String(item.id),
+        label: item.variantName,
+      }));
+      setCarVariantSelectList(selectList);
+    }
+  ); 
+  const handleFindNowClick = () => {
+    //alert('Please select Make, Model, and Variant to find the Batteries.');
+    navigate('/category/car-batteries');
   };
 
   return (
-    <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
-      {/* Make Dropdown */}
+    <Stack>
+      <Paper shadow="xs">
+        <Stack spacing={0}>
+          <Grid p="sm">
+            <Grid.Col xs={2}>
+              <Select
+                label={ProductConfigs.properties.vehicleTypeId.label}
+                placeholder="--"
+                clearable
+                searchable
+                data={vehicleTypeSelectList}
+                {...form.getInputProps('vehicleTypeId')}
+              />
+            </Grid.Col>
+            <Grid.Col xs={2}>
+              <Select
+                label={ProductConfigs.properties.carMakeId.label}
+                placeholder="--"
+                clearable
+                searchable
+                data={carMakeSelectList}
+                {...form.getInputProps('carMakeId')}
+              />
+            </Grid.Col>
+            <Grid.Col xs={2}>
+              <Select
+                label={ProductConfigs.properties.carModelId.label}
+                placeholder="--"
+                clearable
+                searchable
+                data={carModelSelectList}
+                {...form.getInputProps('carModelId')}
+              />
+            </Grid.Col>
+            <Grid.Col xs={2}>
+              <Select
+                label={ProductConfigs.properties.carVariantId.label}
+                placeholder="--"
+                clearable
+                searchable
+                data={carVariantSelectList}
+                {...form.getInputProps('carVariantId')}
+              />
+            </Grid.Col>
+            <Grid.Col xs={2}>
+              <Button title="ss" variant="default" onClick={handleFindNowClick}>Batteries</Button> 
+            </Grid.Col>
+          </Grid> 
+        </Stack>
+      </Paper>
+    </Stack>
+  /* <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}> 
       <select
         value={make}
         onChange={handleMakeChange}
@@ -63,9 +155,7 @@ const Batteries = () => {
             {carMake}
           </option>
         ))}
-      </select>
-
-      {/* Model Dropdown */}
+      </select> 
       <select
         value={model}
         onChange={handleModelChange}
@@ -80,8 +170,7 @@ const Batteries = () => {
             </option>
           ))}
       </select>
-
-      {/* Variant Dropdown */}
+ 
       <select
         value={variant}
         onChange={handleVariantChange}
@@ -98,7 +187,6 @@ const Batteries = () => {
           ))}
       </select>
 
-      {/* Find Now Button */}
       <button
         onClick={handleFindNowClick}
         style={{
@@ -116,7 +204,7 @@ const Batteries = () => {
       >
         Batteries 
       </button>
-    </div>
+    </div> */
   );
 };
 

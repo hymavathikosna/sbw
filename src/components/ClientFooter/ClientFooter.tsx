@@ -74,8 +74,8 @@ function ClientFooter() {
                 </Stack>
               </Group>
               <Stack spacing={theme.spacing.xs / 2}>
-                <Text weight={500}>Address liên hệ</Text>
-                <Text>Tòa nhà Bitexco, Quận 1, Thành phố Hồ Chí Minh</Text>
+                <Text weight={500}>Address</Text>
+                <Text>5-99/82p/A, Mnr Avenue , G Floor, Shopno.5, Opposite to Pakwaan Grand Hotel, Main Road, Gachibowli-500032</Text>
               </Stack>
               <Group spacing="sm">
                 <ActionIcon color="blue" size="xl" radius="xl" variant="light">

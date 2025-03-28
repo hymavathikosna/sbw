@@ -11,10 +11,11 @@ import { AlertTriangle, Marquee } from 'tabler-icons-react';
 import useClientCategoryStore from 'stores/use-client-category-store';
 
 interface ClientCategoryProductsProps {
-  categorySlug: string;
+  categorySlug: string,
+  vehicleTypeId: number
 }
 
-function ClientCategoryProducts({ categorySlug }: ClientCategoryProductsProps) {
+function ClientCategoryProducts({ categorySlug, vehicleTypeId }: ClientCategoryProductsProps) {
   const theme = useMantineTheme();
 
   const { activePage, activeSearch, updateActivePage } = useClientCategoryStore();
@@ -23,7 +24,7 @@ function ClientCategoryProducts({ categorySlug }: ClientCategoryProductsProps) {
     productResponses,
     isLoadingProductResponses,
     isErrorProductResponses,
-  } = useGetAllCategoryProductsApi(categorySlug);
+  } = useGetAllCategoryProductsApi(categorySlug,vehicleTypeId);
   const products = productResponses as ListResponse<ClientListedProductResponse>;
 
   if (isLoadingProductResponses) {
@@ -79,7 +80,7 @@ function ClientCategoryProducts({ categorySlug }: ClientCategoryProductsProps) {
   );
 }
 
-function useGetAllCategoryProductsApi(categorySlug: string) {
+function useGetAllCategoryProductsApi(categorySlug: string, vehicleTypeId: number) {
   const {
     totalProducts,
     activePage,
@@ -94,7 +95,7 @@ function useGetAllCategoryProductsApi(categorySlug: string) {
   const requestParams = {
     page: activePage,
     size: ApplicationConstants.DEFAULT_CLIENT_CATEGORY_PAGE_SIZE,
-    filter: [`category.slug==${categorySlug}`, activeBrandFilter, activePriceFilter].filter(Boolean).join(';'),
+    filter: [`category.slug==${categorySlug} ; vehicleType.id==${vehicleTypeId}`, activeBrandFilter, activePriceFilter].filter(Boolean).join(';'),
     sort: activeSort,
     search: activeSearch,
     newable: true,
