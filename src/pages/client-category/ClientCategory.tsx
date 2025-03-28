@@ -18,7 +18,7 @@ import {
   useMantineTheme
 } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import MiscUtils from 'utils/MiscUtils';
 import { ClientError } from 'components';
 import { ArrowsDownUp, ChartCandle, ChevronRight, Search, X } from 'tabler-icons-react';
@@ -36,7 +36,10 @@ import Batteries from 'pages/batteries/Batteries';
 
 function ClientCategory() {
   const theme = useMantineTheme();
-
+  const location = useLocation();
+  console.log(location.state);
+  const state  = location.state || {}; 
+  console.log('vID is '+state.vId);
   const { slug } = useParams();
 
   const {
@@ -133,7 +136,7 @@ function ClientCategory() {
     setPriceOptions([]);
     setBrandOptions([]);
   };
-
+  
   return (
     <main>
       <Container size="xl">
@@ -269,7 +272,7 @@ function ClientCategory() {
                   <Text>{totalProducts} product</Text>
                 </Group>
 
-                <ClientCategoryProducts categorySlug={category.categorySlug} vehicleTypeId={ 3 }/>
+                <ClientCategoryProducts categorySlug={category.categorySlug} vehicleTypeId={ state.vId }/>
               </Stack>
             </Grid.Col>
           </Grid>

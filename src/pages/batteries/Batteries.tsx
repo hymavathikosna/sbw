@@ -88,7 +88,8 @@ const Batteries = () => {
   ); 
   const handleFindNowClick = () => {
     //alert('Please select Make, Model, and Variant to find the Batteries.');
-    navigate('/category/car-batteries');
+    const vId = form.values['vehicleTypeId']; 
+    navigate('/category/car-batteries', { state: { vId } });
   };
 
   return (

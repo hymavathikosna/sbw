@@ -12,7 +12,7 @@ import useClientCategoryStore from 'stores/use-client-category-store';
 
 interface ClientCategoryProductsProps {
   categorySlug: string,
-  vehicleTypeId: number
+  vehicleTypeId: string
 }
 
 function ClientCategoryProducts({ categorySlug, vehicleTypeId }: ClientCategoryProductsProps) {
@@ -80,7 +80,7 @@ function ClientCategoryProducts({ categorySlug, vehicleTypeId }: ClientCategoryP
   );
 }
 
-function useGetAllCategoryProductsApi(categorySlug: string, vehicleTypeId: number) {
+function useGetAllCategoryProductsApi(categorySlug: string, vehicleTypeId: string) {
   const {
     totalProducts,
     activePage,
