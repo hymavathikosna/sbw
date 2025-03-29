@@ -162,7 +162,7 @@ function useCustomerUpdateViewModel(id: number) {
   const userRoleSelectList: SelectOption[] = [
     {
       value: String(CustomerConfigs.CUSTOMER_ROLE_ID),
-      label: 'Khách hàng',
+      label: 'Customer',
     },
   ];
 

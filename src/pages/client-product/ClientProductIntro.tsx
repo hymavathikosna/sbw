@@ -17,7 +17,7 @@ import {
   UnstyledButton,
   useMantineTheme
 } from '@mantine/core';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import MiscUtils from 'utils/MiscUtils';
 import { ClientCarousel, ReviewStarGroup } from 'components';
 import { BellPlus, Heart, PhotoOff, ShoppingCart } from 'tabler-icons-react';
@@ -41,6 +41,7 @@ interface ClientProductIntroProps {
 
 function ClientProductIntro({ product }: ClientProductIntroProps) {
   const theme = useMantineTheme();
+  const navigate = useNavigate();
 
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -61,6 +62,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
   const handleCreateWishButton = () => {
     if (!user) {
       NotifyUtils.simple('Please log in to use this feature.');
+      navigate('/signin');
     } else {
       const clientWishRequest: ClientWishRequest = {
         userId: user.id,
@@ -73,6 +75,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
   const handleCreatePreorderButton = () => {
     if (!user) {
       NotifyUtils.simple('Please log in to use this feature.');
+      navigate('/signin');
     } else {
       const clientPreorderRequest: ClientPreorderRequest = {
         userId: user.id,
@@ -86,6 +89,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
   const handleAddToCartButton = () => {
     if (!user) {
       NotifyUtils.simple('Please log in to use this feature.');
+      navigate('/signin');
     } else {
       const cartRequest: ClientCartRequest = {
         cartId: currentCartId,
@@ -179,7 +183,7 @@ function ClientProductIntro({ product }: ClientProductIntroProps) {
                     <ReviewStarGroup ratingScore={product.productAverageRatingScore}/>
                     <Text size="sm">{product.productCountReviews} Rating</Text>
                   </Group>
-                  {/* TODO: Doanh số sản phẩm */}
+                  {/* TODO: Product sales */}
                   {/*<Group spacing={5}>*/}
                   {/*  <ShoppingCart size={18} strokeWidth={1.5} color={theme.colors.teal[7]}/>*/}
                   {/*  <Text size="sm" color="teal">120 đã mua</Text>*/}

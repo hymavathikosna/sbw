@@ -52,7 +52,7 @@ function ChatDashboard() {
         <Paper shadow="xs" p="sm" sx={{ height: '100%' }}>
           <Stack spacing="xs">
             <Group position="apart">
-              <Text size="lg" weight={500}>Khách hàng</Text>
+              <Text size="lg" weight={500}>Customer</Text>
               <ActionIcon variant="light" color="blue" size="sm" onClick={() => refetchRoomResponses()}>
                 <Refresh size={16}/>
               </ActionIcon>
@@ -110,7 +110,7 @@ function RoomCard({ roomResponse, active }: { roomResponse: RoomResponse, active
     >
       <Group>
         <Avatar color="cyan" size="md" radius="md">
-          {roomResponse.user.username.toUpperCase().charAt(0)}
+          {roomResponse.user?.username?.toUpperCase().charAt(0)}
         </Avatar>
         <Stack spacing={2}>
           <Group>

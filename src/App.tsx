@@ -101,6 +101,9 @@ import CarModelUpdate from 'pages/carModel/CarModelUpdate';
 import CarVariantCreate from 'pages/carVariant/CarVariantCreate';
 import CarVariantManage from 'pages/carVariant/CarVariantManage';
 import CarVariantUpdate from 'pages/carVariant/CarVariantUpdate';
+import Faq from 'pages/other-pages/Faq';
+import AboutUs from 'pages/other-pages/AboutUs';
+import ContactUs from 'pages/other-pages/ContactUs';
 
 const queryClient = new QueryClient();
 
@@ -121,6 +124,9 @@ function App() {
                   <Route index element={<ClientHome/>}/>
                   <Route path="/*" element={<ClientError/>}/>
                   <Route path="/all-categories" element={<ClientAllCategories/>}/>
+                  <Route path="/faq" element={<Faq/>}/>
+                  <Route path="/about-us" element={<AboutUs/>}/>
+                  <Route path="/contact-us" element={<ContactUs/>}/>
                   <Route path="/category/:slug" element={<ClientCategory/>}/>
                   <Route path="/search" element={<ClientSearch/>}/>
                   <Route path="/signin" element={<ClientSignin/>}/>

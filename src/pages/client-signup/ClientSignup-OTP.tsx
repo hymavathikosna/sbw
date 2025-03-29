@@ -54,7 +54,7 @@ function ClientSignupOTP() {
     <main>
       <Container size="xl">
         <Stack align="center" spacing={50}>
-          <Title order={2}>Register Account</Title>
+          <Title order={2}>Register / Login to Account</Title>
 
           <Stepper
             active={active}
@@ -65,7 +65,7 @@ function ClientSignupOTP() {
             <Stepper.Step
               icon={<UserCheck size={18} />}
               label="Step 1"
-              description="Create Account"
+              description="Create / Login to Account"
               allowStepSelect={false}
             >
               <ClientSignupStepOne nextStep={nextStep} />
@@ -81,7 +81,7 @@ function ClientSignupOTP() {
             <Stepper.Step
               icon={<ShieldCheck size={18} />}
               label="Step 3"
-              description="Registration Successful"
+              description="Login Successful"
               allowStepSelect={false}
             />
             <Stepper.Completed>
@@ -122,11 +122,11 @@ function ClientSignupStepOne({ nextStep }: { nextStep: () => void }) {
     (requestBody) => FetchUtils.post(ResourceURL.CLIENT_REGISTRATION, requestBody),
     {
       onSuccess: (registrationResponse) => {
-        NotifyUtils.simpleSuccess('Account created successfully');
+        NotifyUtils.simpleSuccess('OTP created successfully');
         updateCurrentSignupUserId(registrationResponse.userId);
         nextStep();
       },
-      onError: () => NotifyUtils.simpleFailed('Account creation failed'),
+      onError: () => NotifyUtils.simpleFailed('OTP creation failed'),
     }
   );
 
@@ -267,7 +267,7 @@ function ClientSignupStepTwo({ nextStep, userId }: { nextStep: () => void, userI
         closeOnClickOutside: false,
         closeOnConfirm: false,
         title: <strong>Resend Verification Code</strong>,
-        children: <Text size="sm">Do you want to resend the verification code to the previously entered email?</Text>,
+        children: <Text size="sm">Do you want to resend the verification code to the previously entered phone?</Text>,
         labels: {
           cancel: 'Close',
           confirm: 'Send',
@@ -278,15 +278,15 @@ function ClientSignupStepTwo({ nextStep, userId }: { nextStep: () => void, userI
     }
   };
 
-  const handleResendTokenWithNewEmailButton = () => {
+  const handleResendTokenWithNewPhoneButton = () => {
     modals.openModal({
       size: 'md',
       overlayColor: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2],
       overlayOpacity: 0.55,
       overlayBlur: 3,
       closeOnClickOutside: false,
-      title: <strong>Change Email</strong>,
-      children: <ChangeEmailModal userId={userId} />,
+      title: <strong>Change Number</strong>,
+      children: <ChangePhoneModal userId={userId} />,
     });
   };
   return (
@@ -298,7 +298,7 @@ function ClientSignupStepTwo({ nextStep, userId }: { nextStep: () => void, userI
               required
               radius="md"
               label="Verification Code"
-              placeholder="Enter the verification code sent to your email"
+              placeholder="Enter the verification code sent to your phone"
               {...form.getInputProps('token')}
             />
             <Button
@@ -317,8 +317,8 @@ function ClientSignupStepTwo({ nextStep, userId }: { nextStep: () => void, userI
           Resend verification code
         </Button>
 
-        <Button radius="md" variant="outline" onClick={handleResendTokenWithNewEmailButton}>
-          Resend verification code to a new email
+        <Button radius="md" variant="outline" onClick={handleResendTokenWithNewPhoneButton}>
+          Resend verification code to a new number
         </Button>
       </Stack>
     </Card>
@@ -339,16 +339,17 @@ function ClientSignupStepThree() {
   );
 }
 
-function ChangeEmailModal({ userId }: { userId: number | null }) {
+function ChangePhoneModal({ userId }: { userId: number | null }) {
   const modals = useModals();
 
   const initialFormValues = {
-    email: '',
+    phone: '',
   };
+  const phoneNumberRegex = /^(?:\+?\d{1,3})?[\s\-()]?(\d{1,4})[\s\-()]?(\d{1,4})[\s\-()]?(\d{1,4})$/;
 
   const formSchema = z.object({
-    email: z.string({ invalid_type_error: 'Please do not leave this field empty.' })
-      .email({ message: 'Please enter a valid email address.' }),
+    phone: z.string({ invalid_type_error: 'Please do not leave this field empty' })
+      .regex(phoneNumberRegex, { message: 'Enter a valid phone number format' }), 
   });
 
   const form = useForm({
@@ -356,24 +357,24 @@ function ChangeEmailModal({ userId }: { userId: number | null }) {
     schema: zodResolver(formSchema),
   });
 
-  const changeRegistrationEmailApi = useMutation<Empty, ErrorMessage, { userId: number, email: string }>(
+  const changeRegistrationPhoneApi = useMutation<Empty, ErrorMessage, { userId: number, phone: string }>(
     (request) => FetchUtils.put(
-      ResourceURL.CLIENT_REGISTRATION_CHANGE_EMAIL(request.userId),
+      ResourceURL.CLIENT_REGISTRATION_CHANGE_PHONE(request.userId),
       {},
-      { email: request.email }
+      { phone: request.phone }
     ),
     {
       onSuccess: () => {
-        NotifyUtils.simpleSuccess('Email changed successfully, and a new verification code has been sent.');
+        NotifyUtils.simpleSuccess('Phone changed successfully, and a new verification code has been sent.');
         modals.closeAll();
       },
-      onError: () => NotifyUtils.simpleFailed('Email change was unsuccessful.'),    
+      onError: () => NotifyUtils.simpleFailed('Phone change was unsuccessful.'),    
     }
   );
 
   const handleFormSubmit = form.onSubmit((formValues) => {
     if (userId) {
-      changeRegistrationEmailApi.mutate({ userId: userId, email: formValues.email });
+      changeRegistrationPhoneApi.mutate({ userId: userId, phone: formValues.phone });
     }
   });
 
@@ -384,9 +385,9 @@ function ChangeEmailModal({ userId }: { userId: number | null }) {
           data-autofocus
           required
           radius="md"
-          label="New Email"
-          placeholder="Enter new email"
-          {...form.getInputProps('email')}
+          label="New Phone"
+          placeholder="Enter new phone"
+          {...form.getInputProps('phone')}
         />
         <Group position="right">
           <Button radius="md" variant="default" onClick={modals.closeAll}>
@@ -395,7 +396,7 @@ function ChangeEmailModal({ userId }: { userId: number | null }) {
           <Button
             radius="md"
             type="submit"
-            disabled={MiscUtils.isEquals(initialFormValues, form.values) || changeRegistrationEmailApi.isLoading}
+            disabled={MiscUtils.isEquals(initialFormValues, form.values) || changeRegistrationPhoneApi.isLoading}
           >
             Many thanks
           </Button>

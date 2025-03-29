@@ -45,7 +45,7 @@ function useManageTableViewModel<T extends BaseResponse>({
       overlayColor: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2],
       overlayOpacity: 0.55,
       overlayBlur: 3,
-      title: <strong>Thông tin chi tiết</strong>,
+      title: <strong>Detailed information</strong>,
       children: (
         <EntityDetailTable
           entityDetailTableRowsFragment={entityDetailTableRowsFragment}

@@ -99,7 +99,7 @@ function ClientFooter() {
                 <Stack>
                   <Text weight={500}>Customer Support</Text>
                   <Stack spacing={theme.spacing.xs}>
-                    <Anchor component={Link} to="/">Frequently Asked Questions</Anchor>
+                    <Anchor component={Link} to="/faq">Frequently Asked Questions</Anchor>
                     <Anchor component={Link} to="/">Order Guide</Anchor>
                     <Anchor component={Link} to="/">Shipping Methods</Anchor>
                     <Anchor component={Link} to="/">Return & Exchange Policy</Anchor>
@@ -114,10 +114,10 @@ function ClientFooter() {
                   <Stack>
                     <Text weight={500}>About Us</Text>
                     <Stack spacing={theme.spacing.xs}>
-                      <Anchor component={Link} to="/">About the Company</Anchor>
+                      <Anchor component={Link} to="/about-us">About the Company</Anchor>
                       <Anchor component={Link} to="/">Careers</Anchor>
                       <Anchor component={Link} to="/">Partnerships</Anchor>
-                      <Anchor component={Link} to="/">Contact for Purchases</Anchor>
+                      <Anchor component={Link} to="/contact-us">Contact for Purchases</Anchor>
                     </Stack>
                   </Stack>
                   <Group>

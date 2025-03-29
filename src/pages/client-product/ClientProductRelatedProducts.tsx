@@ -13,7 +13,7 @@ function ClientProductRelatedProducts({ product }: ClientProductRelatedProductsP
     <Stack>
       <Group spacing="xs">
         <CircleSquare/>
-        <Title order={2}>Sản phẩm liên quan</Title>
+        <Title order={2}>Related products</Title>
       </Group>
       <Grid>
         {product.productRelatedProducts.map((product, index) => (

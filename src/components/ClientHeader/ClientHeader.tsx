@@ -220,12 +220,12 @@ function ClientHeader() {
                 )}
                 {!user && (
                   <>
-                    <Menu.Item icon={<Login size={14}/>} component={Link} to="/signin">
-                    Login
+                    <Menu.Item icon={<Login size={14}/>} component={Link} to="/signup">
+                    Login/Register
                     </Menu.Item>
-                    <Menu.Item icon={<Fingerprint size={14}/>} component={Link} to="/signup">
+                   {/* <Menu.Item icon={<Fingerprint size={14}/>} component={Link} to="/signup">
                       Register
-                    </Menu.Item>
+                    </Menu.Item> */}
                   </>
                 )}
               </Menu>

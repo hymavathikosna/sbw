@@ -91,11 +91,14 @@ function useGetAllCategoryProductsApi(categorySlug: string, vehicleTypeId: strin
     activePriceFilter,
     updateTotalProducts,
   } = useClientCategoryStore();
-
+  let filterCreteria = 'category.slug=='+categorySlug;
+  if(vehicleTypeId){
+    filterCreteria = filterCreteria +'; vehicleType.id=='+vehicleTypeId;
+  }
   const requestParams = {
     page: activePage,
     size: ApplicationConstants.DEFAULT_CLIENT_CATEGORY_PAGE_SIZE,
-    filter: [`category.slug==${categorySlug} ; vehicleType.id==${vehicleTypeId}`, activeBrandFilter, activePriceFilter].filter(Boolean).join(';'),
+    filter: [filterCreteria, activeBrandFilter, activePriceFilter].filter(Boolean).join(';'),
     sort: activeSort,
     search: activeSearch,
     newable: true,

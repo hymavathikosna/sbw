@@ -158,7 +158,7 @@ export function FromMessage({ message }: { message: MessageResponse }) {
         size="sm"
         radius="md"
       >
-        {message.user.username.toUpperCase().charAt(0)}
+        {message.user.username?.toUpperCase().charAt(0)}
       </Avatar>
       <Stack spacing={2.5}>
         <Text size="xs" weight={500}>{message.user.fullname}</Text>

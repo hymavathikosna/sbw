@@ -103,6 +103,7 @@ class ResourceURL {
   static CLIENT_REGISTRATION_RESEND_TOKEN = (userId: number) => apiPath + `/auth/registration/${userId}/resend-token`;
   static CLIENT_REGISTRATION_CONFIRM = apiPath + '/auth/registration/confirm';
   static CLIENT_REGISTRATION_CHANGE_EMAIL = (userId: number) => apiPath + `/auth/registration/${userId}/change-email`;
+  static CLIENT_REGISTRATION_CHANGE_PHONE = (userId: number) => apiPath + `/auth/registration/${userId}/change-phone`;
   static CLIENT_FORGOT_PASSWORD = apiPath + '/auth/forgot-password';
   static CLIENT_RESET_PASSWORD = apiPath + '/auth/reset-password';
 

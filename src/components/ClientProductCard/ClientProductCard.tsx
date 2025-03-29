@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   ActionIcon,
   Anchor,
@@ -36,6 +36,7 @@ interface ClientProductCardProps {
 
 function ClientProductCard({ product, search }: ClientProductCardProps) {
   const theme = useMantineTheme();
+  const navigate = useNavigate();
 
   const [opened, handlers] = useDisclosure(false);
 
@@ -49,6 +50,7 @@ function ClientProductCard({ product, search }: ClientProductCardProps) {
     event.preventDefault();
     if (!user) {
       NotifyUtils.simple('Please log in to use this feature.');
+      navigate('/signin');
     } else {
       const clientWishRequest: ClientWishRequest = {
         userId: user.id,
@@ -62,6 +64,7 @@ function ClientProductCard({ product, search }: ClientProductCardProps) {
     event.preventDefault();
     if (!user) {
       NotifyUtils.simple('Please log in to use this feature.');
+      navigate('/signin');
     } else {
       const clientPreorderRequest: ClientPreorderRequest = {
         userId: user.id,
@@ -76,6 +79,7 @@ function ClientProductCard({ product, search }: ClientProductCardProps) {
     event.preventDefault();
     if (!user) {
       NotifyUtils.simple('Please log in to use this feature.');
+      navigate('/signin');
     } else {
       const cartRequest: ClientCartRequest = {
         cartId: currentCartId,
