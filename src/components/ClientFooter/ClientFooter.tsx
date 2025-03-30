@@ -100,12 +100,12 @@ function ClientFooter() {
                   <Text weight={500}>Customer Support</Text>
                   <Stack spacing={theme.spacing.xs}>
                     <Anchor component={Link} to="/faq">Frequently Asked Questions</Anchor>
-                    <Anchor component={Link} to="/">Order Guide</Anchor>
-                    <Anchor component={Link} to="/">Shipping Methods</Anchor>
-                    <Anchor component={Link} to="/">Return & Exchange Policy</Anchor>
-                    <Anchor component={Link} to="/">Payment Policy</Anchor>
-                    <Anchor component={Link} to="/">Complaint Resolution</Anchor>
-                    <Anchor component={Link} to="/">Privacy Policy</Anchor>
+                    <Anchor component={Link} to="/order-guide">Order Guide</Anchor>
+                    <Anchor component={Link} to="/shipping-methods">Shipping Methods</Anchor>
+                    <Anchor component={Link} to="/exchange-policy">Return & Exchange Policy</Anchor>
+                    <Anchor component={Link} to="/payment-policy">Payment Policy</Anchor>
+                    <Anchor component={Link} to="/complaint-resolution">Complaint Resolution</Anchor>
+                    <Anchor component={Link} to="/privacy">Privacy Policy</Anchor>
                   </Stack>
                 </Stack>
               </Grid.Col>

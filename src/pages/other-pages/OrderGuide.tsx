@@ -21,7 +21,7 @@ import {
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
-function ContactUs() {
+function OrderGuide() {
   const theme = useMantineTheme(); 
   
   return (
@@ -36,7 +36,7 @@ function ContactUs() {
                   Home
                 </Anchor> 
                 <Text color="dimmed">
-                  ContactUs
+                  OrderGuide
                 </Text>
               </Breadcrumbs> 
               <Group spacing="xs" sx={{ alignItems: 'baseline' }}>
@@ -61,4 +61,4 @@ function ContactUs() {
 }
 
 
-export default ContactUs;
+export default OrderGuide;

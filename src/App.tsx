@@ -104,6 +104,7 @@ import CarVariantUpdate from 'pages/carVariant/CarVariantUpdate';
 import Faq from 'pages/other-pages/Faq';
 import AboutUs from 'pages/other-pages/AboutUs';
 import ContactUs from 'pages/other-pages/ContactUs';
+import OrderGuide from 'pages/other-pages/OrderGuide';
 
 const queryClient = new QueryClient();
 
@@ -127,6 +128,7 @@ function App() {
                   <Route path="/faq" element={<Faq/>}/>
                   <Route path="/about-us" element={<AboutUs/>}/>
                   <Route path="/contact-us" element={<ContactUs/>}/>
+                  <Route path="/order-guide" element={<OrderGuide/>}/>
                   <Route path="/category/:slug" element={<ClientCategory/>}/>
                   <Route path="/search" element={<ClientSearch/>}/>
                   <Route path="/signin" element={<ClientSignin/>}/>
