@@ -1,5 +1,5 @@
 class ApplicationConstants {
-  static HOME_PATH = 'http://localhost:8085';
+  static HOME_PATH = 'http://ec2-18-118-158-156.us-east-2.compute.amazonaws.com:8085';
   static API_PATH = ApplicationConstants.HOME_PATH + '/api';
   static CLIENT_API_PATH = ApplicationConstants.HOME_PATH + '/client-api';
   static WEBSOCKET_PATH = ApplicationConstants.HOME_PATH + '/ws';
